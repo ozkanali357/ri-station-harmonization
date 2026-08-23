@@ -12,12 +12,14 @@ from pathlib import Path
 
 import pandas as pd
 
-GROUND_TRUTH_COLUMNS = ["ri_a", "id_a", "ri_b", "id_b", "same_place", "checked_by", "evidence"]
+GROUND_TRUTH_COLUMNS = [
+    "ri_a", "record_id_a", "ri_b", "record_id_b", "same_place", "checked_by", "checked_at", "evidence",
+]
 
 
 def _key(frame: pd.DataFrame) -> pd.Series:
-    a = frame.ri_a.astype(str) + "|" + frame.id_a.astype(str)
-    b = frame.ri_b.astype(str) + "|" + frame.id_b.astype(str)
+    a = frame.ri_a.astype(str) + "|" + frame.record_id_a.astype(str)
+    b = frame.ri_b.astype(str) + "|" + frame.record_id_b.astype(str)
     lo = a.where(a <= b, b)
     hi = b.where(a <= b, a)
     return lo + "::" + hi
@@ -28,7 +30,7 @@ def load_ground_truth(path: str | Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame(columns=GROUND_TRUTH_COLUMNS)
     gt = pd.read_csv(path, dtype=str).fillna("")
-    missing = [c for c in ("ri_a", "id_a", "ri_b", "id_b", "same_place") if c not in gt.columns]
+    missing = [c for c in ("ri_a", "record_id_a", "ri_b", "record_id_b", "same_place") if c not in gt.columns]
     if missing:
         raise ValueError(f"ground truth file is missing columns: {missing}")
     gt["same_place"] = gt.same_place.str.strip().str.lower()
@@ -48,6 +50,7 @@ def score(candidates: pd.DataFrame, ground_truth: pd.DataFrame) -> dict:
         return {
             "reviewed_pairs": 0,
             "note": "no adjudicated pairs yet - fill data/ground_truth/manual_pairs.csv",
+            "evaluation_scope": "conditional on reviewed candidate universe; not a population estimate",
         }
 
     gt = ground_truth.copy()
@@ -76,6 +79,7 @@ def score(candidates: pd.DataFrame, ground_truth: pd.DataFrame) -> dict:
         "recall": round(recall, 4),
         "f1": round(f1, 4),
         "unadjudicated_candidates": int(len(predicted - set(truth))),
+        "evaluation_scope": "conditional on reviewed candidate universe; not a population estimate",
     }
 
 
@@ -93,9 +97,25 @@ def make_review_sheet(candidates: pd.DataFrame, ground_truth: pd.DataFrame, limi
         gt = ground_truth.copy()
         gt["key"] = _key(gt)
         cand = cand[~cand.key.isin(set(gt.key))]
-    cand = cand.drop_duplicates("key").head(limit)
-    sheet = cand[["ri_a", "id_a", "name_a", "ri_b", "id_b", "name_b", "distance_km", "name_similarity", "uri_a", "uri_b"]].copy()
+    cand = cand.drop_duplicates("key")
+    n_bins = min(4, len(cand))
+    if n_bins > 1:
+        distance_band = pd.qcut(cand.distance_km.rank(method="first"), q=n_bins, labels=False)
+        similarity_band = pd.qcut(cand.name_similarity.rank(method="first"), q=n_bins, labels=False)
+        cand["selection_stratum"] = distance_band.astype(str) + "-" + similarity_band.astype(str)
+        groups = [g.sort_values(["distance_km", "name_similarity"], ascending=[True, False]) for _, g in cand.groupby("selection_stratum", sort=True)]
+        selected, position = [], 0
+        while len(selected) < limit and any(position < len(g) for g in groups):
+            for group in groups:
+                if position < len(group) and len(selected) < limit:
+                    selected.append(group.iloc[position])
+            position += 1
+        cand = pd.DataFrame(selected)
+    else:
+        cand["selection_stratum"] = "0-0"
+    sheet = cand[["ri_a", "record_id_a", "source_id_a", "name_a", "ri_b", "record_id_b", "source_id_b", "name_b", "distance_km", "name_similarity", "selection_stratum", "uri_a", "uri_b"]].copy()
     sheet.insert(6, "same_place", "")      # <- reviewer writes yes / no
     sheet["checked_by"] = ""
+    sheet["checked_at"] = ""
     sheet["evidence"] = ""
     return sheet.reset_index(drop=True)

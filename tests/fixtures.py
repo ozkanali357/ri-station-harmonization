@@ -66,6 +66,6 @@ def deims_payload() -> list:
 
 def write_all(raw_dir):
     raw_dir.mkdir(parents=True, exist_ok=True)
-    (raw_dir / "icos_stations.json").write_text(json.dumps(icos_payload()), encoding="utf-8")
+    (raw_dir / "icos_stations_page_0001.json").write_text(json.dumps(icos_payload()), encoding="utf-8")
     (raw_dir / "deims_sites.json").write_text(json.dumps(deims_payload()), encoding="utf-8")
-    (raw_dir / "actris_facilities.json").write_text(json.dumps([]), encoding="utf-8")
+    (raw_dir / "manifest.json").write_text(json.dumps({"sources": {"icos": {"complete": True, "pages": [{"file": "icos_stations_page_0001.json"}]}}}), encoding="utf-8")

@@ -8,7 +8,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
+import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -30,7 +33,6 @@ def load_stations(offline: bool) -> pd.DataFrame:
     frames = [
         sources.fetch_icos(RAW, offline=offline),
         sources.fetch_deims(RAW, offline=offline),
-        sources.fetch_actris(RAW, offline=offline),
     ]
     stations = pd.concat([f for f in frames if not f.empty], ignore_index=True)
     INTERIM.mkdir(parents=True, exist_ok=True)
@@ -71,10 +73,17 @@ def cmd_run(args) -> None:
     report.plot_eps_sweep(sweep, OUT / "eps_sweep.png")
     geo.write_spatial_outputs(stations, labels, OUT)
     report.write_summary(
-        OUT / "summary.md", stations, sweep, candidates, buffer_pairs, flat,
+        OUT / "summary.md", stations, sweep, candidates, km_candidates, buffer_pairs, flat,
         {"eps_km": args.eps_km, "min_samples": args.min_samples,
          "buffer_km": args.buffer_km, "kmeans_k": k},
     )
+    revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True).stdout.strip()
+    raw_manifest = json.loads((RAW / "manifest.json").read_text()) if (RAW / "manifest.json").exists() else {}
+    (OUT / "run_manifest.json").write_text(json.dumps({
+        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "git_revision": revision, "parameters": {"eps_km": args.eps_km, "min_samples": args.min_samples, "buffer_km": args.buffer_km, "kmeans_k": k},
+        "station_validation": sources.validate_stations(stations), "source_cache_manifest": raw_manifest,
+    }, indent=2) + "\n")
     print(f"\nWrote {len(candidates)} DBSCAN candidate pairs "
           f"({len(km_candidates)} k-means, {len(buffer_pairs)} buffer) to {OUT}/")
     print(f"Read {OUT / 'summary.md'} next.")
@@ -84,6 +93,12 @@ def cmd_review(args) -> None:
     stations = load_stations(offline=True)
     labels = cl.dbscan_labels(stations, eps_km=args.eps_km, min_samples=args.min_samples)
     candidates = cl.cross_ri_pairs(stations, labels, "dbscan")
+    k = max(2, len(stations) // 3)
+    km_candidates = cl.cross_ri_pairs(stations, cl.kmeans_labels(stations, k=k), "kmeans")
+    buffer_candidates = geo.buffer_overlap_pairs(stations, radius_km=args.eps_km)
+    candidates = pd.concat([candidates, km_candidates, buffer_candidates], ignore_index=True).drop_duplicates(
+        ["ri_a", "record_id_a", "ri_b", "record_id_b"]
+    )
     sheet = ev.make_review_sheet(candidates, ev.load_ground_truth(GROUND_TRUTH), limit=args.limit)
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / "review_sheet.csv"

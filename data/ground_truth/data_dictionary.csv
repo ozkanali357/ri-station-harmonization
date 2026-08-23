@@ -1,0 +1,11 @@
+canonical_field,icos_source_field,elter_source_field,type_unit_crs,mapping_rule,missing_value_rule,unresolved_difference,evidence_or_source
+record_id,SPARQL ?uri,DEIMS id.suffix,string,Use the source-resource URI for ICOS and DEIMS UUID for eLTER,Reject record if absent,ICOS URI and eLTER UUID are different identifier systems and are not rewritten,ICOS SPARQL query and DEIMS /api/sites response
+source_id,cpmeta:hasStationId,DEIMS id.suffix,string,Preserve verbatim for display only,Empty string when absent,ICOS station codes are not unique across all Carbon Portal resources,ICOS live endpoint duplicate-code observation
+name,cpmeta:hasName,DEIMS title,string,Preserve verbatim and derive name_norm only for evidence,Empty string when absent,Names can refer to station versus broader research site,ICOS cpmeta and DEIMS API
+lat,cpmeta:hasLatitude,DEIMS coordinates WKT,decimal degrees WGS84,Parse DEIMS POINT as longitude latitude,Drop invalid or missing coordinates,DEIMS centroid may not represent the whole site,DEIMS API documentation
+lon,cpmeta:hasLongitude,DEIMS coordinates WKT,decimal degrees WGS84,Parse DEIMS POINT as longitude latitude,Drop invalid or missing coordinates,DEIMS centroid may not represent the whole site,DEIMS API documentation
+elevation_m,cpmeta:hasElevation,not present in list response,metres,Preserve ICOS value without imputation,NaN,No defensible eLTER list-level mapping without detail records,ICOS cpmeta and DEIMS list response
+country,cpmeta:countryCode,not present in list response,ISO 3166-1 alpha-2,Uppercase ICOS value only,Empty string,No eLTER list-level mapping without detail records,ICOS cpmeta and DEIMS list response
+geometry_kind,implicit point,DEIMS centroid of possible polygon,controlled vocabulary,Set point or centroid_of_polygon,Not applicable,A point-to-centroid distance is not polygon containment,DEIMS API documentation
+station_class,not fetched in bounded query,eLTER site,string,Use source-specific descriptive label,Empty string,ICOS class hierarchy is deliberately not traversed because it timed out; class semantics remain unresolved,Live ICOS endpoint timeout observation
+time_semantics,ICOS labelling date if later added,eLTER year established if later added,date/year,Do not harmonise,Empty string,No defensible mapping without a decision from the infrastructures,Project opportunity description

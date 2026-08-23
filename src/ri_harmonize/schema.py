@@ -14,6 +14,7 @@ import unicodedata
 # Canonical column order for the harmonised station table.
 COLUMNS = [
     "ri",             # ACTRIS | ICOS | eLTER
+    "record_id",      # stable RI record identity; never inferred from a short code
     "source_id",      # identifier as issued by the RI (verbatim, never edited)
     "id_scheme",      # what KIND of identifier source_id is
     "uri",            # resolvable landing page / PID, if the RI provides one

@@ -68,7 +68,7 @@ def plot_eps_sweep(sweep: pd.DataFrame, out_path: Path) -> None:
     plt.close(fig)
 
 
-def write_summary(path: Path, stations, sweep, candidates, buffer_pairs, scores, params) -> None:
+def write_summary(path: Path, stations, sweep, candidates, km_candidates, buffer_pairs, scores, params) -> None:
     counts = stations.ri.value_counts().to_dict()
     lines = [
         "# Run summary",
@@ -93,6 +93,7 @@ def write_summary(path: Path, stations, sweep, candidates, buffer_pairs, scores,
         "## Candidate cross-RI pairs",
         "",
         f"- DBSCAN (haversine): **{len(candidates)}** pairs",
+        f"- k-means baseline (k = {params.get('kmeans_k')}): **{len(km_candidates)}** pairs",
         f"- Buffer intersection in EPSG:3035 at {params.get('buffer_km')} km: **{len(buffer_pairs)}** pairs",
         "",
         "## Scored against the hand-checked ground truth",
@@ -103,7 +104,7 @@ def write_summary(path: Path, stations, sweep, candidates, buffer_pairs, scores,
     if candidates.empty:
         lines.append("_none_")
     else:
-        cols = ["ri_a", "id_a", "name_a", "ri_b", "id_b", "name_b", "distance_km", "name_similarity"]
+        cols = ["ri_a", "source_id_a", "name_a", "ri_b", "source_id_b", "name_b", "distance_km", "name_similarity"]
         lines.append(candidates[cols].head(10).to_markdown(index=False))
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")

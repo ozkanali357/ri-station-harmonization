@@ -15,3 +15,6 @@ data/interim/*
 !data/interim/.gitkeep
 outputs/*
 !outputs/.gitkeep
+!outputs/*.csv
+!outputs/*.md
+!outputs/*.json

@@ -37,6 +37,14 @@ def test_wigos_id_is_kept_as_a_secondary_identifier(stations):
     assert wao.id_scheme == "ICOS station code"
 
 
+def test_record_identity_is_uri_not_station_code(stations):
+    duplicate = stations[stations.ri == "ICOS"].iloc[0].copy()
+    duplicate["record_id"] = "https://meta.icos-cp.eu/resources/stations/ATMO_SMR"
+    duplicate["source_id"] = "SMR"
+    combined = pd.concat([stations, pd.DataFrame([duplicate])], ignore_index=True)
+    assert combined[combined.ri == "ICOS"].record_id.nunique() == len(combined[combined.ri == "ICOS"])
+
+
 def test_haversine_matches_a_known_distance():
     # Helsinki -> Tampere is roughly 160 km.
     d = cl.haversine_km(60.1699, 24.9384, 61.4978, 23.7610)
@@ -46,7 +54,7 @@ def test_haversine_matches_a_known_distance():
 def test_dbscan_finds_colocated_pairs_and_leaves_isolated_records_alone(stations):
     labels = cl.dbscan_labels(stations, eps_km=5.0)
     pairs = cl.cross_ri_pairs(stations, labels, "dbscan")
-    matched = set(pairs.id_a) | set(pairs.id_b)
+    matched = set(pairs.source_id_a) | set(pairs.source_id_b)
     assert {"SMR", "ZOT", "HPB"} <= matched      # the three genuinely co-located places
     assert "KRE" not in matched                  # 38 km apart: correctly not merged
     assert (labels < 0).sum() > 0                # isolated records stay noise
@@ -72,19 +80,29 @@ def test_kmeans_baseline_forces_every_record_into_a_cluster(stations):
 
 def test_buffer_intersection_agrees_with_dbscan_on_the_obvious_cases(stations):
     pairs = geo.buffer_overlap_pairs(stations, radius_km=3.0)
-    assert {"SMR", "ZOT"} <= (set(pairs.id_a) | set(pairs.id_b))
+    assert {"SMR", "ZOT"} <= (set(pairs.source_id_a) | set(pairs.source_id_b))
     assert (pairs.ri_a != pairs.ri_b).all()
+
+
+def test_buffer_radius_is_the_exact_maximum_pair_distance():
+    frame = pd.DataFrame([
+        {"ri": "ICOS", "record_id": "a", "source_id": "a", "name": "a", "name_norm": "a", "lat": 60.0, "lon": 24.0, "uri": "a"},
+        {"ri": "eLTER", "record_id": "b", "source_id": "b", "name": "b", "name_norm": "b", "lat": 60.0, "lon": 24.126, "uri": "b"},
+    ])
+    distance = cl.haversine_km(60.0, 24.0, 60.0, 24.126)
+    assert geo.buffer_overlap_pairs(frame, radius_km=distance - 0.1).empty
+    assert len(geo.buffer_overlap_pairs(frame, radius_km=distance + 0.1)) == 1
 
 
 def test_scoring_is_order_independent_and_counts_only_reviewed_pairs():
     candidates = pd.DataFrame([
-        {"ri_a": "ICOS", "id_a": "SMR", "ri_b": "eLTER", "id_b": "u1"},
-        {"ri_a": "ICOS", "id_a": "KRE", "ri_b": "eLTER", "id_b": "u2"},
+        {"ri_a": "ICOS", "record_id_a": "SMR", "ri_b": "eLTER", "record_id_b": "u1"},
+        {"ri_a": "ICOS", "record_id_a": "KRE", "ri_b": "eLTER", "record_id_b": "u2"},
     ])
     truth = pd.DataFrame([
-        {"ri_a": "eLTER", "id_a": "u1", "ri_b": "ICOS", "id_b": "SMR", "same_place": "yes"},
-        {"ri_a": "ICOS", "id_a": "KRE", "ri_b": "eLTER", "id_b": "u2", "same_place": "no"},
-        {"ri_a": "ICOS", "id_a": "MHD", "ri_b": "eLTER", "id_b": "u9", "same_place": "yes"},
+        {"ri_a": "eLTER", "record_id_a": "u1", "ri_b": "ICOS", "record_id_b": "SMR", "same_place": "yes"},
+        {"ri_a": "ICOS", "record_id_a": "KRE", "ri_b": "eLTER", "record_id_b": "u2", "same_place": "no"},
+        {"ri_a": "ICOS", "record_id_a": "MHD", "ri_b": "eLTER", "record_id_b": "u9", "same_place": "yes"},
     ])
     s = ev.score(candidates, truth)
     assert s["true_positives"] == 1 and s["false_positives"] == 1 and s["false_negatives"] == 1
@@ -95,8 +113,8 @@ def test_review_sheet_excludes_already_adjudicated_pairs(stations):
     labels = cl.dbscan_labels(stations, eps_km=5.0)
     candidates = cl.cross_ri_pairs(stations, labels, "dbscan")
     first = candidates.iloc[0]
-    truth = pd.DataFrame([{"ri_a": first.ri_a, "id_a": first.id_a, "ri_b": first.ri_b,
-                           "id_b": first.id_b, "same_place": "yes"}])
+    truth = pd.DataFrame([{"ri_a": first.ri_a, "record_id_a": first.record_id_a, "ri_b": first.ri_b,
+                           "record_id_b": first.record_id_b, "same_place": "yes"}])
     sheet = ev.make_review_sheet(candidates, truth)
     assert len(sheet) == len(candidates) - 1
     assert "same_place" in sheet.columns

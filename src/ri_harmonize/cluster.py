@@ -92,10 +92,12 @@ def cross_ri_pairs(df: pd.DataFrame, labels: np.ndarray, method: str) -> pd.Data
                         "method": method,
                         "cluster": int(label),
                         "ri_a": a["ri"],
-                        "id_a": a["source_id"],
+                        "record_id_a": a["record_id"],
+                        "source_id_a": a["source_id"],
                         "name_a": a["name"],
                         "ri_b": b["ri"],
-                        "id_b": b["source_id"],
+                        "record_id_b": b["record_id"],
+                        "source_id_b": b["source_id"],
                         "name_b": b["name"],
                         "distance_km": round(haversine_km(a["lat"], a["lon"], b["lat"], b["lon"]), 3),
                         "name_similarity": round(
@@ -106,7 +108,8 @@ def cross_ri_pairs(df: pd.DataFrame, labels: np.ndarray, method: str) -> pd.Data
                     }
                 )
     cols = [
-        "method", "cluster", "ri_a", "id_a", "name_a", "ri_b", "id_b", "name_b",
+        "method", "cluster", "ri_a", "record_id_a", "source_id_a", "name_a",
+        "ri_b", "record_id_b", "source_id_b", "name_b",
         "distance_km", "name_similarity", "uri_a", "uri_b",
     ]
     frame = pd.DataFrame(out, columns=cols)

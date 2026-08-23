@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-08-23T11:57:09+00:00",
+  "git_revision": "c3157834ffb22053be62a048da60ed1149310298",
+  "parameters": {
+    "eps_km": 5.0,
+    "min_samples": 2,
+    "buffer_km": 5.0,
+    "kmeans_k": 633
+  },
+  "station_validation": {
+    "records_with_usable_coordinates": 1901,
+    "records_by_infrastructure": {
+      "eLTER": 1391,
+      "ICOS": 510
+    },
+    "duplicate_record_ids": 0,
+    "latitude_range": [
+      -89.98,
+      83.07681944
+    ],
+    "longitude_range": [
+      -170.57,
+      175.085
+    ]
+  },
+  "source_cache_manifest": {
+    "sources": {
+      "icos": {
+        "endpoint": "https://meta.icos-cp.eu/sparql",
+        "retrieved_at": "2026-08-23T11:55:23+00:00",
+        "complete": true,
+        "page_size": 500,
+        "pages": [
+          {
+            "file": "icos_stations_page_0001.json",
+            "sha256": "3225afd84b5b3dad9f0d18a4b7e9badf16a627151034f506a6043cdaf21f9414",
+            "query": "\nprefix cpmeta: <http://meta.icos-cp.eu/ontologies/cpmeta/>\nselect ?uri ?stationId ?name ?lat ?lon ?elevation ?country ?wigos\nwhere {\n  ?uri cpmeta:hasStationId ?stationId .\n  optional { ?uri cpmeta:hasName ?name }\n  optional { ?uri cpmeta:hasLatitude ?lat }\n  optional { ?uri cpmeta:hasLongitude ?lon }\n  optional { ?uri cpmeta:hasElevation ?elevation }\n  optional { ?uri cpmeta:countryCode ?country }\n  optional { ?uri cpmeta:hasWigosId ?wigos }\n}\norder by str(?uri)\nlimit 500\noffset 0\n"
+          },
+          {
+            "file": "icos_stations_page_0002.json",
+            "sha256": "b71ad5792ea605c2664ff1d5cf64bc07ef8c846314f5d6b733bc7e9b6fec33d3",
+            "query": "\nprefix cpmeta: <http://meta.icos-cp.eu/ontologies/cpmeta/>\nselect ?uri ?stationId ?name ?lat ?lon ?elevation ?country ?wigos\nwhere {\n  ?uri cpmeta:hasStationId ?stationId .\n  optional { ?uri cpmeta:hasName ?name }\n  optional { ?uri cpmeta:hasLatitude ?lat }\n  optional { ?uri cpmeta:hasLongitude ?lon }\n  optional { ?uri cpmeta:hasElevation ?elevation }\n  optional { ?uri cpmeta:countryCode ?country }\n  optional { ?uri cpmeta:hasWigosId ?wigos }\n}\norder by str(?uri)\nlimit 500\noffset 500\n"
+          }
+        ]
+      },
+      "elter": {
+        "endpoint": "https://deims.org/api/sites",
+        "retrieved_at": "2026-08-23T11:55:24+00:00",
+        "complete": true,
+        "pages": [
+          {
+            "file": "deims_sites.json",
+            "sha256": "9e950a05809c241a5dd65e1e33d59a836f0e0f0c9b6d2b19acbd2bd57d79ff2a"
+          }
+        ]
+      }
+    }
+  }
+}

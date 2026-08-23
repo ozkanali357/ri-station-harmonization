@@ -1,16 +1,13 @@
-"""Adapters that pull station metadata from each research infrastructure.
+"""Adapters for the ICOS and eLTER station registries.
 
-Every adapter follows the same contract:
-
-    fetch_*(cache_dir, offline) -> pandas.DataFrame with schema.COLUMNS
-
-Raw responses are written to ``data/raw`` verbatim and re-used when
-``offline=True``, so a run is reproducible without network access and the
-provenance of every row can be traced back to an unedited response.
+Raw responses are cached verbatim. The generated manifest records endpoint,
+query text, retrieval time, and checksums for a reproducible run.
 """
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
+import hashlib
 import json
 import logging
 from pathlib import Path
@@ -21,199 +18,160 @@ import requests
 from .schema import COLUMNS, normalise_name
 
 log = logging.getLogger(__name__)
-
 ICOS_SPARQL = "https://meta.icos-cp.eu/sparql"
 DEIMS_SITES = "https://deims.org/api/sites"
-DEIMS_SITE = "https://deims.org/api/sites/{uuid}"
-ACTRIS_FACILITIES = "https://prod-actris-md.nilu.no/facilities"
-
 TIMEOUT = 120
+ICOS_PAGE_SIZE = 500
 UA = {"User-Agent": "ri-station-harmonization/0.1 (MSc thesis pilot; contact via GitHub)"}
 
-# Property names below are taken from the published ICOS ontology at
-# http://meta.icos-cp.eu/ontologies/cpmeta/ .  Note hasWigosId has domain :AS,
-# i.e. it exists only for atmospheric stations - one of the asymmetries this
-# project is about.
+# Do not use rdfs:subClassOf* here: it timed out on the live endpoint.
 ICOS_QUERY = """
 prefix cpmeta: <http://meta.icos-cp.eu/ontologies/cpmeta/>
-prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?uri ?stationId ?name ?lat ?lon ?elevation ?country ?wigos ?klass
-where {
-  ?uri a ?klassUri .
-  ?klassUri rdfs:subClassOf* cpmeta:Station ; rdfs:label ?klass .
-  ?uri cpmeta:hasStationId ?stationId ; cpmeta:hasName ?name .
-  optional { ?uri cpmeta:hasLatitude ?lat }
-  optional { ?uri cpmeta:hasLongitude ?lon }
-  optional { ?uri cpmeta:hasElevation ?elevation }
-  optional { ?uri cpmeta:countryCode ?country }
-  optional { ?uri cpmeta:hasWigosId ?wigos }
-}
+select ?uri ?stationId ?name ?lat ?lon ?elevation ?country ?wigos
+where {{
+  ?uri cpmeta:hasStationId ?stationId .
+  optional {{ ?uri cpmeta:hasName ?name }}
+  optional {{ ?uri cpmeta:hasLatitude ?lat }}
+  optional {{ ?uri cpmeta:hasLongitude ?lon }}
+  optional {{ ?uri cpmeta:hasElevation ?elevation }}
+  optional {{ ?uri cpmeta:countryCode ?country }}
+  optional {{ ?uri cpmeta:hasWigosId ?wigos }}
+}}
+order by str(?uri)
+limit {limit}
+offset {offset}
 """
 
 
-def _cache(cache_dir: Path, filename: str, loader, offline: bool):
-    """Return parsed JSON from cache, fetching it once if absent."""
+def _now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _sha256(payload) -> str:
+    text = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _manifest_path(cache_dir: Path) -> Path:
+    return cache_dir / "manifest.json"
+
+
+def _read_manifest(cache_dir: Path) -> dict:
+    path = _manifest_path(cache_dir)
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"sources": {}}
+
+
+def _write_manifest(cache_dir: Path, source: str, entry: dict) -> None:
+    manifest = _read_manifest(cache_dir)
+    manifest.setdefault("sources", {})[source] = entry
+    _manifest_path(cache_dir).write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _write_json(path: Path, payload) -> None:
+    path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+
+def _cached_json(cache_dir: Path, filename: str, loader, offline: bool, source: str, endpoint: str):
     cache_dir.mkdir(parents=True, exist_ok=True)
     path = cache_dir / filename
     if path.exists():
-        log.info("using cached %s", path.name)
         return json.loads(path.read_text(encoding="utf-8"))
     if offline:
-        raise FileNotFoundError(
-            f"{path} is missing and --offline was requested. "
-            "Run once with network access to populate data/raw/."
-        )
-    log.info("fetching %s", filename)
+        raise FileNotFoundError(f"{path} is missing and --offline was requested.")
     payload = loader()
-    path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    _write_json(path, payload)
+    _write_manifest(cache_dir, source, {
+        "endpoint": endpoint, "retrieved_at": _now(), "complete": True,
+        "pages": [{"file": filename, "sha256": _sha256(payload)}],
+    })
     return payload
 
 
-def _empty() -> pd.DataFrame:
-    return pd.DataFrame(columns=COLUMNS)
-
-
 def fetch_icos(cache_dir: Path, offline: bool = False) -> pd.DataFrame:
-    """ICOS stations via the Carbon Portal SPARQL endpoint."""
+    """Fetch ICOS resources in deterministic, cached SPARQL pages."""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    entry = _read_manifest(cache_dir).get("sources", {}).get("icos", {})
+    pages = entry.get("pages", []) if entry.get("complete") else []
+    if pages:
+        payloads = [json.loads((cache_dir / page["file"]).read_text(encoding="utf-8")) for page in pages]
+    elif offline:
+        raise FileNotFoundError("No complete cached ICOS response is available; run once online first.")
+    else:
+        payloads, pages = [], []
+        for page_no, offset in enumerate(range(0, 1_000_000, ICOS_PAGE_SIZE), start=1):
+            query = ICOS_QUERY.format(limit=ICOS_PAGE_SIZE, offset=offset)
+            log.info("fetching ICOS page %s (offset %s)", page_no, offset)
+            response = requests.post(
+                ICOS_SPARQL, data={"query": query},
+                headers={"Accept": "application/sparql-results+json", **UA}, timeout=TIMEOUT,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            filename = f"icos_stations_page_{page_no:04d}.json"
+            _write_json(cache_dir / filename, payload)
+            payloads.append(payload)
+            pages.append({"file": filename, "sha256": _sha256(payload), "query": query})
+            if len(payload.get("results", {}).get("bindings", [])) < ICOS_PAGE_SIZE:
+                break
+        else:  # pragma: no cover
+            raise RuntimeError("ICOS pagination exceeded one million rows")
+        _write_manifest(cache_dir, "icos", {
+            "endpoint": ICOS_SPARQL, "retrieved_at": _now(), "complete": True,
+            "page_size": ICOS_PAGE_SIZE, "pages": pages,
+        })
 
-    def _load():
-        resp = requests.post(
-            ICOS_SPARQL,
-            data={"query": ICOS_QUERY},
-            headers={"Accept": "application/sparql-results+json", **UA},
-            timeout=TIMEOUT,
-        )
-        resp.raise_for_status()
-        return resp.json()
-
-    payload = _cache(cache_dir, "icos_stations.json", _load, offline)
     rows = []
-    for binding in payload.get("results", {}).get("bindings", []):
-        get = lambda k: binding.get(k, {}).get("value")  # noqa: E731
-        extra = {}
-        if get("wigos"):
-            extra["wigos_id"] = get("wigos")
-        rows.append(
-            {
-                "ri": "ICOS",
-                "source_id": get("stationId"),
-                "id_scheme": "ICOS station code",
-                "uri": get("uri"),
-                "name": get("name"),
-                "lat": get("lat"),
-                "lon": get("lon"),
-                "elevation_m": get("elevation"),
-                "country": (get("country") or "").upper(),
-                "geometry_kind": "point",
-                "station_class": get("klass") or "",
-                "extra_ids": json.dumps(extra),
-            }
-        )
+    for payload in payloads:
+        for binding in payload.get("results", {}).get("bindings", []):
+            get = lambda key: binding.get(key, {}).get("value")  # noqa: E731
+            uri = get("uri")
+            if not uri:
+                continue
+            extra = {"wigos_id": get("wigos")} if get("wigos") else {}
+            rows.append({
+                "ri": "ICOS", "record_id": uri, "source_id": get("stationId") or "",
+                "id_scheme": "ICOS station code", "uri": uri, "name": get("name") or "",
+                "lat": get("lat"), "lon": get("lon"), "elevation_m": get("elevation"),
+                "country": (get("country") or "").upper(), "geometry_kind": "point",
+                "station_class": "ICOS station resource", "extra_ids": json.dumps(extra),
+            })
     return _finalise(rows)
 
 
-def fetch_deims(cache_dir: Path, offline: bool = False, max_detail: int = 0) -> pd.DataFrame:
-    """eLTER sites via the DEIMS-SDR REST API.
+def fetch_deims(cache_dir: Path, offline: bool = False) -> pd.DataFrame:
+    """Fetch eLTER site centroids from the documented DEIMS-SDR list API."""
+    def load():
+        response = requests.get(DEIMS_SITES, headers={"Accept": "application/json", **UA}, timeout=TIMEOUT)
+        response.raise_for_status()
+        return response.json()
 
-    The list endpoint returns a WKT centroid per site.  Full boundary polygons
-    live on the detail records; ``max_detail`` optionally pulls that many of
-    them so the polygon-overlap matcher has real geometry to work with.
-    """
-
-    def _load():
-        resp = requests.get(DEIMS_SITES, headers={"Accept": "application/json", **UA}, timeout=TIMEOUT)
-        resp.raise_for_status()
-        return resp.json()
-
-    payload = _cache(cache_dir, "deims_sites.json", _load, offline)
+    payload = _cached_json(cache_dir, "deims_sites.json", load, offline, "elter", DEIMS_SITES)
+    if not isinstance(payload, list):
+        raise ValueError("DEIMS site-list response must be a JSON list")
     rows = []
     for site in payload:
-        ident = site.get("id") or {}
-        suffix = ident.get("suffix") or ""
-        prefix = ident.get("prefix") or "https://deims.org/"
-        lat, lon = _parse_wkt_point(site.get("coordinates"))
-        rows.append(
-            {
-                "ri": "eLTER",
-                "source_id": suffix,
-                "id_scheme": "DEIMS-SDR UUID",
-                "uri": f"{prefix}{suffix}" if suffix else "",
-                "name": site.get("title"),
-                "lat": lat,
-                "lon": lon,
-                "elevation_m": None,
-                "country": "",
-                "geometry_kind": "centroid_of_polygon",
-                "station_class": "eLTER site",
-                "extra_ids": json.dumps({}),
-            }
-        )
-    return _finalise(rows)
-
-
-def fetch_actris(cache_dir: Path, offline: bool = False) -> pd.DataFrame:
-    """ACTRIS national facilities.
-
-    Best effort: the ACTRIS metadata service is less stable than the other two
-    and its response shape has changed between releases, so a failure here
-    downgrades to an empty frame with a warning rather than killing the run.
-    The two-RI comparison is still valid; the summary records which RIs were
-    actually loaded.
-    """
-
-    def _load():
-        resp = requests.get(ACTRIS_FACILITIES, headers={"Accept": "application/json", **UA}, timeout=TIMEOUT)
-        resp.raise_for_status()
-        return resp.json()
-
-    try:
-        payload = _cache(cache_dir, "actris_facilities.json", _load, offline)
-    except Exception as exc:  # noqa: BLE001 - deliberate: optional source
-        log.warning("ACTRIS source unavailable (%s); continuing with ICOS + eLTER", exc)
-        return _empty()
-
-    if isinstance(payload, dict):
-        payload = payload.get("results") or payload.get("facilities") or []
-
-    rows = []
-    for fac in payload:
-        if not isinstance(fac, dict):
+        if not isinstance(site, dict):
             continue
-        ident = fac.get("identifier") or fac.get("id") or fac.get("actris_id")
-        lat = _dig(fac, ["lat", "latitude"]) or _dig(fac.get("location") or {}, ["lat", "latitude"])
-        lon = _dig(fac, ["lon", "lng", "longitude"]) or _dig(fac.get("location") or {}, ["lon", "lng", "longitude"])
-        rows.append(
-            {
-                "ri": "ACTRIS",
-                "source_id": str(ident) if ident is not None else "",
-                "id_scheme": "ACTRIS facility identifier",
-                "uri": fac.get("landing_page") or fac.get("url") or "",
-                "name": fac.get("name") or fac.get("title"),
-                "lat": lat,
-                "lon": lon,
-                "elevation_m": _dig(fac, ["altitude", "elevation"]),
-                "country": str(_dig(fac, ["country_code", "country"]) or "").upper()[:2],
-                "geometry_kind": "point",
-                "station_class": "ACTRIS national facility",
-                "extra_ids": json.dumps({}),
-            }
-        )
+        ident = site.get("id") or {}
+        suffix = ident.get("suffix") if isinstance(ident, dict) else str(ident)
+        prefix = ident.get("prefix") if isinstance(ident, dict) else "https://deims.org/"
+        suffix, prefix = suffix or "", prefix or "https://deims.org/"
+        lat, lon = _parse_wkt_point(site.get("coordinates"))
+        rows.append({
+            "ri": "eLTER", "record_id": suffix, "source_id": suffix,
+            "id_scheme": "DEIMS-SDR UUID", "uri": f"{prefix}{suffix}" if suffix else "",
+            "name": site.get("title") or "", "lat": lat, "lon": lon, "elevation_m": None,
+            "country": "", "geometry_kind": "centroid_of_polygon", "station_class": "eLTER site",
+            "extra_ids": json.dumps({}),
+        })
     return _finalise(rows)
-
-
-def _dig(obj: dict, keys):
-    for key in keys:
-        if key in obj and obj[key] not in (None, ""):
-            return obj[key]
-    return None
 
 
 def _parse_wkt_point(wkt: str | None):
-    """DEIMS returns 'POINT (lon lat)'.  Longitude first - easy to get wrong."""
     if not wkt or "(" not in wkt:
         return None, None
     try:
-        inner = wkt[wkt.index("(") + 1: wkt.rindex(")")]
+        inner = wkt[wkt.index("(") + 1:wkt.rindex(")")]
         lon_s, lat_s = inner.replace(",", " ").split()[:2]
         return float(lat_s), float(lon_s)
     except (ValueError, IndexError):
@@ -228,7 +186,18 @@ def _finalise(rows) -> pd.DataFrame:
         df[col] = pd.to_numeric(df[col], errors="coerce")
     df["name"] = df["name"].fillna("").astype(str).str.strip()
     df["name_norm"] = df["name"].map(normalise_name)
+    df = df[df["record_id"].fillna("").astype(str).str.strip().ne("")]
     df = df.dropna(subset=["lat", "lon"])
     df = df[(df.lat.between(-90, 90)) & (df.lon.between(-180, 180))]
-    df = df.drop_duplicates(subset=["ri", "source_id"])
-    return df.reset_index(drop=True)
+    return df.drop_duplicates(subset=["ri", "record_id"]).reset_index(drop=True)
+
+
+def validate_stations(df: pd.DataFrame) -> dict:
+    """Validation facts written to the run manifest."""
+    return {
+        "records_with_usable_coordinates": int(len(df)),
+        "records_by_infrastructure": {str(k): int(v) for k, v in df.ri.value_counts().items()},
+        "duplicate_record_ids": int(df.duplicated(["ri", "record_id"]).sum()) if not df.empty else 0,
+        "latitude_range": [float(df.lat.min()), float(df.lat.max())] if not df.empty else None,
+        "longitude_range": [float(df.lon.min()), float(df.lon.max())] if not df.empty else None,
+    }

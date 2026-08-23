@@ -1,42 +1,21 @@
 # Results
 
-<!--
-Fill this in after your first real run (`python -m ri_harmonize.cli run -v`), then delete
-this comment. Copy the actual numbers out of outputs/summary.md — do not estimate them.
-Keep it short: five honest bullets beat two vague paragraphs.
--->
-
-**Run date:** _YYYY-MM-DD_ · **Parameters:** eps = _ km, min_samples = _, buffer = _ km
+**Run date:** 2026-08-23 · **Parameters:** DBSCAN eps = 5 km, min_samples = 2; buffer = 5 km; k-means k = 633.
 
 ## Records loaded
 
-_N_ ICOS stations, _N_ eLTER sites, _N_ ACTRIS facilities with usable coordinates
-(_N_ total). _Say here how many records had to be dropped for missing or invalid
-coordinates — that number is itself a data-quality finding._
+510 ICOS records and 1,391 eLTER records with usable coordinates were loaded (1,901 total). No duplicate `(ri, record_id)` pairs remained after validation. The current run does not include ACTRIS.
 
 ## Candidate cross-infrastructure matches
 
-- DBSCAN (haversine, eps = _ km): **_N_** candidate pairs
-- k-means baseline (k = _): **_N_** candidate pairs
-- Buffer intersection (EPSG:3035, _ km): **_N_** candidate pairs
+- DBSCAN (haversine): **244** pairs.
+- k-means baseline: **1,437** pairs.
+- One-sided 5 km buffer intersection in EPSG:3035: **234** pairs.
 
-_One sentence on where the methods disagreed and which was more useful._
+At 5 km, DBSCAN produces 244 pairs and 176 clusters containing more than one record from the same infrastructure; the epsilon sweep is recorded in `outputs/eps_sweep.csv`.
 
-## Choice of eps
+## Hand-checked reference set
 
-_Which radius you chose and why, referring to the over-merge column in
-`outputs/eps_sweep.csv`. Name the eps at which same-infrastructure stations start
-collapsing into one cluster._
+No pairs have been adjudicated yet. Metrics must not be reported until `data/ground_truth/manual_pairs.csv` contains manual yes/no decisions with evidence. Future precision, recall, and F1 are conditional on the reviewed candidate universe, not population-wide estimates.
 
-## Scored against hand-checked ground truth
-
-_N_ pairs adjudicated by hand. DBSCAN: precision _, recall _, F1 _.
-_N_ candidates not yet reviewed.
-
-_One sentence on the errors: what did the false positives have in common?_
-
-## What surprised me
-
-_Two or three lines. Concrete observations only — a station present in one registry and
-absent from another, an identifier that exists for some station classes and not others, a
-placeholder elevation, a name that matches perfectly while the coordinates disagree._
+All numbers above are traceable to `outputs/summary.md` and `outputs/run_manifest.json` from the same run.
