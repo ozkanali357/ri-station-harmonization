@@ -34,7 +34,7 @@ Open `outputs/review_sheet.csv`; for every reviewed row fill `same_place` with `
 
 ## Results
 
-The current verified counts and explicit no-label status are in [RESULTS.md](RESULTS.md). Generated outputs are committed only when they correspond to the published code revision. See `data/ground_truth/data_dictionary.csv` for mappings and non-mappings.
+The current verified counts and conditional reviewed-set evaluation are in [RESULTS.md](RESULTS.md). Generated outputs are committed only when they correspond to the published code revision. See `data/ground_truth/data_dictionary.csv` for mappings and non-mappings.
 
 ## Sources
 
