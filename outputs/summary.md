@@ -35,14 +35,35 @@ Selected eps = 5.0 km, min_samples = 2.
 
 ## Scored against the hand-checked ground truth
 
-- `dbscan.reviewed_pairs`: 0
-- `dbscan.note`: no adjudicated pairs yet - fill data/ground_truth/manual_pairs.csv
+- `dbscan.reviewed_pairs`: 40
+- `dbscan.true_positives`: 10
+- `dbscan.false_positives`: 2
+- `dbscan.false_negatives`: 0
+- `dbscan.true_negatives`: 28
+- `dbscan.precision`: 0.8333
+- `dbscan.recall`: 1.0
+- `dbscan.f1`: 0.9091
+- `dbscan.unadjudicated_candidates`: 232
 - `dbscan.evaluation_scope`: conditional on reviewed candidate universe; not a population estimate
-- `kmeans_baseline.reviewed_pairs`: 0
-- `kmeans_baseline.note`: no adjudicated pairs yet - fill data/ground_truth/manual_pairs.csv
+- `kmeans_baseline.reviewed_pairs`: 40
+- `kmeans_baseline.true_positives`: 10
+- `kmeans_baseline.false_positives`: 30
+- `kmeans_baseline.false_negatives`: 0
+- `kmeans_baseline.true_negatives`: 0
+- `kmeans_baseline.precision`: 0.25
+- `kmeans_baseline.recall`: 1.0
+- `kmeans_baseline.f1`: 0.4
+- `kmeans_baseline.unadjudicated_candidates`: 1397
 - `kmeans_baseline.evaluation_scope`: conditional on reviewed candidate universe; not a population estimate
-- `buffer_intersection.reviewed_pairs`: 0
-- `buffer_intersection.note`: no adjudicated pairs yet - fill data/ground_truth/manual_pairs.csv
+- `buffer_intersection.reviewed_pairs`: 40
+- `buffer_intersection.true_positives`: 10
+- `buffer_intersection.false_positives`: 2
+- `buffer_intersection.false_negatives`: 0
+- `buffer_intersection.true_negatives`: 28
+- `buffer_intersection.precision`: 0.8333
+- `buffer_intersection.recall`: 1.0
+- `buffer_intersection.f1`: 0.9091
+- `buffer_intersection.unadjudicated_candidates`: 222
 - `buffer_intersection.evaluation_scope`: conditional on reviewed candidate universe; not a population estimate
 
 ## Nearest ten candidates
