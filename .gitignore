@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+*.egg-info/
+
+# Cached RI responses and generated artefacts are reproducible; the hand-checked
+# ground truth in data/ground_truth/ is NOT and is tracked.
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+outputs/*
+!outputs/.gitkeep

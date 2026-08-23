@@ -1,0 +1,127 @@
+"""Command line entry point.
+
+    python -m ri_harmonize.cli run                 # fetch (once), cluster, score, report
+    python -m ri_harmonize.cli run --offline       # re-run from cached responses only
+    python -m ri_harmonize.cli review              # write the next batch to adjudicate by hand
+"""
+
+from __future__ import annotations
+
+import argparse
+import logging
+from pathlib import Path
+
+import pandas as pd
+
+from . import cluster as cl
+from . import evaluate as ev
+from . import geo, report, sources
+
+ROOT = Path(__file__).resolve().parents[2]
+RAW = ROOT / "data" / "raw"
+INTERIM = ROOT / "data" / "interim"
+GROUND_TRUTH = ROOT / "data" / "ground_truth" / "manual_pairs.csv"
+OUT = ROOT / "outputs"
+
+DEFAULT_EPS_GRID = [0.5, 1, 2, 3, 5, 7.5, 10, 15, 20, 30]
+
+
+def load_stations(offline: bool) -> pd.DataFrame:
+    frames = [
+        sources.fetch_icos(RAW, offline=offline),
+        sources.fetch_deims(RAW, offline=offline),
+        sources.fetch_actris(RAW, offline=offline),
+    ]
+    stations = pd.concat([f for f in frames if not f.empty], ignore_index=True)
+    INTERIM.mkdir(parents=True, exist_ok=True)
+    stations.to_csv(INTERIM / "stations_harmonised.csv", index=False)
+    return stations
+
+
+def cmd_run(args) -> None:
+    stations = load_stations(args.offline)
+    logging.info("%d records with usable coordinates: %s",
+                 len(stations), stations.ri.value_counts().to_dict())
+
+    sweep = cl.sweep_eps(stations, DEFAULT_EPS_GRID, min_samples=args.min_samples)
+    labels = cl.dbscan_labels(stations, eps_km=args.eps_km, min_samples=args.min_samples)
+    candidates = cl.cross_ri_pairs(stations, labels, "dbscan")
+
+    k = max(2, len(stations) // max(args.kmeans_divisor, 1))
+    km_labels = cl.kmeans_labels(stations, k=k)
+    km_candidates = cl.cross_ri_pairs(stations, km_labels, "kmeans")
+
+    buffer_pairs = geo.buffer_overlap_pairs(stations, radius_km=args.buffer_km)
+
+    ground_truth = ev.load_ground_truth(GROUND_TRUTH)
+    scores = {
+        "dbscan": ev.score(candidates, ground_truth),
+        "kmeans_baseline": ev.score(km_candidates, ground_truth),
+        "buffer_intersection": ev.score(buffer_pairs, ground_truth),
+    }
+    flat = {f"{m}.{k2}": v for m, d in scores.items() for k2, v in d.items()}
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    sweep.to_csv(OUT / "eps_sweep.csv", index=False)
+    candidates.to_csv(OUT / "candidate_pairs_dbscan.csv", index=False)
+    km_candidates.to_csv(OUT / "candidate_pairs_kmeans.csv", index=False)
+    buffer_pairs.to_csv(OUT / "candidate_pairs_buffer.csv", index=False)
+
+    report.plot_stations(stations, labels, OUT / "stations_map.png")
+    report.plot_eps_sweep(sweep, OUT / "eps_sweep.png")
+    geo.write_spatial_outputs(stations, labels, OUT)
+    report.write_summary(
+        OUT / "summary.md", stations, sweep, candidates, buffer_pairs, flat,
+        {"eps_km": args.eps_km, "min_samples": args.min_samples,
+         "buffer_km": args.buffer_km, "kmeans_k": k},
+    )
+    print(f"\nWrote {len(candidates)} DBSCAN candidate pairs "
+          f"({len(km_candidates)} k-means, {len(buffer_pairs)} buffer) to {OUT}/")
+    print(f"Read {OUT / 'summary.md'} next.")
+
+
+def cmd_review(args) -> None:
+    stations = load_stations(offline=True)
+    labels = cl.dbscan_labels(stations, eps_km=args.eps_km, min_samples=args.min_samples)
+    candidates = cl.cross_ri_pairs(stations, labels, "dbscan")
+    sheet = ev.make_review_sheet(candidates, ev.load_ground_truth(GROUND_TRUTH), limit=args.limit)
+    OUT.mkdir(parents=True, exist_ok=True)
+    path = OUT / "review_sheet.csv"
+    sheet.to_csv(path, index=False)
+    print(f"Wrote {len(sheet)} unadjudicated pairs to {path}")
+    print("Fill in the same_place column (yes/no), then append the rows to")
+    print(f"{GROUND_TRUTH} and re-run `python -m ri_harmonize.cli run --offline`.")
+
+
+def main(argv=None) -> None:
+    parser = argparse.ArgumentParser(prog="ri_harmonize", description=__doc__)
+    parser.add_argument("-v", "--verbose", action="store_true")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    def common(p):
+        p.add_argument("--eps-km", type=float, default=5.0, dest="eps_km")
+        p.add_argument("--min-samples", type=int, default=2, dest="min_samples")
+
+    run = sub.add_parser("run", help="full pipeline")
+    common(run)
+    run.add_argument("--buffer-km", type=float, default=5.0, dest="buffer_km")
+    run.add_argument("--kmeans-divisor", type=int, default=3, dest="kmeans_divisor",
+                     help="k = n_stations // divisor for the k-means baseline")
+    run.add_argument("--offline", action="store_true", help="use cached responses only")
+    run.set_defaults(func=cmd_run)
+
+    review = sub.add_parser("review", help="write the next batch of pairs to check by hand")
+    common(review)
+    review.add_argument("--limit", type=int, default=60)
+    review.set_defaults(func=cmd_review)
+
+    args = parser.parse_args(argv)
+    logging.basicConfig(
+        level=logging.INFO if args.verbose else logging.WARNING,
+        format="%(levelname)s %(message)s",
+    )
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()
