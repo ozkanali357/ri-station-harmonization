@@ -1,0 +1,785 @@
+<!doctype html><meta charset="utf-8"><title>Station review sheet</title><style>body{font-family:system-ui;margin:2rem}table{border-collapse:collapse;font-size:13px}th,td{border:1px solid #ddd;padding:.45rem;vertical-align:top}th{position:sticky;top:0;background:#f4f4f4}a{color:#0645ad}</style><h1>Station review sheet</h1><p>Use this page to open records. Enter decisions and evidence in the CSV, then copy only the ground-truth columns into manual_pairs.csv.</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ri_a</th>
+      <th>record_id_a</th>
+      <th>source_id_a</th>
+      <th>name_a</th>
+      <th>ri_b</th>
+      <th>record_id_b</th>
+      <th>same_place</th>
+      <th>source_id_b</th>
+      <th>name_b</th>
+      <th>distance_km</th>
+      <th>name_similarity</th>
+      <th>selection_stratum</th>
+      <th>uri_a</th>
+      <th>uri_b</th>
+      <th>checked_by</th>
+      <th>checked_at</th>
+      <th>evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_GL-Dsk</td>
+      <td>GL-Dsk</td>
+      <td>Disko</td>
+      <td>eLTER</td>
+      <td>219df006-482e-4c56-84ee-a697fff62957</td>
+      <td></td>
+      <td>219df006-482e-4c56-84ee-a697fff62957</td>
+      <td>Arctic Station - Greenland</td>
+      <td>0.123</td>
+      <td>0.095</td>
+      <td>0-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_GL-Dsk" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/219df006-482e-4c56-84ee-a697fff62957" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/OS_48MB</td>
+      <td>IT-FOS-MIRAMARE</td>
+      <td>MIRAMARE</td>
+      <td>eLTER</td>
+      <td>96969205-cfdf-41d8-979f-ff881ea8dc8b</td>
+      <td></td>
+      <td>96969205-cfdf-41d8-979f-ff881ea8dc8b</td>
+      <td>Golfo di Trieste - Italy</td>
+      <td>0.126</td>
+      <td>0.267</td>
+      <td>0-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/OS_48MB" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/96969205-cfdf-41d8-979f-ff881ea8dc8b" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FI-Lom</td>
+      <td>FI-Lom</td>
+      <td>Lompolojankka</td>
+      <td>eLTER</td>
+      <td>b0edd1d7-4fe7-4945-a366-4e9ff21e9dd3</td>
+      <td></td>
+      <td>b0edd1d7-4fe7-4945-a366-4e9ff21e9dd3</td>
+      <td>Pallas LTER observatory - Finland</td>
+      <td>0.003</td>
+      <td>0.296</td>
+      <td>0-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FI-Lom" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/b0edd1d7-4fe7-4945-a366-4e9ff21e9dd3" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-Htm</td>
+      <td>SE-Htm</td>
+      <td>Hyltemossa</td>
+      <td>eLTER</td>
+      <td>b27549de-1e6f-4f3e-9e22-4d4f3dec61e3</td>
+      <td></td>
+      <td>b27549de-1e6f-4f3e-9e22-4d4f3dec61e3</td>
+      <td>Hyltemossa - Sweden</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-Htm" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/b27549de-1e6f-4f3e-9e22-4d4f3dec61e3" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_IT-TrF</td>
+      <td>IT-TrF</td>
+      <td>Torgnon-LD</td>
+      <td>eLTER</td>
+      <td>0cbb0b0f-7a42-424c-bb78-c68dd50b7915</td>
+      <td></td>
+      <td>0cbb0b0f-7a42-424c-bb78-c68dd50b7915</td>
+      <td>Cime Bianche (IT19 Aosta Valley) - Italy</td>
+      <td>14.734</td>
+      <td>0.087</td>
+      <td>1-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_IT-TrF" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/0cbb0b0f-7a42-424c-bb78-c68dd50b7915" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_BE-Bra</td>
+      <td>BE-Bra</td>
+      <td>Brasschaat</td>
+      <td>eLTER</td>
+      <td>22709233-3029-435e-968d-0c201d88daa8</td>
+      <td></td>
+      <td>22709233-3029-435e-968d-0c201d88daa8</td>
+      <td>Ketenisse - Belgium</td>
+      <td>14.648</td>
+      <td>0.222</td>
+      <td>1-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_BE-Bra" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/22709233-3029-435e-968d-0c201d88daa8" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_IE-LmW</td>
+      <td>IE-LmW</td>
+      <td>Leam West</td>
+      <td>eLTER</td>
+      <td>9860f2c1-60e1-4fb9-8a99-1b8dcc94f23c</td>
+      <td></td>
+      <td>9860f2c1-60e1-4fb9-8a99-1b8dcc94f23c</td>
+      <td>Mace Head - Ireland</td>
+      <td>14.514</td>
+      <td>0.308</td>
+      <td>1-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_IE-LmW" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/9860f2c1-60e1-4fb9-8a99-1b8dcc94f23c" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-Sto</td>
+      <td>SE-Sto</td>
+      <td>Abisko-Stordalen Palsa Bog</td>
+      <td>eLTER</td>
+      <td>f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26</td>
+      <td></td>
+      <td>f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26</td>
+      <td>Abisko National Park - Sweden</td>
+      <td>14.710</td>
+      <td>0.604</td>
+      <td>1-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-Sto" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_AT-Nsd</td>
+      <td>AT-Nsd</td>
+      <td>Neusiedl</td>
+      <td>eLTER</td>
+      <td>2e80048a-3b38-4a25-9764-bd7c3d2c6a7d</td>
+      <td></td>
+      <td>2e80048a-3b38-4a25-9764-bd7c3d2c6a7d</td>
+      <td>ICP_Forests_Austria, Unterpullendorf (ICP_FO_AU2) - Austria</td>
+      <td>34.588</td>
+      <td>0.194</td>
+      <td>2-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_AT-Nsd" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/2e80048a-3b38-4a25-9764-bd7c3d2c6a7d" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/AS_KAS</td>
+      <td>KAS</td>
+      <td>Kasprowy Wierch</td>
+      <td>eLTER</td>
+      <td>69a0e7ac-5e63-4ba8-95b1-d81b7b5f7fea</td>
+      <td></td>
+      <td>69a0e7ac-5e63-4ba8-95b1-d81b7b5f7fea</td>
+      <td>Pieninski National Park - Poland</td>
+      <td>34.560</td>
+      <td>0.267</td>
+      <td>2-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/AS_KAS" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/69a0e7ac-5e63-4ba8-95b1-d81b7b5f7fea" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_BE-Dor</td>
+      <td>BE-Dor</td>
+      <td>Dorinne</td>
+      <td>eLTER</td>
+      <td>1a38bbe3-510d-4ee4-a67a-87dbde6b5c7b</td>
+      <td></td>
+      <td>1a38bbe3-510d-4ee4-a67a-87dbde6b5c7b</td>
+      <td>FORBIO Gedinne Gribelle - Belgium</td>
+      <td>35.070</td>
+      <td>0.316</td>
+      <td>2-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_BE-Dor" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/1a38bbe3-510d-4ee4-a67a-87dbde6b5c7b" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_CH-Aws</td>
+      <td>CH-Aws</td>
+      <td>Alp Weissenstein</td>
+      <td>eLTER</td>
+      <td>02ebdc77-d35c-4e19-ad7b-31a65885e7df</td>
+      <td></td>
+      <td>02ebdc77-d35c-4e19-ad7b-31a65885e7df</td>
+      <td>Nationalpark - Switzerland</td>
+      <td>34.702</td>
+      <td>0.450</td>
+      <td>2-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_CH-Aws" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/02ebdc77-d35c-4e19-ad7b-31a65885e7df" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_CN-Dmn</td>
+      <td>CN-Dmn</td>
+      <td>Daman</td>
+      <td>eLTER</td>
+      <td>b14f4ada-d4d5-4241-ae85-400b46b73da9</td>
+      <td></td>
+      <td>b14f4ada-d4d5-4241-ae85-400b46b73da9</td>
+      <td>Linze Inland River Basin Research Station - China</td>
+      <td>57.513</td>
+      <td>0.171</td>
+      <td>3-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_CN-Dmn" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/b14f4ada-d4d5-4241-ae85-400b46b73da9" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_IT-MBo</td>
+      <td>IT-MBo</td>
+      <td>Monte Bondone</td>
+      <td>eLTER</td>
+      <td>ede67a31-079a-4db5-b3a2-83b22054c661</td>
+      <td></td>
+      <td>ede67a31-079a-4db5-b3a2-83b22054c661</td>
+      <td>IT02-Forests of the Alps - Italy</td>
+      <td>57.464</td>
+      <td>0.222</td>
+      <td>3-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_IT-MBo" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/ede67a31-079a-4db5-b3a2-83b22054c661" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_JP-NsM</td>
+      <td>JP-NsM</td>
+      <td>NILGS Nasu Research Station Manure Application Plot</td>
+      <td>eLTER</td>
+      <td>71a346a1-fa20-4e51-a43d-798f55675a19</td>
+      <td></td>
+      <td>71a346a1-fa20-4e51-a43d-798f55675a19</td>
+      <td>Ogawa Forest Reserve - Japan</td>
+      <td>57.545</td>
+      <td>0.300</td>
+      <td>3-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_JP-NsM" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/71a346a1-fa20-4e51-a43d-798f55675a19" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FR-CLt</td>
+      <td>FR-CLt</td>
+      <td>Col du Lautaret</td>
+      <td>eLTER</td>
+      <td>63a116c7-cbf7-41e3-b046-08182ebdeaab</td>
+      <td></td>
+      <td>63a116c7-cbf7-41e3-b046-08182ebdeaab</td>
+      <td>OZCAR-RI Glacioclim Col de Porte - France</td>
+      <td>57.863</td>
+      <td>0.392</td>
+      <td>3-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FR-CLt" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/63a116c7-cbf7-41e3-b046-08182ebdeaab" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-Srj</td>
+      <td>SE-Srj</td>
+      <td>Storjarn</td>
+      <td>eLTER</td>
+      <td>61f52437-1f08-495f-bf62-a0e1dd3d34ad</td>
+      <td></td>
+      <td>61f52437-1f08-495f-bf62-a0e1dd3d34ad</td>
+      <td>Degero - Sweden</td>
+      <td>0.859</td>
+      <td>0.190</td>
+      <td>0-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-Srj" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/61f52437-1f08-495f-bf62-a0e1dd3d34ad" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_CH-Frk</td>
+      <td>CH-Frk</td>
+      <td>Furka</td>
+      <td>eLTER</td>
+      <td>c1a298f7-e53d-42a5-8fd0-29088bed4439</td>
+      <td></td>
+      <td>c1a298f7-e53d-42a5-8fd0-29088bed4439</td>
+      <td>ALPFOR - Switzerland</td>
+      <td>0.127</td>
+      <td>0.261</td>
+      <td>0-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_CH-Frk" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/c1a298f7-e53d-42a5-8fd0-29088bed4439" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_AT-Mmg</td>
+      <td>AT-Mmg</td>
+      <td>Mieming</td>
+      <td>eLTER</td>
+      <td>80902e3b-16f6-4650-a2bd-515519b27277</td>
+      <td></td>
+      <td>80902e3b-16f6-4650-a2bd-515519b27277</td>
+      <td>Forest-Atmosphere-Interaction-Research Site Obermieming - Austria</td>
+      <td>0.008</td>
+      <td>0.311</td>
+      <td>0-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_AT-Mmg" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/80902e3b-16f6-4650-a2bd-515519b27277" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-Nor</td>
+      <td>SE-Nor</td>
+      <td>Norunda</td>
+      <td>eLTER</td>
+      <td>459284f2-c7cd-4bb1-96c3-2b38c338ff4a</td>
+      <td></td>
+      <td>459284f2-c7cd-4bb1-96c3-2b38c338ff4a</td>
+      <td>Norunda - Sweden</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-Nor" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/459284f2-c7cd-4bb1-96c3-2b38c338ff4a" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>https://meta.fieldsites.se/resources/stations/Asa</td>
+      <td>ASA</td>
+      <td>Asa Research Station</td>
+      <td>eLTER</td>
+      <td>9dd45aa6-ed7a-49d2-bea4-7750351c55d0</td>
+      <td></td>
+      <td>9dd45aa6-ed7a-49d2-bea4-7750351c55d0</td>
+      <td>Aneboda, IM-site SE14 - Sweden</td>
+      <td>15.052</td>
+      <td>0.160</td>
+      <td>1-0</td>
+      <td><a href="https://meta.fieldsites.se/resources/stations/Asa" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/9dd45aa6-ed7a-49d2-bea4-7750351c55d0" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_IT-MtM</td>
+      <td>IT-MtM</td>
+      <td>Muntatschinig Meadow</td>
+      <td>eLTER</td>
+      <td>92cd1c91-d71b-45bf-8fdf-2aa96e1be97e</td>
+      <td></td>
+      <td>92cd1c91-d71b-45bf-8fdf-2aa96e1be97e</td>
+      <td>CH-SN2-PPL - Switzerland</td>
+      <td>14.795</td>
+      <td>0.238</td>
+      <td>1-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_IT-MtM" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/92cd1c91-d71b-45bf-8fdf-2aa96e1be97e" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_AT-PsM</td>
+      <td>AT-PsM</td>
+      <td>Puergschachen Moor</td>
+      <td>eLTER</td>
+      <td>d0a8da18-0881-4ebe-bccf-bc4cb4e25701</td>
+      <td></td>
+      <td>d0a8da18-0881-4ebe-bccf-bc4cb4e25701</td>
+      <td>LTSER Platform Eisenwurzen (EW) - Austria</td>
+      <td>14.866</td>
+      <td>0.300</td>
+      <td>1-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_AT-PsM" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/d0a8da18-0881-4ebe-bccf-bc4cb4e25701" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_JP-Yms</td>
+      <td>JP-Yms</td>
+      <td>Yamashiro forest meteorology research site</td>
+      <td>eLTER</td>
+      <td>cfe8bd96-da45-43cb-981a-cba921e00974</td>
+      <td></td>
+      <td>cfe8bd96-da45-43cb-981a-cba921e00974</td>
+      <td>Forest Types, Botanical Gardens, Osaka Metropolitan University - Japan</td>
+      <td>14.861</td>
+      <td>0.404</td>
+      <td>1-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_JP-Yms" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/cfe8bd96-da45-43cb-981a-cba921e00974" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FR-Mej</td>
+      <td>FR-Mej</td>
+      <td>Mejusseaume</td>
+      <td>eLTER</td>
+      <td>7f56112c-bd1d-45f5-b894-14d575c89d60</td>
+      <td></td>
+      <td>7f56112c-bd1d-45f5-b894-14d575c89d60</td>
+      <td>Platform Atlantic Anthropogenic Landscape - France</td>
+      <td>34.588</td>
+      <td>0.160</td>
+      <td>2-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FR-Mej" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/7f56112c-bd1d-45f5-b894-14d575c89d60" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_AT-Neu</td>
+      <td>AT-Neu</td>
+      <td>Neustift</td>
+      <td>eLTER</td>
+      <td>80902e3b-16f6-4650-a2bd-515519b27277</td>
+      <td></td>
+      <td>80902e3b-16f6-4650-a2bd-515519b27277</td>
+      <td>Forest-Atmosphere-Interaction-Research Site Obermieming - Austria</td>
+      <td>34.571</td>
+      <td>0.261</td>
+      <td>2-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_AT-Neu" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/80902e3b-16f6-4650-a2bd-515519b27277" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-Myc</td>
+      <td>SE-Myc</td>
+      <td>Mycklemossen</td>
+      <td>eLTER</td>
+      <td>9abbb750-8325-4a00-a801-db9cf3a2df13</td>
+      <td></td>
+      <td>9abbb750-8325-4a00-a801-db9cf3a2df13</td>
+      <td>Lake Gårdsjön catchment - Sweden</td>
+      <td>35.197</td>
+      <td>0.286</td>
+      <td>2-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-Myc" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/9abbb750-8325-4a00-a801-db9cf3a2df13" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_CH-Aws</td>
+      <td>CH-Aws</td>
+      <td>Alp Weissenstein</td>
+      <td>eLTER</td>
+      <td>826b88be-415c-499d-bf03-b08ddc037955</td>
+      <td></td>
+      <td>826b88be-415c-499d-bf03-b08ddc037955</td>
+      <td>CH-SN1-MBU - Switzerland</td>
+      <td>34.785</td>
+      <td>0.368</td>
+      <td>2-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_CH-Aws" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/826b88be-415c-499d-bf03-b08ddc037955" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_BE-Bra</td>
+      <td>BE-Bra</td>
+      <td>Brasschaat</td>
+      <td>eLTER</td>
+      <td>7629b584-b8dd-4da5-a4ba-4175bb985673</td>
+      <td></td>
+      <td>7629b584-b8dd-4da5-a4ba-4175bb985673</td>
+      <td>Dijleland - Belgium</td>
+      <td>57.556</td>
+      <td>0.148</td>
+      <td>3-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_BE-Bra" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/7629b584-b8dd-4da5-a4ba-4175bb985673" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_JP-NsC</td>
+      <td>JP-NsC</td>
+      <td>NILGS Nasu Research Station Chemical Fertilizer Plot</td>
+      <td>eLTER</td>
+      <td>71a346a1-fa20-4e51-a43d-798f55675a19</td>
+      <td></td>
+      <td>71a346a1-fa20-4e51-a43d-798f55675a19</td>
+      <td>Ogawa Forest Reserve - Japan</td>
+      <td>57.475</td>
+      <td>0.262</td>
+      <td>3-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_JP-NsC" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/71a346a1-fa20-4e51-a43d-798f55675a19" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/AS_IVG</td>
+      <td>IVG</td>
+      <td>Invergowrie</td>
+      <td>eLTER</td>
+      <td>1c4d454d-0c00-49f9-a7fe-3a3e596c3648</td>
+      <td></td>
+      <td>1c4d454d-0c00-49f9-a7fe-3a3e596c3648</td>
+      <td>Glensaugh - United Kingdom</td>
+      <td>58.074</td>
+      <td>0.343</td>
+      <td>3-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/AS_IVG" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/1c4d454d-0c00-49f9-a7fe-3a3e596c3648" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/AS_IVG</td>
+      <td>IVG</td>
+      <td>Invergowrie</td>
+      <td>eLTER</td>
+      <td>8747ccf7-52af-4a83-a558-71a768b81a30</td>
+      <td></td>
+      <td>8747ccf7-52af-4a83-a558-71a768b81a30</td>
+      <td>Birnie Burn - United Kingdom</td>
+      <td>58.074</td>
+      <td>0.432</td>
+      <td>3-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/AS_IVG" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/8747ccf7-52af-4a83-a558-71a768b81a30" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/AS_ZEP</td>
+      <td>ZEP</td>
+      <td>Zeppelin</td>
+      <td>eLTER</td>
+      <td>9eeb23c9-80ce-4518-b255-c3c606b1daca</td>
+      <td></td>
+      <td>9eeb23c9-80ce-4518-b255-c3c606b1daca</td>
+      <td>Sverdrup Research Station Ny-lesund LSF - Norway</td>
+      <td>1.452</td>
+      <td>0.162</td>
+      <td>0-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/AS_ZEP" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/9eeb23c9-80ce-4518-b255-c3c606b1daca" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FI-Tvm</td>
+      <td>FI-Tvm</td>
+      <td>Tvarminne</td>
+      <td>eLTER</td>
+      <td>c763fa3d-ca06-4d88-8c59-9d56cb70f4f2</td>
+      <td></td>
+      <td>c763fa3d-ca06-4d88-8c59-9d56cb70f4f2</td>
+      <td>Western Gulf of Finland LTER site WelFin - Finland</td>
+      <td>0.303</td>
+      <td>0.222</td>
+      <td>0-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FI-Tvm" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/c763fa3d-ca06-4d88-8c59-9d56cb70f4f2" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_CN-Ash</td>
+      <td>CN-Ash</td>
+      <td>Ailaoshan</td>
+      <td>eLTER</td>
+      <td>13f23bec-9cc6-4b31-9032-fcbe850b448c</td>
+      <td></td>
+      <td>13f23bec-9cc6-4b31-9032-fcbe850b448c</td>
+      <td>Ailao Mountain Research Station of Sub-tropical Forest Ecosystem - China</td>
+      <td>0.669</td>
+      <td>0.327</td>
+      <td>0-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_CN-Ash" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/13f23bec-9cc6-4b31-9032-fcbe850b448c" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FI-Lom</td>
+      <td>FI-Lom</td>
+      <td>Lompolojankka</td>
+      <td>eLTER</td>
+      <td>e6b372ee-f310-49fd-9d0d-2a8306a06b64</td>
+      <td></td>
+      <td>e6b372ee-f310-49fd-9d0d-2a8306a06b64</td>
+      <td>Lompolojankka - Finland</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FI-Lom" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/e6b372ee-f310-49fd-9d0d-2a8306a06b64" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_FR-Pue</td>
+      <td>FR-Pue</td>
+      <td>Puechabon</td>
+      <td>eLTER</td>
+      <td>52340276-14ec-45e9-9b61-5e49ceff3ce1</td>
+      <td></td>
+      <td>52340276-14ec-45e9-9b61-5e49ceff3ce1</td>
+      <td>Mediterranean Plateaux, Piedmonts and Plains (P3M) platform - France</td>
+      <td>15.237</td>
+      <td>0.127</td>
+      <td>1-0</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_FR-Pue" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/52340276-14ec-45e9-9b61-5e49ceff3ce1" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_AT-Mmg</td>
+      <td>AT-Mmg</td>
+      <td>Mieming</td>
+      <td>eLTER</td>
+      <td>ed1f621f-d337-4a3c-9cf1-7be144fc556c</td>
+      <td></td>
+      <td>ed1f621f-d337-4a3c-9cf1-7be144fc556c</td>
+      <td>Piburger See - Austria</td>
+      <td>14.861</td>
+      <td>0.222</td>
+      <td>1-1</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_AT-Mmg" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/ed1f621f-d337-4a3c-9cf1-7be144fc556c" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_IT-MtP</td>
+      <td>IT-MtP</td>
+      <td>Muntatschinig Pasture</td>
+      <td>eLTER</td>
+      <td>92cd1c91-d71b-45bf-8fdf-2aa96e1be97e</td>
+      <td></td>
+      <td>92cd1c91-d71b-45bf-8fdf-2aa96e1be97e</td>
+      <td>CH-SN2-PPL - Switzerland</td>
+      <td>15.268</td>
+      <td>0.326</td>
+      <td>1-2</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_IT-MtP" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/92cd1c91-d71b-45bf-8fdf-2aa96e1be97e" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ICOS</td>
+      <td>http://meta.icos-cp.eu/resources/stations/ES_SE-St1</td>
+      <td>SE-St1</td>
+      <td>Stordalen grassland</td>
+      <td>eLTER</td>
+      <td>f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26</td>
+      <td></td>
+      <td>f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26</td>
+      <td>Abisko National Park - Sweden</td>
+      <td>14.861</td>
+      <td>0.391</td>
+      <td>1-3</td>
+      <td><a href="http://meta.icos-cp.eu/resources/stations/ES_SE-St1" target="_blank" rel="noopener">Open ICOS/eLTER record A</a></td>
+      <td><a href="https://deims.org/f0b67e0d-d3f0-483b-adf0-99ca7bcdcc26" target="_blank" rel="noopener">Open ICOS/eLTER record B</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

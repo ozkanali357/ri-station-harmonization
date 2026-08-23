@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import logging
 import subprocess
@@ -103,7 +104,20 @@ def cmd_review(args) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / "review_sheet.csv"
     sheet.to_csv(path, index=False)
+    html_sheet = sheet.copy()
+    for column, label in (("uri_a", "Open ICOS/eLTER record A"), ("uri_b", "Open ICOS/eLTER record B")):
+        html_sheet[column] = html_sheet[column].map(
+            lambda url: f'<a href="{html.escape(str(url), quote=True)}" target="_blank" rel="noopener">{label}</a>'
+        )
+    html_path = OUT / "review_sheet.html"
+    html_path.write_text(
+        "<!doctype html><meta charset=\"utf-8\"><title>Station review sheet</title>"
+        "<style>body{font-family:system-ui;margin:2rem}table{border-collapse:collapse;font-size:13px}th,td{border:1px solid #ddd;padding:.45rem;vertical-align:top}th{position:sticky;top:0;background:#f4f4f4}a{color:#0645ad}</style>"
+        "<h1>Station review sheet</h1><p>Use this page to open records. Enter decisions and evidence in the CSV, then copy only the ground-truth columns into manual_pairs.csv.</p>"
+        + html_sheet.to_html(index=False, escape=False) + "\n", encoding="utf-8"
+    )
     print(f"Wrote {len(sheet)} unadjudicated pairs to {path}")
+    print(f"Open {html_path} in a browser for reliable clickable record links.")
     print("Fill in the same_place column (yes/no), then append the rows to")
     print(f"{GROUND_TRUTH} and re-run `python -m ri_harmonize.cli run --offline`.")
 
