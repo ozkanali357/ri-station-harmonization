@@ -100,6 +100,10 @@ def write_summary(path: Path, stations, sweep, candidates, km_candidates, buffer
         "",
     ]
     lines += [f"- `{k}`: {v}" for k, v in scores.items()]
+    lines += [
+        "",
+        "> **Evaluation scope.** Reviewed pairs were sampled from the candidate sets, so recall is 1.0 by construction and does not measure population recall. Precision is conditional on the reviewed candidate set; see `RESULTS.md` for the interpretation.",
+    ]
     lines += ["", "## Nearest ten candidates", ""]
     if candidates.empty:
         lines.append("_none_")

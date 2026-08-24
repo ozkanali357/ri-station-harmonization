@@ -66,6 +66,8 @@ Selected eps = 5.0 km, min_samples = 2.
 - `buffer_intersection.unadjudicated_candidates`: 222
 - `buffer_intersection.evaluation_scope`: conditional on reviewed candidate universe; not a population estimate
 
+> **Evaluation scope.** Reviewed pairs were sampled from the candidate sets, so recall is 1.0 by construction and does not measure population recall. Precision is conditional on the reviewed candidate set; see `RESULTS.md` for the interpretation.
+
 ## Nearest ten candidates
 
 | ri_a   | source_id_a   | name_a                   | ri_b   | source_id_b                          | name_b                                            |   distance_km |   name_similarity |

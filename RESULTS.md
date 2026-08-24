@@ -12,18 +12,20 @@
 - k-means baseline: **1,437** pairs.
 - One-sided 5 km buffer intersection in EPSG:3035: **234** pairs.
 
-The 5 km DBSCAN sweep point contains 176 clusters with more than one record from the same infrastructure, an explicit warning that proximity alone is not identity.
+At eps = 5 km, **176 DBSCAN clusters contained more than one record from the same infrastructure**. This is the main negative result: spatial proximity alone is not identity.
 
-## Reviewed reference set and conditional evaluation
+## Reviewed candidate set
 
-40 candidate pairs were adjudicated by hand: 10 matches and 30 non-matches. Scores are conditional on this reviewed candidate universe, not population-wide estimates or a held-out test set.
+40 candidate pairs were adjudicated by hand: 10 matches and 30 non-matches. The review sample was stratified by distance and name similarity, not randomly drawn from all possible station-site pairs.
 
-| Method | Precision | Recall | F1 | False positives | Unreviewed candidates |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| DBSCAN | 0.8333 | 1.0000 | 0.9091 | 2 | 232 |
-| One-sided buffer | 0.8333 | 1.0000 | 0.9091 | 2 | 222 |
-| k-means baseline | 0.2500 | 1.0000 | 0.4000 | 30 | 1,397 |
+| Method | Conditional precision | Reviewed false proposals | Total proposed pairs | Unreviewed proposals |
+| --- | ---: | ---: | ---: | ---: |
+| DBSCAN | 0.8333 | 2 | 244 | 232 |
+| One-sided buffer | 0.8333 | 2 | 234 | 222 |
+| k-means baseline | 0.2500 | 30 | 1,437 | 1,397 |
 
-The DBSCAN/buffer false positives were nearby but distinct stations: Storjarn versus Degero, and Zeppelin versus Sverdrup Research Station. This shows why spatial distance must be combined with record-level verification.
+Recall is 1.0 for every method by construction: every reviewed pair was sampled from the candidate sets, so false negatives outside those sets are unobservable. Recall against the full population is not measured here, and F1 inherits that limitation. Precision is also conditional on the reviewed candidate set rather than a population estimate. The meaningful comparison is that DBSCAN and the buffer matcher tied on the reviewed set while making two false proposals each, versus 30 for k-means; their candidate sets diverge outside the reviewed subset.
+
+The DBSCAN/buffer false proposals were nearby but distinct stations: Storjarn versus Degero, and Zeppelin versus Sverdrup Research Station. The Degero eLTER record explicitly points to the distinct ICOS record `SE-Deg`, demonstrating why record-level verification is necessary.
 
 Every number is traceable to `outputs/summary.md`, `outputs/run_manifest.json`, and `data/ground_truth/manual_pairs.csv` from the same offline run.

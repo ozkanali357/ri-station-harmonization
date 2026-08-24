@@ -1,0 +1,2 @@
+# Generated candidate reports are useful artefacts, not authored source code.
+outputs/** linguist-generated=true
