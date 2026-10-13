@@ -56,6 +56,11 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
             continue
         seen.add(key)
         (ri_a, record_id_a), (ri_b, record_id_b) = key
+        # `key` is sorted, but the sjoin row may have the pair the other way round.
+        if (r["ri"], r["record_id"]) == (ri_a, record_id_a):
+            a, b = (r["source_id"], r["name"], r["uri"]), (r["source_id_b"], r["name_b"], r["uri_b"])
+        else:
+            a, b = (r["source_id_b"], r["name_b"], r["uri_b"]), (r["source_id"], r["name"], r["uri"])
         try:
             left_pts = gdf.set_index(["ri", "record_id"]).geometry
             dist_m = left_pts.loc[(ri_a, record_id_a)].distance(left_pts.loc[(ri_b, record_id_b)])
@@ -64,11 +69,11 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
         rows.append(
             {
                 "method": "buffer", "cluster": -1, "ri_a": ri_a, "record_id_a": record_id_a,
-                "source_id_a": r["source_id"], "name_a": r["name"], "ri_b": ri_b,
-                "record_id_b": record_id_b, "source_id_b": r["source_id_b"], "name_b": r["name_b"],
+                "source_id_a": a[0], "name_a": a[1], "ri_b": ri_b,
+                "record_id_b": record_id_b, "source_id_b": b[0], "name_b": b[1],
                 "distance_km": round(float(dist_m) / 1000.0, 3),
-                "name_similarity": round(fuzz.token_set_ratio(r["name"], r["name_b"]) / 100.0, 3),
-                "uri_a": r["uri"], "uri_b": r["uri_b"],
+                "name_similarity": round(fuzz.token_set_ratio(a[1], b[1]) / 100.0, 3),
+                "uri_a": a[2], "uri_b": b[2],
             }
         )
     frame = pd.DataFrame(rows)

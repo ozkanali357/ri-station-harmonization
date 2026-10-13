@@ -19,7 +19,7 @@ import pandas as pd
 
 from . import cluster as cl
 from . import evaluate as ev
-from . import geo, report, sources
+from . import actris, geo, report, sources
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
@@ -34,6 +34,7 @@ def load_stations(offline: bool) -> pd.DataFrame:
     frames = [
         sources.fetch_icos(RAW, offline=offline),
         sources.fetch_deims(RAW, offline=offline),
+        actris.fetch_actris(RAW, offline=offline),
     ]
     stations = pd.concat([f for f in frames if not f.empty], ignore_index=True)
     INTERIM.mkdir(parents=True, exist_ok=True)

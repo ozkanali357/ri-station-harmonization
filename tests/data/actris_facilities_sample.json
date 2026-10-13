@@ -1,0 +1,187 @@
+[
+  {
+    "identifier": "ko6m",
+    "name": "Hyytiälä",
+    "facility_type": [
+      "observation platform, fixed"
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        24.283333,
+        61.85,
+        181.0
+      ],
+      "bbox": []
+    },
+    "country_code": "FI",
+    "wmo_region": "Europe",
+    "uri": "https://data.actris.eu/facility/ko6m",
+    "identifier_type": "other PID",
+    "active": true,
+    "actris_national_facility": "labelled",
+    "actris_nf_uri": "https://nflabelling.actris.eu/facility/23",
+    "gawid_uri": "SMR",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "FI0050R",
+        "ebas_station_name": "Hyytiälä",
+        "ebas_station_lat": 61.85,
+        "ebas_station_lon": 24.283333,
+        "ebas_station_alt": 181.0,
+        "ebas_country_code": "FI"
+      }
+    }
+  },
+  {
+    "identifier": "xbi0",
+    "name": "Sonnblick",
+    "facility_type": [
+      "observation platform, fixed"
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        12.95794,
+        47.05407,
+        3106.0
+      ],
+      "bbox": []
+    },
+    "country_code": "AT",
+    "wmo_region": "Europe",
+    "uri": "https://data.actris.eu/facility/xbi0",
+    "identifier_type": "other PID",
+    "active": true,
+    "actris_national_facility": "initially accepted",
+    "actris_nf_uri": "https://nflabelling.actris.eu/facility/1",
+    "gawid_uri": "SNB",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "AT0034G",
+        "ebas_station_name": "Sonnblick",
+        "ebas_station_lat": 47.05407,
+        "ebas_station_lon": 12.95794,
+        "ebas_station_alt": 3106.0,
+        "ebas_country_code": "AT"
+      }
+    }
+  },
+  {
+    "identifier": "2bq0",
+    "name": "Zarechensk",
+    "facility_type": [
+      "observation platform, fixed"
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        31.480146,
+        66.755833
+      ],
+      "bbox": []
+    },
+    "country_code": "RU",
+    "wmo_region": "Europe",
+    "uri": "https://data.actris.eu/facility/2bq0",
+    "identifier_type": "other PID",
+    "active": true,
+    "actris_national_facility": "not labelled",
+    "gawid_uri": "None",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "RU0021R",
+        "ebas_station_name": "Zarechensk",
+        "ebas_station_lat": 66.755833,
+        "ebas_station_lon": 31.480146,
+        "ebas_country_code": "RU"
+      }
+    }
+  },
+  {
+    "identifier": "bwkw",
+    "name": "RV Helmer Hanssen",
+    "facility_type": [
+      "observation platform, mobile"
+    ],
+    "country_code": "NO",
+    "wmo_region": "Europe",
+    "uri": "https://data.actris.eu/facility/bwkw",
+    "identifier_type": "other PID",
+    "active": true,
+    "actris_national_facility": "not labelled",
+    "gawid_uri": "None",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "NO1000R",
+        "ebas_station_name": "RV Helmer Hanssen",
+        "ebas_station_alt": 0.0,
+        "ebas_country_code": "NO"
+      }
+    }
+  },
+  {
+    "identifier": "0tlr",
+    "name": "Mount Chacaltaya",
+    "facility_type": [
+      "observation platform, fixed"
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -68.09998,
+        -16.2,
+        5320.0
+      ],
+      "bbox": []
+    },
+    "country_code": "BO",
+    "wmo_region": "South America",
+    "uri": "https://data.actris.eu/facility/0tlr",
+    "identifier_type": "other PID",
+    "active": false,
+    "actris_national_facility": "not labelled",
+    "gawid_uri": "CHC",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "BO0001R",
+        "ebas_station_name": "Mount Chacaltaya",
+        "ebas_station_lat": -16.2000007629395,
+        "ebas_station_lon": -68.0999984741211,
+        "ebas_station_alt": 5320.0,
+        "ebas_country_code": "BO"
+      }
+    }
+  },
+  {
+    "identifier": "tr4b",
+    "name": "Ny-Ålesund - Transformatorbua",
+    "facility_type": [
+      "observation platform, fixed"
+    ],
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        11.9267,
+        78.925,
+        8.0
+      ],
+      "bbox": []
+    },
+    "country_code": "NO",
+    "wmo_region": "Europe",
+    "identifier_type": "other PID",
+    "active": true,
+    "actris_national_facility": "not labelled",
+    "extra_metadata": {
+      "insitu": {
+        "ebas_station_code": "NO1154R",
+        "ebas_station_name": "Ny-Ålesund - Transformatorbua",
+        "ebas_station_lat": 78.925,
+        "ebas_station_lon": 11.9267,
+        "ebas_station_alt": 8.0,
+        "ebas_country_code": "NO"
+      }
+    }
+  }
+]

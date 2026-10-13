@@ -4,7 +4,7 @@ A reproducible pilot for one narrow question: can ICOS station records and eLTER
 
 ## Scope and safeguards
 
-- **Implemented sources:** ICOS Carbon Portal SPARQL and eLTER DEIMS-SDR REST API. ACTRIS and LLM workflows are not implemented or claimed.
+- **Implemented sources:** ICOS Carbon Portal SPARQL, eLTER DEIMS-SDR REST API, and (adapter only) the ACTRIS Metadata facilities API. The ACTRIS adapter (`src/ri_harmonize/actris.py`) is tested offline on a six-record fixture; ACTRIS is not part of the evaluated pilot in `RESULTS.md`, and no ACTRIS ground truth exists. LLM workflows are not implemented or claimed.
 - **Identity:** candidates use ICOS resource URIs and eLTER UUIDs (`record_id`); short station codes are display data only.
 - **Geometry:** the current eLTER input is a site centroid. A buffer result is centroid-distance evidence, not polygon containment.
 - **Evaluation:** scores are conditional on manually reviewed candidates and are not population-wide estimates.
@@ -40,5 +40,6 @@ The current verified counts and conditional reviewed-set evaluation are in [RESU
 
 - ICOS: `https://meta.icos-cp.eu/sparql`
 - DEIMS-SDR: `https://deims.org/api/sites`
+- ACTRIS facilities: `https://prod-actris-md.nilu.no/api/facilities` (OpenAPI spec at `/v3/api-docs`)
 
 Use the infrastructures’ own terms and citation guidance for source data. This pilot is MIT-licensed code, not a re-publication of their raw metadata.
