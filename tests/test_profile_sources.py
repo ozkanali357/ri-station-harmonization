@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -171,6 +172,23 @@ def _count(prof, ri, section, key):
     return int(row.iloc[0]["count"])
 
 
+def _section(md, name):
+    marker = f"### {name}"
+    start = md.find(marker)
+    if start == -1:
+        return ""
+    start += len(marker)
+    nxt = md.find("\n##", start)
+    if nxt == -1:
+        return md[start:]
+    return md[start:nxt]
+
+
+# ---------------------------------------------------------------------------
+# Existing coverage: counts from profile()
+# ---------------------------------------------------------------------------
+
+
 def test_profile_counts(tiny_df):
     prof = ps.profile(tiny_df)
 
@@ -236,6 +254,132 @@ def test_profile_counts(tiny_df):
     ]
     assert list(icos_sc["key"]) == ["A", "B"]
     assert list(icos_sc["count"].astype(int)) == [2, 1]
+
+
+# ---------------------------------------------------------------------------
+# Pack A: table shape per section in the .md
+# ---------------------------------------------------------------------------
+
+
+def test_render_markdown_table_shapes(tiny_df):
+    prof = ps.profile(tiny_df)
+    md = ps.render_markdown(prof, tiny_df, prof)
+
+    # summary: key | count
+    s = _section(md, "summary")
+    assert "| key | count |" in s
+    assert "| value | count |" not in s
+
+    # id_scheme: value | count (category moved out of key column)
+    s = _section(md, "id_scheme")
+    assert "| value | count |" in s
+    assert "| key | count |" not in s
+
+    # geometry_kind: value | count
+    s = _section(md, "geometry_kind")
+    assert "| value | count |" in s
+
+    # station_class: aggregate key|count, then value|count
+    s = _section(md, "station_class")
+    assert "| key | count |" in s
+    assert "| value | count |" in s
+    # n_distinct must appear in the aggregate table only
+    assert "| n_distinct |" in s
+
+    # extra_ids: key | count
+    s = _section(md, "extra_ids")
+    assert "| key | count |" in s
+
+    # country: aggregate key|count, then one distinct values line
+    s = _section(md, "country")
+    assert "| key | count |" in s
+    assert "Distinct values (" in s
+    assert "| distinct_values |" not in s
+
+    # missing: key | count
+    s = _section(md, "missing")
+    assert "| key | count |" in s
+
+    # dropped_before_harmonisation: key | count (table may be empty in tests)
+    s = _section(md, "dropped_before_harmonisation")
+    assert "| key | count |" in s
+
+
+# ---------------------------------------------------------------------------
+# Pack B: bucket attribution and _compute_actris_dropped
+# ---------------------------------------------------------------------------
+
+
+def test_bucket_attribution_counts_each_row_once():
+    rows = [
+        # valid, kept
+        {"ri": "X", "record_id": "A", "lat": "10", "lon": "20",
+         "elevation_m": "", "name": ""},
+        # duplicate of A
+        {"ri": "X", "record_id": "A", "lat": "11", "lon": "21",
+         "elevation_m": "", "name": ""},
+        # out-of-range AND duplicate of A -> must count once, in the
+        # out-of-range bucket (which is applied before duplicates)
+        {"ri": "X", "record_id": "A", "lat": "999", "lon": "999",
+         "elevation_m": "", "name": ""},
+        # missing coordinates
+        {"ri": "X", "record_id": "D", "lat": "", "lon": "20",
+         "elevation_m": "", "name": ""},
+        # blank record_id
+        {"ri": "X", "record_id": "", "lat": "10", "lon": "20",
+         "elevation_m": "", "name": ""},
+    ]
+    b = ps._bucket_attribution(rows)
+    assert b["blank_record_id"] == 1
+    assert b["no_coordinates"] == 1
+    assert b["out_of_range_coordinates"] == 1
+    assert b["duplicate_record_id"] == 1
+    # 5 passed, 4 dropped; each row counted exactly once
+    assert sum(b.values()) == 4
+
+
+def test_compute_actris_dropped_on_fixture(tmp_path):
+    raw = [
+        {"identifier": "x1"},  # no location
+        {"identifier": "x2", "location": {"coordinates": [10]}},  # 1 coordinate
+        {"identifier": "x3", "location": {"coordinates": [10, 20]}},  # valid
+    ]
+    p = tmp_path / "actris_facilities.json"
+    p.write_text(json.dumps(raw), encoding="utf-8")
+
+    count, desc = ps._compute_actris_dropped(p)
+    assert count == 2
+    assert "computed" in desc
+
+
+def test_compute_actris_dropped_missing_file(tmp_path):
+    p = tmp_path / "missing.json"
+    count, desc = ps._compute_actris_dropped(p)
+    assert count is None
+    assert "raw cache not found" in desc
+
+
+# ---------------------------------------------------------------------------
+# Pack C: Notes bullets
+# ---------------------------------------------------------------------------
+
+
+def test_notes_bullets_for_missing_country_and_elevation(tiny_df):
+    base_prof = ps.profile(tiny_df)
+    notes = ps._build_notes(base_prof, tiny_df)
+    joined = "\n".join(notes)
+    # eLTER has country coverage 0 and elevation 100% missing in the fixture
+    assert "eLTER: country coverage is 0" in joined
+    assert "eLTER: elevation_m is 100% missing" in joined
+    # ICOS / ACTRIS must not be flagged: partial missing, not total
+    assert "ICOS: country coverage is 0" not in joined
+    assert "ACTRIS: country coverage is 0" not in joined
+    assert "ICOS: elevation_m is 100% missing" not in joined
+
+
+# ---------------------------------------------------------------------------
+# main() integration: writes both files, no "shared GAW"
+# ---------------------------------------------------------------------------
 
 
 def test_main_writes_outputs(tmp_path, monkeypatch, tiny_df):

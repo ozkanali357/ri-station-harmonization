@@ -47,15 +47,7 @@ def _add(rows, ri, section, key, value="", count=None):
 
 
 def profile(df: pd.DataFrame) -> pd.DataFrame:
-    """Return a long-format source profile for the harmonised station table.
-
-    Parameters
-    ----------
-    df:
-        DataFrame read from ``stations_harmonised.csv`` with
-        ``dtype=str, keep_default_na=False``.  Empty fields are therefore empty
-        strings, not NaN.
-    """
+    """Return a long-format source profile for the harmonised station table."""
     rows = []
     if df.empty:
         return pd.DataFrame(rows, columns=PROFILE_COLUMNS)
@@ -168,39 +160,146 @@ def _count_deims_raw(raw_dir: Path) -> int:
     return len(payload) if isinstance(payload, list) else 0
 
 
-def _dropped_for_icos_elter(ri: str, raw_dir: Path):
+def _bucket_attribution(rows):
+    """Count rows removed by each of _finalise's filters, in order.
+
+    Each row is counted once, in the first filter that removes it.
+    Mirrors the exact order in ``ri_harmonize.sources._finalise``:
+    blank record_id; missing lat/lon; out-of-range lat/lon;
+    duplicate (ri, record_id).
+    """
+    buckets = {
+        "blank_record_id": 0,
+        "no_coordinates": 0,
+        "out_of_range_coordinates": 0,
+        "duplicate_record_id": 0,
+    }
+    if not rows:
+        return buckets
+
+    df = pd.DataFrame(rows)
+    if df.empty or "record_id" not in df.columns:
+        return buckets
+
+    for col in ("lat", "lon", "elevation_m"):
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    # Filter 1: blank record_id
+    mask = df["record_id"].fillna("").astype(str).str.strip().eq("")
+    buckets["blank_record_id"] = int(mask.sum())
+    df = df.loc[~mask].copy()
+
+    # Filter 2: missing lat/lon
+    mask = df["lat"].isna() | df["lon"].isna()
+    buckets["no_coordinates"] = int(mask.sum())
+    df = df.loc[~mask].copy()
+
+    # Filter 3: out-of-range lat/lon
+    mask = ~(df["lat"].between(-90, 90) & df["lon"].between(-180, 180))
+    buckets["out_of_range_coordinates"] = int(mask.sum())
+    df = df.loc[~mask].copy()
+
+    # Filter 4: duplicate (ri, record_id), keep first
+    mask = df.duplicated(subset=["ri", "record_id"], keep="first")
+    buckets["duplicate_record_id"] = int(mask.sum())
+
+    return buckets
+
+
+def _dropped_for_icos_elter(ri, raw_dir):
+    """Split dropped rows for ICOS / eLTER into the four _finalise buckets."""
     if _ri_sources is None:
         return None, f"not computed: adapter parsing not importable ({_RI_SOURCES_ERROR})"
 
-    try:
-        if ri == "ICOS":
-            harmonised = _ri_sources.fetch_icos(raw_dir, offline=True)
-            raw_count = _count_icos_raw(raw_dir)
-        elif ri == "eLTER":
-            harmonised = _ri_sources.fetch_deims(raw_dir, offline=True)
-            raw_count = _count_deims_raw(raw_dir)
-        else:
-            return None, "not computed: no adapter for this source"
+    captured = {}
+    original = _ri_sources._finalise
 
-        dropped = raw_count - len(harmonised)
-        return (
-            dropped,
-            f"computed via ri_harmonize.sources (raw {raw_count}, harmonised {len(harmonised)})",
-        )
+    def wrapper(rows):
+        captured["rows"] = list(rows)
+        return original(rows)
+
+    try:
+        _ri_sources._finalise = wrapper
+        try:
+            if ri == "ICOS":
+                harmonised = _ri_sources.fetch_icos(raw_dir, offline=True)
+                raw_count = _count_icos_raw(raw_dir)
+            elif ri == "eLTER":
+                harmonised = _ri_sources.fetch_deims(raw_dir, offline=True)
+                raw_count = _count_deims_raw(raw_dir)
+            else:
+                return None, f"not computed: no adapter for {ri}"
+        finally:
+            _ri_sources._finalise = original
     except Exception as exc:
         return None, f"not computed: {exc}"
+
+    captured_rows = captured.get("rows", [])
+    buckets = _bucket_attribution(captured_rows)
+
+    return {
+        "raw_rows": raw_count,
+        "passed_to_finalise": len(captured_rows),
+        "blank_record_id": buckets["blank_record_id"],
+        "no_coordinates": buckets["no_coordinates"],
+        "out_of_range_coordinates": buckets["out_of_range_coordinates"],
+        "duplicate_record_id": buckets["duplicate_record_id"],
+        "harmonised": len(harmonised),
+    }, "computed via ri_harmonize.sources._finalise"
 
 
 def dropped_facts(sources, raw_dir: Path, actris_path: Path) -> pd.DataFrame:
     rows = []
     for ri in sources:
         if ri == "ACTRIS":
-            count, description = _compute_actris_dropped(actris_path)
+            count, desc = _compute_actris_dropped(actris_path)
+            if count is None:
+                _add(rows, ri, "dropped_before_harmonisation", "not_computed", desc, None)
+            else:
+                _add(rows, ri, "dropped_before_harmonisation", "dropped", desc, int(count))
         elif ri in ("ICOS", "eLTER"):
-            count, description = _dropped_for_icos_elter(ri, raw_dir)
+            data, desc = _dropped_for_icos_elter(ri, raw_dir)
+            if data is None:
+                _add(rows, ri, "dropped_before_harmonisation", "not_computed", desc, None)
+            else:
+                for key in (
+                    "raw_rows",
+                    "passed_to_finalise",
+                    "blank_record_id",
+                    "no_coordinates",
+                    "out_of_range_coordinates",
+                    "duplicate_record_id",
+                    "harmonised",
+                ):
+                    _add(rows, ri, "dropped_before_harmonisation", key, "", int(data[key]))
+
+                passed = data["passed_to_finalise"]
+                harm = data["harmonised"]
+                buckets = (
+                    data["blank_record_id"]
+                    + data["no_coordinates"]
+                    + data["out_of_range_coordinates"]
+                    + data["duplicate_record_id"]
+                )
+                if passed - harm != buckets:
+                    _add(
+                        rows,
+                        ri,
+                        "dropped_before_harmonisation",
+                        "unattributed",
+                        "",
+                        passed - harm - buckets,
+                    )
         else:
-            count, description = None, "not computed: unknown source"
-        _add(rows, ri, "dropped_before_harmonisation", "dropped", description, count)
+            _add(
+                rows,
+                ri,
+                "dropped_before_harmonisation",
+                "not_computed",
+                "unknown source",
+                None,
+            )
     return pd.DataFrame(rows, columns=PROFILE_COLUMNS)
 
 
@@ -242,7 +341,7 @@ def _build_notes(base_prof: pd.DataFrame, df: pd.DataFrame):
 
 
 def _md_cell(value) -> str:
-    if value is None or (isinstance(value, float) and pd.isna(value)):
+    if value is None:
         return ""
     try:
         if pd.isna(value):
@@ -250,6 +349,75 @@ def _md_cell(value) -> str:
     except Exception:
         pass
     return str(value).replace("|", "\\|").replace("\n", " ")
+
+
+def _key_count_table(lines, rows):
+    lines.append("| key | count |")
+    lines.append("| --- | --- |")
+    if rows.empty:
+        lines.append("| | |")
+    else:
+        for _, row in rows.iterrows():
+            lines.append(f"| {_md_cell(row['key'])} | {_md_cell(row['count'])} |")
+    lines.append("")
+
+
+def _value_count_table(lines, rows):
+    lines.append("| value | count |")
+    lines.append("| --- | --- |")
+    if rows.empty:
+        lines.append("| | |")
+    else:
+        for _, row in rows.iterrows():
+            lines.append(f"| {_md_cell(row['key'])} | {_md_cell(row['count'])} |")
+    lines.append("")
+
+
+def _dropped_sentence(rows) -> str:
+    if rows.empty:
+        return ""
+    d = {}
+    for _, r in rows.iterrows():
+        key = str(r["key"])
+        cnt = r["count"]
+        try:
+            if cnt is None or pd.isna(cnt) or cnt == "":
+                d[key] = None
+            else:
+                d[key] = int(cnt)
+        except Exception:
+            d[key] = None
+
+    if "not_computed" in d:
+        row = rows[rows["key"] == "not_computed"].iloc[0]
+        return f"not computed: {row['value']}"
+
+    if d.get("passed_to_finalise") is not None and d.get("harmonised") is not None:
+        dropped = d["passed_to_finalise"] - d["harmonised"]
+        buckets = sum(
+            d.get(k, 0) or 0
+            for k in (
+                "blank_record_id",
+                "no_coordinates",
+                "out_of_range_coordinates",
+                "duplicate_record_id",
+            )
+        )
+        if dropped == buckets:
+            return (
+                f"Dropped = passed - harmonised = {dropped}; "
+                f"the buckets sum to {buckets}."
+            )
+        return (
+            f"Dropped = passed - harmonised = {dropped}; "
+            f"the buckets sum to {buckets}; "
+            f"unattributed: {dropped - buckets}."
+        )
+
+    if d.get("dropped") is not None:
+        return f"Dropped = {d['dropped']}."
+
+    return ""
 
 
 def render_markdown(prof: pd.DataFrame, df: pd.DataFrame, base_prof: pd.DataFrame) -> str:
@@ -260,16 +428,60 @@ def render_markdown(prof: pd.DataFrame, df: pd.DataFrame, base_prof: pd.DataFram
         lines.append("")
         sub = prof[prof["ri"] == ri]
 
-        for section in pd.unique(sub["section"]):
-            lines.append(f"### {section}")
+        # summary: key | count
+        lines.append("### summary")
+        lines.append("")
+        _key_count_table(lines, sub[sub["section"] == "summary"])
+
+        # id_scheme: value | count
+        lines.append("### id_scheme")
+        lines.append("")
+        _value_count_table(lines, sub[sub["section"] == "id_scheme"])
+
+        # geometry_kind: value | count
+        lines.append("### geometry_kind")
+        lines.append("")
+        _value_count_table(lines, sub[sub["section"] == "geometry_kind"])
+
+        # station_class: aggregate key | count, then value | count
+        sc = sub[sub["section"] == "station_class"]
+        lines.append("### station_class")
+        lines.append("")
+        _key_count_table(lines, sc[sc["key"] == "n_distinct"])
+        _value_count_table(lines, sc[sc["key"] != "n_distinct"])
+
+        # extra_ids: key | count
+        lines.append("### extra_ids")
+        lines.append("")
+        _key_count_table(lines, sub[sub["section"] == "extra_ids"])
+
+        # country: aggregate key | count, then one distinct-values line
+        country = sub[sub["section"] == "country"]
+        lines.append("### country")
+        lines.append("")
+        agg = country[country["key"].isin(["non_empty", "n_distinct"])]
+        _key_count_table(lines, agg)
+        dv = country[country["key"] == "distinct_values"]
+        if not dv.empty:
+            row = dv.iloc[0]
+            n = _md_cell(row["count"])
+            vals = row["value"] if row["value"] else ""
+            lines.append(f"Distinct values ({n}): {vals}")
             lines.append("")
-            lines.append("| key | value | count |")
-            lines.append("| --- | --- | --- |")
-            for _, row in sub[sub["section"] == section].iterrows():
-                lines.append(
-                    f"| {_md_cell(row['key'])} | {_md_cell(row['value'])} | "
-                    f"{_md_cell(row['count'])} |"
-                )
+
+        # missing: key | count
+        lines.append("### missing")
+        lines.append("")
+        _key_count_table(lines, sub[sub["section"] == "missing"])
+
+        # dropped_before_harmonisation: key | count, plus computed sentence
+        dropped = sub[sub["section"] == "dropped_before_harmonisation"]
+        lines.append("### dropped_before_harmonisation")
+        lines.append("")
+        _key_count_table(lines, dropped)
+        sentence = _dropped_sentence(dropped)
+        if sentence:
+            lines.append(f"_{sentence}_")
             lines.append("")
 
     lines.append("## Notes")
