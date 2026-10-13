@@ -47,7 +47,15 @@ def _add(rows, ri, section, key, value="", count=None):
 
 
 def profile(df: pd.DataFrame) -> pd.DataFrame:
-    """Return a long-format source profile for the harmonised station table."""
+    """Return a long-format source profile for the harmonised station table.
+
+    Parameters
+    ----------
+    df:
+        DataFrame read from ``stations_harmonised.csv`` with
+        ``dtype=str, keep_default_na=False``.  Empty fields are therefore empty
+        strings, not NaN.
+    """
     rows = []
     if df.empty:
         return pd.DataFrame(rows, columns=PROFILE_COLUMNS)

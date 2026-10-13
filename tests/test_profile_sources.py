@@ -283,8 +283,8 @@ def test_render_markdown_table_shapes(tiny_df):
     s = _section(md, "station_class")
     assert "| key | count |" in s
     assert "| value | count |" in s
-    # n_distinct must appear in the aggregate table only
-    assert "| n_distinct |" in s
+    # n_distinct must appear exactly once, in the aggregate table only
+    assert s.count("| n_distinct |") == 1
 
     # extra_ids: key | count
     s = _section(md, "extra_ids")
@@ -337,6 +337,83 @@ def test_bucket_attribution_counts_each_row_once():
     # 5 passed, 4 dropped; each row counted exactly once
     assert sum(b.values()) == 4
 
+def _make_fake_sources(rows, fail=False):
+    """Minimal stand-in for ri_harmonize.sources used to exercise the wrapper."""
+    class Fake:
+        def __init__(self):
+            def finalise(rs):
+                df = pd.DataFrame(rs)
+                if df.empty:
+                    return df
+                df = df[df["record_id"].fillna("").astype(str).str.strip().ne("")]
+                for col in ("lat", "lon", "elevation_m"):
+                    if col in df.columns:
+                        df[col] = pd.to_numeric(df[col], errors="coerce")
+                df = df.dropna(subset=["lat", "lon"])
+                df = df[(df.lat.between(-90, 90)) & (df.lon.between(-180, 180))]
+                df = df.drop_duplicates(subset=["ri", "record_id"]).reset_index(drop=True)
+                return df
+
+            self._finalise = finalise
+            self._original_finalise = finalise
+            self._rows = rows
+            self._fail = fail
+            self.fetch_calls = 0
+
+        def fetch_icos(self, raw_dir, offline=False):
+            self.fetch_calls += 1
+            if self._fail:
+                raise RuntimeError("boom")
+            return self._finalise(self._rows)
+
+        def fetch_deims(self, raw_dir, offline=False):
+            return self.fetch_icos(raw_dir, offline=offline)
+
+    return Fake()
+
+
+def test_dropped_split_success_path_and_finally_restore(tmp_path, monkeypatch):
+    rows = [
+        {"ri": "ICOS", "record_id": "A", "lat": "10", "lon": "20",
+         "elevation_m": "", "name": ""},      # kept
+        {"ri": "ICOS", "record_id": "B", "lat": "", "lon": "20",
+         "elevation_m": "", "name": ""},      # no coords
+        {"ri": "ICOS", "record_id": "", "lat": "10", "lon": "20",
+         "elevation_m": "", "name": ""},      # blank id
+        {"ri": "ICOS", "record_id": "C", "lat": "999", "lon": "999",
+         "elevation_m": "", "name": ""},      # out of range
+        {"ri": "ICOS", "record_id": "A", "lat": "11", "lon": "21",
+         "elevation_m": "", "name": ""},      # duplicate of A
+    ]
+    fake = _make_fake_sources(rows)
+    monkeypatch.setattr(ps, "_ri_sources", fake)
+    monkeypatch.setattr(ps, "_count_icos_raw", lambda _d: 5)
+
+    result, desc = ps._dropped_for_icos_elter("ICOS", tmp_path)
+
+    assert result is not None
+    assert fake.fetch_calls == 1
+    assert result["raw_rows"] == 5
+    assert result["passed_to_finalise"] == 5
+    assert result["blank_record_id"] == 1
+    assert result["no_coordinates"] == 1
+    assert result["out_of_range_coordinates"] == 1
+    assert result["duplicate_record_id"] == 1
+    assert result["harmonised"] == 1
+    # finally restored the attribute
+    assert fake._finalise is fake._original_finalise
+
+
+def test_dropped_split_restores_finalise_after_exception(tmp_path, monkeypatch):
+    fake = _make_fake_sources([], fail=True)
+    monkeypatch.setattr(ps, "_ri_sources", fake)
+    monkeypatch.setattr(ps, "_count_icos_raw", lambda _d: 0)
+
+    result, desc = ps._dropped_for_icos_elter("ICOS", tmp_path)
+
+    assert result is None
+    assert "not computed" in desc
+    assert fake._finalise is fake._original_finalise
 
 def test_compute_actris_dropped_on_fixture(tmp_path):
     raw = [
