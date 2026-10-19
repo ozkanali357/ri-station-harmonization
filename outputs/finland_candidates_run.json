@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-10-19T22:53:09+00:00",
+  "git_revision": "c8131248b5106c6b7009994dac33776e2fb14177",
+  "status": "unreviewed",
+  "max_km": 5.0,
+  "thresholds_km": [
+    0.25,
+    0.5,
+    1,
+    2,
+    5,
+    10,
+    20
+  ],
+  "method_parameters": {
+    "eps_km": 5.0,
+    "min_samples": 2,
+    "buffer_km": 5.0,
+    "kmeans_divisor": 3
+  },
+  "n_records": {
+    "ACTRIS": 42,
+    "ICOS": 25,
+    "eLTER": 20
+  },
+  "n_pairs": 79,
+  "presence_checks": [
+    {
+      "record": "ICOS FI-Kvr (Kuivajärvi)",
+      "present": true,
+      "name": "Kuivajarvi",
+      "lat": 61.84662,
+      "lon": 24.2804,
+      "has_boundary": false,
+      "polygon_area_ha": NaN
+    },
+    {
+      "record": "ICOS FI-Lom (Lompolojankka)",
+      "present": true,
+      "name": "Lompolojankka",
+      "lat": 67.99724,
+      "lon": 24.209179,
+      "has_boundary": false,
+      "polygon_area_ha": NaN
+    },
+    {
+      "record": "DEIMS Lompolojankka",
+      "present": true,
+      "name": "Lompolojankka - Finland",
+      "lat": 67.99724,
+      "lon": 24.209179,
+      "has_boundary": false,
+      "polygon_area_ha": NaN
+    },
+    {
+      "record": "DEIMS Pallas LTER observatory",
+      "present": true,
+      "name": "Pallas LTER observatory - Finland",
+      "lat": 67.99725,
+      "lon": 24.2091,
+      "has_boundary": true,
+      "polygon_area_ha": 4868.92
+    },
+    {
+      "record": "DEIMS Helsinki HMA-LTSER platform",
+      "present": true,
+      "name": "Helsinki Metropolitan Area HMA-LTSER - Finland",
+      "lat": 60.1667,
+      "lon": 24.9333,
+      "has_boundary": true,
+      "polygon_area_ha": 148975.31
+    }
+  ],
+  "sources": {
+    "elter": {
+      "endpoint": "https://deims.org/api/sites",
+      "retrieved_at": "2026-10-19T22:48:26+00:00",
+      "sha256": [
+        "e2e35f0fb43e8c9973afdaf9cc283e3348f3fc41928b00bf4ed5b4bd8ac934ca"
+      ]
+    },
+    "icos": {
+      "endpoint": "https://meta.icos-cp.eu/sparql",
+      "retrieved_at": "2026-10-19T22:48:28+00:00",
+      "sha256": [
+        "24ce75d46eb896547f4094e7919c8f641c902a76704d3ad85b193f1c21850bf7",
+        "e494c8cc519f7a7bdcb7e54fc6fde35884d7ec95a78e3823933705d2755110f7"
+      ]
+    },
+    "actris": {
+      "endpoint": "https://prod-actris-md.nilu.no/api/facilities",
+      "retrieved_at": "2026-10-19T22:48:30+00:00",
+      "sha256": [
+        "522dce639456854755ad65e03a6c698a9cb614c70faaccc0b2f2b4679dd934b1"
+      ]
+    },
+    "deims_detail": {
+      "endpoint": "https://deims.org/api/sites/{uuid}",
+      "retrieved_at": "2026-10-19T22:49:07+00:00",
+      "sha256": [
+        "c21fee455d39023e9c66dfc7269d647de227f0f91be393342e1c0f40b9326024",
+        "5b654420ac93b48f4791517c11c11008717a97da0ba4fae2820bde144c7b563d",
+        "4b3b07f79efe1c7e5d4b0ab02f810b8731c12c94b0de21f5f5f2f2c2a7f48260",
+        "90deb3d37e8eba75f9ae32296c4cc1dc7c62a403f524980386ee792dc75717a3",
+        "54f0046890572c6509396621f78a78047521de80860dc9a82fc8cd8e03de87fb",
+        "7cfaad834d0493742574a4d98001d9f8a7fe93cada76088c647fee2290b0ba57",
+        "30a3ecc00987ae674e191f9c498d44d9b860b2a4202b56a45e9fac203998838f",
+        "fa22cba6461921318a1929c12389d363ef991f5ca1b54469bd38d1f0136cdde4",
+        "2fc90786e6bc569662fa033faa41b6e4b6cd5b9eb0bc30e86eccaa50627a9199",
+        "684c5870bddd3f4481807637456035296c0e30c41452bc05316b0deea024e810",
+        "16c106fd40bee59cd011ba962fc0cf9edbf01c785de8e82c77c81c73f7c60ca3",
+        "5f87bf2b6a108504c785e4c5c57624030f78c1ac06af886c2ebc3b2fd99a65dc",
+        "0e19e2de21a3e374887fc7bb0aa431d4b081b5bd12798ee692ffd756f38629a9",
+        "3a49546a129338bf76b00e05b77e99ec6acc1e67e4dd72a06819a9cb2c8268cf",
+        "c9c0da22d8b8a68c76c88a8d13a9a06c8af9e8a920fdee25163686fdd9015252",
+        "3eeb138e8fbfa834d89cf19d1fd3b3bf378ace55e5c6a0ac0256a152cdaca249",
+        "4165a86f27df5cebaab696e203177039c5c05bca4536a845ca7df328dda0ed3d",
+        "eff74b26c508762937a765bdda172adf7b00121277746965dff8b771a9297a16",
+        "943bc47ee8bbb5e23ab77a5330057461a32fd792ed84fea53591717e3627f924",
+        "3506ffa95a49e23d44eee85ba3d7f0f5721d1acf292a1b4c8248671557001819"
+      ]
+    }
+  }
+}
