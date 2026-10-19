@@ -66,9 +66,9 @@ def test_missing_boundary_and_site_type_give_none(sample):
 
 def test_extract_detail_never_copies_the_contact_block(sample):
     payload = json.loads(json.dumps(sample[HYY]))
-    payload["attributes"]["contact"] = {"siteManager": [{"name": "Test Person", "email": "test.person@example.org"}]}
+    payload["attributes"]["contact"] = {"siteManager": [{"name": "Test Person", "email": "placeholder-address"}]}
     assert "Test Person" not in json.dumps(dd.extract_detail(payload))
-    assert "example.org" not in json.dumps(dd.extract_detail(payload))
+    assert "placeholder-address" not in json.dumps(dd.extract_detail(payload))
 
 
 def test_finnish_site_ids_use_the_title_suffix_for_elter_only(sample):
