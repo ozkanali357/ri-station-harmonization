@@ -68,7 +68,8 @@ def plot_eps_sweep(sweep: pd.DataFrame, out_path: Path) -> None:
     plt.close(fig)
 
 
-def write_summary(path: Path, stations, sweep, candidates, km_candidates, buffer_pairs, scores, params) -> None:
+def write_summary(path: Path, stations, sweep, candidates, km_candidates, buffer_pairs, scores, params,
+                  polygon_pairs=None, scope_check=None) -> None:
     counts = stations.ri.value_counts().to_dict()
     lines = [
         "# Run summary",
@@ -95,6 +96,18 @@ def write_summary(path: Path, stations, sweep, candidates, km_candidates, buffer
         f"- DBSCAN (haversine): **{len(candidates)}** pairs",
         f"- k-means baseline (k = {params.get('kmeans_k')}): **{len(km_candidates)}** pairs",
         f"- Buffer intersection in EPSG:3035 at {params.get('buffer_km')} km: **{len(buffer_pairs)}** pairs",
+    ]
+    if polygon_pairs is not None:
+        with_polygon = int(polygon_pairs.polygon_distance_m.notna().sum())
+        lines += [
+            f"- Polygon-aware buffer in EPSG:3035 at {params.get('buffer_km')} km: **{len(polygon_pairs)}** pairs, "
+            f"{with_polygon} of them involving a DEIMS boundary polygon (`polygon_distance_m` filled)",
+            "",
+            "> **New run, unreviewed.** DEIMS detail records were used for the Finnish eLTER sites "
+            f"({scope_check['n_title_suffix']} sites, {scope_check['n_polygon']} with a boundary polygon). "
+            "This run is not comparable with `RESULTS.md`.",
+        ]
+    lines += [
         "",
         "## Scored against the hand-checked ground truth",
         "",

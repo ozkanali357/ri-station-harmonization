@@ -1,0 +1,239 @@
+{
+ "663dac80-211d-4c19-a356-04ee0da0f0eb": {
+  "title": "Hyytiälä SMEAR II LTER - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "663dac80-211d-4c19-a356-04ee0da0f0eb"
+  },
+  "type": "site",
+  "attributes": {
+   "affiliation": {
+    "networks": [
+     {
+      "network": {
+       "name": "ACTRIS",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "85870307-f40d-4c2f-a4d9-885a4fa046c0"
+       }
+      },
+      "siteCode": null,
+      "verified": false
+     },
+     {
+      "network": {
+       "name": "AnaEE",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "c5a423a9-be7b-4b00-967a-d1e1e6d31d96"
+       }
+      },
+      "siteCode": null,
+      "verified": false
+     },
+     {
+      "network": {
+       "name": "European Monitoring and Evaluation Programme (EMEP)",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "a020d91b-500b-474e-948b-cf5856121cb2"
+       }
+      },
+      "siteCode": null,
+      "verified": false
+     },
+     {
+      "network": {
+       "name": "GERI",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "c3abdc60-49f1-49db-81fe-863b7dbb21d3"
+       }
+      },
+      "siteCode": null,
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "ICOS",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "80633d38-4c85-4ee0-a4ce-7bbbd99c888c"
+       }
+      },
+      "siteCode": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy, http://meta.icos-cp.eu/resources/stations/ES_FI-Kvr",
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "ICP Forests",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "4e44c094-f4f7-4882-bfe5-685b666a0dc7"
+       }
+      },
+      "siteCode": "15_10, 15_11",
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "ILTER",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "1aa7ccb2-a14b-43d6-90ac-5e0a6bc1d65b"
+       }
+      },
+      "siteCode": null,
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "INTERACT",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "c0f5b78b-f3b2-4ec2-9ec3-53c79ea5e15a"
+       }
+      },
+      "siteCode": "https://eu-interact.org/field-sites/hyytiala-forestry-reseatch-station-smear-ii/",
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "LTER Europe",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "4742ffca-65ac-4aae-815f-83738500a1fc"
+       }
+      },
+      "siteCode": null,
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "LTER Finland",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "aaae2a46-f355-41d0-8067-c2f0cd52e814"
+       }
+      },
+      "siteCode": "LTER_EU_FI_007",
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "WMO Global Atmosphere Watch (GAW)",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "316f5ee2-ab7e-482b-a85b-9571d5ae932c"
+       }
+      },
+      "siteCode": null,
+      "verified": false
+     }
+    ]
+   },
+   "general": {
+    "siteType": "Stationary land-based site"
+   },
+   "geographic": {
+    "boundaries": "POLYGON ((24.295192 61.850177, 24.297445 61.849151, 24.298131 61.848685, 24.299119 61.846661, 24.295342 61.845749, 24.294398 61.846175, 24.292295 61.845992, 24.29178 61.846114, 24.2909 61.846755, 24.291372 61.847808, 24.292316 61.848435, 24.295192 61.850177))",
+    "coordinates": "POINT (24.295 61.8474)",
+    "country": [
+     "Finland"
+    ]
+   }
+  }
+ },
+ "e6b372ee-f310-49fd-9d0d-2a8306a06b64": {
+  "title": "Lompolojankka - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "e6b372ee-f310-49fd-9d0d-2a8306a06b64"
+  },
+  "type": "site",
+  "attributes": {
+   "affiliation": {
+    "networks": [
+     {
+      "network": {
+       "name": "ICOS",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "80633d38-4c85-4ee0-a4ce-7bbbd99c888c"
+       }
+      },
+      "siteCode": "https://meta.icos-cp.eu/resources/stations/ES_FI-Lom",
+      "verified": false
+     }
+    ]
+   },
+   "general": {
+    "siteType": null
+   },
+   "geographic": {
+    "boundaries": null,
+    "coordinates": "POINT (24.209179 67.99724)",
+    "country": [
+     "Finland"
+    ]
+   }
+  }
+ },
+ "28a399bc-e90f-43c2-a17d-2556b9644868": {
+  "title": "Lake Päijänne LTER - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "28a399bc-e90f-43c2-a17d-2556b9644868"
+  },
+  "type": "site",
+  "attributes": {
+   "affiliation": {
+    "networks": [
+     {
+      "network": {
+       "name": "ILTER",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "1aa7ccb2-a14b-43d6-90ac-5e0a6bc1d65b"
+       }
+      },
+      "siteCode": null,
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "LTER Europe",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "4742ffca-65ac-4aae-815f-83738500a1fc"
+       }
+      },
+      "siteCode": null,
+      "verified": true
+     },
+     {
+      "network": {
+       "name": "LTER Finland",
+       "id": {
+        "prefix": "https://deims.org/networks/",
+        "suffix": "aaae2a46-f355-41d0-8067-c2f0cd52e814"
+       }
+      },
+      "siteCode": "LTER_EU_FI_003",
+      "verified": true
+     }
+    ]
+   },
+   "general": {
+    "siteType": "Stationary land-based site"
+   },
+   "geographic": {
+    "boundaries": "MULTIPOLYGON (((25.743031 62.234034, 25.753327 62.237873, 25.761223 62.234674, 25.770493 62.247147, 25.786628 62.240911, 25.805511 62.237713, 25.786286 62.231475, 25.773239 62.234034, 25.765343 62.232595, 25.745432 62.230835, 25.73307 62.226196, 25.725173 62.227476, 25.732043 62.229076, 25.743031 62.234034)), ((26.559447 62.615457, 26.45645 62.635032, 26.375429 62.66973, 26.391911 62.631876, 26.346596 62.617352, 26.434478 62.605349, 26.526497 62.579431, 26.597904 62.550958, 26.629489 62.533228, 26.673438 62.54526, 26.732478 62.568045, 26.634977 62.583225, 26.628117 62.613562, 26.559447 62.615457)))",
+    "coordinates": "POINT (25.48 61.85)",
+    "country": [
+     "Finland"
+    ]
+   }
+  }
+ }
+}

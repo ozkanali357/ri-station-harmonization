@@ -8,9 +8,12 @@ is precisely the latitude band most of these stations sit in.
 
 from __future__ import annotations
 
+import json
+
 import geopandas as gpd
 import pandas as pd
 from rapidfuzz import fuzz
+from shapely import wkt
 from shapely.geometry import Point
 
 WGS84 = "EPSG:4326"
@@ -80,6 +83,71 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
     if frame.empty:
         return frame
     return frame.sort_values("distance_km").reset_index(drop=True)
+
+
+PAIR_COLUMNS = ["method", "cluster", "ri_a", "record_id_a", "source_id_a", "name_a", "ri_b", "record_id_b",
+                "source_id_b", "name_b", "distance_km", "name_similarity", "uri_a", "uri_b"]
+POLYGON_PAIR_COLUMNS = PAIR_COLUMNS + ["geometry_kind_a", "geometry_kind_b", "polygon_distance_m"]
+
+
+def _record_geometry(row):
+    """Boundary polygon from ``extra_ids`` when the record is a polygon, else its point."""
+    if row.get("geometry_kind") == "polygon":
+        boundary = json.loads(row.get("extra_ids") or "{}").get("boundary_wkt")
+        if boundary:
+            return wkt.loads(boundary)
+    return Point(row["lon"], row["lat"])
+
+
+def buffer_overlap_pairs_polygon(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFrame:
+    """Buffer matching where a record's boundary polygon is used instead of its point.
+
+    Opt-in sibling of :func:`buffer_overlap_pairs`. A pair is a candidate when the
+    distance between the two records' geometries, in EPSG:3035, is within
+    ``radius_km``. For a point against a polygon that is the distance from the point
+    to the polygon (0 when the point is inside), so a polygon is evidence and not a
+    hard inside/outside cut. Records without a polygon keep their point.
+
+    ``distance_km`` is still the point-to-point distance (as in the plain buffer
+    file); ``polygon_distance_m`` is the geometry-to-geometry distance in metres and
+    is empty for pairs where neither record has a polygon. ``name_similarity`` is
+    computed on the raw names, as in :func:`buffer_overlap_pairs`.
+    """
+    if df.empty:
+        return pd.DataFrame(columns=POLYGON_PAIR_COLUMNS)
+    df = df.reset_index(drop=True)
+    shapes = gpd.GeoSeries([_record_geometry(r) for r in df.to_dict("records")], crs=WGS84).to_crs(LAEA_EUROPE)
+    points = to_geodataframe(df).to_crs(LAEA_EUROPE).geometry
+    radius_m = radius_km * 1000.0
+
+    # Coarse candidate search with a slightly wide buffer; the exact distance decides.
+    left = gpd.GeoDataFrame({"i": range(len(df))}, geometry=shapes.buffer(radius_m * 1.01), crs=LAEA_EUROPE)
+    right = gpd.GeoDataFrame({"j": range(len(df))}, geometry=shapes, crs=LAEA_EUROPE)
+    joined = gpd.sjoin(left, right, how="inner", predicate="intersects")
+    ri = df.ri.to_numpy()
+    rows = []
+    for i, j in zip(joined.i.to_numpy(), joined.j.to_numpy()):
+        if i >= j or ri[i] == ri[j]:
+            continue
+        gap_m = float(shapes.iloc[i].distance(shapes.iloc[j]))
+        if gap_m > radius_m:
+            continue
+        a, b = sorted((df.iloc[i], df.iloc[j]), key=lambda r: (r["ri"], r["record_id"]))
+        a_kind = "polygon" if a.get("geometry_kind") == "polygon" else "point"
+        b_kind = "polygon" if b.get("geometry_kind") == "polygon" else "point"
+        has_polygon = "polygon" in (a_kind, b_kind)
+        rows.append({
+            "method": "buffer_polygon", "cluster": -1, "ri_a": a["ri"], "record_id_a": a["record_id"],
+            "source_id_a": a["source_id"], "name_a": a["name"], "ri_b": b["ri"], "record_id_b": b["record_id"],
+            "source_id_b": b["source_id"], "name_b": b["name"],
+            "distance_km": round(float(points.iloc[i].distance(points.iloc[j])) / 1000.0, 3),
+            "name_similarity": round(fuzz.token_set_ratio(a["name"], b["name"]) / 100.0, 3),
+            "uri_a": a["uri"], "uri_b": b["uri"], "geometry_kind_a": a_kind, "geometry_kind_b": b_kind,
+            "polygon_distance_m": round(gap_m, 1) if has_polygon else None,
+            "_gap": gap_m,
+        })
+    frame = pd.DataFrame(rows, columns=POLYGON_PAIR_COLUMNS + ["_gap"])
+    return frame.sort_values(["_gap", "name_similarity"], ascending=[True, False]).drop(columns="_gap").reset_index(drop=True)
 
 
 def write_spatial_outputs(df: pd.DataFrame, labels, out_dir) -> None:

@@ -19,7 +19,7 @@ import pandas as pd
 
 from . import cluster as cl
 from . import evaluate as ev
-from . import actris, geo, report, sources
+from . import actris, deims_detail, geo, report, sources
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
@@ -30,20 +30,30 @@ OUT = ROOT / "outputs"
 DEFAULT_EPS_GRID = [0.5, 1, 2, 3, 5, 7.5, 10, 15, 20, 30]
 
 
-def load_stations(offline: bool) -> pd.DataFrame:
-    frames = [
-        sources.fetch_icos(RAW, offline=offline),
-        sources.fetch_deims(RAW, offline=offline),
-        actris.fetch_actris(RAW, offline=offline),
-    ]
+def load_stations(offline: bool, deims_detail_finland: bool = False) -> pd.DataFrame:
+    """Harmonised station table; with ``deims_detail_finland`` the scope-check summary is in ``.attrs``.
+
+    The detail enrichment is opt-in: without it the table and the interim file are
+    exactly what earlier runs produced.
+    """
+    deims = sources.fetch_deims(RAW, offline=offline)
+    frames = [sources.fetch_icos(RAW, offline=offline), deims, actris.fetch_actris(RAW, offline=offline)]
     stations = pd.concat([f for f in frames if not f.empty], ignore_index=True)
+    name = "stations_harmonised.csv"
+    if deims_detail_finland:
+        details = deims_detail.fetch_details(RAW, deims_detail.finnish_site_ids(deims), offline=offline)
+        stations, scope_check = deims_detail.enrich_stations(stations, details)
+        stations.attrs["deims_detail_finland"] = scope_check
+        name = "stations_harmonised_deims_detail_finland.csv"
     INTERIM.mkdir(parents=True, exist_ok=True)
-    stations.to_csv(INTERIM / "stations_harmonised.csv", index=False)
+    stations.to_csv(INTERIM / name, index=False)
     return stations
 
 
 def cmd_run(args) -> None:
-    stations = load_stations(args.offline)
+    stations = load_stations(args.offline, args.deims_detail_finland)
+    scope_check = stations.attrs.get("deims_detail_finland")
+    out = Path(args.out_dir) if args.out_dir else OUT
     logging.info("%d records with usable coordinates: %s",
                  len(stations), stations.ri.value_counts().to_dict())
 
@@ -57,38 +67,47 @@ def cmd_run(args) -> None:
 
     buffer_pairs = geo.buffer_overlap_pairs(stations, radius_km=args.buffer_km)
 
+    polygon_pairs = geo.buffer_overlap_pairs_polygon(stations, radius_km=args.buffer_km) if args.deims_detail_finland else None
+
     ground_truth = ev.load_ground_truth(GROUND_TRUTH)
     scores = {
         "dbscan": ev.score(candidates, ground_truth),
         "kmeans_baseline": ev.score(km_candidates, ground_truth),
         "buffer_intersection": ev.score(buffer_pairs, ground_truth),
     }
+    if polygon_pairs is not None:
+        scores["buffer_polygon_intersection"] = ev.score(polygon_pairs, ground_truth)
     flat = {f"{m}.{k2}": v for m, d in scores.items() for k2, v in d.items()}
 
-    OUT.mkdir(parents=True, exist_ok=True)
-    sweep.to_csv(OUT / "eps_sweep.csv", index=False)
-    candidates.to_csv(OUT / "candidate_pairs_dbscan.csv", index=False)
-    km_candidates.to_csv(OUT / "candidate_pairs_kmeans.csv", index=False)
-    buffer_pairs.to_csv(OUT / "candidate_pairs_buffer.csv", index=False)
+    out.mkdir(parents=True, exist_ok=True)
+    sweep.to_csv(out / "eps_sweep.csv", index=False)
+    candidates.to_csv(out / "candidate_pairs_dbscan.csv", index=False)
+    km_candidates.to_csv(out / "candidate_pairs_kmeans.csv", index=False)
+    buffer_pairs.to_csv(out / "candidate_pairs_buffer.csv", index=False)
+    if polygon_pairs is not None:
+        polygon_pairs.to_csv(out / "candidate_pairs_buffer_polygon.csv", index=False)
 
-    report.plot_stations(stations, labels, OUT / "stations_map.png")
-    report.plot_eps_sweep(sweep, OUT / "eps_sweep.png")
-    geo.write_spatial_outputs(stations, labels, OUT)
+    report.plot_stations(stations, labels, out / "stations_map.png")
+    report.plot_eps_sweep(sweep, out / "eps_sweep.png")
+    geo.write_spatial_outputs(stations, labels, out)
     report.write_summary(
-        OUT / "summary.md", stations, sweep, candidates, km_candidates, buffer_pairs, flat,
+        out / "summary.md", stations, sweep, candidates, km_candidates, buffer_pairs, flat,
         {"eps_km": args.eps_km, "min_samples": args.min_samples,
          "buffer_km": args.buffer_km, "kmeans_k": k},
+        polygon_pairs=polygon_pairs, scope_check=scope_check,
     )
     revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True).stdout.strip()
     raw_manifest = json.loads((RAW / "manifest.json").read_text()) if (RAW / "manifest.json").exists() else {}
-    (OUT / "run_manifest.json").write_text(json.dumps({
+    (out / "run_manifest.json").write_text(json.dumps({
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "git_revision": revision, "parameters": {"eps_km": args.eps_km, "min_samples": args.min_samples, "buffer_km": args.buffer_km, "kmeans_k": k},
         "station_validation": sources.validate_stations(stations), "source_cache_manifest": raw_manifest,
-    }, indent=2) + "\n")
+        **({"deims_detail_finland": scope_check, "buffer_polygon_pairs": len(polygon_pairs)} if polygon_pairs is not None else {}),
+    }, indent=2, ensure_ascii=False) + "\n")
     print(f"\nWrote {len(candidates)} DBSCAN candidate pairs "
-          f"({len(km_candidates)} k-means, {len(buffer_pairs)} buffer) to {OUT}/")
-    print(f"Read {OUT / 'summary.md'} next.")
+          f"({len(km_candidates)} k-means, {len(buffer_pairs)} buffer"
+          + (f", {len(polygon_pairs)} polygon buffer" if polygon_pairs is not None else "") + f") to {out}/")
+    print(f"Read {out / 'summary.md'} next.")
 
 
 def cmd_review(args) -> None:
@@ -138,6 +157,11 @@ def main(argv=None) -> None:
     run.add_argument("--kmeans-divisor", type=int, default=3, dest="kmeans_divisor",
                      help="k = n_stations // divisor for the k-means baseline")
     run.add_argument("--offline", action="store_true", help="use cached responses only")
+    run.add_argument("--deims-detail-finland", action="store_true", dest="deims_detail_finland",
+                     help="fetch DEIMS detail records for the Finnish eLTER sites (title ends ' - Finland'), "
+                          "use their boundary polygons, and write candidate_pairs_buffer_polygon.csv")
+    run.add_argument("--out-dir", default=None, dest="out_dir",
+                     help="write run outputs here instead of outputs/ (use this for any non-default run)")
     run.set_defaults(func=cmd_run)
 
     review = sub.add_parser("review", help="write the next batch of pairs to check by hand")
