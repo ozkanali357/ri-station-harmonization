@@ -24,7 +24,7 @@ COLUMNS = [
     "lon",            # decimal degrees, WGS84
     "elevation_m",    # metres above sea level, or NaN
     "country",        # ISO 3166-1 alpha-2, upper case, or ""
-    "geometry_kind",  # point | centroid_of_polygon
+    "geometry_kind",  # point | centroid_of_polygon | polygon
     "station_class",  # RI-specific class label (AS/ES/OS, LTER site, ...)
     "extra_ids",      # JSON string: secondary identifiers (WIGOS, TC ids, ...)
 ]
