@@ -1,0 +1,66 @@
+ri,section,key,value,count
+ACTRIS,summary,n_records,,1518
+ACTRIS,id_scheme,ACTRIS DVAS facility identifier,,1518
+ACTRIS,geometry_kind,point,,1518
+ACTRIS,station_class,n_distinct,,3
+ACTRIS,station_class,"observation platform, fixed",,1468
+ACTRIS,station_class,simulation chamber,,31
+ACTRIS,station_class,"observation platform, mobile",,19
+ACTRIS,extra_ids,active,,1518
+ACTRIS,extra_ids,actris_national_facility,,1518
+ACTRIS,extra_ids,actris_nf_uri,,102
+ACTRIS,extra_ids,ebas_station_code,,1446
+ACTRIS,extra_ids,ebas_station_lat,,1446
+ACTRIS,extra_ids,ebas_station_lon,,1446
+ACTRIS,extra_ids,gawid_uri,,251
+ACTRIS,extra_ids,identifier_type,,1518
+ACTRIS,extra_ids,empty_json,{},0
+ACTRIS,country,non_empty,,1518
+ACTRIS,country,n_distinct,,88
+ACTRIS,country,distinct_values,"AM, AR, AT, AU, BA, BB, BE, BG, BM, BO, BR, BY, CA, CH, CI, CL, CN, CU, CV, CY, CZ, DE, DK, DZ, EE, EG, ES, FI, FR, GB, GE, GR, HK, HR, HU, ID, IE, IL, IN, IS, IT, JP, KE, KG, KH, KR, KZ, LA, LT, LV, MD, ME, MK, MN, MT, MV, MX, MY, NE, NL, NO, NP, NZ, PE, PH, PL, PR, PT, PY, RO, RS, RU, SC, SE, SH, SI, SK, SN, SR, TH, TJ, TR, TW, UA, US, VE, VN, ZA",88
+ACTRIS,missing,lat,,0
+ACTRIS,missing,lon,,0
+ACTRIS,missing,elevation_m,,21
+ACTRIS,missing,name,,0
+ICOS,summary,n_records,,519
+ICOS,id_scheme,ICOS station code,,519
+ICOS,geometry_kind,point,,519
+ICOS,station_class,n_distinct,,1
+ICOS,station_class,ICOS station resource,,519
+ICOS,extra_ids,wigos_id,,57
+ICOS,extra_ids,empty_json,{},462
+ICOS,country,non_empty,,517
+ICOS,country,n_distinct,,59
+ICOS,country,distinct_values,"AS, AT, AU, BB, BE, BJ, BR, BW, CA, CD, CG, CH, CN, CR, CV, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GH, GL, GR, HK, HU, ID, IE, IL, IS, IT, JP, KE, KH, KR, ML, MN, MY, NL, NO, NZ, PA, PL, PT, RO, RU, SD, SE, SJ, SN, TH, US, VE, VU, ZA, ZM",59
+ICOS,missing,lat,,0
+ICOS,missing,lon,,0
+ICOS,missing,elevation_m,,62
+ICOS,missing,name,,0
+eLTER,summary,n_records,,1399
+eLTER,id_scheme,DEIMS-SDR UUID,,1399
+eLTER,geometry_kind,centroid_of_polygon,,1399
+eLTER,station_class,n_distinct,,1
+eLTER,station_class,eLTER site,,1399
+eLTER,extra_ids,empty_json,{},1399
+eLTER,country,non_empty,,0
+eLTER,country,n_distinct,,0
+eLTER,country,distinct_values,,0
+eLTER,missing,lat,,0
+eLTER,missing,lon,,0
+eLTER,missing,elevation_m,,1399
+eLTER,missing,name,,0
+ACTRIS,dropped_before_harmonisation,dropped,computed from data/raw/actris_facilities.json,6
+ICOS,dropped_before_harmonisation,raw_rows,,536
+ICOS,dropped_before_harmonisation,passed_to_finalise,,536
+ICOS,dropped_before_harmonisation,blank_record_id,,0
+ICOS,dropped_before_harmonisation,no_coordinates,,17
+ICOS,dropped_before_harmonisation,out_of_range_coordinates,,0
+ICOS,dropped_before_harmonisation,duplicate_record_id,,0
+ICOS,dropped_before_harmonisation,harmonised,,519
+eLTER,dropped_before_harmonisation,raw_rows,,1399
+eLTER,dropped_before_harmonisation,passed_to_finalise,,1399
+eLTER,dropped_before_harmonisation,blank_record_id,,0
+eLTER,dropped_before_harmonisation,no_coordinates,,0
+eLTER,dropped_before_harmonisation,out_of_range_coordinates,,0
+eLTER,dropped_before_harmonisation,duplicate_record_id,,0
+eLTER,dropped_before_harmonisation,harmonised,,1399
