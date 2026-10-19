@@ -1,0 +1,21 @@
+uuid,site_type,country,has_boundary,n_networks
+1fb2dca0-1c40-47e5-adda-41349fb3f40e,Stationary land-based site,Finland,True,5
+1fb8d8ff-a71f-4aab-aff2-a885ae942a7a,,Finland,False,1
+28a399bc-e90f-43c2-a17d-2556b9644868,Stationary land-based site,Finland,True,3
+2cd5de60-f0f4-4499-afc7-210692906856,Platform,Finland,True,5
+35e3775a-88bc-483f-aed0-b614ce7736e2,Platform,Finland,True,5
+3f6a14de-1efb-4c06-8d1a-ce5765fe59e8,Stationary land-based site,Finland,True,6
+5132461b-1ce3-4e18-9aa5-005d0bf2e956,Platform,Finland,False,2
+5c41d138-7910-4827-a8ac-0273a5d09a74,,Finland,True,2
+5d64b207-5a68-410f-a2ec-cf0e05d4c0ac,Stationary land-based site,Finland,True,3
+663dac80-211d-4c19-a356-04ee0da0f0eb,Stationary land-based site,Finland,True,11
+8bf3329e-33d1-4fa9-ad35-cf1ef104172a,,Finland,False,2
+98a3b631-fcb0-4482-8572-6fee28691a39,Stationary land-based site,Finland,False,7
+a43d31c8-6219-4ab8-ac41-6088cb56b12b,Stationary land-based site,Finland,True,7
+b0edd1d7-4fe7-4945-a366-4e9ff21e9dd3,Stationary land-based site,Finland,True,10
+b471311f-e819-4f6f-bbae-1ac86cd9777f,Stationary land-based site,Finland,True,6
+b997f0d4-91ff-4542-815b-6384e1e46501,,Finland,False,1
+c763fa3d-ca06-4d88-8c59-9d56cb70f4f2,Stationary land-based site,Finland,True,7
+e6b372ee-f310-49fd-9d0d-2a8306a06b64,,Finland,False,1
+efe6fed0-2f58-4b0b-b0f9-e1b68d48032a,,Finland,False,1
+f81f30bb-6e2b-4a11-9b65-266fee2ae330,Stationary land-based site,Finland,True,1
