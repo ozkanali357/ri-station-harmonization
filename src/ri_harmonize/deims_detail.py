@@ -56,7 +56,9 @@ def fetch_details(cache_dir: Path, uuids: list[str], offline: bool = False) -> d
     """Fetch (or read from cache) one detail record per UUID; return ``{uuid: payload}``."""
     folder = Path(cache_dir) / DETAIL_DIR
     folder.mkdir(parents=True, exist_ok=True)
-    previous = {p["id"]: p for p in _read_manifest(cache_dir).get("sources", {}).get("deims_detail", {}).get("pages", [])}
+    prev_entry = _read_manifest(cache_dir).get("sources", {}).get("deims_detail", {})
+    previous = {p["id"]: p for p in prev_entry.get("pages", [])}
+    previous_source_retrieved_at = prev_entry.get("retrieved_at")
     pages, payloads, fetched_any = [], {}, False
     for uuid in uuids:
         path = folder / f"{uuid}.json"
@@ -74,7 +76,7 @@ def fetch_details(cache_dir: Path, uuids: list[str], offline: bool = False) -> d
         pages.append({"id": uuid, "file": f"{DETAIL_DIR}/{uuid}.json", "sha256": hashlib.sha256(raw).hexdigest(),
                       "bytes": len(raw), "retrieved_at": retrieved_at})
     _write_manifest(cache_dir, "deims_detail", {
-        "endpoint": DEIMS_SITE, "retrieved_at": _now() if fetched_any else None, "complete": True,
+        "endpoint": DEIMS_SITE, "retrieved_at": _now() if fetched_any else previous_source_retrieved_at, "complete": True,
         "checksum_of": "raw response bytes", "pages": pages,
     })
     return payloads

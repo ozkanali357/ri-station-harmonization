@@ -141,3 +141,36 @@ def test_live_fetch_caches_bytes_verbatim_and_records_checksum(tmp_path, monkeyp
 
     dd.fetch_details(tmp_path, [HYY, LOM], offline=True)            # served from the cache
     assert len(calls) == 2
+
+
+def test_source_retrieved_at_survives_cache_only_reread(tmp_path):
+    """A cache-only re-read must not blank the source-level retrieved_at in the manifest.
+
+    Regression for fetch_details writing retrieved_at=None into
+    data/raw/manifest.json whenever it serves every UUID from disk.
+    """
+    import json
+    from ri_harmonize.deims_detail import DETAIL_DIR
+
+    folder = tmp_path / DETAIL_DIR
+    folder.mkdir(parents=True)
+    (folder / f"{HYY}.json").write_text('{"attributes": {}}', encoding="utf-8")
+
+    known = "2026-10-19T22:49:07+00:00"
+    (tmp_path / "manifest.json").write_text(json.dumps({
+        "sources": {
+            "deims_detail": {
+                "endpoint": "https://deims.org/api/sites/{uuid}",
+                "retrieved_at": known,
+                "complete": True,
+                "checksum_of": "raw response bytes",
+                "pages": [{"id": HYY, "file": f"{DETAIL_DIR}/{HYY}.json",
+                           "sha256": "unused", "bytes": 0, "retrieved_at": known}],
+            }
+        }
+    }), encoding="utf-8")
+
+    dd.fetch_details(tmp_path, [HYY], offline=True)
+
+    after = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert after["sources"]["deims_detail"]["retrieved_at"] == known
