@@ -138,3 +138,47 @@ def test_presence_check_reports_missing_records():
     checks = {c["record"]: c for c in fc.presence_checks(fi, fc.record_table(fi))}
     assert checks["ICOS FI-Kvr (Kuivajärvi)"]["present"] is True
     assert checks["ICOS FI-Lom (Lompolojankka)"]["present"] is False
+
+
+def _deims_with_icos(site_code, verified=True, name="ICOS"):
+    return {"deims_networks": [{"name": name, "id": "x", "siteCode": site_code, "verified": verified},
+                               {"name": "LTER Europe", "id": "y", "siteCode": "http://meta.icos-cp.eu/resources/stations/ES_FI-X", "verified": True}]}
+
+
+def _linked_stations(site_code, verified=True):
+    rows = [_row("eLTER", "site", "Some LTER - Finland", 61.0, 24.0, "point", _deims_with_icos(site_code, verified)),
+            _row("ICOS", "FI-Hyy", "Hyytiala", 61.0, 24.0),
+            _row("ICOS", "FI-Kvr", "Kuivajarvi", 61.001, 24.0),
+            _row("ACTRIS", "act", "Act", 61.0, 24.001)]
+    for r in rows[1:3]:
+        r["record_id"] = f"http://meta.icos-cp.eu/resources/stations/ES_{r['source_id']}"
+    return pd.DataFrame(rows, columns=COLUMNS)
+
+
+def test_deims_icos_link_matches_exact_uri_across_http_https_and_lists_all_codes():
+    listed = ("https://meta.icos-cp.eu/resources/stations/ES_FI-Hyy, "
+              "http://meta.icos-cp.eu/resources/stations/ES_FI-Kvr/")
+    _, _, _, table = _table(_linked_stations(listed, verified=False))
+    by = {_key(r): r for r in table.itertuples()}
+    hyy = by[frozenset(("FI-Hyy", "site"))]
+    assert hyy.deims_lists_icos_station == True and hyy.deims_icos_sitecode_matched == "https://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"  # noqa: E712
+    assert hyy.deims_icos_sitecode_verified == False  # noqa: E712
+    assert by[frozenset(("FI-Kvr", "site"))].deims_lists_icos_station == True  # noqa: E712
+    assert hyy.deims_icos_sitecodes_listed == "https://meta.icos-cp.eu/resources/stations/ES_FI-Hyy;http://meta.icos-cp.eu/resources/stations/ES_FI-Kvr/"
+
+
+def test_deims_icos_link_is_false_for_unlisted_station_and_blank_for_other_pairs():
+    _, _, _, table = _table(_linked_stations("http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"))
+    by = {_key(r): r for r in table.itertuples()}
+    kvr = by[frozenset(("FI-Kvr", "site"))]
+    assert kvr.deims_lists_icos_station == False and kvr.deims_icos_sitecode_matched == ""  # noqa: E712
+    assert "ES_FI-Hyy" in kvr.deims_icos_sitecodes_listed          # what the site does list stays visible
+    assert by[frozenset(("act", "FI-Hyy"))].deims_lists_icos_station == ""   # ICOS-ACTRIS: not applicable
+    assert by[frozenset(("act", "site"))].deims_lists_icos_station == ""     # ACTRIS-eLTER: not applicable
+
+
+def test_deims_icos_link_ignores_non_icos_networks_and_suffix_lookalikes():
+    stations = _linked_stations("http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy-extra")
+    stations.at[0, "extra_ids"] = json.dumps(_deims_with_icos("http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy", name="ICOS Sweden"))
+    _, _, _, table = _table(stations)
+    assert not table.deims_lists_icos_station.eq(True).any()
