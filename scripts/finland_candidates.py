@@ -21,6 +21,10 @@ has filled ``data/raw/``)::
 
     python scripts/finland_candidates.py              # cached responses only
     python scripts/finland_candidates.py --fetch      # fetch what the cache lacks
+    python scripts/finland_candidates.py --links-only # only outputs/finland_candidate_station_links.csv
+
+``--links-only`` never touches ``outputs/finland_candidates.csv``, which may be hand-labelled.
+A plain run rewrites it, now with the ``deims_*`` evidence columns before ``methods``.
 """
 
 from __future__ import annotations
@@ -55,6 +59,12 @@ METHODS = ["dbscan", "buffer", "kmeans"]
 RECORD_FIELDS = ["ri", "record_id", "source_id", "id_scheme", "name", "lat", "lon", "uri"]
 KEY = ["ri_a", "record_id_a", "ri_b", "record_id_b"]
 
+# DEIMS network evidence: does the pair's DEIMS record list the pair's ICOS station? Filled only for
+# ICOS-eLTER pairs (blank otherwise); it is one fact about the pair, so there is one column, not one per side.
+LINK_COLUMNS = ["deims_lists_icos_station", "deims_icos_sitecode_matched", "deims_icos_sitecode_verified",
+                "deims_icos_sitecodes_listed"]
+LINK_KEY = KEY + ["source_id_a", "source_id_b"]
+
 # Hyytiälä columns, same order; the new evidence columns sit before `methods`, so the
 # label columns stay together at the right-hand end.
 COLUMNS = (
@@ -66,6 +76,7 @@ COLUMNS = (
     + ["distance_km_geometry", "distance_km_point", "polygon_distance_m",
        "has_boundary_a", "has_boundary_b", "polygon_area_ha_a", "polygon_area_ha_b",
        "site_type_a", "site_type_b"]
+    + LINK_COLUMNS
     + ["methods", "same_place", "checked_by", "checked_at", "evidence", "match_type"]
 )
 LABEL_COLUMNS = ["same_place", "checked_by", "checked_at", "evidence", "match_type"]
@@ -170,6 +181,46 @@ def method_columns(pairs: pd.DataFrame) -> pd.DataFrame:
     return frame.reindex(columns=columns)
 
 
+def _icos_uri(value: str) -> str:
+    """Compare ICOS resource URIs regardless of http/https and a trailing slash."""
+    return value.strip().replace("https://", "http://", 1).rstrip("/")
+
+
+def deims_icos_stations(row) -> list[dict]:
+    """ICOS station URIs a DEIMS record lists in its ``ICOS`` network entries (``siteCode`` is a comma-separated URI list)."""
+    listed = []
+    for network in (_extra(row, "deims_networks") or []):
+        if (network.get("name") or "").strip() != "ICOS" or not network.get("siteCode"):
+            continue
+        for code in network["siteCode"].split(","):
+            if code.strip():
+                listed.append({"uri": code.strip(), "verified": network.get("verified")})
+    return listed
+
+
+def station_link(icos_row, deims_row) -> dict:
+    """Does the DEIMS record list this ICOS station? Exact match of the ICOS resource URI (``record_id``) against
+    each listed ``siteCode`` URI, after http/https and trailing-slash normalisation; no suffix or name matching."""
+    listed = deims_icos_stations(deims_row)
+    hit = next((x for x in listed if _icos_uri(x["uri"]) == _icos_uri(icos_row["record_id"])), None)
+    return {
+        "deims_lists_icos_station": hit is not None,
+        "deims_icos_sitecode_matched": hit["uri"] if hit else "",
+        "deims_icos_sitecode_verified": hit["verified"] if hit else "",
+        "deims_icos_sitecodes_listed": ";".join(x["uri"] for x in listed),
+    }
+
+
+def link_columns(fi: pd.DataFrame, chosen: pd.DataFrame) -> pd.DataFrame:
+    """The DEIMS-lists-ICOS-station evidence for each chosen pair; blank unless the pair is ICOS-eLTER."""
+    rows = []
+    for i, j in zip(chosen.i, chosen.j):
+        pair = {fi.ri[i]: fi.loc[i], fi.ri[j]: fi.loc[j]}
+        rows.append(station_link(pair["ICOS"], pair["eLTER"]) if set(pair) == {"ICOS", "eLTER"}
+                    else dict.fromkeys(LINK_COLUMNS, ""))
+    return pd.DataFrame(rows, columns=LINK_COLUMNS)
+
+
 def assign_clusters(fi: pd.DataFrame, edges) -> dict:
     """Connected components of the candidate-pair graph: record index -> cluster number.
 
@@ -217,6 +268,7 @@ def build_candidates(fi: pd.DataFrame, rec: pd.DataFrame, dist: pd.DataFrame, me
     table["distance_km_geometry"] = (chosen.geometry_m.to_numpy() / 1000).round(3)
     table["distance_km_point"] = (chosen.point_m.to_numpy() / 1000).round(3)
     table["polygon_distance_m"] = [round(g, 1) if w else None for g, w in zip(chosen.geometry_m, chosen.with_polygon)]
+    table = pd.concat([table, link_columns(fi, chosen)], axis=1)
 
     table = table.merge(method_columns(methods), on=KEY, how="left")
     for col in table.columns:
@@ -326,6 +378,9 @@ def main(argv=None) -> None:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--fetch", action="store_true", help="fetch sources missing from data/raw/ instead of failing")
     parser.add_argument("--out-dir", default=str(OUT))
+    parser.add_argument("--links-only", action="store_true", dest="links_only",
+                        help="write only finland_candidate_station_links.csv; leaves finland_candidates.csv (possibly "
+                             "hand-labelled) and the other outputs untouched")
     args = parser.parse_args(argv)
     out = Path(args.out_dir)
 
@@ -334,6 +389,11 @@ def main(argv=None) -> None:
     rec = record_table(fi)
     dist = pair_distances(fi, rec)
     table = build_candidates(fi, rec, dist, method_pairs(stations))
+    if args.links_only:
+        out.mkdir(parents=True, exist_ok=True)
+        table[LINK_KEY + LINK_COLUMNS].to_csv(out / "finland_candidate_station_links.csv", index=False)
+        print(f"Wrote {len(table)} rows to {out / 'finland_candidate_station_links.csv'}")
+        return
     counts = cumulative_counts(dist, fi)
     presence, odd = presence_checks(fi, rec), oddities(fi, rec, dist, table)
 
