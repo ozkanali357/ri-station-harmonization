@@ -36,6 +36,14 @@ python -m ri_harmonize.cli -v run --deims-detail-finland --out-dir outputs/finla
 
 Fetches `GET https://deims.org/api/sites/{id}` for the eLTER records whose title ends in ` - Finland`, caches each response byte-for-byte in `data/raw/deims_detail/` (SHA-256 and retrieval time in `data/raw/manifest.json`), and sets `geometry_kind` to `polygon` where a boundary exists (`point` where it does not). `candidate_pairs_buffer_polygon.csv` then holds pairs whose geometry distance in EPSG:3035 is within `--buffer-km`; `polygon_distance_m` is the distance from the other record's point to the polygon (0 when inside). A polygon is evidence, not a hard inside/outside cut. The raw cache is not committed because DEIMS detail records contain site-manager names and e-mail addresses; nothing from the `contact` block is read or written. Without the flag nothing changes. A polygon run is a new, unreviewed run and is not comparable with `RESULTS.md`.
 
+### Variable terms for the Finnish records (Step 3, terms first)
+
+```bash
+python scripts/dictionary_terms.py --fetch      # first time; later runs read data/raw/dictionary/
+```
+
+Writes `outputs/dictionary_terms_finland.csv` (one row per term an RI publishes, with the Finnish records that use it, the source field, the fetch date and any definition or identifier the source gives) and `outputs/dictionary_terms_finland_run.json` (endpoints, queries, checksums, per-RI coverage). Terms come from ICOS (`dcat:theme` variable concepts on the station resources), ACTRIS (`variables[]` of the dataset records at `/api/metadata/search`) and DEIMS-SDR (`observedProperties` of the detail record). Terms are not mapped across RIs, `domain_published` is empty because none of the three publishes a domain per term, and `scope_candidate` is a keyword pre-filter for review, not a classification. Raw responses are cached in `data/raw/dictionary/` (not committed); ACTRIS dataset records and DEIMS detail records contain person names, which the script never reads. The station-field dictionary `data/ground_truth/data_dictionary.csv` is a different file.
+
 ## Manual review
 
 Open `outputs/review_sheet.csv`; for every reviewed row fill `same_place` with `yes` or `no`, `checked_by`, `checked_at` (ISO date), and evidence based on both landing pages. Copy only the ground-truth columns into `data/ground_truth/manual_pairs.csv`, then run offline again. Keep confirmed non-matches.

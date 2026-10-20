@@ -1,0 +1,141 @@
+{
+ "663dac80-211d-4c19-a356-04ee0da0f0eb": {
+  "title": "Hyytiälä SMEAR II LTER - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "663dac80-211d-4c19-a356-04ee0da0f0eb"
+  },
+  "type": "site",
+  "attributes": {
+   "focusDesignScale": {
+    "observedProperties": [
+     {
+      "label": "air temperature",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22035"
+     },
+     {
+      "label": "diffuse radiation intensity",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22043"
+     },
+     {
+      "label": "diffuse radiation intensity",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22106"
+     },
+     {
+      "label": "diffuse solar radiation intensity",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22106"
+     },
+     {
+      "label": "soil temperature",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22278"
+     }
+    ]
+   },
+   "environmentalCharacteristics": {
+    "soils": "Podzol (synthetic text for the test)"
+   },
+   "contact": {
+    "siteManager": [
+     {
+      "name": "Test Person",
+      "email": "test.person@example.invalid"
+     }
+    ]
+   }
+  }
+ },
+ "5d64b207-5a68-410f-a2ec-cf0e05d4c0ac": {
+  "title": "SMEAR-Agri Viikki - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "5d64b207-5a68-410f-a2ec-cf0e05d4c0ac"
+  },
+  "type": "site",
+  "attributes": {
+   "focusDesignScale": {
+    "observedProperties": [
+     {
+      "label": "air temperature",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22035"
+     },
+     {
+      "label": "diffuse solar radiation intensity",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22106"
+     },
+     {
+      "label": "precipitation intensity",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22204"
+     },
+     {
+      "label": "soil temperature",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22278"
+     }
+    ]
+   },
+   "environmentalCharacteristics": {
+    "soils": null
+   },
+   "contact": {
+    "siteManager": [
+     {
+      "name": "Test Person",
+      "email": "test.person@example.invalid"
+     }
+    ]
+   }
+  }
+ },
+ "f81f30bb-6e2b-4a11-9b65-266fee2ae330": {
+  "title": "Oulanka Research Station (Oulanka LTER) - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "f81f30bb-6e2b-4a11-9b65-266fee2ae330"
+  },
+  "type": "site",
+  "attributes": {
+   "focusDesignScale": {
+    "observedProperties": [
+     {
+      "label": "wind speed",
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22319"
+     }
+    ]
+   },
+   "environmentalCharacteristics": {
+    "soils": null
+   },
+   "contact": {
+    "siteManager": [
+     {
+      "name": "Test Person",
+      "email": "test.person@example.invalid"
+     }
+    ]
+   }
+  }
+ },
+ "5c41d138-7910-4827-a8ac-0273a5d09a74": {
+  "title": "Kumpula Helsinki / SMEAR III - Finland",
+  "id": {
+   "prefix": "https://deims.org/",
+   "suffix": "5c41d138-7910-4827-a8ac-0273a5d09a74"
+  },
+  "type": "site",
+  "attributes": {
+   "focusDesignScale": {
+    "observedProperties": null
+   },
+   "environmentalCharacteristics": {
+    "soils": null
+   },
+   "contact": {
+    "siteManager": [
+     {
+      "name": "Test Person",
+      "email": "test.person@example.invalid"
+     }
+    ]
+   }
+  }
+ }
+}
