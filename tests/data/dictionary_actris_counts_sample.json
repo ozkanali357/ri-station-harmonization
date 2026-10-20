@@ -1,0 +1,498 @@
+{
+ "response": {
+  "took": 21,
+  "timed_out": false,
+  "_shards": {
+   "failed": 0.0,
+   "successful": 1.0,
+   "total": 1.0,
+   "skipped": 0.0
+  },
+  "hits": {
+   "total": {
+    "relation": "eq",
+    "value": 34684
+   },
+   "hits": [],
+   "max_score": null
+  },
+  "aggregations": {
+   "sterms#fac": {
+    "buckets": [
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 6,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 2,
+         "key": "air pressure"
+        },
+        {
+         "doc_count": 2,
+         "key": "air temperature"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 11,
+      "key": "ko6m"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 10,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 2,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 12,
+      "key": "tfl7"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 12,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 7,
+         "key": "precipitation sulphate mass concentration"
+        },
+        {
+         "doc_count": 1,
+         "key": "air temperature"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 20,
+      "key": "4iaj"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 12,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 3,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 15,
+      "key": "sz0j"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 3,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 2,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 5,
+      "key": "8h8z"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 10,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 3,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 13,
+      "key": "9w63"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 8,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 3,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 11,
+      "key": "K52R"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 17,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 17,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 34,
+      "key": "w7qj"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 4,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 5,
+      "key": "9o3x"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 3,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 4,
+      "key": "Q7NI"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 1,
+         "key": "air pressure"
+        },
+        {
+         "doc_count": 1,
+         "key": "air temperature"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation accumulated volume flux"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 3,
+      "key": "p0ob"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 5,
+         "key": "precipitation sulphate mass concentration"
+        },
+        {
+         "doc_count": 4,
+         "key": "precipitation accumulated volume flux"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 9,
+      "key": "3qzy"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 7,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 3,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 10,
+      "key": "9r9u"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 2,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "air pressure"
+        },
+        {
+         "doc_count": 1,
+         "key": "air temperature"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 5,
+      "key": "d23p"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 6,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 6,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 12,
+      "key": "xceq"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 7,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 8,
+      "key": "d3ma"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 6,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 5,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 11,
+      "key": "yd9c"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 3,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 3,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 6,
+      "key": "znwi"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 6,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 4,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 10,
+      "key": "x5z6"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 2,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 2,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 4,
+      "key": "XGHZ"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 2,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 2,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 4,
+      "key": "Y8VY"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 4,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 5,
+      "key": "lhju"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 2,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 3,
+      "key": "WEOO"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 1,
+         "key": "precipitation accumulated volume flux"
+        },
+        {
+         "doc_count": 1,
+         "key": "precipitation sulphate mass concentration"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 2,
+      "key": "j8fo"
+     },
+     {
+      "sterms#vn": {
+       "buckets": [
+        {
+         "doc_count": 1,
+         "key": "precipitation accumulated volume flux"
+        }
+       ],
+       "doc_count_error_upper_bound": 0,
+       "sum_other_doc_count": 0
+      },
+      "doc_count": 1,
+      "key": "9lv1"
+     }
+    ],
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,243 @@
+{
+ "head": {
+  "vars": [
+   "station",
+   "stationId",
+   "theme",
+   "label",
+   "comment",
+   "altLabel",
+   "closeMatch"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/AS_SMR"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/AT"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "SMR"
+    },
+    "label": {
+     "type": "literal",
+     "value": "air temperature"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "AT"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/AS_SMR"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/WS"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "SMR"
+    },
+    "label": {
+     "type": "literal",
+     "value": "wind speed"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "WS"
+    },
+    "closeMatch": {
+     "type": "uri",
+     "value": "https://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/CO2"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "CO2 (wet air mole fraction)"
+    },
+    "comment": {
+     "type": "literal",
+     "value": "Carbon Dioxide (CO2) in mole fraction of wet air (from the EC gas analyser)"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "CO2"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/ETC_WS"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "wind speed"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "^WS(_\\d{1,2})?$"
+    },
+    "closeMatch": {
+     "type": "uri",
+     "value": "https://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/G"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "soil heat flux"
+    },
+    "comment": {
+     "type": "literal",
+     "value": "soil heat flux"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "^G(_\\d{1,2})?$"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/P"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "precipitation (total)"
+    },
+    "comment": {
+     "type": "literal",
+     "value": "Precipitation"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "^P(_\\d{1,2})?$"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/SWC_n"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "volumetric soil water content"
+    },
+    "comment": {
+     "type": "literal",
+     "value": "average across several sensors at same depth"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "^SWC_\\d{1,2}$"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/TS_n"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "soil temperature"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "^TS_\\d{1,2}$"
+    }
+   },
+   {
+    "station": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/stations/ES_FI-Hyy"
+    },
+    "theme": {
+     "type": "uri",
+     "value": "http://meta.icos-cp.eu/resources/dcat/var/WS_F"
+    },
+    "stationId": {
+     "type": "literal",
+     "value": "FI-Hyy"
+    },
+    "label": {
+     "type": "literal",
+     "value": "wind speed"
+    },
+    "altLabel": {
+     "type": "literal",
+     "value": "WS_F"
+    },
+    "closeMatch": {
+     "type": "uri",
+     "value": "https://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/"
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,1912 @@
+{
+ "air temperature": {
+  "response": {
+   "hits": {
+    "total": {
+     "relation": "eq",
+     "value": 5
+    },
+    "hits": [
+     {
+      "_id": "https://doi.org/10.48597/22V4-BPHS",
+      "_source": {
+       "facility": {
+        "identifier": "ko6m"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/22V4-BPHS",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/9Y7K-AE9H",
+      "_source": {
+       "facility": {
+        "identifier": "p0ob"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/9Y7K-AE9H",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/A8V6-T4VW",
+      "_source": {
+       "facility": {
+        "identifier": "ko6m"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/A8V6-T4VW",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/P86C-73DY",
+      "_source": {
+       "facility": {
+        "identifier": "d23p"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/P86C-73DY",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/QT7Z-VVJY",
+      "_source": {
+       "facility": {
+        "identifier": "4iaj"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/QT7Z-VVJY",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "P1D"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ },
+ "air pressure": {
+  "response": {
+   "hits": {
+    "total": {
+     "relation": "eq",
+     "value": 4
+    },
+    "hits": [
+     {
+      "_id": "https://doi.org/10.48597/22V4-BPHS",
+      "_source": {
+       "facility": {
+        "identifier": "ko6m"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/22V4-BPHS",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/9Y7K-AE9H",
+      "_source": {
+       "facility": {
+        "identifier": "p0ob"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/9Y7K-AE9H",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/A8V6-T4VW",
+      "_source": {
+       "facility": {
+        "identifier": "ko6m"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/A8V6-T4VW",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/P86C-73DY",
+      "_source": {
+       "facility": {
+        "identifier": "d23p"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/P86C-73DY",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ },
+ "precipitation accumulated volume flux": {
+  "response": {
+   "hits": {
+    "total": {
+     "relation": "eq",
+     "value": 139
+    },
+    "hits": [
+     {
+      "_id": "https://doi.org/10.48597/22V4-BPHS",
+      "_source": {
+       "facility": {
+        "identifier": "ko6m"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/22V4-BPHS",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "downward solar light flux density",
+         "variable_property_of_interest": "flux density",
+         "object_of_interest": "electromagnetic radiation",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air pressure",
+         "variable_property_of_interest": "pressure",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "water vapour liquid water saturation fraction",
+         "variable_property_of_interest": "saturation fraction",
+         "object_of_interest": "water vapour",
+         "variable_matrix": "gas phase",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air temperature",
+         "variable_property_of_interest": "temperature",
+         "object_of_interest": "atmosphere",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity horizontal from direction",
+         "variable_property_of_interest": "from direction",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        },
+        {
+         "variable_name": "air velocity magnitude",
+         "variable_property_of_interest": "magnitude",
+         "object_of_interest": "velocity",
+         "variable_matrix": "atmospheric state",
+         "temporal_resolution": "PT1H"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/2BZ6-U7GZ",
+      "_source": {
+       "facility": {
+        "identifier": "4iaj"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/2BZ6-U7GZ",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation cadmium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "cadmium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation copper mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "copper",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation iron mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "iron",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation lead mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "lead",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation manganese mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "manganese",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nickel mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nickel",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation vanadium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "vanadium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation zinc mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "zinc",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/2GAF-N33N",
+      "_source": {
+       "facility": {
+        "identifier": "sz0j"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/2GAF-N33N",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/2HQF-MNPG",
+      "_source": {
+       "facility": {
+        "identifier": "yd9c"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/2HQF-MNPG",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/36YN-UP64",
+      "_source": {
+       "facility": {
+        "identifier": "9w63"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/36YN-UP64",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation aluminium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "aluminium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation arsenic mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "arsenic",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation cadmium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "cadmium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chromium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chromium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation cobalt mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "cobalt",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation copper mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "copper",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation iron mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "iron",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation lead mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "lead",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation manganese mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "manganese",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nickel mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nickel",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation vanadium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "vanadium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation zinc mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "zinc",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ },
+ "precipitation sulphate mass concentration": {
+  "response": {
+   "hits": {
+    "total": {
+     "relation": "eq",
+     "value": 75
+    },
+    "hits": [
+     {
+      "_id": "https://doi.org/10.48597/2GAF-N33N",
+      "_source": {
+       "facility": {
+        "identifier": "sz0j"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/2GAF-N33N",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P7D"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/2HQF-MNPG",
+      "_source": {
+       "facility": {
+        "identifier": "yd9c"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/2HQF-MNPG",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/3QN9-FHU3",
+      "_source": {
+       "facility": {
+        "identifier": "9w63"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/3QN9-FHU3",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1D"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/5SW6-AYBY",
+      "_source": {
+       "facility": {
+        "identifier": "d23p"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/5SW6-AYBY",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     },
+     {
+      "_id": "https://doi.org/10.48597/64HD-GFSC",
+      "_source": {
+       "facility": {
+        "identifier": "yd9c"
+       },
+       "dataset_metadata": {
+        "repository": {
+         "repository_id": "In-Situ"
+        }
+       },
+       "identification": {
+        "identifier": {
+         "pid": "https://doi.org/10.48597/64HD-GFSC",
+         "pid_type": "DOI"
+        }
+       },
+       "variables": [
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation accumulated volume flux",
+         "variable_property_of_interest": "volume flux",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation ammonium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "ammonium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation calcium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "calcium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chloride mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chloride",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation conductivity",
+         "variable_property_of_interest": "conductivity",
+         "object_of_interest": "precipitation",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation magnesium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "magnesium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nitrate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nitrate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation hydrogen ion number concentration",
+         "variable_property_of_interest": "number concentration",
+         "object_of_interest": "hydrogen ion",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation potassium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "potassium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sodium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sodium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation sulphate mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "sulphate",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation arsenic mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "arsenic",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation cadmium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "cadmium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation chromium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "chromium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation copper mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "copper",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation iron mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "iron",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation lead mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "lead",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation manganese mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "manganese",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation nickel mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "nickel",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation vanadium mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "vanadium",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        },
+        {
+         "variable_name": "precipitation zinc mass concentration",
+         "variable_property_of_interest": "mass concentration",
+         "object_of_interest": "zinc",
+         "variable_matrix": "precipitation phase",
+         "temporal_resolution": "P1M"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}
