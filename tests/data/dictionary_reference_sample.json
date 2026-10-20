@@ -1,0 +1,870 @@
+{
+ "concepts": {
+  "http://vocabs.lter-europe.net/EnvThes/22035": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/20935",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22035"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "variable"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/21524",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "temperature"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/21920",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "atmosphere"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/22035",
+     "type": [
+      "https://w3id.org/iadopt/ont/Variable",
+      "skos:Concept"
+     ],
+     "altLabel": {
+      "lang": "en",
+      "value": "temperature of air"
+     },
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/20935"
+     },
+     "skos:definition": {
+      "lang": "en",
+      "value": "[GEMET] The temperature of the atmosphere which represents the average kinetic energy of the molecular motion in a small region and is defined in terms of a standard or calibrated thermometer in thermal equilibrium with the air."
+     },
+     "exactMatch": [
+      {
+       "uri": "https://vocab.lternet.edu/vocab/vocab/?tema=22"
+      },
+      {
+       "uri": "http://www.eionet.europa.eu/gemet/concept/281"
+      },
+      {
+       "uri": "http://linkeddata.ge.imati.cnr.it:2020/resource/EARTh/16250"
+      },
+      {
+       "uri": "http://en.wikipedia.org/wiki/air_temperature"
+      },
+      {
+       "uri": "http://aims.fao.org/aos/agrovoc/c_230"
+      }
+     ],
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "air temperature"
+     },
+     "skos:scopeNote": {
+      "lang": "en",
+      "value": "US LTER controlled vocabulary"
+     },
+     "https://w3id.org/iadopt/ont/hasMatrix": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/21920"
+     },
+     "https://w3id.org/iadopt/ont/hasObjectOfInterest": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/23"
+     },
+     "https://w3id.org/iadopt/ont/hasProperty": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/21524"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/23",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "air"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasMatrix",
+     "rdfs:comment": "A Variable might have an Entity in which the ObjectOfInterest is contained.",
+     "label": "hasMatrix",
+     "rdfs:subPropertyOf": {
+      "uri": "https://w3id.org/iadopt/ont/hasContextObject"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasObjectOfInterest",
+     "rdfs:comment": "A Variable has an Entity whose Property is observed.",
+     "label": "hasObjectOfInterest"
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasProperty",
+     "rdfs:comment": "A Variable has a Property that characterizes an Entity.",
+     "label": "hasProperty"
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/EnvThes/22106": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/20935",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22106"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "variable"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/22106",
+     "type": "skos:Concept",
+     "altLabel": [
+      {
+       "lang": "en",
+       "value": "intensity of diffuse radiation"
+      },
+      {
+       "lang": "en",
+       "value": "diffuse solar radiation"
+      },
+      {
+       "lang": "en",
+       "value": "diffuse radiation intensity"
+      }
+     ],
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/20935"
+     },
+     "skos:definition": {
+      "lang": "en",
+      "value": "Energy from the entire sky dome that falls on a horizontal surface, minus the effects of direct beam radiation as it hits the horizontal."
+     },
+     "exactMatch": {
+      "uri": "http://en.wikipedia.org/wiki/diffuse_solar_radiation"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "diffuse solar radiation intensity"
+     },
+     "skos:scopeNote": {
+      "lang": "en",
+      "value": "LTER EU controlled vocabulary"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/EnvThes/10039": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/1",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "deprecated concept"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/10039",
+     "type": "skos:Concept",
+     "dct:created": {
+      "type": "http://www.w3.org/2001/XMLSchema#date",
+      "value": "2014-10-11"
+     },
+     "dct:isReplacedBy": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22281"
+     },
+     "owl:deprecated": true,
+     "altLabel": [
+      {
+       "lang": "en",
+       "value": "content of moisture in soil"
+      },
+      {
+       "lang": "en",
+       "value": "soil water content"
+      }
+     ],
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/1"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil moisture content"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/22281",
+     "type": [
+      "https://w3id.org/iadopt/ont/Variable",
+      "skos:Concept"
+     ],
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil water content"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/EnvThes/22125": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/20935",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22125"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "variable"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/22125",
+     "type": "skos:Concept",
+     "altLabel": {
+      "lang": "en",
+      "value": "irradiance of global radiation"
+     },
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/20935"
+     },
+     "skos:definition": {
+      "lang": "en",
+      "value": "Global radiation is the solar radiation reaching the earth's surface on a horizonatl plane"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "global radiation irradiance"
+     },
+     "skos:scopeNote": {
+      "lang": "en",
+      "value": "LTER EU controlled vocabulary"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/EnvThes/10333": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/1",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "deprecated concept"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/10333",
+     "type": "skos:Concept",
+     "dct:created": {
+      "type": "http://www.w3.org/2001/XMLSchema#date",
+      "value": "2018-01-11"
+     },
+     "owl:deprecated": true,
+     "altLabel": {
+      "lang": "en",
+      "value": "chemical measure"
+     },
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/1"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "chemical parameter"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/EnvThes/22281": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "EnvThes"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/20542",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil water"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/20935",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/22281"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "variable"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/22281",
+     "type": [
+      "skos:Concept",
+      "https://w3id.org/iadopt/ont/Variable"
+     ],
+     "altLabel": [
+      {
+       "lang": "en",
+       "value": "content of soil water"
+      },
+      {
+       "lang": "en",
+       "value": "soil moisture content"
+      }
+     ],
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/20935"
+     },
+     "skos:definition": {
+      "lang": "en",
+      "value": "Volume of water of total soil volume"
+     },
+     "exactMatch": [
+      {
+       "uri": "http://aims.fao.org/aos/agrovoc/c_7208"
+      },
+      {
+       "uri": "http://purl.dataone.org/odo/ECSO_00001704"
+      },
+      {
+       "uri": "https://vocab.lternet.edu/vocab/vocab/?tema=534"
+      },
+      {
+       "uri": "https://w3id.org/ozcar-theia/c_f3eff6a3"
+      }
+     ],
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/"
+     },
+     "skos:note": {
+      "lang": "en",
+      "value": "[source of definition ] Lars Lundin , [controlled by ] Lars Lundin 20130614"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil water content"
+     },
+     "skos:scopeNote": {
+      "lang": "en",
+      "value": "US LTER controlled vocabulary"
+     },
+     "https://w3id.org/iadopt/ont/hasMatrix": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/24"
+     },
+     "https://w3id.org/iadopt/ont/hasObjectOfInterest": {
+      "uri": "http://vocabs.lter-europe.net/EnvThes/20542"
+     },
+     "https://w3id.org/iadopt/ont/hasProperty": {
+      "uri": "https://qudt.org/vocab/quantitykind/VolumeFraction"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/EnvThes/24",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasMatrix",
+     "rdfs:comment": "A Variable might have an Entity in which the ObjectOfInterest is contained.",
+     "label": "hasMatrix",
+     "rdfs:subPropertyOf": {
+      "uri": "https://w3id.org/iadopt/ont/hasContextObject"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasObjectOfInterest",
+     "rdfs:comment": "A Variable has an Entity whose Property is observed.",
+     "label": "hasObjectOfInterest"
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasProperty",
+     "rdfs:comment": "A Variable has a Property that characterizes an Entity.",
+     "label": "hasProperty"
+    }
+   ]
+  },
+  "https://vocabulary.actris.nilu.no/actris_vocab/airtemperature": {
+   "graph": [
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "ACTRIS Vocabulary"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/airtemperature",
+     "type": "skos:Concept",
+     "broader": [
+      {
+       "uri": "https://vocabulary.actris.nilu.no/actris_vocab/variable"
+      },
+      {
+       "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphericstatevariables"
+      }
+     ],
+     "exactMatch": {
+      "uri": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023"
+     },
+     "inScheme": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "air temperature"
+     },
+     "https://w3id.org/iadopt/ont/hasMatrix": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphericstate"
+     },
+     "https://w3id.org/iadopt/ont/hasObjectOfInterest": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphere"
+     },
+     "https://w3id.org/iadopt/ont/hasProperty": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/temperature"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphere",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "atmosphere"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphericstate",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "atmospheric state"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/atmosphericstatevariables",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/airtemperature"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "atmospheric state variables"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/temperature",
+     "type": "skos:Concept",
+     "prefLabel": {
+      "lang": "en",
+      "value": "temperature"
+     }
+    },
+    {
+     "uri": "https://vocabulary.actris.nilu.no/actris_vocab/variable",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "https://vocabulary.actris.nilu.no/actris_vocab/airtemperature"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "variable"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasMatrix",
+     "label": {
+      "lang": "en",
+      "value": "Observation Matrix"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasObjectOfInterest",
+     "label": {
+      "lang": "en",
+      "value": "Object Of Interest"
+     }
+    },
+    {
+     "uri": "https://w3id.org/iadopt/ont/hasProperty",
+     "label": {
+      "lang": "en",
+      "value": "Observed Property"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/so/027": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/so/",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "eLTER SOs"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/so/027",
+     "type": [
+      "https://w3id.org/iadopt/ont/VariableSet",
+      "skos:Concept"
+     ],
+     "dct:created": {
+      "type": "http://www.w3.org/2001/XMLSchema#date",
+      "value": "2023-08-16"
+     },
+     "dct:modified": {
+      "type": "http://www.w3.org/2001/XMLSchema#date",
+      "value": "2025-12-12"
+     },
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/so/c5"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/so/"
+     },
+     "skos:notation": {
+      "lang": "en",
+      "value": "SOATM_027"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "Meteorological data"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/so/c5",
+     "type": "skos:Concept",
+     "narrowMatch": {
+      "uri": "http://vocabs.lter-europe.net/so/027"
+     },
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/so/027"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "Atmosphere"
+     }
+    }
+   ]
+  },
+  "http://vocabs.lter-europe.net/elter_cl/10051": {
+   "graph": [
+    {
+     "uri": "http://vocabs.lter-europe.net/elter_cl",
+     "type": "skos:ConceptScheme",
+     "prefLabel": {
+      "lang": "en",
+      "value": "eLTER Controlled Lists"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/elter_cl/10001",
+     "type": "skos:Concept",
+     "narrower": {
+      "uri": "http://vocabs.lter-europe.net/elter_cl/10051"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "INSPIRE data theme"
+     }
+    },
+    {
+     "uri": "http://vocabs.lter-europe.net/elter_cl/10051",
+     "type": "skos:Concept",
+     "dct:source": {
+      "uri": "http://inspire.ec.europa.eu/theme/so"
+     },
+     "broader": {
+      "uri": "http://vocabs.lter-europe.net/elter_cl/10001"
+     },
+     "skos:definition": {
+      "lang": "en",
+      "value": "Soils and subsoil characterised according to depth, texture, structure and content of particles and organic material, stoniness, erosion, where appropriate mean slope and anticipated water storage capacity."
+     },
+     "exactMatch": {
+      "uri": "http://inspire.ec.europa.eu/theme/so"
+     },
+     "inScheme": {
+      "uri": "http://vocabs.lter-europe.net/elter_cl"
+     },
+     "prefLabel": {
+      "lang": "en",
+      "value": "soil"
+     }
+    }
+   ]
+  }
+ },
+ "nerc": {
+  "https://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/": {
+   "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/",
+   "pav:authoredOn": "2006-09-26 18:12:43.0",
+   "pav:hasCurrentVersion": {
+    "@id": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/1/"
+   },
+   "dce:identifier": "SDN:P07::CFSN0038",
+   "pav:version": "1",
+   "owl:sameAs": [
+    {
+     "@id": "http://mmisw.org/ont/cf/parameter/wind_speed"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/I01/current/0.2.1/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/B39/current/truewindspeed/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/standard_name/wind_speed/"
+    }
+   ],
+   "skos:broader": [
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/A05/current/EV_WSPD/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P25/current/WINDS/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P02/current/EWSB/"
+    }
+   ],
+   "skos:notation": "SDN:P07::CFSN0038",
+   "skos:inScheme": [
+    {
+     "@id": "http://vocab.nerc.ac.uk/scheme/NETMAR_OCEAN/current/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/scheme/NETOC_PARAM/current/"
+    }
+   ],
+   "skos:altLabel": "",
+   "dc:date": "2006-09-26 18:12:43.0",
+   "owl:versionInfo": "1",
+   "skos:prefLabel": {
+    "@language": "en",
+    "@value": "wind_speed"
+   },
+   "dc:identifier": "SDN:P07::CFSN0038",
+   "skos:note": {
+    "@language": "en",
+    "@value": "accepted"
+   },
+   "owl:deprecated": "false",
+   "@type": "skos:Concept",
+   "skos:related": [
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P64/current/G250/"
+    },
+    {
+     "@id": "http://vocab.nerc.ac.uk/collection/P04/current/G982/"
+    }
+   ],
+   "skos:definition": {
+    "@language": "en",
+    "@value": "Speed is the magnitude of velocity. Wind is defined as a two-dimensional (horizontal) air velocity vector, with no vertical component. (Vertical motion in the atmosphere has the standard name upward_air_velocity.) The wind speed is the magnitude of the wind velocity."
+   },
+   "void:inDataset": {
+    "@id": "http://vocab.nerc.ac.uk/.well-known/void"
+   },
+   "@context": {
+    "cpm": "http://purl.org/voc/cpm#",
+    "qudt": "https://qudt.org/2.1/schema/qudt#",
+    "void": "http://rdfs.org/ns/void#",
+    "pav": "http://purl.org/pav/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "dce": "http://purl.org/dc/elements/1.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ns0": "http://www.w3.org/ns/dx/conneg/altr#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "iop": "https://w3id.org/iadopt/ont#",
+    "ns1": "http://www.w3.org/ns/dx/prof/",
+    "puv": "https://w3id.org/env/puv#",
+    "semapv": "http://w3id.org/semapv/vocab/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "reg": "http://purl.org/linked-data/registry#",
+    "sssom": "https://w3id.org/sssom/schema/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "grg": "http://www.isotc211.org/schemas/grg/",
+    "prov": "https://www.w3.org/ns/prov#",
+    "dc": "http://purl.org/dc/terms/"
+   }
+  }
+ },
+ "index": {
+  "EnvThes": [
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22035",
+    "localname": "22035",
+    "prefLabel": "air temperature",
+    "lang": "en"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22106",
+    "localname": "22106",
+    "prefLabel": "diffuse solar radiation intensity",
+    "lang": "en",
+    "altLabel": "diffuse radiation intensity"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22106",
+    "localname": "22106",
+    "prefLabel": "diffuse solar radiation intensity",
+    "lang": "en",
+    "altLabel": "diffuse solar radiation"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22106",
+    "localname": "22106",
+    "prefLabel": "diffuse solar radiation intensity",
+    "lang": "en"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22106",
+    "localname": "22106",
+    "prefLabel": "diffuse solar radiation intensity",
+    "lang": "en",
+    "altLabel": "intensity of diffuse radiation"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22278",
+    "localname": "22278",
+    "prefLabel": "soil temperature",
+    "lang": "en"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/30342",
+    "localname": "30342",
+    "prefLabel": "wind speed",
+    "lang": "en",
+    "altLabel": "speed of wind"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22035",
+    "localname": "22035",
+    "prefLabel": "air temperature",
+    "lang": "en",
+    "altLabel": "temperature of air"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/22278",
+    "localname": "22278",
+    "prefLabel": "soil temperature",
+    "lang": "en",
+    "altLabel": "temperature of soil"
+   },
+   {
+    "uri": "http://vocabs.lter-europe.net/EnvThes/30342",
+    "localname": "30342",
+    "prefLabel": "wind speed",
+    "lang": "en"
+   }
+  ],
+  "so": [
+   {
+    "uri": "http://vocabs.lter-europe.net/so/027",
+    "localname": "027",
+    "prefLabel": "Meteorological data",
+    "lang": "en"
+   }
+  ],
+  "elter_cl": [
+   {
+    "uri": "http://vocabs.lter-europe.net/elter_cl/10051",
+    "localname": "10051",
+    "prefLabel": "soil",
+    "lang": "en"
+   }
+  ],
+  "actris_vocab": [
+   {
+    "uri": "https://vocabulary.actris.nilu.no/actris_vocab/airpressure",
+    "localname": "airpressure",
+    "prefLabel": "air pressure",
+    "lang": "en"
+   },
+   {
+    "uri": "https://vocabulary.actris.nilu.no/actris_vocab/airtemperature",
+    "localname": "airtemperature",
+    "prefLabel": "air temperature",
+    "lang": "en"
+   }
+  ],
+  "actris_ctrl_lists": []
+ }
+}
