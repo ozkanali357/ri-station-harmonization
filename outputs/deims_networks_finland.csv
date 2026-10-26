@@ -1,0 +1,21 @@
+uuid,title,country,n_networks,networks,has_lter_europe,has_lter_finland,has_ilter,has_elter_literal
+1fb8d8ff-a71f-4aab-aff2-a885ae942a7a,Anttila - Finland,Finland,1,ICOS,False,False,False,False
+1fb2dca0-1c40-47e5-adda-41349fb3f40e,Archipelago Research Institute (Seili LTER) - Finland,Finland,5,AnaEE | GERI | ILTER | LTER Europe | LTER Finland,True,True,True,False
+35e3775a-88bc-483f-aed0-b614ce7736e2,Helsinki Metropolitan Area HMA-LTSER - Finland,Finland,5,GERI | ICOS | ILTER | LTER Europe | LTER Finland,True,True,True,False
+663dac80-211d-4c19-a356-04ee0da0f0eb,Hyytiälä SMEAR II LTER - Finland,Finland,11,ACTRIS | AnaEE | European Monitoring and Evaluation Programme (EMEP) | GERI | ICOS | ICP Forests | ILTER | INTERACT | LTER Europe | LTER Finland | WMO Global Atmosphere Watch (GAW),True,True,True,False
+efe6fed0-2f58-4b0b-b0f9-e1b68d48032a,Kainuu Fisheries Research Station - Finland,Finland,1,INTERACT,False,False,False,False
+3f6a14de-1efb-4c06-8d1a-ce5765fe59e8,Kevo Research Station (Kevo LTER) - Finland,Finland,6,AnaEE | GERI | ILTER | INTERACT | LTER Europe | LTER Finland,True,True,True,False
+2cd5de60-f0f4-4499-afc7-210692906856,Kilpisjärvi Biological Station (Kilpisjärvi LTER) - Finland,Finland,5,GERI | ILTER | INTERACT | LTER Europe | LTER Finland,True,True,True,False
+98a3b631-fcb0-4482-8572-6fee28691a39,Kolari Field Site - Finland,Finland,7,Arctic Monitoring and Assessment Programme (AMAP) | ICP Forests | ILTER | INTERACT | LTER Europe | LTER Finland | SCANNET,True,True,True,False
+b997f0d4-91ff-4542-815b-6384e1e46501,Konnevesi Research Station - Finland,Finland,1,LTER Finland,False,True,False,False
+5c41d138-7910-4827-a8ac-0273a5d09a74,Kumpula Helsinki / SMEAR III - Finland,Finland,2,GERI | ICOS,False,False,False,False
+5132461b-1ce3-4e18-9aa5-005d0bf2e956,Kuusamo LTSER - Finland,Finland,2,LTER Europe | LTER Finland,True,True,False,False
+28a399bc-e90f-43c2-a17d-2556b9644868,Lake Päijänne LTER - Finland,Finland,3,ILTER | LTER Europe | LTER Finland,True,True,True,False
+a43d31c8-6219-4ab8-ac41-6088cb56b12b,Lammi LTER - Finland,Finland,7,GERI | Global Lake Ecological Observatory Network (GLEON) | ICP Forests | ILTER | INTERACT | LTER Europe | LTER Finland,True,True,True,False
+8bf3329e-33d1-4fa9-ad35-cf1ef104172a,Lettosuo - Finland,Finland,2,GERI | ICOS,False,False,False,False
+e6b372ee-f310-49fd-9d0d-2a8306a06b64,Lompolojankka - Finland,Finland,1,ICOS,False,False,False,False
+f81f30bb-6e2b-4a11-9b65-266fee2ae330,Oulanka Research Station (Oulanka LTER) - Finland,Finland,1,GERI,False,False,False,False
+b0edd1d7-4fe7-4945-a366-4e9ff21e9dd3,Pallas LTER observatory - Finland,Finland,10,Arctic Monitoring and Assessment Programme (AMAP) | European Monitoring and Evaluation Programme (EMEP) | GERI | ICOS | ICP Forests | ILTER | INTERACT | LTER Europe | LTER Finland | WMO Global Atmosphere Watch (GAW),True,True,True,False
+5d64b207-5a68-410f-a2ec-cf0e05d4c0ac,SMEAR-Agri Viikki - Finland,Finland,3,AnaEE | GERI | LTER Finland,False,True,False,False
+b471311f-e819-4f6f-bbae-1ac86cd9777f,Värriö Research Station (Värriö LTER) - Finland,Finland,6,GERI | ICOS | ILTER | INTERACT | LTER Europe | LTER Finland,True,True,True,False
+c763fa3d-ca06-4d88-8c59-9d56cb70f4f2,Western Gulf of Finland LTER site WelFin - Finland,Finland,7,European Marine Biology Resource Centre (EMBCR) | Finnish Marine Research Infrastructure (FINMARI) | GERI | ICOS | ILTER | LTER Europe | LTER Finland,True,True,True,False
