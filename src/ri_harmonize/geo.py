@@ -41,9 +41,10 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
     buffered["geometry"] = buffered.geometry.buffer(radius_km * 1000.0)
 
     joined = gpd.sjoin(
-        buffered[["ri", "record_id", "source_id", "name", "uri", "geometry"]],
-        gdf[["ri", "record_id", "source_id", "name", "uri", "geometry"]].rename(
-            columns={"ri": "ri_b", "record_id": "record_id_b", "source_id": "source_id_b", "name": "name_b", "uri": "uri_b"}
+        buffered[["ri", "record_id", "source_id", "name", "name_norm", "uri", "geometry"]],
+        gdf[["ri", "record_id", "source_id", "name", "name_norm", "uri", "geometry"]].rename(
+            columns={"ri": "ri_b", "record_id": "record_id_b", "source_id": "source_id_b",
+                     "name": "name_b", "name_norm": "name_norm_b", "uri": "uri_b"}
         ),
         how="inner",
         predicate="intersects",
@@ -61,9 +62,9 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
         (ri_a, record_id_a), (ri_b, record_id_b) = key
         # `key` is sorted, but the sjoin row may have the pair the other way round.
         if (r["ri"], r["record_id"]) == (ri_a, record_id_a):
-            a, b = (r["source_id"], r["name"], r["uri"]), (r["source_id_b"], r["name_b"], r["uri_b"])
+            a, b = (r["source_id"], r["name"], r["uri"], r["name_norm"]), (r["source_id_b"], r["name_b"], r["uri_b"], r["name_norm_b"])
         else:
-            a, b = (r["source_id_b"], r["name_b"], r["uri_b"]), (r["source_id"], r["name"], r["uri"])
+            a, b = (r["source_id_b"], r["name_b"], r["uri_b"], r["name_norm_b"]), (r["source_id"], r["name"], r["uri"], r["name_norm"])
         try:
             left_pts = gdf.set_index(["ri", "record_id"]).geometry
             dist_m = left_pts.loc[(ri_a, record_id_a)].distance(left_pts.loc[(ri_b, record_id_b)])
@@ -75,7 +76,7 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
                 "source_id_a": a[0], "name_a": a[1], "ri_b": ri_b,
                 "record_id_b": record_id_b, "source_id_b": b[0], "name_b": b[1],
                 "distance_km": round(float(dist_m) / 1000.0, 3),
-                "name_similarity": round(fuzz.token_set_ratio(a[1], b[1]) / 100.0, 3),
+                "name_similarity": round(fuzz.token_set_ratio(a[3], b[3]) / 100.0, 3),
                 "uri_a": a[2], "uri_b": b[2],
             }
         )
@@ -111,7 +112,7 @@ def buffer_overlap_pairs_polygon(df: pd.DataFrame, radius_km: float = 5.0) -> pd
     ``distance_km`` is still the point-to-point distance (as in the plain buffer
     file); ``polygon_distance_m`` is the geometry-to-geometry distance in metres and
     is empty for pairs where neither record has a polygon. ``name_similarity`` is
-    computed on the raw names, as in :func:`buffer_overlap_pairs`.
+    computed on the normalised names (``name_norm``), as in :func:`buffer_overlap_pairs`.
     """
     if df.empty:
         return pd.DataFrame(columns=POLYGON_PAIR_COLUMNS)
@@ -141,7 +142,7 @@ def buffer_overlap_pairs_polygon(df: pd.DataFrame, radius_km: float = 5.0) -> pd
             "source_id_a": a["source_id"], "name_a": a["name"], "ri_b": b["ri"], "record_id_b": b["record_id"],
             "source_id_b": b["source_id"], "name_b": b["name"],
             "distance_km": round(float(points.iloc[i].distance(points.iloc[j])) / 1000.0, 3),
-            "name_similarity": round(fuzz.token_set_ratio(a["name"], b["name"]) / 100.0, 3),
+            "name_similarity": round(fuzz.token_set_ratio(a["name_norm"],b["name_norm"]) / 100.0, 3),
             "uri_a": a["uri"], "uri_b": b["uri"], "geometry_kind_a": a_kind, "geometry_kind_b": b_kind,
             "polygon_distance_m": round(gap_m, 1) if has_polygon else None,
             "_gap": gap_m,
