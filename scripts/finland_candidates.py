@@ -341,7 +341,8 @@ def write_summary(path: Path, fi, table, counts, presence, odd, params, manifest
         f"- Candidate rule: cross-RI pair, polygon-aware distance at most {MAX_KM:g} km (EPSG:3035; DEIMS polygon where a boundary exists, 0 when the other record is inside, else points).",
         f"- Table: {len(table)} pairs in {table.cluster_id.nunique()} clusters (connected components of the pair graph, numbered north to south).",
         f"- Method columns (DBSCAN eps {EPS_KM:g} km, buffer {BUFFER_KM:g} km, k-means k = n // {KMEANS_DIVISOR}) are the CLI defaults run on the full three-source table; blank means that method did not pair the two records. "
-        "Their `name_similarity` uses different name inputs per method (normalised for DBSCAN and k-means, raw for the buffer), so the three can disagree for one pair.", "",
+                # Note: outputs/ generated before a15cda6 report raw-name name_similarity; do not assume they reflect this code.
+"Their `name_similarity` uses the normalised name (`name_norm`) for all three methods, so a given pair shows the same value wherever it appears.", "",
         "## Cumulative candidate pairs", "",
         "Each pair's distance was computed once; the rows count pairs at or below the threshold. `geometry` = polygon-aware, `point` = point to point.", "",
         counts.to_markdown(index=False), "",
