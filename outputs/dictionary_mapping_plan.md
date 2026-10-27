@@ -34,7 +34,7 @@ Direction and use:
 - Canonical placement rule, do not vary by pair:
   - For a pair (narrow term N, broad term B), write it as `N broadMatch B`. Subject = narrower, object = broader. Do not also write `B narrowMatch N` for the same pair; pick one direction per row.
   - If the natural reading is "broad → narrow", still write it as `narrow broadMatch broad`. The pair is the same; the direction convention does not change.
-  - This direction was confirmed against the W3C SKOS Reference on [date] (see Section 13). a broadMatch b means b is broader than a; a narrowMatch b means b is narrower than a.
+  - This direction was confirmed against the W3C SKOS Reference, reading date not stated (see Section 13). a broadMatch b means b is broader than a; a narrowMatch b means b is narrower than a.
 
 Ambiguity rule (weaker wins):
 - If a pair plausibly satisfies more than one relation, choose the weaker (more conservative) relation. Ordering, strongest to weakest: exactMatch > closeMatch > broadMatch ≈ narrowMatch > relatedMatch. Choose the rightmost plausible option. Rationale: weaker-wins is safe because it never overclaims. If a pair turns out to satisfy a stronger relation, writing the weaker one is still correct in SKOS (the weaker is a broader claim that the stronger falls under). The reverse — writing the stronger and being wrong — would be an overclaim. Note the sub-property direction: skos:exactMatch is a sub-property of skos:closeMatch (SKOS Reference S42), so asserting exactMatch implies closeMatch, not the other way. Choosing closeMatch when exactMatch is plausible is the conservative choice and does not preserve the exactMatch entailment; that is deliberate.
@@ -143,7 +143,7 @@ CSV as the default. A SKOS Turtle export can be added later if Allan says the di
 
 ## 13. Blocking verifications before execution
 
-- ~~SKOS Reference direction check~~ — done. Verified against https://www.w3.org/TR/skos-reference/#mapping on [date]. The specification's own Example 51 (Section 10.5) and S43 (Section 10.3) confirm the direction used in Section 3. Quoted by Ali from the live page; not fetched by project tools.
+- ~~SKOS Reference direction check~~ — done. Verified against https://www.w3.org/TR/skos-reference/#mapping (reading date not stated). The specification's own Example 51 (Section 10.5) and S43 (Section 10.3) confirm the direction used in Section 3. Quoted by Ali from the live page; not fetched by project tools.
 - Random seed for the pass-2 sample (Section 4): record seed and sample size in the reviewed-scope summary.
 - Hand review of scope_candidate (Section 4), both passes.
 - Candidate count under the 200 cap after the hand review.
