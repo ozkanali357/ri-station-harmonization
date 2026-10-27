@@ -76,6 +76,7 @@ def buffer_overlap_pairs(df: pd.DataFrame, radius_km: float = 5.0) -> pd.DataFra
                 "source_id_a": a[0], "name_a": a[1], "ri_b": ri_b,
                 "record_id_b": record_id_b, "source_id_b": b[0], "name_b": b[1],
                 "distance_km": round(float(dist_m) / 1000.0, 3),
+                # name_norm is required; a missing column raises KeyError (same as cluster.py).
                 "name_similarity": round(fuzz.token_set_ratio(a[3], b[3]) / 100.0, 3),
                 "uri_a": a[2], "uri_b": b[2],
             }
@@ -142,7 +143,8 @@ def buffer_overlap_pairs_polygon(df: pd.DataFrame, radius_km: float = 5.0) -> pd
             "source_id_a": a["source_id"], "name_a": a["name"], "ri_b": b["ri"], "record_id_b": b["record_id"],
             "source_id_b": b["source_id"], "name_b": b["name"],
             "distance_km": round(float(points.iloc[i].distance(points.iloc[j])) / 1000.0, 3),
-            "name_similarity": round(fuzz.token_set_ratio(a["name_norm"],b["name_norm"]) / 100.0, 3),
+            # name_norm is required; a missing column raises KeyError (same as cluster.py).
+            "name_similarity": round(fuzz.token_set_ratio(a["name_norm"], b["name_norm"]) / 100.0, 3),
             "uri_a": a["uri"], "uri_b": b["uri"], "geometry_kind_a": a_kind, "geometry_kind_b": b_kind,
             "polygon_distance_m": round(gap_m, 1) if has_polygon else None,
             "_gap": gap_m,

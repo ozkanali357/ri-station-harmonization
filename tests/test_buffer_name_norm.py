@@ -55,3 +55,26 @@ def test_pair_set_and_distance_unchanged_when_name_norm_blanked():
         assert list(pairs_after[col]) == list(pairs_before[col]), (
             f"column {col} changed when name_norm was blanked"
         )
+
+
+def test_polygon_variant_uses_normalised_name_like_plain_buffer():
+    """The polygon variant agrees with the plain buffer on name_similarity (point-only fixture).
+
+    The Finland candidates were built with buffer_overlap_pairs_polygon, so its
+    name_similarity path must match the plain variant.
+    """
+    frame = _frame().copy()
+    frame["geometry_kind"] = "point"
+    frame["extra_ids"] = "{}"
+
+    plain = geo.buffer_overlap_pairs(frame, radius_km=5.0)
+    poly = geo.buffer_overlap_pairs_polygon(frame, radius_km=5.0)
+
+    plain_map = {(r.ri_a, r.record_id_a, r.ri_b, r.record_id_b): r.name_similarity
+                 for r in plain.itertuples()}
+    poly_map = {(r.ri_a, r.record_id_a, r.ri_b, r.record_id_b): r.name_similarity
+                for r in poly.itertuples()}
+    common = set(plain_map) & set(poly_map)
+    assert common, "expected the same pair set in both variants on a point-only fixture"
+    for key in common:
+        assert plain_map[key] == poly_map[key], f"name_similarity differs for {key}"
