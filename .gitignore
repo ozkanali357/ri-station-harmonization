@@ -19,3 +19,4 @@ outputs/*
 !outputs/*.md
 !outputs/*.json
 !outputs/*.html
+!outputs/field_definitions_raw/

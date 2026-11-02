@@ -1,0 +1,63 @@
+{
+  "head": {
+    "vars": [
+      "p",
+      "label",
+      "comment"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/countryCode"
+        },
+        "label": {
+          "type": "literal",
+          "value": "country code"
+        },
+        "comment": {
+          "type": "literal",
+          "value": "ISO 3166-1 alpha-2 country code"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Latitude"
+        },
+        "comment": {
+          "type": "literal",
+          "value": "Decimal degrees in WGS84/GRS80"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasName"
+        },
+        "label": {
+          "type": "literal",
+          "value": "Name"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://purl.org/dc/terms/identifier"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "head" : {
+    "vars" : [
+      "p"
+    ]
+  },
+  "results" : {
+    "bindings" : [
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/countryCode"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasElevation"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasLongitude"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasName"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasResponsibleOrganization"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasStationClass"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasStationId"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasTimeZoneOffset"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasWebpageElements"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasWigosId"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/identifier"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/isPartOf"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/spatial"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/subject"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/title"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/2000/01/rdf-schema#label"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/ns/dcat#theme"
+        }
+      }
+    ]
+  }
+}

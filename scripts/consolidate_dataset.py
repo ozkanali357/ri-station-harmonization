@@ -1,36 +1,55 @@
-import pandas as pd
+"""Combine the field lists with every published definition into ``outputs/final_field_comparison.csv``.
+
+Inputs (all under ``outputs/``): ``field_comparison_dataset.csv`` (the fields of each RI),
+``definitions_extracted.csv`` (definitions pulled from the DEIMS and ACTRIS APIs) and
+``icos_field_definitions.csv`` (``rdfs:comment`` definitions from ``scripts/icos_field_definitions.py``).
+
+A field keeps the text ``FLAGGED: No published API definition found`` unless one of those files holds a
+published definition for it. Nothing is filled in from any other source. DEIMS ``contact.*`` fields are
+dropped here as a safeguard: nothing from the contact block is compared.
+"""
+
+from __future__ import annotations
+
 from pathlib import Path
 
+import pandas as pd
+
 OUT = Path("outputs")
-fields_file = OUT / "field_comparison_dataset.csv"
-defs_file = OUT / "definitions_extracted.csv"
-out_file = OUT / "final_field_comparison.csv"
+FLAG_TEXT = "FLAGGED: No published API definition found"
 
-print("Loading datasets...")
-df_fields = pd.read_csv(fields_file)
-df_defs = pd.read_csv(defs_file) if defs_file.exists() else pd.DataFrame(columns=["ri", "field", "definition"])
 
-# Clean up the field names for matching (remove array brackets like [0])
-df_fields['clean_field'] = df_fields['field'].str.replace(r'\[\d+\]', '', regex=True)
+def _clean(value) -> str:
+    return "" if pd.isna(value) else str(value).strip()
 
-# Merge definitions where they exist
-merged = df_fields.merge(df_defs, on=["ri", "field"], how="left", suffixes=("", "_def"))
 
-# If a definition exists in the defs file, use it. Otherwise, keep the flagged one or flag it.
-def set_definition(row):
-    if pd.notna(row['definition_def']) and str(row['definition_def']).strip() != "":
-        return row['definition_def']
-    elif pd.notna(row['definition']) and str(row['definition']).startswith("FLAGGED"):
-        return row['definition']
-    else:
-        return "FLAGGED: No published API definition found"
+def consolidate(fields: pd.DataFrame, defs: pd.DataFrame, icos_defs: pd.DataFrame) -> pd.DataFrame:
+    published: dict[tuple[str, str], str] = {}
+    for frame in (defs, icos_defs):
+        for row in frame.itertuples(index=False):
+            text = _clean(row.definition)
+            if text and not text.startswith("FLAGGED"):
+                published[(row.ri, row.field)] = text
 
-merged['final_definition'] = merged.apply(set_definition, axis=1)
+    fields = fields[~((fields["ri"] == "DEIMS") & fields["field"].str.startswith("contact."))]
+    out = fields[["ri", "field"]].copy()
+    out["definition"] = [published.get((ri, field), FLAG_TEXT) for ri, field in zip(out["ri"], out["field"])]
+    out["flagged"] = ["yes" if d.startswith("FLAGGED") else "no" for d in out["definition"]]
+    return out
 
-# Keep only the necessary columns
-final_df = merged[['ri', 'field', 'final_definition']].rename(columns={'final_definition': 'definition'})
-final_df.to_csv(out_file, index=False)
 
-print(f"Saved {len(final_df)} fields to {out_file}")
-print("\nCount of fields with actual definitions vs flagged:")
-print(final_df.assign(is_flagged=final_df['definition'].str.startswith('FLAGGED')).groupby(['ri', 'is_flagged']).size())
+def main() -> None:
+    fields = pd.read_csv(OUT / "field_comparison_dataset.csv")
+    defs_file = OUT / "definitions_extracted.csv"
+    defs = pd.read_csv(defs_file) if defs_file.exists() else pd.DataFrame(columns=["ri", "field", "definition"])
+    icos_file = OUT / "icos_field_definitions.csv"
+    icos_defs = pd.read_csv(icos_file) if icos_file.exists() else pd.DataFrame(columns=["ri", "field", "definition"])
+
+    final = consolidate(fields, defs, icos_defs)
+    final.to_csv(OUT / "final_field_comparison.csv", index=False)
+    print(f"Saved {len(final)} fields to {OUT / 'final_field_comparison.csv'}")
+    print(final.groupby(["ri", "flagged"]).size().to_string())
+
+
+if __name__ == "__main__":
+    main()
