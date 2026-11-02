@@ -5,8 +5,8 @@ Inputs (all under ``outputs/``): ``field_comparison_dataset.csv`` (the fields of
 ``icos_field_definitions.csv`` (``rdfs:comment`` definitions from ``scripts/icos_field_definitions.py``).
 
 A field keeps the text ``FLAGGED: No published API definition found`` unless one of those files holds a
-published definition for it. Nothing is filled in from any other source. DEIMS ``contact.*`` fields are
-dropped here as a safeguard: nothing from the contact block is compared.
+published definition for it. Nothing is filled in from any other source. Contact fields (any RI) are
+dropped here as a safeguard: nothing from a contact block is compared.
 """
 
 from __future__ import annotations
@@ -31,7 +31,8 @@ def consolidate(fields: pd.DataFrame, defs: pd.DataFrame, icos_defs: pd.DataFram
             if text and not text.startswith("FLAGGED"):
                 published[(row.ri, row.field)] = text
 
-    fields = fields[~((fields["ri"] == "DEIMS") & fields["field"].str.startswith("contact."))]
+    contact_mask = fields["field"].str.contains("contact", case=False, na=False)
+    fields = fields[~contact_mask]
     out = fields[["ri", "field"]].copy()
     out["definition"] = [published.get((ri, field), FLAG_TEXT) for ri, field in zip(out["ri"], out["field"])]
     out["flagged"] = ["yes" if d.startswith("FLAGGED") else "no" for d in out["definition"]]

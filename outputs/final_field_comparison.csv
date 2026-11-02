@@ -82,7 +82,6 @@ DEIMS,projectRelated.lter.lterSiteClassification,FLAGGED: No published API defin
 DEIMS,relatedResources,FLAGGED: No published API definition found,yes
 ICOS,22-rdf-syntax-ns#type,FLAGGED: No published API definition found,yes
 ICOS,countryCode,ISO 3166-1 alpha-2 country code,no
-ICOS,dcat#contactPoint,FLAGGED: No published API definition found,yes
 ICOS,dcat#theme,FLAGGED: No published API definition found,yes
 ICOS,hasAtcId,FLAGGED: No published API definition found,yes
 ICOS,hasElevation,Elevation above sea level in meters,no
@@ -104,8 +103,6 @@ ICOS,title,FLAGGED: No published API definition found,yes
 ACTRIS,active,FLAGGED: No published API definition found,yes
 ACTRIS,actris_national_facility,FLAGGED: No published API definition found,yes
 ACTRIS,actris_nf_uri,FLAGGED: No published API definition found,yes
-ACTRIS,contact_organisation,FLAGGED: No published API definition found,yes
-ACTRIS,contact_person,FLAGGED: No published API definition found,yes
 ACTRIS,country_code,FLAGGED: No published API definition found,yes
 ACTRIS,description,FLAGGED: No published API definition found,yes
 ACTRIS,extra_metadata,FLAGGED: No published API definition found,yes
