@@ -1,0 +1,22 @@
+ri,field,predicate_uri,definition,n_comments,label_published,definition_source,flagged
+ICOS,22-rdf-syntax-ns#type,http://www.w3.org/1999/02/22-rdf-syntax-ns#type,,0,,,yes
+ICOS,countryCode,http://meta.icos-cp.eu/ontologies/cpmeta/countryCode,ISO 3166-1 alpha-2 country code,1,country code,rdfs:comment published at https://meta.icos-cp.eu/sparql,no
+ICOS,dcat#contactPoint,http://www.w3.org/ns/dcat#contactPoint,,0,,,yes
+ICOS,dcat#theme,http://www.w3.org/ns/dcat#theme,,0,,,yes
+ICOS,hasAtcId,http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId,,0,,,yes
+ICOS,hasElevation,http://meta.icos-cp.eu/ontologies/cpmeta/hasElevation,Elevation above sea level in meters,1,Elevation,rdfs:comment published at https://meta.icos-cp.eu/sparql,no
+ICOS,hasLatitude,http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude,Decimal degrees in WGS84/GRS80,1,Latitude,rdfs:comment published at https://meta.icos-cp.eu/sparql,no
+ICOS,hasLongitude,http://meta.icos-cp.eu/ontologies/cpmeta/hasLongitude,Decimal degrees in WGS84/GRS80,1,Longitude,rdfs:comment published at https://meta.icos-cp.eu/sparql,no
+ICOS,hasName,http://meta.icos-cp.eu/ontologies/cpmeta/hasName,,0,Name,,yes
+ICOS,hasResponsibleOrganization,http://meta.icos-cp.eu/ontologies/cpmeta/hasResponsibleOrganization,,0,responsible organization,,yes
+ICOS,hasStationClass,http://meta.icos-cp.eu/ontologies/cpmeta/hasStationClass,,0,Station Class,,yes
+ICOS,hasStationId,http://meta.icos-cp.eu/ontologies/cpmeta/hasStationId,,0,Station ID,,yes
+ICOS,hasTimeZoneOffset,http://meta.icos-cp.eu/ontologies/cpmeta/hasTimeZoneOffset,offset of local timezone from UTC,1,time zone offset,rdfs:comment published at https://meta.icos-cp.eu/sparql,no
+ICOS,hasWebpageElements,http://meta.icos-cp.eu/ontologies/cpmeta/hasWebpageElements,,0,,,yes
+ICOS,hasWigosId,http://meta.icos-cp.eu/ontologies/cpmeta/hasWigosId,,0,WIGOS ID,,yes
+ICOS,identifier,http://purl.org/dc/terms/identifier,,0,,,yes
+ICOS,isPartOf,http://purl.org/dc/terms/isPartOf,,0,,,yes
+ICOS,rdf-schema#label,http://www.w3.org/2000/01/rdf-schema#label,,0,,,yes
+ICOS,spatial,http://purl.org/dc/terms/spatial,,0,,,yes
+ICOS,subject,http://purl.org/dc/terms/subject,,0,,,yes
+ICOS,title,http://purl.org/dc/terms/title,,0,,,yes

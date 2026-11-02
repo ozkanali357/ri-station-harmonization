@@ -1,0 +1,24 @@
+{
+  "responses": {
+    "icos_station_predicates.json": {
+      "file": "icos_station_predicates.json",
+      "endpoint": "https://meta.icos-cp.eu/sparql",
+      "method": "POST",
+      "retrieved_at": "2026-11-02T23:24:09+00:00",
+      "http_status": 200,
+      "bytes": 2999,
+      "sha256": "108d41d5fda3c343e2327211c8e3f1fef24fd7aac83263539758697327ce6d09",
+      "query": "SELECT DISTINCT ?p WHERE { <http://meta.icos-cp.eu/resources/stations/AS_ARN> ?p ?o } ORDER BY ?p"
+    },
+    "icos_predicate_definitions.json": {
+      "file": "icos_predicate_definitions.json",
+      "endpoint": "https://meta.icos-cp.eu/sparql",
+      "method": "POST",
+      "retrieved_at": "2026-11-02T23:24:10+00:00",
+      "http_status": 200,
+      "bytes": 4573,
+      "sha256": "85736f90258165c198875fbff581644b3c7ea6fd50e7bc111a34a2ce028f6e3c",
+      "query": "SELECT ?p ?label ?comment WHERE { VALUES ?p { <http://meta.icos-cp.eu/ontologies/cpmeta/countryCode> <http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId> <http://meta.icos-cp.eu/ontologies/cpmeta/hasElevation> <http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude> <http://meta.icos-cp.eu/ontologies/cpmeta/hasLongitude> <http://meta.icos-cp.eu/ontologies/cpmeta/hasName> <http://meta.icos-cp.eu/ontologies/cpmeta/hasResponsibleOrganization> <http://meta.icos-cp.eu/ontologies/cpmeta/hasStationClass> <http://meta.icos-cp.eu/ontologies/cpmeta/hasStationId> <http://meta.icos-cp.eu/ontologies/cpmeta/hasTimeZoneOffset> <http://meta.icos-cp.eu/ontologies/cpmeta/hasWebpageElements> <http://meta.icos-cp.eu/ontologies/cpmeta/hasWigosId> <http://purl.org/dc/terms/identifier> <http://purl.org/dc/terms/isPartOf> <http://purl.org/dc/terms/spatial> <http://purl.org/dc/terms/subject> <http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#label> <http://www.w3.org/ns/dcat#contactPoint> <http://www.w3.org/ns/dcat#theme> } OPTIONAL { ?p <http://www.w3.org/2000/01/rdf-schema#label> ?label } OPTIONAL { ?p <http://www.w3.org/2000/01/rdf-schema#comment> ?comment } } ORDER BY ?p ?label ?comment"
+    }
+  }
+}

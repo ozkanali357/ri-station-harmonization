@@ -1,0 +1,41 @@
+{
+  "head": {
+    "vars": [
+      "p"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/countryCode"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://meta.icos-cp.eu/ontologies/cpmeta/hasName"
+        }
+      },
+      {
+        "p": {
+          "type": "uri",
+          "value": "http://purl.org/dc/terms/identifier"
+        }
+      }
+    ]
+  }
+}

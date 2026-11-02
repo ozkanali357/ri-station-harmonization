@@ -9,3 +9,4 @@ pyproj>=3.5
 matplotlib>=3.7
 tabulate>=0.9
 pytest>=7.4
+sentence-transformers>=6.2.0

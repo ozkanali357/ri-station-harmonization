@@ -1,0 +1,199 @@
+{
+  "head" : {
+    "vars" : [
+      "p",
+      "label",
+      "comment"
+    ]
+  },
+  "results" : {
+    "bindings" : [
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/countryCode"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "country code"
+        },
+        "comment" : {
+          "type" : "literal",
+          "value" : "ISO 3166-1 alpha-2 country code"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasAtcId"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasElevation"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Elevation"
+        },
+        "comment" : {
+          "type" : "literal",
+          "value" : "Elevation above sea level in meters"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasLatitude"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Latitude"
+        },
+        "comment" : {
+          "type" : "literal",
+          "value" : "Decimal degrees in WGS84/GRS80"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasLongitude"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Longitude"
+        },
+        "comment" : {
+          "type" : "literal",
+          "value" : "Decimal degrees in WGS84/GRS80"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasName"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Name"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasResponsibleOrganization"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "responsible organization"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasStationClass"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Station Class"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasStationId"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "Station ID"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasTimeZoneOffset"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "time zone offset"
+        },
+        "comment" : {
+          "type" : "literal",
+          "value" : "offset of local timezone from UTC"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasWebpageElements"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://meta.icos-cp.eu/ontologies/cpmeta/hasWigosId"
+        },
+        "label" : {
+          "type" : "literal",
+          "value" : "WIGOS ID"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/identifier"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/isPartOf"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/spatial"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/subject"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://purl.org/dc/terms/title"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/2000/01/rdf-schema#label"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/ns/dcat#contactPoint"
+        }
+      },
+      {
+        "p" : {
+          "type" : "uri",
+          "value" : "http://www.w3.org/ns/dcat#theme"
+        }
+      }
+    ]
+  }
+}

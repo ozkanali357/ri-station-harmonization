@@ -46,6 +46,17 @@ Writes `outputs/dictionary_terms_finland.csv` (one row per term an RI publishes,
 
 Reference-vocabulary lookups for those terms (`python scripts/dictionary_reference.py --fetch`) write `outputs/dictionary_reference_finland.csv` and `outputs/dictionary_reference_finland_run.json`. Each row is one mechanical lookup against the eLTER thesauri (EnvThes, Standard Observations, Controlled Lists), the two ACTRIS vocabularies or the NERC P07 concept an ICOS term names: a DEIMS term's EnvThes URI resolved to today's concept, a published `skos:closeMatch`, or an exact (case-insensitive) label equality. Label equality is string equality, not a mapping, and a term without a row had no hit. Raw responses are cached in `data/raw/dictionary_reference/` (not committed).
 
+### Site-schema fields: definitions and similarity of field names
+
+```bash
+python scripts/icos_field_definitions.py [--offline]   # ICOS rdfs:comment definitions
+python scripts/consolidate_dataset.py                  # field list + published definitions
+python scripts/compare_fields.py --write-pin           # first time only, needs huggingface.co
+python scripts/compare_fields.py                       # later runs
+```
+
+`icos_field_definitions.py` asks the ICOS SPARQL endpoint for the `rdfs:comment` of each predicate of one example station resource and writes `outputs/icos_field_definitions.csv` and a run file. The raw responses are committed in `outputs/field_definitions_raw/` with SHA-256 and retrieval time (they hold only ontology predicates and comments, no station or contact data). A field without a published comment stays flagged; `rdfs:label` is not treated as a definition. `compare_fields.py` writes one table per pair of infrastructures (`outputs/field_similarity_deims_icos.csv` is the primary table, then `deims_actris` and `icos_actris`; the pairs are never pooled) with TF-IDF and MiniLM cosine **similarity of field names**, plus a variant that appends the published definition where one exists. DEIMS `contact.*` fields are excluded. The MiniLM revision, seed and library versions are pinned in `scripts/field_model_pin.json` and copied to `outputs/field_similarity_run.json`. A similarity score is not evidence that two fields mean the same thing.
+
 ## Manual review
 
 Open `outputs/review_sheet.csv`; for every reviewed row fill `same_place` with `yes` or `no`, `checked_by`, `checked_at` (ISO date), and evidence based on both landing pages. Copy only the ground-truth columns into `data/ground_truth/manual_pairs.csv`, then run offline again. Keep confirmed non-matches.
