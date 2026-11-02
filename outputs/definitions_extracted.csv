@@ -1,0 +1,26 @@
+ri,field,definition
+ACTRIS,insitu,FLAGGED: No published API definition found
+ACTRIS,ebas_station_code,FLAGGED: No published API definition found
+ACTRIS,ebas_station_name,FLAGGED: No published API definition found
+ACTRIS,ebas_station_lat,FLAGGED: No published API definition found
+ACTRIS,ebas_station_lon,FLAGGED: No published API definition found
+ACTRIS,ebas_station_alt,FLAGGED: No published API definition found
+ACTRIS,ebas_country_code,FLAGGED: No published API definition found
+ACTRIS,identifier,FLAGGED: No published API definition found
+ACTRIS,name,FLAGGED: No published API definition found
+ACTRIS,facility_type,FLAGGED: No published API definition found
+ACTRIS,location,FLAGGED: No published API definition found
+ACTRIS,country_code,FLAGGED: No published API definition found
+ACTRIS,wmo_region,FLAGGED: No published API definition found
+ACTRIS,uri,FLAGGED: No published API definition found
+ACTRIS,identifier_type,FLAGGED: No published API definition found
+ACTRIS,active,FLAGGED: No published API definition found
+ACTRIS,actris_national_facility,FLAGGED: No published API definition found
+ACTRIS,actris_nf_uri,FLAGGED: No published API definition found
+ACTRIS,gawid_uri,FLAGGED: No published API definition found
+ACTRIS,contact_person,FLAGGED: No published API definition found
+ACTRIS,contact_organisation,FLAGGED: No published API definition found
+ACTRIS,description,FLAGGED: No published API definition found
+ACTRIS,surroundings,FLAGGED: No published API definition found
+ACTRIS,operational_since,FLAGGED: No published API definition found
+ACTRIS,extra_metadata,FLAGGED: No published API definition found
