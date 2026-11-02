@@ -1,8 +1,17 @@
 {
   "model": "sentence-transformers/all-MiniLM-L6-v2",
-  "revision": null,
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
   "seed": 42,
-  "libraries": {},
-  "pinned_at": null,
+  "libraries": {
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "torch": "2.15.0",
+    "huggingface_hub": "2.4.0",
+    "tokenizers": "0.23.3",
+    "scikit-learn": "1.9.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "pinned_at": "2026-11-02T23:40:47+00:00",
   "note": "revision and libraries are filled in by 'python scripts/compare_fields.py --write-pin' on a machine that can reach huggingface.co; they were not available when this file was created."
 }

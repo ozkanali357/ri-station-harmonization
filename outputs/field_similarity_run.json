@@ -1,0 +1,61 @@
+{
+  "timestamp_utc": "2026-11-02T23:40:52+00:00",
+  "script": "scripts/compare_fields.py",
+  "git_head_at_run": "8888fc920303cf28ea95122e73ac6e6c01f23693",
+  "score_label": "similarity of field names",
+  "text_rule": "name_text = field string as extracted; text = field string + '. ' + published definition where one exists (ICOS rdfs:comment only); DEIMS contact.* fields excluded",
+  "input": {
+    "file": "outputs/final_field_comparison.csv",
+    "sha256": "10dbe53b266d2989ccd8063153b30bf71801a5f6b59c28a8047c882e97c86a83"
+  },
+  "field_counts": {
+    "DEIMS": 81,
+    "ICOS": 21,
+    "ACTRIS": 18
+  },
+  "fields_with_definition": {
+    "DEIMS": 0,
+    "ICOS": 5,
+    "ACTRIS": 0
+  },
+  "tables": {
+    "DEIMS-ICOS": {
+      "file": "outputs/field_similarity_deims_icos.csv",
+      "pairs": 1701,
+      "sha256": "ec77c442466a14146c529d6cfc96971a6379c9a05a3fc906c1984f5148ded1c3"
+    },
+    "DEIMS-ACTRIS": {
+      "file": "outputs/field_similarity_deims_actris.csv",
+      "pairs": 1458,
+      "sha256": "afdf2e13f58b0e48969065b52022a9d8f126217e96dc27a981af29fb49b7611c"
+    },
+    "ICOS-ACTRIS": {
+      "file": "outputs/field_similarity_icos_actris.csv",
+      "pairs": 378,
+      "sha256": "999d8b9626176da640fdf744f954fe8da42dc216a50a608bf6331d9b43aa867b"
+    }
+  },
+  "model": {
+    "name": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision_pinned": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "revision_loaded": null
+  },
+  "seed": 42,
+  "pin_file": {
+    "file": "scripts/field_model_pin.json",
+    "sha256": "6e2f22c32c6365199004833ab5344bd5c5e75d117f968ecf3872af04c40b4f13"
+  },
+  "library_versions": {
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "torch": "2.15.0",
+    "huggingface_hub": "2.4.0",
+    "tokenizers": "0.23.3",
+    "scikit-learn": "1.9.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "library_version_drift_from_pin": {},
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35"
+}
