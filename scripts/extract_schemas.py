@@ -9,40 +9,38 @@ def extract_deims():
     path = Path("data/raw/deims_detail/663dac80-211d-4c19-a356-04ee0da0f0eb.json")
     with open(path) as f:
         data = json.load(f)
-    if isinstance(data, list): data = data[0]
     fields = []
     for k, v in data.items():
-        fields.append({"ri": "DEIMS", "field_path": k, "example_value": str(v)[:100]})
+        if k == "attributes" and isinstance(v, dict):
+            for sub_k, sub_v in v.items():
+                fields.append({"ri": "DEIMS", "field_path": sub_k, "example_value": str(sub_v)[:100]})
+        elif k not in ("id", "created", "changed"):
+            fields.append({"ri": "DEIMS", "field_path": k, "example_value": str(v)[:100]})
     return fields
 
 def extract_icos():
     path = Path("data/raw/icos_stations_page_0001.json")
     with open(path) as f:
         data = json.load(f)
-    if isinstance(data, list) and data:
-        record = data[0]
-    elif isinstance(data, dict) and "stations" in data:
-        record = data["stations"][0]
-    else:
-        record = data
     fields = []
-    for k, v in record.items():
-        fields.append({"ri": "ICOS", "field_path": k, "example_value": str(v)[:100]})
+    bindings = data.get("results", {}).get("bindings", [])
+    if bindings:
+        for k in bindings[0].keys():
+            fields.append({"ri": "ICOS", "field_path": k, "example_value": ""})
     return fields
 
 def extract_actris():
     path = Path("data/raw/actris_facilities.json")
     with open(path) as f:
         data = json.load(f)
-    if isinstance(data, list) and data:
-        record = data[0]
-    elif isinstance(data, dict):
-        record = data
-    else:
-        record = {}
+    record = data[0] if isinstance(data, list) and data else data
     fields = []
     for k, v in record.items():
-        fields.append({"ri": "ACTRIS", "field_path": k, "example_value": str(v)[:100]})
+        if isinstance(v, dict) and k in ("location", "extra_metadata"):
+            for sub_k, sub_v in v.items():
+                fields.append({"ri": "ACTRIS", "field_path": f"{k}.{sub_k}", "example_value": str(sub_v)[:100]})
+        else:
+            fields.append({"ri": "ACTRIS", "field_path": k, "example_value": str(v)[:100]})
     return fields
 
 def main():
