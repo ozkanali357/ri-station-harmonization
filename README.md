@@ -46,6 +46,18 @@ Writes `outputs/dictionary_terms_finland.csv` (one row per term an RI publishes,
 
 Reference-vocabulary lookups for those terms (`python scripts/dictionary_reference.py --fetch`) write `outputs/dictionary_reference_finland.csv` and `outputs/dictionary_reference_finland_run.json`. Each row is one mechanical lookup against the eLTER thesauri (EnvThes, Standard Observations, Controlled Lists), the two ACTRIS vocabularies or the NERC P07 concept an ICOS term names: a DEIMS term's EnvThes URI resolved to today's concept, a published `skos:closeMatch`, or an exact (case-insensitive) label equality. Label equality is string equality, not a mapping, and a term without a row had no hit. Raw responses are cached in `data/raw/dictionary_reference/` (not committed).
 
+### Reference vocabularies and term-mapping candidates (milestone #8)
+
+```bash
+python scripts/dictionary_vocab_fetch.py --fetch   # EnvThes, Standard Observations, eLTER_CL, ACTRIS vocabulary: verbatim dumps + licence/version record
+python scripts/dictionary_candidates.py            # needs the pinned MiniLM weights (huggingface.co once)
+python scripts/dictionary_candidates.py check outputs/dictionary_candidates_finland.csv   # after hand labelling
+```
+
+`dictionary_vocab_fetch.py` caches each vocabulary's own Turtle dump and Skosmos scheme metadata in `data/raw/dictionary_vocabularies/` (not committed) and writes `outputs/dictionary_vocabularies_run.json`: URL, SHA-256, retrieval time, every licence statement found with the file it came from, version, concept counts and whether definition text may be committed. ACTRIS vocabulary: CC0 1.0, definitions may be committed with version and licence per row. EnvThes, Standard Observations and eLTER_CL declare CC BY 4.0 in their metadata, but their definition text (and the ICOS source definitions) is kept out of the repository until the project owner accepts that; EnvThes definitions also carry third-party source tags such as `[Henderson's]` and `[GEMET]`.
+
+`dictionary_candidates.py` proposes, for each keyword-flagged (`scope_candidate`) meteorology or soil term, the best-scoring concepts by MiniLM cosine similarity of labels (pinned in `scripts/field_model_pin.json`). **It proposes only.** `skos_relation`, `broader_side` (which side is the broader concept for `broadMatch`/`narrowMatch`), `evidence_basis`, `evidence_text`, `checked_by` and `checked_at` are written blank and are filled by a person. The `check` command validates a labelled file and prints descriptive counts; it infers nothing. Rows with restricted definition text go to the git-ignored `outputs/dictionary_candidates_finland_LOCAL.csv`.
+
 ### Site-schema fields: definitions and similarity of field names
 
 ```bash
