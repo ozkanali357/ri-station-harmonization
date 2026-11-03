@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-03T00:46:36+00:00",
+  "timestamp_utc": "2026-11-03T01:09:20+00:00",
   "script": "scripts/compare_fields.py",
-  "git_head_at_run": "70c2f5d74f1c4f06890c61c708c262a31c5055a7",
+  "git_head_at_run": "7c33fc62f77ae9fb6770d9740319da38a55144a1",
   "score_label": "similarity of field names",
   "text_rule": "name_text = field string as extracted; text = field string + '. ' + published definition where one exists (ICOS rdfs:comment only); fields whose name contains 'contact' are dropped in all RIs (consolidate_dataset.py)",
   "input": {
@@ -39,12 +39,14 @@
     "name": "sentence-transformers/all-MiniLM-L6-v2",
     "revision_pinned": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
     "revision_loaded": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
-    "revision_loaded_verification": "verified 15/15 weight file(s) against pin"
+    "revision_loaded_verification": "verified 15/15 weight file(s) against pin",
+    "weights_verified": true,
+    "allow_unverified_snapshot": false
   },
   "seed": 42,
   "pin_file": {
     "file": "scripts/field_model_pin.json",
-    "sha256": "7ec45a01cf3a42f984d890965bd03a49e188cd4f9bad56ddcf529973a4a8e266"
+    "sha256": "6d21364aab5868822cbeb93d86331d7992e9e6a966b4aba4ec94ff2c3a10bc9c"
   },
   "library_versions": {
     "sentence-transformers": "6.2.0",
