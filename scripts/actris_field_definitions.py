@@ -3,7 +3,7 @@
 The ACTRIS metadata API's OpenAPI document gives no property descriptions, so the only
 published material usable here is the ACTRIS SKOSMOS vocabulary. Where a concept's
 preferred label equals the field name (case-insensitive, underscores read as spaces) and
-the concept's URI is one of the three known label matches, the CC0 (or unverified-licence)
+the concept's URI is one of the three known label matches, the CC0 1.0
 definition text is attached. Every other field stays flagged.
 
 No network calls are made: the three known hits are built in-process from
@@ -170,6 +170,12 @@ def main() -> int:
         "fields_flagged": int((frame_out["flagged"] == "yes").sum()),
         "fields_with_label_equal_vocabulary_concept": sorted(
             frame_out.loc[frame_out["vocabulary_label_match"] != "", "field"].unique().tolist()),
+        "provenance": {
+            "source_url": "https://vocabulary.actris.nilu.no/skosmos/",
+            "vocabularies": ["actris_vocab v1.2.2", "actris_controlled_lists v1.1.2"],
+            "retrieved_at": "2026-11-03",
+            "method": "hand-copied verbatim"
+        },
         "rule": ("A vocabulary concept whose label equals the field name is used as the field's "
                  "definition where the concept carries a published definition. The three known "
                  "matches are facility_type (CC0 1.0), identifier and identifier_type (licence unverified)."),
