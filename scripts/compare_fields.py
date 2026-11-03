@@ -165,10 +165,21 @@ def set_seed(seed: int) -> None:
         pass
 
 
-def resolve_revision(model_name: str) -> str:
+def resolve_revision_and_weights(model_name: str) -> tuple[str, dict[str, str]]:
     from huggingface_hub import HfApi
 
-    return HfApi().model_info(model_name).sha
+    info = HfApi().model_info(model_name, files_metadata=True)
+    weights: dict[str, str] = {}
+    for sibling in (info.siblings or []):
+        lfs = getattr(sibling, "lfs", None)
+        sha = None
+        if isinstance(lfs, dict):
+            sha = lfs.get("sha256")
+        elif lfs is not None:
+            sha = getattr(lfs, "sha256", None)
+        if sha:
+            weights[sibling.rfilename] = sha
+    return info.sha, weights
 
 
 def _sha256_file(path: Path) -> str:
@@ -193,18 +204,15 @@ def main(argv: list[str] | None = None) -> int:
 
     pin = load_pin()
     installed = installed_versions()
-    if pin.get("revision") is None:
-        if not args.write_pin:
-            print("scripts/field_model_pin.json has no revision yet. Run once with --write-pin on a machine "
-                  "that can reach huggingface.co, then commit the pin file.", file=sys.stderr)
-            return 2
-        pin["revision"] = resolve_revision(pin["model"])
+    if args.write_pin:
+        pin["revision"], pin["weights"] = resolve_revision_and_weights(pin["model"])
         pin["libraries"] = {k: v for k, v in installed.items() if v is not None}
         pin["pinned_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
         PIN_FILE.write_text(json.dumps(pin, indent=2) + "\n", encoding="utf-8")
-        print(f"Pinned {pin['model']} at {pin['revision']}")
-    elif args.write_pin:
-        print("The pin file already has a revision; edit it by hand to re-pin.", file=sys.stderr)
+        print(f"Pinned {pin['model']} at {pin['revision']} ({len(pin['weights'])} weight file(s))")
+    elif pin.get("revision") is None:
+        print("scripts/field_model_pin.json has no revision yet. Run once with --write-pin on a machine "
+              "that can reach huggingface.co, then commit the pin file.", file=sys.stderr)
         return 2
 
     drift = version_drift(pin["libraries"], installed)
@@ -216,11 +224,52 @@ def main(argv: list[str] | None = None) -> int:
 
     set_seed(pin["seed"])
     model = SentenceTransformer(pin["model"], revision=pin["revision"])
+
     loaded_commit = None
+    verification = "not attempted"
+
+    # Prefer transformers' own commit hash when the installed version populates it.
     try:
-        loaded_commit = model[0].auto_model.config._commit_hash
+        attr = model[0].auto_model.config._commit_hash
+        if attr:
+            loaded_commit = attr
+            verification = "from transformers config._commit_hash"
     except (AttributeError, IndexError, TypeError):
         pass
+
+    # Otherwise verify the loaded weights against the per-file hashes recorded in the pin.
+    if loaded_commit is None:
+        weights = pin.get("weights") or {}
+        if not weights:
+            verification = "pin has no weights map; re-pin with --write-pin"
+        else:
+            try:
+                from huggingface_hub import snapshot_download
+                snapshot_path = Path(snapshot_download(
+                    repo_id=pin["model"], revision=pin["revision"], local_files_only=True,
+                ))
+                verified = 0
+                mismatch = None
+                for filename, expected in weights.items():
+                    local = snapshot_path / filename
+                    if not local.exists():
+                        mismatch = f"missing {filename}"
+                        break
+                    actual = _sha256_file(local)
+                    if actual != expected:
+                        mismatch = f"{filename}: pin {expected[:12]}... actual {actual[:12]}..."
+                        break
+                    verified += 1
+                if mismatch is None:
+                    loaded_commit = pin["revision"]
+                    verification = f"verified {verified}/{len(weights)} weight file(s) against pin"
+                else:
+                    verification = f"weight mismatch: {mismatch}"
+                    print(f"Weight verification failed: {mismatch}", file=sys.stderr)
+                    return 2
+            except (ImportError, OSError, ValueError) as exc:
+                verification = f"could not verify weights: {exc!r}"
+
     if loaded_commit and loaded_commit != pin["revision"]:
         print(f"Loaded revision {loaded_commit} but the pin says {pin['revision']}.", file=sys.stderr)
         return 2
@@ -252,7 +301,9 @@ def main(argv: list[str] | None = None) -> int:
         "field_counts": counts,
         "fields_with_definition": {ri: int(fields.loc[fields["ri"] == ri, "definition_used"].sum()) for ri in RIS},
         "tables": outputs,
-        "model": {"name": pin["model"], "revision_pinned": pin["revision"], "revision_loaded": loaded_commit},
+        "model": {"name": pin["model"], "revision_pinned": pin["revision"],
+                  "revision_loaded": loaded_commit,
+                  "revision_loaded_verification": verification},
         "seed": pin["seed"],
         "pin_file": {"file": str(PIN_FILE.relative_to(ROOT)), "sha256": _sha256_file(PIN_FILE)},
         "library_versions": installed,
