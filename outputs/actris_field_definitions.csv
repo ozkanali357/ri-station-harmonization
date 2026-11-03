@@ -7,8 +7,8 @@ description,no,(not a property of the Facility schema),,,,,no,yes
 extra_metadata,no,(not a property of the Facility schema),,,,,no,yes
 facility_type,no,,actris_vocab: facility type,https://vocabulary.actris.nilu.no/actris_vocab/facilitytype,"Classification of platforms generating data on properties of the atmosphere, including properties of simulated atmospheres.",v1.2.2 (CC0 1.0),yes,no
 gawid_uri,no,(not a property of the Facility schema),,,,,no,yes
-identifier,no,,actris_controlled_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,Identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
-identifier_type,no,,actris_controlled_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,Types of persistent identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
+identifier,no,,actris_ctrl_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,Identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
+identifier_type,no,,actris_ctrl_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,Types of persistent identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
 location,no,(not a property of the Facility schema),,,,,no,yes
 name,no,(not a property of the Facility schema),,,,,no,yes
 operational_since,no,(not a property of the Facility schema),,,,,no,yes

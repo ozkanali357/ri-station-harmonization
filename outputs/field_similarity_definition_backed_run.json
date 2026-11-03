@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-11-03T04:23:13+00:00",
+  "timestamp_utc": "2026-11-03T04:28:12+00:00",
   "script": "scripts/compare_fields_definition_backed.py",
-  "git_head_at_run": "a245ded96fd44ba26eec123a0a9c35c7ab064b11",
+  "git_head_at_run": "7a681cfa9bdae8e4c57ff34d1e52f1b965eef270",
   "git_working_tree_clean": false,
   "git_uncommitted_paths": [
     "outputs/actris_field_definitions.csv",
