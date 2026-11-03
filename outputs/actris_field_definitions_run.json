@@ -1,6 +1,6 @@
 {
   "script": "scripts/actris_field_definitions.py",
-  "git_head_at_run": "52cda3b3c1e0a5ae95e4db4d422524c6c7b00ffe",
+  "git_head_at_run": "3ec3b8328865e5e5d93b1c8a9fc257f7aa06b083",
   "fields_checked": [
     "active",
     "actris_national_facility",
