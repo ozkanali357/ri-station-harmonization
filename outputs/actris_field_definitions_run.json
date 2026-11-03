@@ -1,0 +1,479 @@
+{
+  "script": "scripts/actris_field_definitions.py",
+  "git_head_at_run": "712bf632c6864a2ce7fdff383bfd79f70d8f1c13",
+  "fields_checked": [
+    "active",
+    "actris_national_facility",
+    "actris_nf_uri",
+    "country_code",
+    "description",
+    "extra_metadata",
+    "facility_type",
+    "gawid_uri",
+    "identifier",
+    "identifier_type",
+    "location",
+    "name",
+    "operational_since",
+    "surroundings",
+    "uri",
+    "wmo_region"
+  ],
+  "openapi_version": "v3",
+  "fields_with_api_description": 0,
+  "fields_flagged": 16,
+  "fields_with_label_equal_vocabulary_concept": [
+    "facility_type",
+    "identifier",
+    "identifier_type"
+  ],
+  "facility_endpoint_descriptions": {
+    "/api/provider/facilities/update": {
+      "post": "Update a facility"
+    },
+    "/api/provider/facilities/add": {
+      "post": "Add a facility."
+    },
+    "/api/facilities": {
+      "get": "Fetch a list of facilities"
+    },
+    "/api/facilities/{facilityId}": {
+      "get": "Fetch a facility"
+    },
+    "/api/provider/facilities/{facilityId}": {
+      "delete": "Delete a facility"
+    }
+  },
+  "rule": "A vocabulary concept whose label equals the field name is listed as a candidate only; it defines a term, not the API property, and is not used as the field's definition.",
+  "responses": {
+    "openapi.json": {
+      "url": "https://prod-actris-md.nilu.no/v3/api-docs",
+      "query": {},
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:45+00:00",
+      "bytes": 26286,
+      "sha256": "d6d61ebd68ea42e6c51a31f4a88529583e0b8a79878133166325d1f4a79cbeff",
+      "file": "data/raw/actris_fields/openapi.json"
+    },
+    "search_actris_vocab_active.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=active&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "active",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:46+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_active.json"
+    },
+    "search_actris_vocab_actris_national_facility.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=actris+national+facility&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "actris national facility",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:47+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_actris_national_facility.json"
+    },
+    "search_actris_vocab_actris_nf_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=actris+nf+uri&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "actris nf uri",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:47+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_actris_nf_uri.json"
+    },
+    "search_actris_vocab_country_code.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=country+code&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "country code",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:49+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_country_code.json"
+    },
+    "search_actris_vocab_description.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=description&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "description",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:49+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_description.json"
+    },
+    "search_actris_vocab_extra_metadata.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=extra+metadata&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "extra metadata",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:50+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_extra_metadata.json"
+    },
+    "search_actris_vocab_facility_type.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=facility+type&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "facility type",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:51+00:00",
+      "bytes": 554,
+      "sha256": "66495758d8930fdd7083e13c3eadc4f4fd2a749d7d5e88be38ef59aabd15f9ef",
+      "file": "data/raw/actris_fields/search_actris_vocab_facility_type.json"
+    },
+    "search_actris_vocab_gawid_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=gawid+uri&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "gawid uri",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:52+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_gawid_uri.json"
+    },
+    "search_actris_vocab_identifier.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=identifier&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "identifier",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:53+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_identifier.json"
+    },
+    "search_actris_vocab_identifier_type.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=identifier+type&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "identifier type",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:54+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_identifier_type.json"
+    },
+    "search_actris_vocab_location.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=location&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "location",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:55+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_location.json"
+    },
+    "search_actris_vocab_name.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=name&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "name",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:55+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_name.json"
+    },
+    "search_actris_vocab_operational_since.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=operational+since&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "operational since",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:56+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_operational_since.json"
+    },
+    "search_actris_vocab_surroundings.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=surroundings&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "surroundings",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:57+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_surroundings.json"
+    },
+    "search_actris_vocab_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=uri&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "uri",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:57+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_uri.json"
+    },
+    "search_actris_vocab_wmo_region.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=wmo+region&vocab=actris_vocab&lang=en",
+      "query": {
+        "query": "wmo region",
+        "vocab": "actris_vocab",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:58+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_vocab_wmo_region.json"
+    },
+    "search_actris_ctrl_lists_active.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=active&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "active",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:18:59+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_active.json"
+    },
+    "search_actris_ctrl_lists_actris_national_facility.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=actris+national+facility&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "actris national facility",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:00+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_actris_national_facility.json"
+    },
+    "search_actris_ctrl_lists_actris_nf_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=actris+nf+uri&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "actris nf uri",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:00+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_actris_nf_uri.json"
+    },
+    "search_actris_ctrl_lists_country_code.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=country+code&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "country code",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:01+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_country_code.json"
+    },
+    "search_actris_ctrl_lists_description.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=description&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "description",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:01+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_description.json"
+    },
+    "search_actris_ctrl_lists_extra_metadata.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=extra+metadata&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "extra metadata",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:02+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_extra_metadata.json"
+    },
+    "search_actris_ctrl_lists_facility_type.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=facility+type&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "facility type",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:03+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_facility_type.json"
+    },
+    "search_actris_ctrl_lists_gawid_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=gawid+uri&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "gawid uri",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:03+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_gawid_uri.json"
+    },
+    "search_actris_ctrl_lists_identifier.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=identifier&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "identifier",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:04+00:00",
+      "bytes": 563,
+      "sha256": "6b06aa102959b7c7fdba0999ee5b48fe563180e85a9e5760ea183dc1668f263b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_identifier.json"
+    },
+    "search_actris_ctrl_lists_identifier_type.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=identifier+type&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "identifier type",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:06+00:00",
+      "bytes": 576,
+      "sha256": "1669cd6fba7799fe81d67f343075b0c3ae9e60a2730ba136b585bb7930585f63",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_identifier_type.json"
+    },
+    "search_actris_ctrl_lists_location.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=location&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "location",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:07+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_location.json"
+    },
+    "search_actris_ctrl_lists_name.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=name&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "name",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:07+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_name.json"
+    },
+    "search_actris_ctrl_lists_operational_since.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=operational+since&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "operational since",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:08+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_operational_since.json"
+    },
+    "search_actris_ctrl_lists_surroundings.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=surroundings&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "surroundings",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:09+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_surroundings.json"
+    },
+    "search_actris_ctrl_lists_uri.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=uri&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "uri",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:09+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_uri.json"
+    },
+    "search_actris_ctrl_lists_wmo_region.json": {
+      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=wmo+region&vocab=actris_ctrl_lists&lang=en",
+      "query": {
+        "query": "wmo region",
+        "vocab": "actris_ctrl_lists",
+        "lang": "en"
+      },
+      "http_status": 200,
+      "retrieved_at": "2026-11-03T02:19:10+00:00",
+      "bytes": 367,
+      "sha256": "c8308b895bcfdba438d29464ab8bcd288516b0490816bbae2c310f9f1cece65b",
+      "file": "data/raw/actris_fields/search_actris_ctrl_lists_wmo_region.json"
+    }
+  },
+  "output": {
+    "file": "outputs/actris_field_definitions.csv",
+    "sha256": "fc74f6d1fe049f4d856b5e7e85a1d65bcc118927125bc4738140c9853c85e2e3"
+  }
+}

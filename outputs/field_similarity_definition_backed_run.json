@@ -1,0 +1,81 @@
+{
+  "timestamp_utc": "2026-11-03T03:17:43+00:00",
+  "script": "scripts/compare_fields_definition_backed.py",
+  "git_head_at_run": "b2f25d05c30ff99a174c402d7f4c30c2f4984146",
+  "git_working_tree_clean": true,
+  "git_uncommitted_paths": [],
+  "score_label": "similarity of definition-backed text",
+  "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has no definitions",
+  "definition_sources": {
+    "DEIMS": {
+      "name": "Site Metadata Model",
+      "abbreviation": "SMM",
+      "version": 1.43,
+      "release_date": "2025-02-20T00:00:00.000Z"
+    },
+    "ICOS": "rdfs:comment at https://meta.icos-cp.eu/sparql",
+    "ACTRIS": "none found (outputs/actris_field_definitions.csv)"
+  },
+  "definition_source_files": {
+    "outputs/deims_model_definitions_run.json": "c0220cf6a4dc71ac5601b0302da275b00f703f3f3e1079dfc9cdc6fbdc8d1757",
+    "outputs/definition_backed_input_run.json": "d5ee4d9d0515d5f8a21de08a1aeb3719f5a57fc247c9969ff749b39e620eb3de",
+    "data/mappings/deims_model_field_mapping.csv": "6d275a33c467e097467480e8d37faec0c5799efa49e215b986c8caed6f587133"
+  },
+  "input": {
+    "file": "outputs/final_field_comparison_definition_backed.csv",
+    "sha256": "aa1f4906d9bf64ea9909dbdcd1a684d0c370cb1fc66161ac9de672e91d3ba713"
+  },
+  "field_counts": {
+    "DEIMS": 81,
+    "ICOS": 20,
+    "ACTRIS": 16
+  },
+  "fields_with_definition": {
+    "DEIMS": 41,
+    "ICOS": 5,
+    "ACTRIS": 0
+  },
+  "tables": {
+    "DEIMS-ICOS": {
+      "file": "outputs/field_similarity_definition_backed_deims_icos.csv",
+      "pairs": 1620,
+      "sha256": "6eb49ecb435a3441c204864891c9941033d9e8bfa5024e06f917d2d87327e989"
+    },
+    "DEIMS-ACTRIS": {
+      "file": "outputs/field_similarity_definition_backed_deims_actris.csv",
+      "pairs": 1296,
+      "sha256": "7075686b15fad4268fa76240faab0f6e15cdf0cb918b84d382e75183324f9e5a"
+    },
+    "ICOS-ACTRIS": {
+      "file": "outputs/field_similarity_definition_backed_icos_actris.csv",
+      "pairs": 320,
+      "sha256": "2124376866460410b9255f33ab34a7b6db60161b1c6abf30e146633961c9a918"
+    }
+  },
+  "model": {
+    "name": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision_pinned": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "revision_loaded": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "revision_loaded_verification": "verified 15/15 weight file(s) against pin",
+    "weights_verified": true,
+    "allow_unverified_snapshot": false
+  },
+  "seed": 42,
+  "pin_file": {
+    "file": "scripts/field_model_pin.json",
+    "sha256": "6d21364aab5868822cbeb93d86331d7992e9e6a966b4aba4ec94ff2c3a10bc9c"
+  },
+  "library_versions": {
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "torch": "2.15.0",
+    "huggingface_hub": "2.4.0",
+    "tokenizers": "0.23.3",
+    "scikit-learn": "1.9.0",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "library_version_drift_from_pin": {},
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35"
+}

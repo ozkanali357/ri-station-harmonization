@@ -1,0 +1,28 @@
+{
+ "info": {
+  "version": "v3"
+ },
+ "components": {
+  "schemas": {
+   "Facility": {
+    "properties": {
+     "identifier": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "facility_type": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "active": {
+      "type": "boolean"
+     }
+    }
+   }
+  }
+ }
+}

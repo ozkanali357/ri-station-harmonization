@@ -1,0 +1,59 @@
+side,field,reason
+model,General/DEIMS.ID,no mapping row
+model,General/Web Address,no mapping row
+model,General/Images,only component rows in the mapping
+model,General/Metadata Update Date,no mapping row
+model,Observed Properties/Observed Properties,only component rows in the mapping
+model,Climatic Characteristics/Standard Reference Period,only candidate rows in the mapping
+model,Climatic Characteristics/Reference Location,no mapping row
+model,Ecosystem and environmental characteristics/Ecosystem type,only component rows in the mapping
+model,Ecosystem and environmental characteristics/EUNIS habitat,only component rows in the mapping
+model,Ecosystem and environmental characteristics/Landforms,only component rows in the mapping
+model,Network/Project/RI Affiliation/Is your site part of any network or project?,no mapping row
+model,Network/Project/RI Affiliation/Affiliation,only component rows in the mapping
+model,Network/Project/RI Affiliation/Projects,only component rows in the mapping
+model,Status and History/Site Status,only component rows in the mapping
+model,Protection Level and Land Use/Protection Level (IUCN category),only component rows in the mapping
+model,Protection Level and Land Use/Land use,only component rows in the mapping
+model,Equipment/Equipment,only candidate rows in the mapping
+model,Data Sharing Policy/Data Policy URL,only component rows in the mapping
+api,affiliation.networks[0].network.id.prefix,no mapping row
+api,affiliation.networks[0].network.id.suffix,no mapping row
+api,affiliation.networks[0].network.name,only component rows in the mapping
+api,affiliation.networks[0].siteCode,only component rows in the mapping
+api,affiliation.networks[0].verified,no mapping row
+api,affiliation.projects[0].label,only component rows in the mapping
+api,affiliation.projects[0].uri,only component rows in the mapping
+api,environmentalCharacteristics.airTemperature.referencePeriod,only candidate rows in the mapping
+api,environmentalCharacteristics.airTemperature.unit,no mapping row
+api,environmentalCharacteristics.ecosystemType[0].label,only component rows in the mapping
+api,environmentalCharacteristics.ecosystemType[0].uri,only component rows in the mapping
+api,environmentalCharacteristics.eunisHabitat[0].label,only component rows in the mapping
+api,environmentalCharacteristics.eunisHabitat[0].uri,only component rows in the mapping
+api,environmentalCharacteristics.landforms[0].label,only component rows in the mapping
+api,environmentalCharacteristics.landforms[0].uri,only component rows in the mapping
+api,environmentalCharacteristics.precipitation.referencePeriod,only candidate rows in the mapping
+api,environmentalCharacteristics.precipitation.unit,no mapping row
+api,focusDesignScale.observedProperties[0].label,only component rows in the mapping
+api,focusDesignScale.observedProperties[0].uri,only component rows in the mapping
+api,general.citation,no mapping row
+api,general.images[0].alt,only component rows in the mapping
+api,general.images[0].url,only component rows in the mapping
+api,general.landUse[0].label,only component rows in the mapping
+api,general.landUse[0].uri,only component rows in the mapping
+api,general.protectionLevel[0].label,only component rows in the mapping
+api,general.protectionLevel[0].uri,only component rows in the mapping
+api,general.relatedIdentifiers,no mapping row
+api,general.status.label,only component rows in the mapping
+api,general.status.uri,only component rows in the mapping
+api,geographic.elevation.unit,no mapping row
+api,geographic.relatedLocations[0].changed,no mapping row
+api,geographic.relatedLocations[0].id.prefix,no mapping row
+api,geographic.relatedLocations[0].id.suffix,no mapping row
+api,geographic.relatedLocations[0].title,no mapping row
+api,geographic.size.unit,no mapping row
+api,infrastructure.collection[0].label,only candidate rows in the mapping
+api,infrastructure.collection[0].uri,only candidate rows in the mapping
+api,infrastructure.data.policy.url[0].title,only component rows in the mapping
+api,infrastructure.data.policy.url[0].value,only component rows in the mapping
+api,relatedResources,no mapping row

@@ -1,0 +1,51 @@
+{
+ "name": "Synthetic Model",
+ "abbreviation": "SYN",
+ "version": 9.9,
+ "releaseDate": "2000-01-01T00:00:00.000Z",
+ "content": {
+  "Group A": {
+   "Alpha Name": {
+    "field_name": "field_alpha",
+    "Definition": "Synthetic definition of alpha.",
+    "Recommendation & Hints": "Synthetic hint with ‘quotes’ kept.",
+    "Format": "Text(10)",
+    "Multiplicity": "[1..1]",
+    "Required": true,
+    "Example": "Example alpha",
+    "Reference list": "",
+    "Comment": ""
+   }
+  },
+  "Group B": {
+   "Sub": {
+    "Beta (avg)": {
+     "field_name": "field_beta_avg",
+     "Definition": "Synthetic definition of beta.",
+     "Recommendation & Hints": "Synthetic hint.",
+     "Format": "numeric",
+     "Multiplicity": "[0..1]",
+     "Required": {
+      "X": "TRUE"
+     },
+     "Example": 956,
+     "Reference list": "",
+     "Comment": ""
+    }
+   }
+  },
+  "Group C": {
+   "Gamma": {
+    "field_name": "field_gamma",
+    "Definition": "",
+    "Recommendation & Hints": "",
+    "Format": "",
+    "Multiplicity": "[0..1]",
+    "Required": false,
+    "Example": "1991-2020",
+    "Reference list": "",
+    "Comment": ""
+   }
+  }
+ }
+}
