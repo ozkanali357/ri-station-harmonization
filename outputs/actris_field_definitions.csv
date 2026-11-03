@@ -1,17 +1,17 @@
 field,api_description_present,api_description,vocabulary_label_match,vocabulary_concept_uri,vocabulary_definition,vocabulary_version,used_as_field_definition,flagged
-active,no,(not a property of the Facility schema),,,,,no,yes
-actris_national_facility,no,(not a property of the Facility schema),,,,,no,yes
-actris_nf_uri,no,(not a property of the Facility schema),,,,,no,yes
-country_code,no,(not a property of the Facility schema),,,,,no,yes
-description,no,(not a property of the Facility schema),,,,,no,yes
-extra_metadata,no,(not a property of the Facility schema),,,,,no,yes
+active,no,no description in the OpenAPI document,,,,,no,yes
+actris_national_facility,no,no description in the OpenAPI document,,,,,no,yes
+actris_nf_uri,no,no description in the OpenAPI document,,,,,no,yes
+country_code,no,no description in the OpenAPI document,,,,,no,yes
+description,no,no description in the OpenAPI document,,,,,no,yes
+extra_metadata,no,no description in the OpenAPI document,,,,,no,yes
 facility_type,no,,actris_vocab: facility type,https://vocabulary.actris.nilu.no/actris_vocab/facilitytype,"Classification of platforms generating data on properties of the atmosphere, including properties of simulated atmospheres.",v1.2.2 (CC0 1.0),yes,no
-gawid_uri,no,(not a property of the Facility schema),,,,,no,yes
-identifier,no,,actris_ctrl_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,Identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
-identifier_type,no,,actris_ctrl_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,Types of persistent identifiers used in ACTRIS.,v1.2.2 (Licence unverified),yes,no
-location,no,(not a property of the Facility schema),,,,,no,yes
-name,no,(not a property of the Facility schema),,,,,no,yes
-operational_since,no,(not a property of the Facility schema),,,,,no,yes
-surroundings,no,(not a property of the Facility schema),,,,,no,yes
-uri,no,(not a property of the Facility schema),,,,,no,yes
-wmo_region,no,(not a property of the Facility schema),,,,,no,yes
+gawid_uri,no,no description in the OpenAPI document,,,,,no,yes
+identifier,no,,actris_ctrl_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,Identifiers used in ACTRIS.,v1.1.2 (CC0 1.0),yes,no
+identifier_type,no,,actris_ctrl_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,Types of persistent identifiers used in ACTRIS.,v1.1.2 (CC0 1.0),yes,no
+location,no,no description in the OpenAPI document,,,,,no,yes
+name,no,no description in the OpenAPI document,,,,,no,yes
+operational_since,no,no description in the OpenAPI document,,,,,no,yes
+surroundings,no,no description in the OpenAPI document,,,,,no,yes
+uri,no,no description in the OpenAPI document,,,,,no,yes
+wmo_region,no,no description in the OpenAPI document,,,,,no,yes

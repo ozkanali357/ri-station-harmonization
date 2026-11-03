@@ -1,14 +1,14 @@
 {
-  "timestamp_utc": "2026-11-03T04:28:12+00:00",
+  "timestamp_utc": "2026-11-03T04:33:49+00:00",
   "script": "scripts/compare_fields_definition_backed.py",
-  "git_head_at_run": "7a681cfa9bdae8e4c57ff34d1e52f1b965eef270",
+  "git_head_at_run": "1b961decf15a43d9405fde809a597df5d7e12bdc",
   "git_working_tree_clean": false,
   "git_uncommitted_paths": [
     "outputs/actris_field_definitions.csv",
     "outputs/actris_field_definitions_run.json"
   ],
   "score_label": "similarity of definition-backed text",
-  "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has no definitions",
+  "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has 3 label-matched vocabulary definitions (CC0 1.0)",
   "definition_sources": {
     "DEIMS": {
       "name": "Site Metadata Model",
@@ -17,7 +17,7 @@
       "release_date": "2025-02-20T00:00:00.000Z"
     },
     "ICOS": "rdfs:comment at https://meta.icos-cp.eu/sparql",
-    "ACTRIS": "none found (outputs/actris_field_definitions.csv)"
+    "ACTRIS": "hand-copied from ACTRIS SKOSMOS vocabulary (CC0 1.0)"
   },
   "definition_source_files": {
     "outputs/deims_model_definitions_run.json": "c0220cf6a4dc71ac5601b0302da275b00f703f3f3e1079dfc9cdc6fbdc8d1757",
