@@ -120,7 +120,8 @@ def test_local_definition_backed_input_is_what_the_script_builds():
     pd.testing.assert_frame_equal(rebuilt.reset_index(drop=True), committed, check_dtype=False)
     # the name-only input is not changed by this work: same fields in the same order
     assert list(rebuilt["field"]) == list(fields["field"])
-    assert not committed.loc[committed["ri"] == "ACTRIS", "flagged"].eq("no").any()
+    actris_unflagged = committed.loc[committed["ri"] == "ACTRIS", "flagged"].eq("no").sum()
+    assert actris_unflagged == 3
 
 
 def test_the_script_runs_the_extraction_when_the_model_csv_is_missing(tmp_path, monkeypatch):

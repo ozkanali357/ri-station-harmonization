@@ -1,6 +1,6 @@
 {
   "script": "scripts/actris_field_definitions.py",
-  "git_head_at_run": "da6ef4bbba4d4ab27e63a45f0e9043987fa33330",
+  "git_head_at_run": "026595abcb89785c370685b9a3b1a8ed905b8845",
   "fields_checked": [
     "active",
     "actris_national_facility",
@@ -21,7 +21,8 @@
   ],
   "openapi_version": "v3",
   "fields_with_api_description": 0,
-  "fields_flagged": 16,
+  "fields_with_vocabulary_definition": 3,
+  "fields_flagged": 13,
   "fields_with_label_equal_vocabulary_concept": [
     "facility_type",
     "identifier",
@@ -44,7 +45,7 @@
       "delete": "Delete a facility"
     }
   },
-  "rule": "A vocabulary concept whose label equals the field name is listed as a candidate only; it defines a term, not the API property, and is not used as the field's definition.",
+  "rule": "ACTRIS vocabulary is CC0 1.0; skos:definition is fetched and used as the field's definition where a label match exists.",
   "responses": {
     "openapi.json": {
       "url": "https://prod-actris-md.nilu.no/v3/api-docs",
@@ -474,8 +475,6 @@
   },
   "output": {
     "file": "outputs/actris_field_definitions.csv",
-    "sha256": "fc74f6d1fe049f4d856b5e7e85a1d65bcc118927125bc4738140c9853c85e2e3"
-  },
-  "fields_with_definition": [],
-  "vocabulary_license": "CC0 1.0"
+    "sha256": "cf358d294df3904d21b576f26a01fc33516dd668f7483d2174accc60159490e3"
+  }
 }

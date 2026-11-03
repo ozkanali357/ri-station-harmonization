@@ -84,5 +84,5 @@ def test_manifest_records_text_rule_pin_and_working_tree_state():
     assert manifest["git_working_tree_clean"] is False and manifest["git_uncommitted_paths"] == ["x"]
     assert "definition verbatim" in manifest["text_rule"]
     assert manifest["field_counts"] == {"DEIMS": 81, "ICOS": 20, "ACTRIS": 16}
-    assert manifest["fields_with_definition"]["ACTRIS"] == 0
+    assert manifest["fields_with_definition"]["ACTRIS"] == 3
     assert manifest["definition_sources"]["DEIMS"]["version"] == 1.43

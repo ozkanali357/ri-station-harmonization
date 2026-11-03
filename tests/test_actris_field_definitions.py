@@ -32,14 +32,14 @@ def test_api_description_is_empty_when_the_schema_gives_none():
     assert afd.facility_property_description(OPENAPI, "wmo_region") == (False, "")
 
 
-def test_a_label_equal_concept_is_a_candidate_not_a_field_definition():
+def test_a_label_equal_concept_with_cc0_definition_is_used_as_field_definition():
     searches = {(v, f): (SEARCH if (v, f) == ("actris_vocab", "facility_type") else EMPTY)
                 for v in afd.VOCABULARIES for f in ("facility_type", "name")}
     rows = afd.build_rows(["facility_type", "name"], OPENAPI, searches)
     by_field = {r["field"]: r for r in rows}
     ft = by_field["facility_type"]
     assert ft["vocabulary_concept_uri"] == URI and ft["vocabulary_label_match"] == "actris_vocab: facility type"
-    assert ft["used_as_field_definition"] == "no" and ft["flagged"] == "yes"
+    assert ft["used_as_field_definition"] == "yes" and ft["flagged"] == "no"
     assert by_field["name"]["vocabulary_label_match"] == "" and by_field["name"]["flagged"] == "yes"
 
 
@@ -51,19 +51,28 @@ def test_an_api_description_would_unflag_the_field():
     assert row["flagged"] == "no" and row["used_as_field_definition"] == "yes"
 
 
-def test_output_structure_holds_no_vocabulary_text_and_flags_every_field():
+def test_output_structure_with_cc0_definitions():
     """Checks the script's own output structure on synthetic input; it needs no file from outputs/."""
     fields = ["facility_type", "name", "identifier"]
     searches = {(v, f): (SEARCH if (v, f) == ("actris_vocab", "facility_type") else EMPTY)
                 for v in afd.VOCABULARIES for f in fields}
     frame = pd.DataFrame(afd.build_rows(fields, OPENAPI, searches), columns=afd.OUTPUT_COLUMNS)
-    assert list(frame.columns) == ["field", "api_description_present", "api_description", "vocabulary_label_match",
-                                   "vocabulary_concept_uri", "used_as_field_definition", "flagged"]
-    assert not any("definition" in c and c != "used_as_field_definition" for c in frame.columns)
+    # New structure includes vocabulary_definition and vocabulary_version columns
+    assert list(frame.columns) == afd.OUTPUT_COLUMNS
     assert set(frame["field"]) == set(fields)
-    assert (frame["flagged"] == "yes").all() and (frame["used_as_field_definition"] == "no").all()
+    # facility_type gets the CC0 definition (label-match + known URI); others stay flagged
+    ft = frame[frame["field"] == "facility_type"].iloc[0]
+    assert ft["used_as_field_definition"] == "yes"
+    assert ft["flagged"] == "no"
+    assert ft["vocabulary_definition"] != ""
+    assert "CC0" in ft["vocabulary_version"]
+    for other in ["name", "identifier"]:
+        row = frame[frame["field"] == other].iloc[0]
+        assert row["used_as_field_definition"] == "no"
+        assert row["flagged"] == "yes"
+        assert row["vocabulary_definition"] == ""
     assert not frame.apply(lambda c: c.astype(str).str.contains(afd.EMAIL_RE)).any().any()
-    assert not hasattr(afd, "concept_definition")  # the concept's definition text is never read
+
 
 
 def test_committed_list_covers_the_16_fields_in_the_scripts_structure():
@@ -71,12 +80,14 @@ def test_committed_list_covers_the_16_fields_in_the_scripts_structure():
     assert list(frame.columns) == afd.OUTPUT_COLUMNS
     final = pd.read_csv(ROOT / "outputs" / "final_field_comparison.csv")
     assert set(frame["field"]) == set(final.loc[final["ri"] == "ACTRIS", "field"])
-    assert not (frame["used_as_field_definition"].eq("yes") & frame["api_description_present"].eq("no")).any()
+    no_desc_yes_used = frame["used_as_field_definition"].eq("yes") & frame["api_description_present"].eq("no")
+    if no_desc_yes_used.any():
+        assert frame.loc[no_desc_yes_used, "vocabulary_definition"].astype(str).str.strip().ne("").all()
 
 def test_actris_definitions_are_fetched():
     if not (ROOT / "outputs" / "actris_field_definitions.csv").exists():
         pytest.skip("local file missing")
     frame = pd.read_csv(ROOT / "outputs" / "actris_field_definitions.csv", keep_default_na=False)
-    defined = frame[frame['definition'] != 'FLAGGED: No published API definition found']
+    defined = frame[frame['vocabulary_definition'] != '']
     assert len(defined) == 3
     assert set(defined['field']) == {'facility_type', 'identifier', 'identifier_type'}
