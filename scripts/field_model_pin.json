@@ -12,6 +12,23 @@
     "numpy": "2.5.2",
     "pandas": "3.0.5"
   },
-  "pinned_at": "2026-11-02T23:40:47+00:00",
-  "note": "revision and libraries were written by 'python scripts/compare_fields.py --write-pin' on 2026-11-02 (pinned_at). To re-pin, set revision to null and run it again on a machine that can reach huggingface.co."
+  "pinned_at": "2026-11-03T00:46:30+00:00",
+  "note": "revision and libraries were written by 'python scripts/compare_fields.py --write-pin' on 2026-11-02 (pinned_at). To re-pin, set revision to null and run it again on a machine that can reach huggingface.co.",
+  "weights": {
+    "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "onnx/model.onnx": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452",
+    "onnx/model_O1.onnx": "1391c6fc20b5530250bc15cbe1f47578ffeca55ab0551d335cc668b6299a88ec",
+    "onnx/model_O2.onnx": "1de3905029190b398c7d300b530e320cf4b5e7d3dfb9af1429ebd73fd9a16faf",
+    "onnx/model_O3.onnx": "a44f671e364dddbac31f203f07b91be6b0a35e51936e5ebfab65b6d9538b83ff",
+    "onnx/model_O4.onnx": "1667d7f3ba669048b13a96ee3a44456d5e42c8f44588ae8b603430e16160c485",
+    "onnx/model_qint8_arm64.onnx": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "onnx/model_qint8_avx512.onnx": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "onnx/model_qint8_avx512_vnni.onnx": "4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474",
+    "onnx/model_quint8_avx2.onnx": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+    "openvino/openvino_model.bin": "8b86cab4722e2aefab310cf96d4d5a9eb3b187f7d9670a082afc55c7fa0d392a",
+    "openvino/openvino_model_qint8_quantized.bin": "c92ea4af3c6bc7b4a0f3b3d61b147c850f4dbdd7c9e7beee0c0c70dc12da289b",
+    "pytorch_model.bin": "c3a85f238711653950f6a79ece63eb0ea93d76f6a6284be04019c53733baf256",
+    "rust_model.ot": "2d98d96d278348988f2744e6445b8bc16d921c3f6e17c667362f3cb353007aea",
+    "tf_model.h5": "24c06a7429b843d46e40c6b167122053921bf94dce2e5550ea5c07fabc597646"
+  }
 }
