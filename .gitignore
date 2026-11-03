@@ -25,4 +25,3 @@ outputs/*
 # Raw responses are already covered by data/raw/*.
 outputs/deims_model_definitions.csv
 outputs/final_field_comparison_definition_backed.csv
-outputs/actris_field_definitions.csv

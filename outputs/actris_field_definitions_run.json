@@ -1,6 +1,6 @@
 {
   "script": "scripts/actris_field_definitions.py",
-  "git_head_at_run": "c2b7586b0e6acdaa07ebba3e2449e2cd3dd381b4",
+  "git_head_at_run": "712bf632c6864a2ce7fdff383bfd79f70d8f1c13",
   "fields_checked": [
     "active",
     "actris_national_facility",
@@ -145,17 +145,6 @@
       "bytes": 554,
       "sha256": "66495758d8930fdd7083e13c3eadc4f4fd2a749d7d5e88be38ef59aabd15f9ef",
       "file": "data/raw/actris_fields/search_actris_vocab_facility_type.json"
-    },
-    "concept_actris_vocab_facilitytype.json": {
-      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/actris_vocab/data?uri=https%3A%2F%2Fvocabulary.actris.nilu.no%2Factris_vocab%2Ffacilitytype",
-      "query": {
-        "uri": "https://vocabulary.actris.nilu.no/actris_vocab/facilitytype"
-      },
-      "http_status": 200,
-      "retrieved_at": "2026-11-03T02:18:52+00:00",
-      "bytes": 2942,
-      "sha256": "ca1967b0228c298e936896f77a15c8a1b6520a50f0e722a9ab82bee56697409f",
-      "file": "data/raw/actris_fields/concept_actris_vocab_facilitytype.json"
     },
     "search_actris_vocab_gawid_uri.json": {
       "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=gawid+uri&vocab=actris_vocab&lang=en",
@@ -391,17 +380,6 @@
       "sha256": "6b06aa102959b7c7fdba0999ee5b48fe563180e85a9e5760ea183dc1668f263b",
       "file": "data/raw/actris_fields/search_actris_ctrl_lists_identifier.json"
     },
-    "concept_actris_ctrl_lists_identifier.json": {
-      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/actris_ctrl_lists/data?uri=https%3A%2F%2Fvocabulary.actris.nilu.no%2Factris_controlled_lists%2Fidentifier",
-      "query": {
-        "uri": "https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier"
-      },
-      "http_status": 200,
-      "retrieved_at": "2026-11-03T02:19:05+00:00",
-      "bytes": 2109,
-      "sha256": "0cbe17507adfe5c1755e24127fb1ab23a13a631878024ed3f5e06b4c36c13f3c",
-      "file": "data/raw/actris_fields/concept_actris_ctrl_lists_identifier.json"
-    },
     "search_actris_ctrl_lists_identifier_type.json": {
       "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=identifier+type&vocab=actris_ctrl_lists&lang=en",
       "query": {
@@ -414,17 +392,6 @@
       "bytes": 576,
       "sha256": "1669cd6fba7799fe81d67f343075b0c3ae9e60a2730ba136b585bb7930585f63",
       "file": "data/raw/actris_fields/search_actris_ctrl_lists_identifier_type.json"
-    },
-    "concept_actris_ctrl_lists_identifiertype.json": {
-      "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/actris_ctrl_lists/data?uri=https%3A%2F%2Fvocabulary.actris.nilu.no%2Factris_controlled_lists%2Fidentifiertype",
-      "query": {
-        "uri": "https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype"
-      },
-      "http_status": 200,
-      "retrieved_at": "2026-11-03T02:19:06+00:00",
-      "bytes": 3570,
-      "sha256": "b9c27af92d56f63e601fd8bddcafdfc383c2c964e2345e3b3da0de053ae8ae33",
-      "file": "data/raw/actris_fields/concept_actris_ctrl_lists_identifiertype.json"
     },
     "search_actris_ctrl_lists_location.json": {
       "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/search?query=location&vocab=actris_ctrl_lists&lang=en",
@@ -507,6 +474,6 @@
   },
   "output": {
     "file": "outputs/actris_field_definitions.csv",
-    "sha256": "70e2847aeed92bff57aab0934451556c59ca6ada251076c3d50d3139aa94a24a"
+    "sha256": "fc74f6d1fe049f4d856b5e7e85a1d65bcc118927125bc4738140c9853c85e2e3"
   }
 }

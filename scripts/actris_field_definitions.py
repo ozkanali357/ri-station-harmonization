@@ -9,13 +9,13 @@ Two sources are checked, and only these:
    (case-insensitive, underscores read as spaces)?
 
 A vocabulary concept with an equal label is a *candidate*, not a definition of the API field: the concept
-defines a term, the field is a property of a record. Candidates are listed in the output with their
-``skos:definition`` and are never used as the field's definition; a field without an API description stays
-flagged. Nothing is filled in.
+defines a term, the field is a property of a record. Candidates are listed in the output by label and URI
+only. **No ACTRIS vocabulary text is read or written**: the licence of the vocabulary is unknown, so the
+concept's ``skos:definition`` is never fetched, and the search responses that are cached hold only labels and
+URIs. A field without an API description stays flagged. Nothing is filled in.
 
 Raw responses are cached byte for byte in ``data/raw/actris_fields/`` (not committed: the OpenAPI document
-holds a service e-mail address and the vocabulary concept data holds ORCID links of creators). The committed
-run file ``outputs/actris_field_definitions_run.json`` records URL, query, retrieval time, status, size and
+holds a service e-mail address). The committed run file ``outputs/actris_field_definitions_run.json`` records URL, query, retrieval time, status, size and
 SHA-256 of each response.
 
 Writes ``outputs/actris_field_definitions.csv`` and ``outputs/actris_field_definitions_run.json``.
@@ -51,7 +51,7 @@ OUT_RUN = ROOT / "outputs" / "actris_field_definitions_run.json"
 USER_AGENT = "ri-station-harmonization (thesis research; public ACTRIS metadata)"
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 OUTPUT_COLUMNS = ["field", "api_description_present", "api_description", "vocabulary_label_match",
-                  "vocabulary_concept_uri", "vocabulary_definition", "used_as_field_definition", "flagged"]
+                  "vocabulary_concept_uri", "used_as_field_definition", "flagged"]
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -76,22 +76,7 @@ def exact_label_hits(search_payload: dict, field: str) -> list[dict]:
     return [r for r in search_payload.get("results", []) if str(r.get("prefLabel", "")).lower() == want]
 
 
-def concept_definition(data_payload: dict, concept_uri: str) -> str:
-    """The English ``skos:definition`` of one concept in a SKOSMOS ``/data`` response, or empty."""
-    for node in data_payload.get("graph", []):
-        if node.get("uri") != concept_uri:
-            continue
-        values = node.get("skos:definition")
-        if values is None:
-            return ""
-        for item in values if isinstance(values, list) else [values]:
-            if isinstance(item, dict) and item.get("lang", "en") == "en":
-                return str(item.get("value", ""))
-    return ""
-
-
-def build_rows(fields: list[str], openapi: dict, searches: dict[tuple[str, str], dict],
-               concepts: dict[tuple[str, str], dict]) -> list[dict]:
+def build_rows(fields: list[str], openapi: dict, searches: dict[tuple[str, str], dict]) -> list[dict]:
     rows = []
     for field in fields:
         is_prop, description = facility_property_description(openapi, field)
@@ -105,7 +90,6 @@ def build_rows(fields: list[str], openapi: dict, searches: dict[tuple[str, str],
                     "api_description": description,
                     "vocabulary_label_match": f"{vocab}: {hit['prefLabel']}",
                     "vocabulary_concept_uri": hit["uri"],
-                    "vocabulary_definition": concept_definition(concepts[(vocab, hit["uri"])], hit["uri"]),
                     "used_as_field_definition": "yes" if definition_found else "no",
                     "flagged": "no" if definition_found else "yes",
                 })
@@ -116,7 +100,6 @@ def build_rows(fields: list[str], openapi: dict, searches: dict[tuple[str, str],
                 "api_description": description,
                 "vocabulary_label_match": "",
                 "vocabulary_concept_uri": "",
-                "vocabulary_definition": "",
                 "used_as_field_definition": "yes" if definition_found else "no",
                 "flagged": "no" if definition_found else "yes",
             })
@@ -188,19 +171,13 @@ def main(argv: list[str] | None = None) -> int:
 
     openapi = cache.get_json("openapi.json", OPENAPI_URL)
     searches: dict[tuple[str, str], dict] = {}
-    concepts: dict[tuple[str, str], dict] = {}
     for vocab in VOCABULARIES:
         for field in fields:
             params = {"query": label_for(field), "vocab": vocab, "lang": "en"}
             searches[(vocab, field)] = cache.get_json(f"search_{vocab}_{_safe(field)}.json",
                                                       f"{SKOSMOS}/rest/v1/search", params)
-            for hit in exact_label_hits(searches[(vocab, field)], field):
-                key = (vocab, hit["uri"])
-                if key not in concepts:
-                    concepts[key] = cache.get_json(f"concept_{vocab}_{_safe(hit['uri'].rsplit('/', 1)[-1])}.json",
-                                                   f"{SKOSMOS}/rest/v1/{vocab}/data", {"uri": hit["uri"]})
 
-    rows = build_rows(fields, openapi, searches, concepts)
+    rows = build_rows(fields, openapi, searches)
     frame_out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
     for column in frame_out.columns:
         if frame_out[column].astype(str).str.contains(EMAIL_RE).any():
