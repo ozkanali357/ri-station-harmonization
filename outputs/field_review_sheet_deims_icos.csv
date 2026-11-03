@@ -1,21 +1,21 @@
 pair_id,deims_field,icos_field,icos_definition,reviewer_label,evidence_note
-R01,environmentalCharacteristics.eunisHabitat[0].label,hasName,FLAGGED,,
-R02,geographic.boundaries,hasAtcId,FLAGGED,,
-R03,general.status.uri,title,FLAGGED,,
-R04,general.siteName,title,FLAGGED,,
-R05,general.landUse[0].label,identifier,FLAGGED,,
-R06,infrastructure.collection[0].label,rdf-schema#label,FLAGGED,,
-R07,geographic.relatedLocations[0].title,spatial,FLAGGED,,
-R08,affiliation.networks[0].network.id.prefix,rdf-schema#label,FLAGGED,,
-R09,general.siteType,subject,FLAGGED,,
-R10,general.relatedSites,dcat#theme,FLAGGED,,
-R11,general.relatedIdentifiers,identifier,FLAGGED,,
-R12,geographic.relatedLocations[0].id.prefix,countryCode,ISO 3166-1 alpha-2 country code,,
-R13,general.images[0].url,hasTimeZoneOffset,offset of local timezone from UTC,,
-R14,geographic.coordinates,spatial,FLAGGED,,
-R15,general.siteType,hasStationId,FLAGGED,,
-R16,geographic.country,countryCode,ISO 3166-1 alpha-2 country code,,
-R17,geographic.country,spatial,FLAGGED,,
-R18,geographic.elevation.unit,hasStationClass,FLAGGED,,
-R19,geographic.boundaries,spatial,FLAGGED,,
-R20,focusDesignScale.observations.design,hasLatitude,Decimal degrees in WGS84/GRS80,,
+R01,environmentalCharacteristics.eunisHabitat[0].label,hasName,FLAGGED,spurious,Habitat label is not a station name.
+R02,geographic.boundaries,hasAtcId,FLAGGED,spurious,Boundaries are spatial extents; ATC ID is a unique identifier.
+R03,general.status.uri,title,FLAGGED,spurious,Status URI is a controlled vocabulary link; Title is the site name.
+R04,general.siteName,title,FLAGGED,plausible,Site name is synonymous with the station title.
+R05,general.landUse[0].label,identifier,FLAGGED,spurious,Land use label is a description; identifier is an ID code.
+R06,infrastructure.collection[0].label,rdf-schema#label,FLAGGED,unclear,Collection label is specific to infrastructure; RDF label is a generic display name.
+R07,geographic.relatedLocations[0].title,spatial,FLAGGED,unclear,A location title is a string; spatial usually refers to geometry.
+R08,affiliation.networks[0].network.id.prefix,rdf-schema#label,FLAGGED,spurious,Network ID prefix is a code; RDF label is a human-readable name.
+R09,general.siteType,subject,FLAGGED,unclear,Site type is a classification; subject is a broader category.
+R10,general.relatedSites,dcat#theme,FLAGGED,spurious,Related sites are other locations; DCAT theme is a categorization tag.
+R11,general.relatedIdentifiers,identifier,FLAGGED,plausible,Related identifiers are a broader concept of identifiers.
+R12,geographic.relatedLocations[0].id.prefix,countryCode,ISO 3166-1 alpha-2 country code,spurious,Location ID prefix is an internal code; country code is an ISO standard.
+R13,general.images[0].url,hasTimeZoneOffset,offset of local timezone from UTC,spurious,Image URL vs timezone offset. No semantic link.
+R14,geographic.coordinates,spatial,FLAGGED,plausible,Coordinates are the primary way to define spatial geometry.
+R15,general.siteType,hasStationId,FLAGGED,spurious,Site type is a category; Station ID is a unique identifier.
+R16,geographic.country,countryCode,ISO 3166-1 alpha-2 country code,plausible,Country name and country code are the same concept in different forms.
+R17,geographic.country,spatial,FLAGGED,unclear,"Country is a spatial attribute, but spatial is a broad term."
+R18,geographic.elevation.unit,hasStationClass,FLAGGED,spurious,Elevation unit is not a station class.
+R19,geographic.boundaries,spatial,FLAGGED,plausible,Boundaries are a type of spatial representation.
+R20,focusDesignScale.observations.design,hasLatitude,Decimal degrees in WGS84/GRS80,spurious,Observation design is completely different from a geographic coordinate.
