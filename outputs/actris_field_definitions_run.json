@@ -1,6 +1,6 @@
 {
   "script": "scripts/actris_field_definitions.py",
-  "git_head_at_run": "1b961decf15a43d9405fde809a597df5d7e12bdc",
+  "git_head_at_run": "52cda3b3c1e0a5ae95e4db4d422524c6c7b00ffe",
   "fields_checked": [
     "active",
     "actris_national_facility",
@@ -27,6 +27,15 @@
     "identifier",
     "identifier_type"
   ],
+  "provenance": {
+    "source_url": "https://vocabulary.actris.nilu.no/skosmos/",
+    "vocabularies": [
+      "actris_vocab v1.2.2",
+      "actris_controlled_lists v1.1.2"
+    ],
+    "retrieved_at": "2026-11-03",
+    "method": "hand-copied verbatim"
+  },
   "rule": "A vocabulary concept whose label equals the field name is used as the field's definition where the concept carries a published definition. The three known matches are facility_type (CC0 1.0), identifier and identifier_type (licence unverified).",
   "output": {
     "file": "outputs/actris_field_definitions.csv",
