@@ -72,3 +72,11 @@ def test_committed_list_covers_the_16_fields_in_the_scripts_structure():
     final = pd.read_csv(ROOT / "outputs" / "final_field_comparison.csv")
     assert set(frame["field"]) == set(final.loc[final["ri"] == "ACTRIS", "field"])
     assert not (frame["used_as_field_definition"].eq("yes") & frame["api_description_present"].eq("no")).any()
+
+def test_actris_definitions_are_fetched():
+    if not (ROOT / "outputs" / "actris_field_definitions.csv").exists():
+        pytest.skip("local file missing")
+    frame = pd.read_csv(ROOT / "outputs" / "actris_field_definitions.csv", keep_default_na=False)
+    defined = frame[frame['definition'] != 'FLAGGED: No published API definition found']
+    assert len(defined) == 3
+    assert set(defined['field']) == {'facility_type', 'identifier', 'identifier_type'}

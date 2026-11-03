@@ -1,11 +1,11 @@
 {
-  "timestamp_utc": "2026-11-03T03:49:02+00:00",
+  "timestamp_utc": "2026-11-03T03:54:21+00:00",
   "script": "scripts/compare_fields_definition_backed.py",
-  "git_head_at_run": "da6ef4bbba4d4ab27e63a45f0e9043987fa33330",
+  "git_head_at_run": "1b3ee37ec8c70b46aa9b000b1d77d3604d4547fd",
   "git_working_tree_clean": false,
   "git_uncommitted_paths": [
-    "outputs/actris_field_definitions_run.json",
-    "outputs/supervisor_report.html"
+    "outputs/actris_field_definitions.csv",
+    "outputs/actris_field_definitions_run.json"
   ],
   "score_label": "similarity of definition-backed text",
   "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has no definitions",

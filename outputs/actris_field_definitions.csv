@@ -1,17 +1,17 @@
-field,api_description_present,api_description,vocabulary_label_match,vocabulary_concept_uri,used_as_field_definition,flagged
-active,no,,,,no,yes
-actris_national_facility,no,,,,no,yes
-actris_nf_uri,no,,,,no,yes
-country_code,no,,,,no,yes
-description,no,,,,no,yes
-extra_metadata,no,,,,no,yes
-facility_type,no,,actris_vocab: facility type,https://vocabulary.actris.nilu.no/actris_vocab/facilitytype,no,yes
-gawid_uri,no,,,,no,yes
-identifier,no,,actris_ctrl_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,no,yes
-identifier_type,no,,actris_ctrl_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,no,yes
-location,no,,,,no,yes
-name,no,,,,no,yes
-operational_since,no,,,,no,yes
-surroundings,no,,,,no,yes
-uri,no,,,,no,yes
-wmo_region,no,,,,no,yes
+field,api_description_present,api_description,vocabulary_label_match,vocabulary_concept_uri,used_as_field_definition,flagged,definition,vocabulary_version
+active,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+actris_national_facility,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+actris_nf_uri,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+country_code,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+description,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+extra_metadata,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+facility_type,no,,actris_vocab: facility type,https://vocabulary.actris.nilu.no/actris_vocab/facilitytype,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+gawid_uri,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+identifier,no,,actris_ctrl_lists: identifier,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+identifier_type,no,,actris_ctrl_lists: identifier type,https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+location,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+name,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+operational_since,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+surroundings,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+uri,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
+wmo_region,no,,,,no,yes,FLAGGED: No published API definition found,v1.2.2 (CC0 1.0)
