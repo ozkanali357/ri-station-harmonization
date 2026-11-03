@@ -1,0 +1,45 @@
+{
+  "script": "scripts/build_definition_backed_input.py",
+  "inputs": {
+    "outputs/final_field_comparison.csv": "95227c572ad90ad5b1ee722b4b4b0369a65f0efd58a6a56236302776410e9198",
+    "outputs/deims_model_definitions.csv": "8e102d11b36e298b0d110bd9a8cc90edfc19f9195a11dac492e3cce208175765",
+    "outputs/deims_model_definitions_run.json": "c0220cf6a4dc71ac5601b0302da275b00f703f3f3e1079dfc9cdc6fbdc8d1757",
+    "data/mappings/deims_model_field_mapping.csv": "6d275a33c467e097467480e8d37faec0c5799efa49e215b986c8caed6f587133"
+  },
+  "transfer_relations": [
+    "direct",
+    "curated"
+  ],
+  "mapping_rows_by_relation": {
+    "direct": 24,
+    "component": 22,
+    "curated": 17,
+    "candidate": 4
+  },
+  "fields_with_definition": {
+    "DEIMS": 41,
+    "ICOS": 5,
+    "ACTRIS": 0
+  },
+  "field_counts": {
+    "DEIMS": 81,
+    "ICOS": 20,
+    "ACTRIS": 16
+  },
+  "deims_fields_by_mapping_relation": {
+    "none": 40,
+    "direct": 24,
+    "curated": 17
+  },
+  "deims_fields_mapped_but_model_gives_no_definition": 0,
+  "unmapped_model_fields": 18,
+  "unmapped_api_fields": 40,
+  "output": {
+    "file": "outputs/final_field_comparison_definition_backed.csv",
+    "sha256": "aa1f4906d9bf64ea9909dbdcd1a684d0c370cb1fc66161ac9de672e91d3ba713"
+  },
+  "unmapped_file": {
+    "file": "outputs/deims_model_mapping_unmapped.csv",
+    "sha256": "1d4353dbffa3959ac5389bcea76f2216015ccc437ccfe2e4f6b444dc329efc89"
+  }
+}

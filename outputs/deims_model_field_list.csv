@@ -1,0 +1,60 @@
+page_group,page_path,page_label,page_field_name,definition_published
+General,General/Site Name,Site Name,field_name,yes
+General,General/Short name,Short name,field_name_short,yes
+General,General/DEIMS.ID,DEIMS.ID,field_deims_id,yes
+General,General/Site Description,Site Description,field_abstract,yes
+General,General/Web Address,Web Address,field_url,yes
+General,General/Images,Images,field_images,yes
+General,General/Metadata Update Date,Metadata Update Date,field_date,yes
+Geographic,Geographic/Country,Country,field_country,yes
+Geographic,Geographic/Size,Size,field_size_ha,yes
+Geographic,Geographic/Elevation/Elevation (average),Elevation (average),field_elevation_avg,yes
+Geographic,Geographic/Elevation/Elevation (min),Elevation (min),field_elevation_min,yes
+Geographic,Geographic/Elevation/Elevation (max),Elevation (max),field_elevation_max,yes
+Geographic,Geographic/Centroid or Representative Coordinates,Centroid or Representative Coordinates,field_coordinates,yes
+Geographic,Geographic/Boundaries,Boundaries,field_boundaries,yes
+Observed Properties,Observed Properties/Observed Properties,Observed Properties,field_parameters,yes
+Climatic Characteristics,Climatic Characteristics/Standard Reference Period,Standard Reference Period,field_standard_reference_period,no
+Climatic Characteristics,Climatic Characteristics/Air Temperature - average annual,Air Temperature - average annual,field_air_temp_avg,yes
+Climatic Characteristics,Climatic Characteristics/Average Monthly Air Temperature,Average Monthly Air Temperature,field_air_temp,yes
+Climatic Characteristics,Climatic Characteristics/Precipitation Annual,Precipitation Annual,field_precipitation_annual,yes
+Climatic Characteristics,Climatic Characteristics/Average Monthly Precipitation (mm),Average Monthly Precipitation (mm),field_precipitation,yes
+Climatic Characteristics,Climatic Characteristics/Reference Location,Reference Location,field_observation_location,no
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Biomes/Biome,Biome,field_biome,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Biomes/GEO-BON Biome,GEO-BON Biome,field_geo_bon_biome,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Ecosystem type,Ecosystem type,field_ecosystem_land_use,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Biogeographical Region,Biogeographical Region,field_biogeographical_region,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/EUNIS habitat,EUNIS habitat,field_eunis_habitat,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Landforms,Landforms,field_landforms,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Additional characteristics/Geology,Geology,field_geology,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Additional characteristics/Hydrology,Hydrology,field_hydrology,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Additional characteristics/Soils,Soils,field_soils,yes
+Ecosystem and environmental characteristics,Ecosystem and environmental characteristics/Additional characteristics/Vegetation,Vegetation,field_vegetation,yes
+Network/Project/RI Affiliation,Network/Project/RI Affiliation/Is your site part of any network or project?,Is your site part of any network or project?,field_affiliation_condition,yes
+Network/Project/RI Affiliation,Network/Project/RI Affiliation/Affiliation,Affiliation,field_affiliation,yes
+Network/Project/RI Affiliation,Network/Project/RI Affiliation/Projects,Projects,field_projects,yes
+Status and History,Status and History/Site Status,Site Status,field_status,yes
+Status and History,Status and History/Year Established,Year Established,field_year_established,yes
+Status and History,Status and History/Year Closed,Year Closed,field_year_closed,yes
+"Type, Design and Scale","Type, Design and Scale/Site Type",Site Type,field_site_type,yes
+"Type, Design and Scale","Type, Design and Scale/Relationships to other sites",Relationships to other sites,field_related_sites_paragraph,yes
+"Type, Design and Scale","Type, Design and Scale/Observation Design/Scale of observation",Scale of observation,field_scale_observation,yes
+"Type, Design and Scale","Type, Design and Scale/Observation Design/Design of observation",Design of observation,field_design_observation,yes
+"Type, Design and Scale","Type, Design and Scale/Experimentation Design/Scale of experimentation",Scale of experimentation,field_scale_experiments,yes
+"Type, Design and Scale","Type, Design and Scale/Experimentation Design/Design of experimentation",Design of experimentation,field_design_experiments,yes
+"Type, Design and Scale","Type, Design and Scale/LTER Site Classification",LTER Site Classification,field_site_eu_classification,yes
+Protection Level and Land Use,Protection Level and Land Use/Protection Level (IUCN category),Protection Level (IUCN category),field_protection_level,yes
+Protection Level and Land Use,Protection Level and Land Use/Land use,Land use,field_management_of_resources,yes
+Operation,Operation/Accessible All Year,Accessible All Year,field_accessible_all_year,yes
+Operation,Operation/All parts of Site accessible,All parts of Site accessible,field_all_parts_accessible,yes
+Operation,Operation/Access Type,Access Type,field_access_type,yes
+Operation,Operation/Permanent Operation,Permanent Operation,field_permanent_operation,yes
+Operation,Operation/Operation Notes,Operation Notes,field_operation_notes,yes
+Operation,Operation/Site Visit Interval,Site Visit Interval,field_site_ops_sampling_intr,yes
+Operation,Operation/Maintenance Interval,Maintenance Interval,field_site_ops_maint_freq,yes
+Equipment,Equipment/Permanent Power Supply,Permanent Power Supply,field_permanent_power_supply,yes
+Equipment,Equipment/Equipment,Equipment,field_infrastructure,yes
+Equipment,Equipment/Equipment notes,Equipment notes,field_infrastructure_notes,yes
+Data Sharing Policy,Data Sharing Policy/General Data Policy,General Data Policy,field_dataset_rights,yes
+Data Sharing Policy,Data Sharing Policy/Data Policy Notes,Data Policy Notes,field_site_data_policy,yes
+Data Sharing Policy,Data Sharing Policy/Data Policy URL,Data Policy URL,field_data_policy_url,yes

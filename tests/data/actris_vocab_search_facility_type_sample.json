@@ -1,0 +1,30 @@
+{
+ "@context": {
+  "skos": "http://www.w3.org/2004/02/skos/core#",
+  "isothes": "http://purl.org/iso25964/skos-thes#",
+  "onki": "http://schema.onki.fi/onki#",
+  "uri": "@id",
+  "type": "@type",
+  "results": {
+   "@id": "onki:results",
+   "@container": "@list"
+  },
+  "prefLabel": "skos:prefLabel",
+  "altLabel": "skos:altLabel",
+  "hiddenLabel": "skos:hiddenLabel",
+  "@language": "en"
+ },
+ "uri": "",
+ "results": [
+  {
+   "uri": "https://vocabulary.actris.nilu.no/actris_vocab/facilitytype",
+   "type": [
+    "skos:Concept"
+   ],
+   "localname": "facilitytype",
+   "prefLabel": "facility type",
+   "lang": "en",
+   "vocab": "actris_vocab"
+  }
+ ]
+}

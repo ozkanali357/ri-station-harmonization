@@ -1,0 +1,88 @@
+{
+  "script": "scripts/deims_model_definitions.py",
+  "git_head_at_run": "21ccdba27437ae4fa78d94b1163d394e234f8ba3",
+  "model": {
+    "name": "Site Metadata Model",
+    "abbreviation": "SMM",
+    "version": 1.43,
+    "release_date": "2025-02-20T00:00:00.000Z"
+  },
+  "responses": {
+    "page.html": {
+      "file": "data/raw/deims_model/page.html",
+      "url": "https://deims.org/models/?id=site",
+      "retrieved_at": "2026-11-03T02:16:55+00:00",
+      "http_status": 200,
+      "bytes": 18702,
+      "sha256": "ea7304de2409a9b48a7e0896546ac0228ea2499f907d8fb3caa41a69b71d3bb3",
+      "last_modified_header": "Fri, 13 Mar 2026 10:06:07 GMT",
+      "etag_header": "\"490e-64ce50488c349-gzip\""
+    },
+    "smm.json": {
+      "file": "data/raw/deims_model/smm.json",
+      "url": "https://raw.githubusercontent.com/stopopol/deims_apps/master/metadata_models/smm.json",
+      "retrieved_at": "2026-11-03T02:16:56+00:00",
+      "http_status": 200,
+      "bytes": 66606,
+      "sha256": "ce13630329c27c2b9443f284449045ba88035f9d244bdc1e5eb2127545662214",
+      "last_modified_header": null,
+      "etag_header": "W/\"d394f20463909103b4c077efbd835ca8b051526f671129f7ccd3a69bb0738b2f\""
+    },
+    "terms.html": {
+      "file": "data/raw/deims_model/terms.html",
+      "url": "https://deims.org/terms",
+      "retrieved_at": "2026-11-03T02:16:57+00:00",
+      "http_status": 200,
+      "bytes": 26841,
+      "sha256": "606461f87e9c3b681db8782c24fea8d5e7200b3da61619cbe3731e2ed21a9f0a",
+      "last_modified_header": null,
+      "etag_header": null
+    }
+  },
+  "terms_of_use": {
+    "url": "https://deims.org/terms",
+    "licence_sentence_present": true,
+    "licence_sentence": "This work is licensed under a Creative Commons Attribution-Non Commercial 4.0 International License (CC BY-NC 4.0 International)",
+    "note": "The same page also forbids using 'scraping or similar techniques to collect content to use it for another purpose, to publish it again'. This script makes three single requests (viewer page, model JSON, terms page) and does not crawl the site. Because the page does not settle whether publishing the text is covered, the text, the raw responses and the files built from them are not committed; they are produced locally."
+  },
+  "counts": {
+    "entries_in_model": 63,
+    "excluded_contact": 4,
+    "extracted": 59,
+    "with_definition": 57,
+    "without_definition": 2
+  },
+  "excluded_contact_entries": [
+    {
+      "page_path": "Contact/Site Manager",
+      "page_field_name": "field_site_manager"
+    },
+    {
+      "page_path": "Contact/Operating Organisation",
+      "page_field_name": "field_site_owner"
+    },
+    {
+      "page_path": "Contact/Funding Agency",
+      "page_field_name": "field_funding_agency"
+    },
+    {
+      "page_path": "Contact/Metadata Provider",
+      "page_field_name": "field_metadata_provider"
+    }
+  ],
+  "not_extracted_keys": [
+    "Required",
+    "Dependency",
+    "Reference list",
+    "Comment"
+  ],
+  "output": {
+    "file": "outputs/deims_model_definitions.csv",
+    "sha256": "8e102d11b36e298b0d110bd9a8cc90edfc19f9195a11dac492e3cce208175765",
+    "committed": false
+  },
+  "field_list": {
+    "file": "outputs/deims_model_field_list.csv",
+    "sha256": "b949dedcc5254a33db35987d7bbff6ea22e31b71e17b9c626984d5ea7aa89d68"
+  }
+}
