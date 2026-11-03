@@ -1,13 +1,11 @@
 {
-  "timestamp_utc": "2026-11-03T03:33:20+00:00",
+  "timestamp_utc": "2026-11-03T04:39:17+00:00",
   "script": "scripts/compare_fields_definition_backed.py",
-  "git_head_at_run": "4c56416d7b2fbaf68cc3856752bd85a9badd47a4",
-  "git_working_tree_clean": false,
-  "git_uncommitted_paths": [
-    "outputs/supervisor_report.html"
-  ],
+  "git_head_at_run": "2901910f5a73e233810f69c95516684852736cb7",
+  "git_working_tree_clean": true,
+  "git_uncommitted_paths": [],
   "score_label": "similarity of definition-backed text",
-  "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has no definitions",
+  "text_rule": "text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; name_text = field string as extracted; fields whose name contains 'contact' are dropped in all RIs; ACTRIS has 3 label-matched vocabulary definitions (CC0 1.0)",
   "definition_sources": {
     "DEIMS": {
       "name": "Site Metadata Model",
@@ -16,16 +14,16 @@
       "release_date": "2025-02-20T00:00:00.000Z"
     },
     "ICOS": "rdfs:comment at https://meta.icos-cp.eu/sparql",
-    "ACTRIS": "none found (outputs/actris_field_definitions.csv)"
+    "ACTRIS": "hand-copied from ACTRIS SKOSMOS vocabulary (CC0 1.0)"
   },
   "definition_source_files": {
     "outputs/deims_model_definitions_run.json": "c0220cf6a4dc71ac5601b0302da275b00f703f3f3e1079dfc9cdc6fbdc8d1757",
-    "outputs/definition_backed_input_run.json": "d5ee4d9d0515d5f8a21de08a1aeb3719f5a57fc247c9969ff749b39e620eb3de",
+    "outputs/definition_backed_input_run.json": "0483432803bd185d9b8355cf26bc088c713deb64d8d693ce9defd79ed231d5fa",
     "data/mappings/deims_model_field_mapping.csv": "6d275a33c467e097467480e8d37faec0c5799efa49e215b986c8caed6f587133"
   },
   "input": {
     "file": "outputs/final_field_comparison_definition_backed.csv",
-    "sha256": "aa1f4906d9bf64ea9909dbdcd1a684d0c370cb1fc66161ac9de672e91d3ba713"
+    "sha256": "c0523a5a30e25eba561ee0e7414087baa6f923b2546be1f5f0a90b2eb8ddba09"
   },
   "field_counts": {
     "DEIMS": 81,
@@ -35,7 +33,7 @@
   "fields_with_definition": {
     "DEIMS": 41,
     "ICOS": 5,
-    "ACTRIS": 0
+    "ACTRIS": 3
   },
   "tables": {
     "DEIMS-ICOS": {
@@ -46,12 +44,12 @@
     "DEIMS-ACTRIS": {
       "file": "outputs/field_similarity_definition_backed_deims_actris.csv",
       "pairs": 1296,
-      "sha256": "7075686b15fad4268fa76240faab0f6e15cdf0cb918b84d382e75183324f9e5a"
+      "sha256": "eadc2b298d51e482532286cbf0d5bf36104d0400b429d941e667706a5ff752cb"
     },
     "ICOS-ACTRIS": {
       "file": "outputs/field_similarity_definition_backed_icos_actris.csv",
       "pairs": 320,
-      "sha256": "2124376866460410b9255f33ab34a7b6db60161b1c6abf30e146633961c9a918"
+      "sha256": "9c2a105e7396bd28a6c59d999f4477fdabd5ab24839df4c1400209e02995283c"
     }
   },
   "model": {

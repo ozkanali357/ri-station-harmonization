@@ -19,7 +19,7 @@
   "fields_with_definition": {
     "DEIMS": 41,
     "ICOS": 5,
-    "ACTRIS": 0
+    "ACTRIS": 3
   },
   "field_counts": {
     "DEIMS": 81,
@@ -36,7 +36,7 @@
   "unmapped_api_fields": 40,
   "output": {
     "file": "outputs/final_field_comparison_definition_backed.csv",
-    "sha256": "aa1f4906d9bf64ea9909dbdcd1a684d0c370cb1fc66161ac9de672e91d3ba713"
+    "sha256": "c0523a5a30e25eba561ee0e7414087baa6f923b2546be1f5f0a90b2eb8ddba09"
   },
   "unmapped_file": {
     "file": "outputs/deims_model_mapping_unmapped.csv",

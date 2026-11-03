@@ -62,7 +62,7 @@ SCORE_LABEL = "similarity of definition-backed text"
 TEXT_RULE = ("text = the published definition verbatim where the field has one (ICOS rdfs:comment; DEIMS-SDR "
              "Site Metadata Model 'Definition' via a direct or curated mapping row), else the field name; "
              "name_text = field string as extracted; fields whose name contains 'contact' are dropped in "
-             "all RIs; ACTRIS has no definitions")
+             "all RIs; ACTRIS has 3 label-matched vocabulary definitions (CC0 1.0)")
 
 
 def pair_file(ri_a: str, ri_b: str, out_dir: Path = OUT) -> Path:
@@ -134,7 +134,7 @@ def build_manifest(*, fields: pd.DataFrame, outputs: dict, pin: dict, installed:
         "score_label": SCORE_LABEL,
         "text_rule": TEXT_RULE,
         "definition_sources": {"DEIMS": model_info, "ICOS": "rdfs:comment at https://meta.icos-cp.eu/sparql",
-                               "ACTRIS": "none found (outputs/actris_field_definitions.csv)"},
+                               "ACTRIS": "hand-copied from ACTRIS SKOSMOS vocabulary (CC0 1.0)"},
         "definition_source_files": sources,
         "input": {"file": str(IN_FILE.relative_to(ROOT)), "sha256": cf._sha256_file(IN_FILE)},
         "field_counts": counts,

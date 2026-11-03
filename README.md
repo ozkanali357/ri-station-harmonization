@@ -85,3 +85,5 @@ The current verified counts and conditional reviewed-set evaluation are in [RESU
 - ACTRIS facilities: `https://prod-actris-md.nilu.no/api/facilities` (OpenAPI spec at `/v3/api-docs`)
 
 Use the infrastructures’ own terms and citation guidance for source data. This pilot is MIT-licensed code, not a re-publication of their raw metadata, and the DEIMS model text is not committed (see above).
+
+*Note: DEIMS definitions are CC BY-NC 4.0 (not committed). ACTRIS definitions are CC0 1.0 (facility_type, identifier, identifier_type) via SKOSMOS.*

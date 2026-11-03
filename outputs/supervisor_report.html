@@ -1,0 +1,204 @@
+
+<html>
+<head>
+<style>
+    body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; }
+    h1 { color: #2c3e50; }
+    h2 { color: #34495e; margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; background-color: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    th { background-color: #2980b9; color: white; padding: 12px; text-align: left; }
+    td { padding: 10px; border-bottom: 1px solid #ddd; font-size: 14px; }
+    tr:hover { background-color: #f1f1f1; }
+    .flag { color: #e74c3c; font-style: italic; }
+</style>
+</head>
+<body>
+    <h1>Field-Level Comparison: DEIMS, ICOS, ACTRIS</h1>
+    <p>This report summarizes the curated mapping between the DEIMS Metadata Model and the API fields, and the top 10 pairs by similarity of field names.</p>
+    
+    <h2>1. Curated Mapping (17 Rows)</h2>
+    <p>These rows map the DEIMS Model page to the API field paths (reviewed by the author).</p>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>page_path</th>
+      <th>page_field_name</th>
+      <th>api_field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Operation/All parts of Site accessible</td>
+      <td>field_all_parts_accessible</td>
+      <td>infrastructure.allPartsAccessible</td>
+    </tr>
+    <tr>
+      <td>Geographic/Size</td>
+      <td>field_size_ha</td>
+      <td>geographic.size.value</td>
+    </tr>
+    <tr>
+      <td>Geographic/Elevation/Elevation (average)</td>
+      <td>field_elevation_avg</td>
+      <td>geographic.elevation.avg</td>
+    </tr>
+    <tr>
+      <td>Geographic/Elevation/Elevation (min)</td>
+      <td>field_elevation_min</td>
+      <td>geographic.elevation.min</td>
+    </tr>
+    <tr>
+      <td>Geographic/Elevation/Elevation (max)</td>
+      <td>field_elevation_max</td>
+      <td>geographic.elevation.max</td>
+    </tr>
+    <tr>
+      <td>Climatic Characteristics/Air Temperature - average annual</td>
+      <td>field_air_temp_avg</td>
+      <td>environmentalCharacteristics.airTemperature.yearlyAverage</td>
+    </tr>
+    <tr>
+      <td>Climatic Characteristics/Average Monthly Air Temperature</td>
+      <td>field_air_temp</td>
+      <td>environmentalCharacteristics.airTemperature.monthlyAverage</td>
+    </tr>
+    <tr>
+      <td>Climatic Characteristics/Precipitation Annual</td>
+      <td>field_precipitation_annual</td>
+      <td>environmentalCharacteristics.precipitation.yearlyAverage</td>
+    </tr>
+    <tr>
+      <td>Climatic Characteristics/Average Monthly Precipitation (mm)</td>
+      <td>field_precipitation</td>
+      <td>environmentalCharacteristics.precipitation.monthlyAverage</td>
+    </tr>
+    <tr>
+      <td>Type, Design and Scale/Relationships to other sites</td>
+      <td>field_related_sites_paragraph</td>
+      <td>general.relatedSites</td>
+    </tr>
+    <tr>
+      <td>Type, Design and Scale/Observation Design/Scale of observation</td>
+      <td>field_scale_observation</td>
+      <td>focusDesignScale.observations.scale</td>
+    </tr>
+    <tr>
+      <td>Type, Design and Scale/Observation Design/Design of observation</td>
+      <td>field_design_observation</td>
+      <td>focusDesignScale.observations.design</td>
+    </tr>
+    <tr>
+      <td>Type, Design and Scale/Experimentation Design/Scale of experimentation</td>
+      <td>field_scale_experiments</td>
+      <td>focusDesignScale.experiments.scale</td>
+    </tr>
+    <tr>
+      <td>Type, Design and Scale/Experimentation Design/Design of experimentation</td>
+      <td>field_design_experiments</td>
+      <td>focusDesignScale.experiments.design</td>
+    </tr>
+    <tr>
+      <td>Operation/Permanent Operation</td>
+      <td>field_permanent_operation</td>
+      <td>infrastructure.operation.permanent</td>
+    </tr>
+    <tr>
+      <td>Data Sharing Policy/General Data Policy</td>
+      <td>field_dataset_rights</td>
+      <td>infrastructure.data.policy.rights</td>
+    </tr>
+    <tr>
+      <td>Data Sharing Policy/Data Policy Notes</td>
+      <td>field_site_data_policy</td>
+      <td>infrastructure.data.policy.notes</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>2. Top 10 Pairs by Similarity of Field Names (DEIMS-ICOS)</h2>
+    <p>Ranked by MiniLM name similarity. <span class="flag">FLAGGED</span> indicates no published definition was available.</p>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>field_a</th>
+      <th>field_b</th>
+      <th>minilm_name_sim</th>
+      <th>definition_used_a</th>
+      <th>definition_used_b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>geographic.country</td>
+      <td>countryCode</td>
+      <td>0.5652</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>geographic.country</td>
+      <td>spatial</td>
+      <td>0.5530</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>geographic.boundaries</td>
+      <td>spatial</td>
+      <td>0.5104</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>geographic.coordinates</td>
+      <td>spatial</td>
+      <td>0.4635</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>general.landUse[0].label</td>
+      <td>identifier</td>
+      <td>0.4559</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>geographic.relatedLocations[0].title</td>
+      <td>spatial</td>
+      <td>0.4489</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>infrastructure.collection[0].label</td>
+      <td>rdf-schema#label</td>
+      <td>0.4453</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>general.siteName</td>
+      <td>title</td>
+      <td>0.4384</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>geographic.relatedLocations[0].id.prefix</td>
+      <td>countryCode</td>
+      <td>0.4270</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>general.relatedIdentifiers</td>
+      <td>identifier</td>
+      <td>0.4238</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

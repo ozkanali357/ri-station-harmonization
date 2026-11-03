@@ -110,6 +110,17 @@ def build_input(fields: pd.DataFrame, model: pd.DataFrame, mapping: pd.DataFrame
             out.at[i, "definition"] = published.at[link["page_path"], "definition"]
             out.at[i, "flagged"] = "no"
             out.at[i, "definition_source"] = source
+    # ACTRIS CC0 vocabulary definitions (from outputs/actris_field_definitions.csv)
+    actris_path = OUT / "actris_field_definitions.csv"
+    if actris_path.exists():
+        actris = pd.read_csv(actris_path, keep_default_na=False)
+        actris = actris[actris["vocabulary_definition"].astype(str).str.strip() != ""]
+        actris_map = dict(zip(actris["field"], actris["vocabulary_definition"]))
+        for i, row in out.iterrows():
+            if row["ri"] == "ACTRIS" and row["field"] in actris_map:
+                out.at[i, "definition"] = actris_map[row["field"]]
+                out.at[i, "flagged"] = "no"
+                out.at[i, "definition_source"] = "CC0 1.0 ACTRIS vocabulary via SKOSMOS"
     return out[OUTPUT_COLUMNS]
 
 
