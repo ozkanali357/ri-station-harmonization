@@ -1,9 +1,10 @@
 {
-  "timestamp_utc": "2026-11-03T03:33:20+00:00",
+  "timestamp_utc": "2026-11-03T03:49:02+00:00",
   "script": "scripts/compare_fields_definition_backed.py",
-  "git_head_at_run": "4c56416d7b2fbaf68cc3856752bd85a9badd47a4",
+  "git_head_at_run": "da6ef4bbba4d4ab27e63a45f0e9043987fa33330",
   "git_working_tree_clean": false,
   "git_uncommitted_paths": [
+    "outputs/actris_field_definitions_run.json",
     "outputs/supervisor_report.html"
   ],
   "score_label": "similarity of definition-backed text",
