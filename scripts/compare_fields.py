@@ -24,10 +24,17 @@ with the seed and library versions stored there. The first time (revision still 
 
     python scripts/compare_fields.py --write-pin
 
-which needs access to huggingface.co, looks up the model's current commit, records it together with
-the installed library versions, and then runs. Commit the pin file. Later runs refuse to start if the
-installed library versions differ from the pin (``--allow-version-drift`` records the difference in the
-manifest instead). Weights are fetched from the Hugging Face Hub at that revision on first use.
+which needs access to huggingface.co, looks up the model's current commit and the SHA-256 of each of its
+LFS weight files, records them together with the installed library versions, and then runs. Commit the
+pin file. ``--write-pin`` refuses to overwrite a pin that already has a revision unless ``--force-repin``
+is also given, so the revision cannot move silently.
+
+Later runs refuse to start if the installed library versions differ from the pin
+(``--allow-version-drift`` records the difference in the manifest instead). They also re-hash every
+weight file of the pinned snapshot in the local Hugging Face cache against the pin and exit with 2 on a
+mismatch; if the transformers config supplies a commit hash it must equal the pinned revision. If the
+snapshot cannot be found (or the pin has no weight hashes) the run exits with 2 as well, unless
+``--allow-unverified-snapshot`` is given; the manifest then records that the weights were not verified.
 """
 
 from __future__ import annotations
@@ -186,6 +193,75 @@ def _sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def pin_note(pinned_at: str) -> str:
+    return (f"revision, weight hashes and library versions were written by "
+            f"'python scripts/compare_fields.py --write-pin' at {pinned_at} (UTC). "
+            f"To re-pin run it again with --write-pin --force-repin on a machine that can reach huggingface.co.")
+
+
+def write_pin(pin: dict, installed: dict, resolver: Callable[[str], tuple[str, dict[str, str]]], now: datetime) -> dict:
+    """Return a copy of ``pin`` with revision, weight hashes, libraries, time and note filled in."""
+    new = dict(pin)
+    new["revision"], new["weights"] = resolver(pin["model"])
+    new["libraries"] = {k: v for k, v in installed.items() if v is not None}
+    new["pinned_at"] = now.astimezone(timezone.utc).replace(microsecond=0).isoformat()
+    new["note"] = pin_note(new["pinned_at"])
+    return new
+
+
+def locate_snapshot(pin: dict) -> Path:
+    """Folder of the pinned snapshot in the local Hugging Face cache; never touches the network."""
+    from huggingface_hub import snapshot_download
+
+    return Path(snapshot_download(repo_id=pin["model"], revision=pin["revision"], local_files_only=True))
+
+
+def check_weights(weights: dict[str, str], snapshot_path: Path) -> tuple[int, str | None]:
+    """Re-hash every pinned file; return (number verified, first problem or None)."""
+    verified = 0
+    for filename, expected in weights.items():
+        local = snapshot_path / filename
+        if not local.exists():
+            return verified, f"missing {filename}"
+        actual = _sha256_file(local)
+        if actual != expected:
+            return verified, f"{filename}: pin {expected[:12]}... actual {actual[:12]}..."
+        verified += 1
+    return verified, None
+
+
+def verify_loaded_model(transformers_commit: str | None, pin: dict, allow_unverified: bool,
+                        locate: Callable[[dict], Path] | None = None) -> tuple[str | None, str, bool, str | None]:
+    """Return ``(revision_loaded, verification text, weights_verified, error)``; a non-None error means exit 2."""
+    if transformers_commit and transformers_commit != pin["revision"]:
+        return None, "transformers commit hash differs from pin", False, (
+            f"Loaded revision {transformers_commit} but the pin says {pin['revision']}.")
+    weights = pin.get("weights") or {}
+    if not weights:
+        reason = "the pin has no weight hashes; re-pin with --write-pin --force-repin"
+    else:
+        try:
+            snapshot = (locate or locate_snapshot)(pin)
+        except (ImportError, OSError, ValueError) as exc:
+            reason = f"could not find the pinned snapshot in the local cache: {exc!r}"
+        else:
+            verified, problem = check_weights(weights, snapshot)
+            if problem:
+                return None, f"weight mismatch: {problem}", False, f"Weight verification failed: {problem}"
+            text = f"verified {verified}/{len(weights)} weight file(s) against pin"
+            if transformers_commit:
+                return transformers_commit, f"transformers commit hash equals pin; {text}", True, None
+            return pin["revision"], text, True, None
+    if not allow_unverified:
+        return None, f"NOT verified: {reason}", False, (
+            f"Cannot verify the loaded model: {reason}. Pass --allow-unverified-snapshot to run anyway; "
+            f"the manifest will record that the weights were not verified.")
+    note = f"weights NOT verified ({reason}); run with --allow-unverified-snapshot"
+    if transformers_commit:
+        return transformers_commit, f"transformers commit hash equals pin; {note}", False, None
+    return None, note, False, None
+
+
 def _git_head() -> str | None:
     try:
         return subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True,
@@ -200,14 +276,21 @@ def main(argv: list[str] | None = None) -> int:
                         help="resolve the model's current Hub revision, store it with the installed library versions")
     parser.add_argument("--allow-version-drift", action="store_true",
                         help="run although installed library versions differ from the pin (recorded in the manifest)")
+    parser.add_argument("--force-repin", action="store_true",
+                        help="with --write-pin: overwrite a pin that already has a revision")
+    parser.add_argument("--allow-unverified-snapshot", action="store_true",
+                        help="run although the pinned snapshot cannot be found to verify the weights "
+                             "(the manifest records that they were not verified)")
     args = parser.parse_args(argv)
 
     pin = load_pin()
     installed = installed_versions()
     if args.write_pin:
-        pin["revision"], pin["weights"] = resolve_revision_and_weights(pin["model"])
-        pin["libraries"] = {k: v for k, v in installed.items() if v is not None}
-        pin["pinned_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+        if pin.get("revision") is not None and not args.force_repin:
+            print(f"The pin already has revision {pin['revision']}; --write-pin would replace it with the "
+                  "model's current revision. Pass --force-repin as well if that is intended.", file=sys.stderr)
+            return 2
+        pin = write_pin(pin, installed, resolve_revision_and_weights, datetime.now(timezone.utc))
         PIN_FILE.write_text(json.dumps(pin, indent=2) + "\n", encoding="utf-8")
         print(f"Pinned {pin['model']} at {pin['revision']} ({len(pin['weights'])} weight file(s))")
     elif pin.get("revision") is None:
@@ -225,53 +308,15 @@ def main(argv: list[str] | None = None) -> int:
     set_seed(pin["seed"])
     model = SentenceTransformer(pin["model"], revision=pin["revision"])
 
-    loaded_commit = None
-    verification = "not attempted"
-
-    # Prefer transformers' own commit hash when the installed version populates it.
+    transformers_commit = None
     try:
-        attr = model[0].auto_model.config._commit_hash
-        if attr:
-            loaded_commit = attr
-            verification = "from transformers config._commit_hash"
+        transformers_commit = model[0].auto_model.config._commit_hash or None
     except (AttributeError, IndexError, TypeError):
         pass
-
-    # Otherwise verify the loaded weights against the per-file hashes recorded in the pin.
-    if loaded_commit is None:
-        weights = pin.get("weights") or {}
-        if not weights:
-            verification = "pin has no weights map; re-pin with --write-pin"
-        else:
-            try:
-                from huggingface_hub import snapshot_download
-                snapshot_path = Path(snapshot_download(
-                    repo_id=pin["model"], revision=pin["revision"], local_files_only=True,
-                ))
-                verified = 0
-                mismatch = None
-                for filename, expected in weights.items():
-                    local = snapshot_path / filename
-                    if not local.exists():
-                        mismatch = f"missing {filename}"
-                        break
-                    actual = _sha256_file(local)
-                    if actual != expected:
-                        mismatch = f"{filename}: pin {expected[:12]}... actual {actual[:12]}..."
-                        break
-                    verified += 1
-                if mismatch is None:
-                    loaded_commit = pin["revision"]
-                    verification = f"verified {verified}/{len(weights)} weight file(s) against pin"
-                else:
-                    verification = f"weight mismatch: {mismatch}"
-                    print(f"Weight verification failed: {mismatch}", file=sys.stderr)
-                    return 2
-            except (ImportError, OSError, ValueError) as exc:
-                verification = f"could not verify weights: {exc!r}"
-
-    if loaded_commit and loaded_commit != pin["revision"]:
-        print(f"Loaded revision {loaded_commit} but the pin says {pin['revision']}.", file=sys.stderr)
+    loaded_commit, verification, weights_verified, error = verify_loaded_model(
+        transformers_commit, pin, args.allow_unverified_snapshot)
+    if error:
+        print(error, file=sys.stderr)
         return 2
 
     def embed(texts: list[str]) -> np.ndarray:
@@ -303,7 +348,9 @@ def main(argv: list[str] | None = None) -> int:
         "tables": outputs,
         "model": {"name": pin["model"], "revision_pinned": pin["revision"],
                   "revision_loaded": loaded_commit,
-                  "revision_loaded_verification": verification},
+                  "revision_loaded_verification": verification,
+                  "weights_verified": weights_verified,
+                  "allow_unverified_snapshot": bool(args.allow_unverified_snapshot)},
         "seed": pin["seed"],
         "pin_file": {"file": str(PIN_FILE.relative_to(ROOT)), "sha256": _sha256_file(PIN_FILE)},
         "library_versions": installed,
