@@ -45,12 +45,12 @@ KNOWN_DEFINITIONS = {
     "identifier": {
         "uri": "https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier",
         "definition": "Identifiers used in ACTRIS.",
-        "version": "v1.2.2 (Licence unverified)",
+        "version": "v1.1.2 (CC0 1.0)",
     },
     "identifier_type": {
         "uri": "https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype",
         "definition": "Types of persistent identifiers used in ACTRIS.",
-        "version": "v1.2.2 (Licence unverified)",
+        "version": "v1.1.2 (CC0 1.0)",
     },
 }
 
@@ -128,7 +128,7 @@ def build_rows(fields: list[str], openapi: dict, searches: dict[tuple[str, str],
             rows.append({
                 "field": field,
                 "api_description_present": "yes" if def_found else "no",
-                "api_description": description if is_prop else "(not a property of the Facility schema)",
+                "api_description": description if description else "no description in the OpenAPI document",
                 "vocabulary_label_match": "",
                 "vocabulary_concept_uri": "",
                 "vocabulary_definition": "",

@@ -84,7 +84,7 @@ def test_committed_list_covers_the_16_fields_in_the_scripts_structure():
     if no_desc_yes_used.any():
         assert frame.loc[no_desc_yes_used, "vocabulary_definition"].astype(str).str.strip().ne("").all()
 
-def test_actris_definitions_are_fetched():
+def test_actris_definitions_csv_has_three_definitions():
     if not (ROOT / "outputs" / "actris_field_definitions.csv").exists():
         pytest.skip("local file missing")
     frame = pd.read_csv(ROOT / "outputs" / "actris_field_definitions.csv", keep_default_na=False)

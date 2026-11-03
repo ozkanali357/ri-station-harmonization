@@ -86,4 +86,4 @@ The current verified counts and conditional reviewed-set evaluation are in [RESU
 
 Use the infrastructures’ own terms and citation guidance for source data. This pilot is MIT-licensed code, not a re-publication of their raw metadata, and the DEIMS model text is not committed (see above).
 
-*Note: DEIMS definitions are CC BY-NC 4.0 (not committed). ACTRIS definitions include CC0 1.0 (facility_type) and unverified licence terms (identifier, identifier_type).*
+*Note: DEIMS definitions are CC BY-NC 4.0 (not committed). ACTRIS definitions are CC0 1.0 (facility_type, identifier, identifier_type) via SKOSMOS.*
