@@ -13,7 +13,7 @@
     "pandas": "3.0.5"
   },
   "pinned_at": "2026-11-03T00:46:30+00:00",
-  "note": "revision and libraries were written by 'python scripts/compare_fields.py --write-pin' on 2026-11-02 (pinned_at). To re-pin, set revision to null and run it again on a machine that can reach huggingface.co.",
+  "note": "revision, weight hashes and library versions were written by 'python scripts/compare_fields.py --write-pin' at 2026-11-03T00:46:30+00:00 (UTC). To re-pin run it again with --write-pin --force-repin on a machine that can reach huggingface.co.",
   "weights": {
     "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
     "onnx/model.onnx": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452",
