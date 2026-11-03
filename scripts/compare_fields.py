@@ -74,7 +74,11 @@ def _is_flagged(definition) -> bool:
 
 
 def prepare_fields(df: pd.DataFrame) -> pd.DataFrame:
-    """Add ``name_text``, ``text`` and ``definition_used``; drop DEIMS ``contact.*`` fields."""
+    """Add ``name_text``, ``text`` and ``definition_used``.
+
+    Fields whose name contains "contact" (any RI) are removed upstream by ``scripts/consolidate_dataset.py``;
+    DEIMS ``contact.*`` fields are dropped here as well in case this function gets an unfiltered table.
+    """
     df = df[~((df["ri"] == "DEIMS") & df["field"].str.startswith("contact."))].copy()
     df["definition_used"] = ~df["definition"].map(_is_flagged)
     df["name_text"] = df["field"]
@@ -242,7 +246,8 @@ def main(argv: list[str] | None = None) -> int:
         "git_head_at_run": _git_head(),
         "score_label": SCORE_LABEL,
         "text_rule": ("name_text = field string as extracted; text = field string + '. ' + published "
-                      "definition where one exists (ICOS rdfs:comment only); DEIMS contact.* fields excluded"),
+                      "definition where one exists (ICOS rdfs:comment only); fields whose name contains 'contact' "
+                      "are dropped in all RIs (consolidate_dataset.py)"),
         "input": {"file": str(IN_FILE.relative_to(ROOT)), "sha256": _sha256_file(IN_FILE)},
         "field_counts": counts,
         "fields_with_definition": {ri: int(fields.loc[fields["ri"] == ri, "definition_used"].sum()) for ri in RIS},

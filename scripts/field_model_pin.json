@@ -13,5 +13,5 @@
     "pandas": "3.0.5"
   },
   "pinned_at": "2026-11-02T23:40:47+00:00",
-  "note": "revision and libraries are filled in by 'python scripts/compare_fields.py --write-pin' on a machine that can reach huggingface.co; they were not available when this file was created."
+  "note": "revision and libraries were written by 'python scripts/compare_fields.py --write-pin' on 2026-11-02 (pinned_at). To re-pin, set revision to null and run it again on a machine that can reach huggingface.co."
 }
