@@ -1,6 +1,6 @@
 {
   "script": "scripts/actris_field_definitions.py",
-  "git_head_at_run": "3ec3b8328865e5e5d93b1c8a9fc257f7aa06b083",
+  "git_head_at_run": "a0292b9fac46e274b81aa32228231b55d9a96696",
   "fields_checked": [
     "active",
     "actris_national_facility",
@@ -36,7 +36,7 @@
     "retrieved_at": "2026-11-03",
     "method": "hand-copied verbatim"
   },
-  "rule": "A vocabulary concept whose label equals the field name is used as the field's definition where the concept carries a published definition. The three known matches are facility_type (CC0 1.0), identifier and identifier_type (licence unverified).",
+  "rule": "A vocabulary concept whose label equals the field name is used as the field's definition where the concept carries a published definition. All three matches are CC0 1.0 (facility_type: actris_vocab; identifier, identifier_type: actris_ctrl_lists).",
   "output": {
     "file": "outputs/actris_field_definitions.csv",
     "sha256": "7f903466651b6ae8fa390a983408f0246ed7353af032daa9b35a883c90188ca8"

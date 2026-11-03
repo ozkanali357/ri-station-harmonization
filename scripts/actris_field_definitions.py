@@ -177,8 +177,8 @@ def main() -> int:
             "method": "hand-copied verbatim"
         },
         "rule": ("A vocabulary concept whose label equals the field name is used as the field's "
-                 "definition where the concept carries a published definition. The three known "
-                 "matches are facility_type (CC0 1.0), identifier and identifier_type (licence unverified)."),
+                 "definition where the concept carries a published definition. All three matches "
+                 "are CC0 1.0 (facility_type: actris_vocab; identifier, identifier_type: actris_ctrl_lists)."),
         "output": {"file": str(OUT_CSV.relative_to(ROOT)),
                    "sha256": sha256_bytes(OUT_CSV.read_bytes())},
     }
