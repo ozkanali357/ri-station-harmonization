@@ -60,13 +60,17 @@ def test_same_seed_same_sheet_different_seed_different_sample():
     assert not first.equals(other)
 
 
+FIXED_COLUMNS = ["pair_id", "deims_field", "icos_field", "icos_definition"]
+
+
 def test_committed_sheet_and_key_are_what_the_script_produces_from_the_committed_table():
     table = pd.read_csv(sheet_mod.TABLE)
     fields = pd.read_csv(sheet_mod.FIELDS)
     sheet, key = sheet_mod.build(table, fields)
     committed_sheet = pd.read_csv(sheet_mod.SHEET, keep_default_na=False)
     committed_key = pd.read_csv(sheet_mod.KEY)
-    pd.testing.assert_frame_equal(sheet, committed_sheet)
+    # reviewer_label and evidence_note may be filled in (or still empty); only the generated columns must match
+    pd.testing.assert_frame_equal(sheet[FIXED_COLUMNS], committed_sheet[FIXED_COLUMNS])
     pd.testing.assert_frame_equal(key.reset_index(drop=True), committed_key)
     assert list(committed_sheet.columns) == sheet_mod.SHEET_COLUMNS
     assert "contact" not in " ".join(committed_sheet["deims_field"].str.lower())
