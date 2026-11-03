@@ -1,0 +1,21 @@
+{
+  "script": "scripts/make_field_review_sheet.py",
+  "title": "manual review of top-ranked field-name pairs (not ground truth)",
+  "seed": 42,
+  "n_top": 10,
+  "n_random": 10,
+  "random_population": "pairs ranked 11 and below by minilm_name_sim",
+  "input_table": {
+    "file": "outputs/field_similarity_deims_icos.csv",
+    "rows": 1620,
+    "sha256": "22d77aa40a64293c744b2ac668967071532c4804411fc49302c358f136943a08"
+  },
+  "input_fields": {
+    "file": "outputs/final_field_comparison.csv",
+    "sha256": "95227c572ad90ad5b1ee722b4b4b0369a65f0efd58a6a56236302776410e9198"
+  },
+  "outputs": {
+    "outputs/field_review_sheet_deims_icos.csv": "25e3a01787370e726883bb0774371fdaf2f9cc60c7e0a3189b0bf0cd3a33e3c0",
+    "outputs/field_review_key_deims_icos.csv": "f5198cbfb3f00b151d8a42f060cb16f3000ecf601017689b0cb94d98bcc4e986"
+  }
+}
