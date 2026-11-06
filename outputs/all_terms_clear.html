@@ -1,20 +1,4 @@
-
-<html>
-<head>
-<style>
-    body { font-family: Arial, sans-serif; margin: 30px; }
-    h1 { color: #2c3e50; }
-    table { border-collapse: collapse; width: 100%; font-size: 13px; }
-    th { background-color: #2980b9; color: white; padding: 8px; position: sticky; top: 0; }
-    td { padding: 6px; border-bottom: 1px solid #ddd; }
-    tr:hover { background-color: #f1f1f1; }
-    .flag { color: #e74c3c; }
-</style>
-</head>
-<body>
-    <h1>All terms (fields) from DEIMS, ICOS and ACTRIS</h1>
-    <p>Total: 117 rows. <b>short_name</b> is the last path segment for readability; <b>field</b> is the full, unambiguous path.</p>
-    <table border="1" class="dataframe">
+<html><body><h1>All terms (DEIMS, ICOS, ACTRIS)</h1><table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>ri</th>
@@ -22,785 +6,575 @@
       <th>field</th>
       <th>definition</th>
       <th>flagged</th>
-      <th>definition_source</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>ACTRIS</td>
-      <td>active</td>
-      <td>active</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>actris_national_facility</td>
-      <td>actris_national_facility</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>actris_nf_uri</td>
-      <td>actris_nf_uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>country_code</td>
-      <td>country_code</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>description</td>
-      <td>description</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>extra_metadata</td>
-      <td>extra_metadata</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>facility_type</td>
-      <td>facility_type</td>
-      <td>Classification of platforms generating data on properties of the atmosphere, including properties of simulated atmospheres.</td>
-      <td>no</td>
-      <td>CC0 1.0 ACTRIS vocabulary via SKOSMOS</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>gawid_uri</td>
-      <td>gawid_uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>identifier</td>
-      <td>identifier</td>
-      <td>Identifiers used in ACTRIS.</td>
-      <td>no</td>
-      <td>CC0 1.0 ACTRIS vocabulary via SKOSMOS</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>identifier_type</td>
-      <td>identifier_type</td>
-      <td>Types of persistent identifiers used in ACTRIS.</td>
-      <td>no</td>
-      <td>CC0 1.0 ACTRIS vocabulary via SKOSMOS</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>location</td>
-      <td>location</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>name</td>
-      <td>name</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>operational_since</td>
-      <td>operational_since</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>surroundings</td>
-      <td>surroundings</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>uri</td>
-      <td>uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>ACTRIS</td>
-      <td>wmo_region</td>
-      <td>wmo_region</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>abstract</td>
-      <td>general.abstract</td>
-      <td>A short textual description of the site or platform which includes the location, biophysical characteristics, a brief history, the main scientific purpose.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>accessType</td>
-      <td>infrastructure.accessType</td>
-      <td>What kind of vehicle is required to access the site?</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>accessibleAllYear</td>
-      <td>infrastructure.accessibleAllYear</td>
-      <td>The data type 'Access to site' describes the accessibility of the site throughout the year. The information is composed of the general information on the accessibility, the general information if all parts of the site can be visited throughout the year and the type of vehicle/device which is needed to reach the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>allPartsAccessible</td>
-      <td>infrastructure.allPartsAccessible</td>
-      <td>State whether or not all parts of the site can be accessed</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>alt</td>
-      <td>general.images[0].alt</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>avg</td>
-      <td>geographic.elevation.avg</td>
-      <td>Average and Bounding elevation range for the site (observation or experimentation facility).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>biogeographicalRegion</td>
-      <td>environmentalCharacteristics.biogeographicalRegion</td>
-      <td>Assignment of the site to a biogeographic region (EEA, 2016) based on the spatial location and the site characteristics. Map: Biogeographic regions of Europe (EEA 2016).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>biome</td>
-      <td>environmentalCharacteristics.biome</td>
-      <td>Assignment of the main habitat type based on the ILTER Reference list for biomes as well as the GEO-BON Reference list on biomes.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>boundaries</td>
-      <td>geographic.boundaries</td>
-      <td>The geographic extent covering the area of all measurement infrastructures including measurement devices (e.g. hydrological observations, soil respiration chambers) as well as permanent plots (e.g. vegetation surveys, soil sampling)</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>changed</td>
-      <td>geographic.relatedLocations[0].changed</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>citation</td>
-      <td>general.citation</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>coordinates</td>
-      <td>geographic.coordinates</td>
-      <td>This is the location of the site in the geographic space, given as a centre or representative coordinates expressed in latitude and longitude in decimal degrees.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>country</td>
-      <td>geographic.country</td>
-      <td>Country the site is located in</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>design</td>
-      <td>focusDesignScale.experiments.design</td>
-      <td>Description of the scale and design of the experimentation at the site. The information is composed of the scale of the experiments as the spatial and thematic extent of the observation at the site, e.g. if is addressing a complete catchment or sub-catchment as well as the design of the experiments as the main focus of the efforts, being mainly experimental or in addition observation.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>design</td>
-      <td>focusDesignScale.observations.design</td>
-      <td>Description of the scale and design of the observations at the site. The information is composed of the scale of the observation as the spatial and thematic extent of the observation at the site, e.g. if is addressing a complete catchment or sub-catchment as well as the design of the observation as the main focus of the effort, being mainly observation or in addition experimental.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>geoBonBiome</td>
-      <td>environmentalCharacteristics.geoBonBiome</td>
-      <td>The GEO-BON Biome are defined as the main domain of the site (observation or experimental facility), classifying the site as terrestrial, aquatic, coastal or marine. The 'Biomes' field allows a more detailed classification on a global scale.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>geology</td>
-      <td>environmentalCharacteristics.geology</td>
-      <td>Textual description of the geological characteristics of the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>hydrology</td>
-      <td>environmentalCharacteristics.hydrology</td>
-      <td>Textual description of the hydrological characteristics of the site</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>affiliation.projects[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>environmentalCharacteristics.ecosystemType[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>environmentalCharacteristics.eunisHabitat[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>environmentalCharacteristics.landforms[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>focusDesignScale.observedProperties[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>general.landUse[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>general.protectionLevel[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>general.status.label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>label</td>
-      <td>infrastructure.collection[0].label</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>lterSiteClassification</td>
-      <td>projectRelated.lter.lterSiteClassification</td>
-      <td>Characterisation of a SITE (observation or experimentation facility) according to their level of implementation. This includes the following characteristics: technical aspects of work at the sites (intervals of basic sampling, technical maintenance...) basic infrastructure (power supply, all year access...) technical equipment data and IT infrastructure</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>maintenanceInterval</td>
-      <td>infrastructure.maintenanceInterval</td>
-      <td>Frequency in which maintenance personnel is visiting the site</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>max</td>
-      <td>geographic.elevation.max</td>
-      <td>Average and Bounding elevation range for the site (observation or experimentation facility).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>min</td>
-      <td>geographic.elevation.min</td>
-      <td>Average and Bounding elevation range for the site (observation or experimentation facility).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>monthlyAverage</td>
-      <td>environmentalCharacteristics.airTemperature.monthlyAverage</td>
-      <td>Long term mean of monthly air temperature in °C calculated for the standard reference period 1991-2020 or where not appropriate for the standard reference period 1961-1990.\nPlease enter one value for each month starting with January.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>monthlyAverage</td>
-      <td>environmentalCharacteristics.precipitation.monthlyAverage</td>
-      <td>Long term average sum of monthly precipitation in mm calculated for the standard reference period 1991-2020 or where not appropriate for the standard reference period 1961-1990.\nPlease enter one value for each month starting with January.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>name</td>
-      <td>affiliation.networks[0].network.name</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>notes</td>
-      <td>infrastructure.data.policy.notes</td>
-      <td>Additional textual description about the data policy applied to data from the site. This can contain additional information which are not covered by the other items.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>notes</td>
-      <td>infrastructure.notes</td>
-      <td>Additional textual description about the infrastructure present at the site. This can contain additional information which is not covered by the other items.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>notes</td>
-      <td>infrastructure.operation.notes</td>
-      <td>Additional textual description about the operation of the site. This can contain additional information which is not covered by the other items.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>permanent</td>
-      <td>infrastructure.operation.permanent</td>
-      <td>The data type 'Permanent operation' describes if a site is operated permanently throughout the year. It is composed of the general information on the permanent operation, the interval and frequency in which samples are taken from the site and the interval and frequency in which maintenance personnel is visiting the site. Permanent operation is defined that the whole year in regular intervals samples are taken and collected by the sampling personnel visiting the site. In part of the year (e.g. winter) the frequency might be less than in others (e.g. summer).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>permanentPowerSupply</td>
-      <td>infrastructure.permanentPowerSupply</td>
-      <td>Information on the availability of permanent power at the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
       <td>DEIMS</td>
       <td>prefix</td>
       <td>affiliation.networks[0].network.id.prefix</td>
-      <td>FLAGGED: No published API definition found</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>prefix</td>
-      <td>geographic.relatedLocations[0].id.prefix</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>referencePeriod</td>
-      <td>environmentalCharacteristics.airTemperature.referencePeriod</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>referencePeriod</td>
-      <td>environmentalCharacteristics.precipitation.referencePeriod</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>relatedIdentifiers</td>
-      <td>general.relatedIdentifiers</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>relatedResources</td>
-      <td>relatedResources</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>relatedSites</td>
-      <td>general.relatedSites</td>
-      <td>Reference to all sites that are related. The relation could either be a spatial or thematic.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>rights</td>
-      <td>infrastructure.data.policy.rights</td>
-      <td>Information on the General Data Policy which is applied to share and publish the data and information from the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>scale</td>
-      <td>focusDesignScale.experiments.scale</td>
-      <td>Description of the scale and design of the experimentation at the site. The information is composed of the scale of the experiments as the spatial and thematic extent of the observation at the site, e.g. if is addressing a complete catchment or sub-catchment as well as the design of the experiments as the main focus of the efforts, being mainly experimental or in addition observation.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>scale</td>
-      <td>focusDesignScale.observations.scale</td>
-      <td>Description of the scale and design of the observations at the site. The information is composed of the scale of the observation as the spatial and thematic extent of the observation at the site, e.g. if is addressing a complete catchment or sub-catchment as well as the design of the observation as the main focus of the effort, being mainly observation or in addition experimental.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>shortName</td>
-      <td>general.shortName</td>
-      <td>Short version of site name</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>siteCode</td>
-      <td>affiliation.networks[0].siteCode</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>siteName</td>
-      <td>general.siteName</td>
-      <td>Name identifying the documented observation and/or experimentation facility (site).</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>siteType</td>
-      <td>general.siteType</td>
-      <td>Describes the heterogeneity of the observation facility and the addressed gradient (environmental and spatial). Simple sites are defined by addressing a limited number of ecosystems or covering a small spatial scale (e.g. less than 10km²). Complex sites are defined by addressing a broad range of ecosystem types or covering a larger spatial scale. Complex sites are investigating e.g. processes and fluxes on a landscape or regional scale.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>siteVisitInterval</td>
-      <td>infrastructure.operation.siteVisitInterval</td>
-      <td>The interval (in days) that staff visits the site to collect sampling information or carry out observations, e.g. every 30 days</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>soils</td>
-      <td>environmentalCharacteristics.soils</td>
-      <td>Textual description of the soil characteristics of the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
     </tr>
     <tr>
       <td>DEIMS</td>
       <td>suffix</td>
       <td>affiliation.networks[0].network.id.suffix</td>
-      <td>FLAGGED: No published API definition found</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>DEIMS</td>
-      <td>suffix</td>
-      <td>geographic.relatedLocations[0].id.suffix</td>
-      <td>FLAGGED: No published API definition found</td>
+      <td>name</td>
+      <td>affiliation.networks[0].network.name</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>DEIMS</td>
-      <td>title</td>
-      <td>geographic.relatedLocations[0].title</td>
-      <td>FLAGGED: No published API definition found</td>
+      <td>siteCode</td>
+      <td>affiliation.networks[0].siteCode</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>title</td>
-      <td>infrastructure.data.policy.url[0].title</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>unit</td>
-      <td>environmentalCharacteristics.airTemperature.unit</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>unit</td>
-      <td>environmentalCharacteristics.precipitation.unit</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>unit</td>
-      <td>geographic.elevation.unit</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>unit</td>
-      <td>geographic.size.unit</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>affiliation.projects[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>environmentalCharacteristics.ecosystemType[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>environmentalCharacteristics.eunisHabitat[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>environmentalCharacteristics.landforms[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>focusDesignScale.observedProperties[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>general.landUse[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>general.protectionLevel[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>general.status.uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>uri</td>
-      <td>infrastructure.collection[0].uri</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>url</td>
-      <td>general.images[0].url</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>value</td>
-      <td>geographic.size.value</td>
-      <td>Size of the site in hectare (ha)</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>value</td>
-      <td>infrastructure.data.policy.url[0].value</td>
-      <td>FLAGGED: No published API definition found</td>
-      <td>yes</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>DEIMS</td>
-      <td>vegetation</td>
-      <td>environmentalCharacteristics.vegetation</td>
-      <td>Textual description of the vegetation characteristics of the site.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
     </tr>
     <tr>
       <td>DEIMS</td>
       <td>verified</td>
       <td>affiliation.networks[0].verified</td>
-      <td>FLAGGED: No published API definition found</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>DEIMS</td>
-      <td>yearClosed</td>
-      <td>general.yearClosed</td>
-      <td>The site status describes the current status of the site, e.g. if it is planned or already existing. The site status is composed of the status value, the year of establishment of the site and in case the year when the site was closed.</td>
-      <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
+      <td>label</td>
+      <td>affiliation.projects[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
     </tr>
     <tr>
       <td>DEIMS</td>
-      <td>yearEstablished</td>
-      <td>general.yearEstablished</td>
-      <td>The site status describes the current status of the site, e.g. if it is planned or already existing. The site status is composed of the status value, the year of establishment of the site and in case the year when the site was closed.</td>
+      <td>uri</td>
+      <td>affiliation.projects[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>monthlyAverage</td>
+      <td>environmentalCharacteristics.airTemperature.monthlyAverage</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>referencePeriod</td>
+      <td>environmentalCharacteristics.airTemperature.referencePeriod</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>unit</td>
+      <td>environmentalCharacteristics.airTemperature.unit</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
     </tr>
     <tr>
       <td>DEIMS</td>
       <td>yearlyAverage</td>
       <td>environmentalCharacteristics.airTemperature.yearlyAverage</td>
-      <td>Temperature characteristics of the site. The temperature characteristics are composed of the mean annual air temperature, the monthly average of the coldest month (e.g. January) as the annual minimum temperature and the average of the hottest month (e.g. July) as the annual maximum temperature. The mean, maximum and minimum values should be calculated on a climatic period (e.g. 10 or 30 years) based on data from the site or a near comparable climatic station. The temperature is given in [°C].</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>biogeographicalRegion</td>
+      <td>environmentalCharacteristics.biogeographicalRegion</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>biome</td>
+      <td>environmentalCharacteristics.biome</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>environmentalCharacteristics.ecosystemType[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>environmentalCharacteristics.ecosystemType[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>environmentalCharacteristics.eunisHabitat[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>environmentalCharacteristics.eunisHabitat[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>geoBonBiome</td>
+      <td>environmentalCharacteristics.geoBonBiome</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>geology</td>
+      <td>environmentalCharacteristics.geology</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>hydrology</td>
+      <td>environmentalCharacteristics.hydrology</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>environmentalCharacteristics.landforms[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>environmentalCharacteristics.landforms[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>monthlyAverage</td>
+      <td>environmentalCharacteristics.precipitation.monthlyAverage</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>referencePeriod</td>
+      <td>environmentalCharacteristics.precipitation.referencePeriod</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>unit</td>
+      <td>environmentalCharacteristics.precipitation.unit</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
     </tr>
     <tr>
       <td>DEIMS</td>
       <td>yearlyAverage</td>
       <td>environmentalCharacteristics.precipitation.yearlyAverage</td>
-      <td>Precipitation characteristics of the site. The precipitation characteristics is composed of the total annual precipitation (sum), the long term average of the driest month with the lowest precipitation (based on the monthly sum of precipitation) as the annual minimum precipitation and the long term average of the wettest month with the highest precipitation (based on the monthly sum precipitation) as the annual maximum precipitation. The mean, maximum and minimum values should be calculated on a climatic period (e.g. 10 or 30 years) based on data from the site or a near comparable climatic station. The precipitation is given in [mm].</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
       <td>no</td>
-      <td>DEIMS-SDR Site Metadata Model v1.43, Definition</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>soils</td>
+      <td>environmentalCharacteristics.soils</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>vegetation</td>
+      <td>environmentalCharacteristics.vegetation</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>design</td>
+      <td>focusDesignScale.experiments.design</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>scale</td>
+      <td>focusDesignScale.experiments.scale</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>design</td>
+      <td>focusDesignScale.observations.design</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>scale</td>
+      <td>focusDesignScale.observations.scale</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>focusDesignScale.observedProperties[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>focusDesignScale.observedProperties[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>abstract</td>
+      <td>general.abstract</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>citation</td>
+      <td>general.citation</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>alt</td>
+      <td>general.images[0].alt</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>url</td>
+      <td>general.images[0].url</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>general.landUse[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>general.landUse[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>general.protectionLevel[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>general.protectionLevel[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>relatedIdentifiers</td>
+      <td>general.relatedIdentifiers</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>relatedSites</td>
+      <td>general.relatedSites</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>shortName</td>
+      <td>general.shortName</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>siteName</td>
+      <td>general.siteName</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>siteType</td>
+      <td>general.siteType</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>general.status.label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>general.status.uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>yearClosed</td>
+      <td>general.yearClosed</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>yearEstablished</td>
+      <td>general.yearEstablished</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>boundaries</td>
+      <td>geographic.boundaries</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>coordinates</td>
+      <td>geographic.coordinates</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>country</td>
+      <td>geographic.country</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>avg</td>
+      <td>geographic.elevation.avg</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>max</td>
+      <td>geographic.elevation.max</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>min</td>
+      <td>geographic.elevation.min</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>unit</td>
+      <td>geographic.elevation.unit</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>changed</td>
+      <td>geographic.relatedLocations[0].changed</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>prefix</td>
+      <td>geographic.relatedLocations[0].id.prefix</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>suffix</td>
+      <td>geographic.relatedLocations[0].id.suffix</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>title</td>
+      <td>geographic.relatedLocations[0].title</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>unit</td>
+      <td>geographic.size.unit</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>value</td>
+      <td>geographic.size.value</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>accessType</td>
+      <td>infrastructure.accessType</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>accessibleAllYear</td>
+      <td>infrastructure.accessibleAllYear</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>allPartsAccessible</td>
+      <td>infrastructure.allPartsAccessible</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>label</td>
+      <td>infrastructure.collection[0].label</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>uri</td>
+      <td>infrastructure.collection[0].uri</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>notes</td>
+      <td>infrastructure.data.policy.notes</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>rights</td>
+      <td>infrastructure.data.policy.rights</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>title</td>
+      <td>infrastructure.data.policy.url[0].title</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>value</td>
+      <td>infrastructure.data.policy.url[0].value</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>maintenanceInterval</td>
+      <td>infrastructure.maintenanceInterval</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>notes</td>
+      <td>infrastructure.notes</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>notes</td>
+      <td>infrastructure.operation.notes</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>permanent</td>
+      <td>infrastructure.operation.permanent</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>siteVisitInterval</td>
+      <td>infrastructure.operation.siteVisitInterval</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>permanentPowerSupply</td>
+      <td>infrastructure.permanentPowerSupply</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>lterSiteClassification</td>
+      <td>projectRelated.lter.lterSiteClassification</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>DEIMS</td>
+      <td>relatedResources</td>
+      <td>relatedResources</td>
+      <td>[FLAGGED: CC BY-NC 4.0 - text not committed]</td>
+      <td>yes</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -808,7 +582,6 @@
       <td>22-rdf-syntax-ns#type</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -816,7 +589,6 @@
       <td>countryCode</td>
       <td>ISO 3166-1 alpha-2 country code</td>
       <td>no</td>
-      <td>rdfs:comment published at https://meta.icos-cp.eu/sparql</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -824,7 +596,6 @@
       <td>dcat#theme</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -832,7 +603,6 @@
       <td>hasAtcId</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -840,7 +610,6 @@
       <td>hasElevation</td>
       <td>Elevation above sea level in meters</td>
       <td>no</td>
-      <td>rdfs:comment published at https://meta.icos-cp.eu/sparql</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -848,7 +617,6 @@
       <td>hasLatitude</td>
       <td>Decimal degrees in WGS84/GRS80</td>
       <td>no</td>
-      <td>rdfs:comment published at https://meta.icos-cp.eu/sparql</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -856,7 +624,6 @@
       <td>hasLongitude</td>
       <td>Decimal degrees in WGS84/GRS80</td>
       <td>no</td>
-      <td>rdfs:comment published at https://meta.icos-cp.eu/sparql</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -864,7 +631,6 @@
       <td>hasName</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -872,7 +638,6 @@
       <td>hasResponsibleOrganization</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -880,7 +645,6 @@
       <td>hasStationClass</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -888,7 +652,6 @@
       <td>hasStationId</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -896,7 +659,6 @@
       <td>hasTimeZoneOffset</td>
       <td>offset of local timezone from UTC</td>
       <td>no</td>
-      <td>rdfs:comment published at https://meta.icos-cp.eu/sparql</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -904,7 +666,6 @@
       <td>hasWebpageElements</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -912,7 +673,6 @@
       <td>hasWigosId</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -920,7 +680,6 @@
       <td>identifier</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -928,7 +687,6 @@
       <td>isPartOf</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -936,7 +694,6 @@
       <td>rdf-schema#label</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -944,7 +701,6 @@
       <td>spatial</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -952,7 +708,6 @@
       <td>subject</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <td>ICOS</td>
@@ -960,9 +715,118 @@
       <td>title</td>
       <td>FLAGGED: No published API definition found</td>
       <td>yes</td>
-      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>active</td>
+      <td>active</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>actris_national_facility</td>
+      <td>actris_national_facility</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>actris_nf_uri</td>
+      <td>actris_nf_uri</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>country_code</td>
+      <td>country_code</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>description</td>
+      <td>description</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>extra_metadata</td>
+      <td>extra_metadata</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>facility_type</td>
+      <td>facility_type</td>
+      <td>Classification of platforms generating data on properties of the atmosphere, including properties of simulated atmospheres.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>gawid_uri</td>
+      <td>gawid_uri</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>identifier</td>
+      <td>identifier</td>
+      <td>Identifiers used in ACTRIS.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>identifier_type</td>
+      <td>identifier_type</td>
+      <td>Types of persistent identifiers used in ACTRIS.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>location</td>
+      <td>location</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>name</td>
+      <td>name</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>operational_since</td>
+      <td>operational_since</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>surroundings</td>
+      <td>surroundings</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>uri</td>
+      <td>uri</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ACTRIS</td>
+      <td>wmo_region</td>
+      <td>wmo_region</td>
+      <td>FLAGGED: No published API definition found</td>
+      <td>yes</td>
     </tr>
   </tbody>
-</table>
-</body>
-</html>
+</table></body></html>

@@ -1,0 +1,790 @@
+{
+  "generated_at": "2026-11-03T09:13:57+00:00",
+  "script": "scripts/dictionary_vocab_fetch.py",
+  "note": "no definition text in this file; raw responses are in data/raw/dictionary_vocabularies/ (not committed)",
+  "vocabularies": {
+    "actris_vocab": {
+      "title": "ACTRIS Vocabulary",
+      "scheme_uri": "https://vocabulary.actris.nilu.no/actris_vocab/",
+      "files": {
+        "dump": {
+          "path": "data/raw/dictionary_vocabularies/actris_vocab/ACTRIS_vocabulary.ttl",
+          "url": "https://raw.githubusercontent.com/ACTRIS-Data-Centre/actris-vocabulary/main/ACTRIS_vocabulary.ttl",
+          "role": "dump",
+          "status": 200,
+          "sha256": "19df0c8c45efdcb32c1a0a947d691bc490461f638fef41371738485ab668b060",
+          "bytes": 5390966,
+          "retrieved_at": "2026-11-03T09:12:33+00:00"
+        },
+        "scheme": {
+          "path": "data/raw/dictionary_vocabularies/actris_vocab/skosmos_scheme.ttl",
+          "url": "https://vocabulary.actris.nilu.no/skosmos/rest/v1/actris_vocab/data?uri=https%3A%2F%2Fvocabulary.actris.nilu.no%2Factris_vocab%2F&format=text/turtle",
+          "role": "scheme",
+          "status": 200,
+          "sha256": "67e5ec81cea4f58254155a4544415cd86ccf4acc91ab59a3590f5ea919bca1be",
+          "bytes": 3888,
+          "retrieved_at": "2026-11-03T09:12:34+00:00"
+        }
+      },
+      "licence_statements": [
+        {
+          "file": "dump",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/dc/elements/1.1/license",
+          "object": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "file": "scheme",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/dc/elements/1.1/license",
+          "object": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ],
+      "version_statements": [
+        {
+          "file": "dump",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/version",
+          "object": "1.2.2"
+        },
+        {
+          "file": "scheme",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/version",
+          "object": "1.2.2"
+        }
+      ],
+      "date_statements": [
+        {
+          "file": "dump",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/createdOn",
+          "object": "2022-12-16T17:00:00+01:00"
+        },
+        {
+          "file": "dump",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/lastUpdatedOn",
+          "object": "2026-07-28T15:05:00+02:00"
+        },
+        {
+          "file": "scheme",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/lastUpdatedOn",
+          "object": "2026-07-28T15:05:00+02:00"
+        },
+        {
+          "file": "scheme",
+          "subject": "https://vocabulary.actris.nilu.no/actris_vocab/",
+          "predicate": "http://purl.org/pav/createdOn",
+          "object": "2022-12-16T17:00:00+01:00"
+        }
+      ],
+      "licence_documents_lines": {},
+      "declared_licences": [
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "version": "1.2.2",
+      "concepts": 5614,
+      "concepts_deprecated": 79,
+      "concepts_with_definition": 4089,
+      "definition_source_tags": {
+        "(no tag)": 4089,
+        "(no definition)": 1525
+      },
+      "definition_text_committable": true,
+      "definition_text_rule": "committable: the source declares CC0 1.0 (dc:license) in its data and in Skosmos; version and licence go on every row"
+    },
+    "EnvThes": {
+      "title": "EnvThes",
+      "scheme_uri": "http://vocabs.lter-europe.net/EnvThes/",
+      "files": {
+        "dump": {
+          "path": "data/raw/dictionary_vocabularies/EnvThes/EnvThes.ttl",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/EnvThes/main/EnvThes.ttl",
+          "role": "dump",
+          "status": 200,
+          "sha256": "df4748f2b33db21683a91c111bcd602b66a7b9a12cdaae01c1a60c89cfb77c30",
+          "bytes": 3138937,
+          "retrieved_at": "2026-11-03T09:12:38+00:00"
+        },
+        "scheme": {
+          "path": "data/raw/dictionary_vocabularies/EnvThes/skosmos_scheme.ttl",
+          "url": "https://vocabs.lter-europe.net/rest/v1/EnvThes/data?uri=http%3A%2F%2Fvocabs.lter-europe.net%2FEnvThes%2F&format=text/turtle",
+          "role": "scheme",
+          "status": 200,
+          "sha256": "cd1ead683105cd6a5cae684251de16832ce1b968c67eaefcc9c5a8cb6ee60429",
+          "bytes": 4147,
+          "retrieved_at": "2026-11-03T09:12:39+00:00"
+        },
+        "readme": {
+          "path": "data/raw/dictionary_vocabularies/EnvThes/README.md",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/EnvThes/main/README.md",
+          "role": "licence_doc",
+          "status": 200,
+          "sha256": "a55c363138cdb98cc3860c59207d8c9de2c6fbc051e6d4d7ad69b40b57428990",
+          "bytes": 5779,
+          "retrieved_at": "2026-11-03T09:12:39+00:00"
+        },
+        "license_file": {
+          "path": "data/raw/dictionary_vocabularies/EnvThes/LICENSE",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/EnvThes/main/LICENSE",
+          "role": "licence_doc",
+          "status": 404,
+          "sha256": null,
+          "bytes": 0,
+          "retrieved_at": "2026-11-03T09:12:40+00:00"
+        }
+      },
+      "licence_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "version_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "5.0.16"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "5.0.16"
+        }
+      ],
+      "date_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "1/1/2013"
+        },
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "11/6/2025"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "11/6/2025"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/EnvThes/",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "1/1/2013"
+        }
+      ],
+      "licence_documents_lines": {
+        "readme": [
+          "This workflow extends [**excel2rdf**](https://github.com/fair-data-collective/excel2rdf-template) and is licensed under the [Apache 2.0 License](https://github.com/nikokaoja/sheet2rdf/blob/main/License.md).",
+          "> This file has been modified from its originally licensed version by *WillOnGit* – see [README.md](https://github.com/LTER-Europe/EnvThes) at repository root for license information.",
+          "EnvThes vocabulary is licensed under [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/).",
+          "- Create a new tagged release with extracted FAIR metadata and license information"
+        ],
+        "license_file": "404: not published at the expected path"
+      },
+      "declared_licences": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "version": "5.0.16",
+      "concepts": 5644,
+      "concepts_deprecated": 2918,
+      "concepts_with_definition": 2532,
+      "definition_source_tags": {
+        "(no definition)": 3112,
+        "(no tag)": 740,
+        "[Henderson's]": 596,
+        "[GEMET]": 522,
+        "[NCIT]": 47,
+        "[ENVO]": 23,
+        "[MESH]": 23,
+        "[ECSO]": 18,
+        "[Henderson's, modified]": 18,
+        "[CRISP]": 15,
+        "[TO]": 13,
+        "[Wikipedia]": 10,
+        "[CHEBI]": 8,
+        "[NASA]": 8,
+        "[Miki Kertész]": 7,
+        "[OBCS]": 6,
+        "[SWEET]": 6,
+        "[Agren & Andersson 2012]": 5,
+        "[EOL]": 5,
+        "[SIO]": 5,
+        "[STATO]": 5,
+        "[APAONTO]": 4,
+        "[CCON]": 4,
+        "[EFO]": 4,
+        "[HUPSON]": 4,
+        "[NPO]": 4,
+        "[OBI]": 4,
+        "[ONTOAD]": 4,
+        "[SOY]": 4,
+        "[CO_320]": 3,
+        "[ERO]": 3,
+        "[GO]": 3,
+        "[NIFSTD]": 3,
+        "[Wikipedia, 2013-10-01]": 3,
+        "[http://www.lter-europe.net/sites-platforms/categories]": 3,
+        "[ NCIT ]": 2,
+        "[A. K. Fiedler]": 2,
+        "[A. K. Pandey]": 2,
+        "[A. S. Pradeep Ram]": 2,
+        "[ADOLFO CARBALLO PENELA]": 2,
+        "[ADW]": 2,
+        "[ANAEETHES]": 2,
+        "[Alexander Brenning]": 2,
+        "[Andrea Wiggins]": 2,
+        "[Antti-Jussi Lindroos]": 2,
+        "[Arvind Rao]": 2,
+        "[BCTEO]": 2,
+        "[Benedicte Michel]": 2,
+        "[Brian S. ChengKevin]": 2,
+        "[CHMO]": 2,
+        "[CO_338]": 2,
+        "[CO_715]": 2,
+        "[Carla Khater]": 2,
+        "[Christopher D. G. Harley]": 2,
+        "[Conghe Song]": 2,
+        "[Daniel C. Dauwalter]": 2,
+        "[Daniel J. Kruger]": 2,
+        "[David Choquenot]": 2,
+        "[Doris Do]": 2,
+        "[Dries Adriaens]": 2,
+        "[EXO]": 2,
+        "[FBCV]": 2,
+        "[FOODON]": 2,
+        "[Georg F. Striedter]": 2,
+        "[Guang Chen]": 2,
+        "[Hamid Reza Nassery]": 2,
+        "[Hendersons]": 2,
+        "[IDODEN]": 2,
+        "[Ian Rose]": 2,
+        "[J. TAMµS]": 2,
+        "[J. White]": 2,
+        "[JULIAN K. CHRISTIANS]": 2,
+        "[Jeanne Millet]": 2,
+        "[Jerry C. Ritchie]": 2,
+        "[Johannes Koch]": 2,
+        "[Jonathan J. Cole]": 2,
+        "[Juan P. Isacch]": 2,
+        "[Jukka Jokela]": 2,
+        "[Karla D. Thrall]": 2,
+        "[Kate G. McAlpine]": 2,
+        "[Kerrie Wilson]": 2,
+        "[Kihachiro Kikuzawa]": 2,
+        "[Kiyoshi Kawanishi]": 2,
+        "[Lars Lundin]": 2,
+        "[Luiz Moreira Coelho Junior]": 2,
+        "[MARCUS S. COOKE]": 2,
+        "[Malika Khalili]": 2,
+        "[Manfred Jensen]": 2,
+        "[Martin Noble]": 2,
+        "[Masood Zamani]": 2,
+        "[Massimiliano Burlando]": 2,
+        "[Matt V. Talluto]": 2,
+        "[Miguel Rangel Medina]": 2,
+        "[Mikiya Hiroki]": 2,
+        "[Muhammad Ali]": 2,
+        "[Márkilla Zunete Beckmann-Cavalcante]": 2,
+        "[N. Vassilev]": 2,
+        "[NEMO]": 2,
+        "[Nguyen Dinh Duong]": 2,
+        "[O. Godoy]": 2,
+        "[Owen L. Petchey]": 2,
+        "[PATO]": 2,
+        "[Paul A. del Giorgio]": 2,
+        "[Paul R. Rosenbaum]": 2,
+        "[Peggy S. M. Hill]": 2,
+        "[Peiguo Guo]": 2,
+        "[Pekka H„rm„]": 2,
+        "[Peter A. Lieberzeit]": 2,
+        "[Peter J. Gregory]": 2,
+        "[Peter M. Thibodeau]": 2,
+        "[Qing-Li Liu]": 2,
+        "[Quanhou Dai]": 2,
+        "[Rahim M. Sail]": 2,
+        "[Rajdip Bandyopadhyaya]": 2,
+        "[S. D. Tiegs]": 2,
+        "[S. Michael Gomez]": 2,
+        "[SOULAS Guy]": 2,
+        "[SP]": 2,
+        "[Sang-Ik Lee]": 2,
+        "[Simone D. LANGHANS]": 2,
+        "[Stephen M. Haley]": 2,
+        "[Stephen S. Fong]": 2,
+        "[T. K. Tesfa]": 2,
+        "[T. P. Singh]": 2,
+        "[Thiago S. F. Silva]": 2,
+        "[Thomas A. Schlacher]": 2,
+        "[Tommi Aho]": 2,
+        "[Toru Hashimoto]": 2,
+        "[Van der Westhuizen]": 2,
+        "[WAYNE C. WEBER]": 2,
+        "[Wikipedia 2016-08-15]": 2,
+        "[Wikipedia, 2013-11-08]": 2,
+        "[William J. Mitsch]": 2,
+        "[Xiao-yong Chen]": 2,
+        "[Xiaoqiang Li]": 2,
+        "[Xuelin Zhang]": 2,
+        "[Zhi-You YUAN]": 2,
+        "[http://www.soilcrust.org/]": 2,
+        "[ BIOMODELS ]": 1,
+        "[ ENM ]": 1,
+        "[ ROO ]": 1,
+        "[ SUICIDEO ]": 1,
+        "[A. C. P ERIPATO]": 1,
+        "[A. J. Shriar]": 1,
+        "[A. V. Khrunin]": 1,
+        "[APOLLO-SV]": 1,
+        "[APO]": 1,
+        "[ATOL]": 1,
+        "[Ahmet Sariko]": 1,
+        "[Ahmet Sariko‡]": 1,
+        "[Andrew Grey]": 1,
+        "[Antonio S&sbquo;rgio Ramalho]": 1,
+        "[Antonio S‚rgio Ramalho]": 1,
+        "[Ariane Verdy]": 1,
+        "[B. E. Rieman]": 1,
+        "[B. W. Diers]": 1,
+        "[BEEF Magazine]": 1,
+        "[BIPON]": 1,
+        "[BTO]": 1,
+        "[Be&aacute;ta Faller]": 1,
+        "[Bo-christer Björk]": 1,
+        "[Brecht Ingels]": 1,
+        "[Brent Sohngen]": 1,
+        "[Brilliant M. Petja]": 1,
+        "[Bruno Studer]": 1,
+        "[Byung-Hwan Um]": 1,
+        "[CHEAR]": 1,
+        "[CHIEN-YIH LIN]": 1,
+        "[CMO]": 1,
+        "[CO_321]": 1,
+        "[CO_325]": 1,
+        "[CO_327]": 1,
+        "[CO_336]": 1,
+        "[CSIRO]": 1,
+        "[Carlos Jos&eacute; Pereira de Lucena]": 1,
+        "[Chinedum Nwajiuba]": 1,
+        "[Chunjiang Zhou]": 1,
+        "[Complex Properties Model]": 1,
+        "[Craig R. McClain]": 1,
+        "[Céline Bonfils]": 1,
+        "[D. Allan Butterfield]": 1,
+        "[D. Cuesta]": 1,
+        "[D. W. Schwilk]": 1,
+        "[D. Álvarez]": 1,
+        "[DAE-SUNG CHOI]": 1,
+        "[DCM]": 1,
+        "[Daniella Csaky]": 1,
+        "[David B. Wilson]": 1,
+        "[David J. Hoeinghaus]": 1,
+        "[David L. Williams]": 1,
+        "[David Lamb]": 1,
+        "[E. Crispo]": 1,
+        "[ECG]": 1,
+        "[EDAM]": 1,
+        "[Eduardo G. F. Pinto]": 1,
+        "[Eduardo Romero-Alcaraz]": 1,
+        "[Ehud Banin]": 1,
+        "[Elena D. Concepci&mdash;n]": 1,
+        "[Emmanouil Flaounas]": 1,
+        "[F. Abbassi]": 1,
+        "[F. Lin]": 1,
+        "[F. Shahbazi]": 1,
+        "[FIRE]": 1,
+        "[Feng Gao]": 1,
+        "[FengMei Yao]": 1,
+        "[Frederic Austerlitz]": 1,
+        "[Friso P. Palstra]": 1,
+        "[Fr‚d‚ric Barraquand]": 1,
+        "[G. Binelli]": 1,
+        "[G. N. Vlahakis]": 1,
+        "[G. Philip Robertson]": 1,
+        "[GUANGMING ZHU]": 1,
+        "[Geoff Cumming]": 1,
+        "[Georg Holtz]": 1,
+        "[Georgios E. Pavlikakis]": 1,
+        "[Glyn Stacey]": 1,
+        "[Gustavo M. Vasques]": 1,
+        "[HE Juanxiong]": 1,
+        "[Heiko Paeth]": 1,
+        "[Henderson's, altered]": 1,
+        "[Himanshu Gupta]": 1,
+        "[Hong Ma]": 1,
+        "[Hugh P. Possingham]": 1,
+        "[I. M. Sokolova]": 1,
+        "[IDOMAL]": 1,
+        "[Ijaz Rasool Noorka]": 1,
+        "[Ingvild Wartiainen]": 1,
+        "[J. Morillo Barrag n]": 1,
+        "[J. de Wit]": 1,
+        "[JUAN L. CELIS-DIEZ]": 1,
+        "[Jacqueline Pierre]": 1,
+        "[James D. Hurd]": 1,
+        "[Jennifer L. Beverly]": 1,
+        "[Jesse Mecham]": 1,
+        "[KATHLEEN G. O'MALLEY]": 1,
+        "[Katherine M. Pease]": 1,
+        "[Keiji Horikawa]": 1,
+        "[Keith R. Hayes]": 1,
+        "[Konstantinos Sechidis]": 1,
+        "[Lawrence Pomber]": 1,
+        "[Lea R. Wirth]": 1,
+        "[Lihe Yin]": 1,
+        "[Lucy Tiemi Takahashi]": 1,
+        "[M. Hoffmann]": 1,
+        "[M. Jake Vander Zanden]": 1,
+        "[Marcus Zisenis]": 1,
+        "[Martin Drozda]": 1,
+        "[Matthew E Picha]": 1,
+        "[Michal Sharabi-Schwager]": 1,
+        "[Michelle de Oliveira Ribeiro]": 1,
+        "[N. Skorin-Kapov]": 1,
+        "[N. V. Hue]": 1,
+        "[Nicole Hance]": 1,
+        "[Niko Balkenhol]": 1,
+        "[NŽstor I. Gasparri]": 1,
+        "[O. SCHWEIGER]": 1,
+        "[OCRE]": 1,
+        "[OGSF]": 1,
+        "[Olanrewaju O. Olotu]": 1,
+        "[P. M. Lafleur]": 1,
+        "[PETER BAUER]": 1,
+        "[PETR BAUER]": 1,
+        "[Pankaj Kankar]": 1,
+        "[Paolo Locatelli]": 1,
+        "[Paulo Pereira Oliveira Matos]": 1,
+        "[Philip A. Fay]": 1,
+        "[Phillip N. Miklas]": 1,
+        "[R. Hema]": 1,
+        "[R. M. Ceriani]": 1,
+        "[R. Zougmoré]": 1,
+        "[REX]": 1,
+        "[RO]": 1,
+        "[RT Watson]": 1,
+        "[Ranjana Bhattacharjee]": 1,
+        "[Renata Libonati]": 1,
+        "[Res Altwegg]": 1,
+        "[Retno Kuswandari]": 1,
+        "[Robert J. Beichner]": 1,
+        "[Rodel D. Lasco]": 1,
+        "[Rognvaldur Hannesson]": 1,
+        "[S. Ahsan]": 1,
+        "[S. R. Palumbi]": 1,
+        "[SDO]": 1,
+        "[SEP]": 1,
+        "[STUFF]": 1,
+        "[SUICIDEO]": 1,
+        "[Satoru Okumura]": 1,
+        "[Scott J. Meiners]": 1,
+        "[Scott L. Stephens]": 1,
+        "[Scott L. Zeger]": 1,
+        "[Sedigheh Sadeghi]": 1,
+        "[Shawn E. Vincent]": 1,
+        "[Shoufan Fang]": 1,
+        "[Shutian Li]": 1,
+        "[Simon Croom]": 1,
+        "[Simone Maynard]": 1,
+        "[Siquan Tian]": 1,
+        "[Stephanie Grand]": 1,
+        "[Stephen R. Meyers]": 1,
+        "[Surasak Buranatrevedh]": 1,
+        "[T. E. Kolb]": 1,
+        "[T. Elavazhagan]": 1,
+        "[THOMAS W GILLESPIE]": 1,
+        "[TRAK]": 1,
+        "[Tatiana von Landesberger]": 1,
+        "[Theweatherprediction.com]": 1,
+        "[Thomas M. Keane]": 1,
+        "[Thomas N. Kaye]": 1,
+        "[Thomas W Gillespie]": 1,
+        "[Thor Veen]": 1,
+        "[Timur Keskintürk]": 1,
+        "[Tony McNally]": 1,
+        "[Ulrich K. Posselt]": 1,
+        "[V&iacute;ctor Hugo Dur&aacute;n Zuazo]": 1,
+        "[V. D. Mishra]": 1,
+        "[V. Polyakov]": 1,
+        "[VT]": 1,
+        "[Veli-Matti Pakanen]": 1,
+        "[Vincent Moulton]": 1,
+        "[Vittorio Maniezzo]": 1,
+        "[Víctor Hugo Durán Zuazo]": 1,
+        "[W. A. Müller]": 1,
+        "[W. Y. Cheung]": 1,
+        "[WEI Wei]": 1,
+        "[Warren E. Mabee]": 1,
+        "[Wikipedia, 2016-08-16]": 1,
+        "[XCO]": 1,
+        "[Xiaoming Feng]": 1,
+        "[Yael Ben-Haim]": 1,
+        "[Yu. A. Fedorov]": 1,
+        "[Yuqing Yang]": 1,
+        "[henderson's]": 1,
+        "[wikipedia, 2016-08-16]": 1,
+        "[wikipedia: https://en.wikipedia.org/wiki/Biome]": 1
+      },
+      "definition_text_committable": false,
+      "definition_text_rule": "NOT committable until the project owner accepts the declared licence (see licence_statements and licence_documents_lines for what the source says): definition text goes only to git-ignored files"
+    },
+    "so": {
+      "title": "Standard observations (eLTER Standard Observations)",
+      "scheme_uri": "http://vocabs.lter-europe.net/so/",
+      "files": {
+        "dump": {
+          "path": "data/raw/dictionary_vocabularies/so/standard-observations.ttl",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/SO/main/standard-observations.ttl",
+          "role": "dump",
+          "status": 200,
+          "sha256": "5481e5440245b6736a4dd1c6eb0dbea1459634550db48ce9630ce583cca90e2a",
+          "bytes": 39041,
+          "retrieved_at": "2026-11-03T09:12:42+00:00"
+        },
+        "scheme": {
+          "path": "data/raw/dictionary_vocabularies/so/skosmos_scheme.ttl",
+          "url": "https://vocabs.lter-europe.net/rest/v1/so/data?uri=http%3A%2F%2Fvocabs.lter-europe.net%2Fso%2F&format=text/turtle",
+          "role": "scheme",
+          "status": 200,
+          "sha256": "599230c136b69df4e7766bb4b56543be5cc6893d422d1c381562375c3fe27082",
+          "bytes": 1972,
+          "retrieved_at": "2026-11-03T09:12:43+00:00"
+        },
+        "readme": {
+          "path": "data/raw/dictionary_vocabularies/so/README.md",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/SO/main/README.md",
+          "role": "licence_doc",
+          "status": 200,
+          "sha256": "60de49a73a6ff8be009982e67b605ae177446b9855259b12d44dd1f8f12e08a0",
+          "bytes": 4036,
+          "retrieved_at": "2026-11-03T09:12:44+00:00"
+        },
+        "license_file": {
+          "path": "data/raw/dictionary_vocabularies/so/LICENSE",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/SO/main/LICENSE",
+          "role": "licence_doc",
+          "status": 200,
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "bytes": 7048,
+          "retrieved_at": "2026-11-03T09:12:45+00:00"
+        }
+      },
+      "licence_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "version_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "1.1.5"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "1.1.5"
+        }
+      ],
+      "date_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "2023-08-16"
+        },
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "2025-12-12"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "2023-08-16"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/so/",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "2025-12-12"
+        }
+      ],
+      "licence_documents_lines": {
+        "readme": [
+          "This workflow extends the original [**excel2rdf**](https://github.com/fair-data-collective/excel2rdf-template) and is licensed under the [Apache 2.0 License](https://github.com/nikokaoja/sheet2rdf/blob/main/License.md).",
+          "> This file has been modified from its originally licensed version by *WillOnGit* – see [README.md](https://github.com/eLTER-RI/vocab-so) at repository root for license information."
+        ],
+        "license_file": [
+          "Creative Commons Legal Code",
+          "CC0 1.0 Universal",
+          "CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE"
+        ]
+      },
+      "declared_licences": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "version": "1.1.5",
+      "concepts": 68,
+      "concepts_deprecated": 0,
+      "concepts_with_definition": 0,
+      "definition_source_tags": {
+        "(no definition)": 68
+      },
+      "definition_text_committable": false,
+      "definition_text_rule": "NOT committable until the project owner accepts the declared licence (see licence_statements and licence_documents_lines for what the source says): definition text goes only to git-ignored files"
+    },
+    "elter_cl": {
+      "title": "eLTER_CL (eLTER Controlled Lists)",
+      "scheme_uri": "http://vocabs.lter-europe.net/elter_cl",
+      "files": {
+        "dump": {
+          "path": "data/raw/dictionary_vocabularies/elter_cl/elter_cl.ttl",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/eLTER_CL/main/elter_cl.ttl",
+          "role": "dump",
+          "status": 200,
+          "sha256": "521d5e985781cff7c32e5e8e0d07ba9bdbf54e15b557b9b5a52639b170ab15d1",
+          "bytes": 210524,
+          "retrieved_at": "2026-11-03T09:12:45+00:00"
+        },
+        "scheme": {
+          "path": "data/raw/dictionary_vocabularies/elter_cl/skosmos_scheme.ttl",
+          "url": "https://vocabs.lter-europe.net/rest/v1/elter_cl/data?uri=http%3A%2F%2Fvocabs.lter-europe.net%2Felter_cl&format=text/turtle",
+          "role": "scheme",
+          "status": 200,
+          "sha256": "92bf381c3052631fd2b8804d9ba08111b9bfc9b78f91840ff1593c27f55ba896",
+          "bytes": 10900,
+          "retrieved_at": "2026-11-03T09:12:46+00:00"
+        },
+        "readme": {
+          "path": "data/raw/dictionary_vocabularies/elter_cl/README.md",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/eLTER_CL/main/README.md",
+          "role": "licence_doc",
+          "status": 200,
+          "sha256": "43140c54cebbacdaaf09500833a525649b50d6ab41f2beec8fc9bd907da5072e",
+          "bytes": 3987,
+          "retrieved_at": "2026-11-03T09:12:47+00:00"
+        },
+        "license_file": {
+          "path": "data/raw/dictionary_vocabularies/elter_cl/LICENSE",
+          "url": "https://raw.githubusercontent.com/LTER-Europe/eLTER_CL/main/LICENSE",
+          "role": "licence_doc",
+          "status": 200,
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "bytes": 7048,
+          "retrieved_at": "2026-11-03T09:12:48+00:00"
+        }
+      },
+      "licence_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/license",
+          "object": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "version_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "1.1.4"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+          "object": "1.1.4"
+        }
+      ],
+      "date_statements": [
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "11/12/2021"
+        },
+        {
+          "file": "dump",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "3/11/2026"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/created",
+          "object": "11/12/2021"
+        },
+        {
+          "file": "scheme",
+          "subject": "http://vocabs.lter-europe.net/elter_cl",
+          "predicate": "http://purl.org/dc/terms/modified",
+          "object": "3/11/2026"
+        }
+      ],
+      "licence_documents_lines": {
+        "readme": [
+          "This workflow extends [**excel2rdf**](https://github.com/fair-data-collective/excel2rdf-template) and is licensed under the [Apache 2.0 License](https://github.com/nikokaoja/sheet2rdf/blob/main/License.md).",
+          "> This file has been modified from its originally licensed version by *WillOnGit* – see [README.md](https://github.com/LTER-Europe/CL) at repository root for license information."
+        ],
+        "license_file": [
+          "Creative Commons Legal Code",
+          "CC0 1.0 Universal",
+          "CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE"
+        ]
+      },
+      "declared_licences": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "version": "1.1.4",
+      "concepts": 659,
+      "concepts_deprecated": 3,
+      "concepts_with_definition": 89,
+      "definition_source_tags": {
+        "(no definition)": 570,
+        "(no tag)": 86,
+        "[BRO]": 2,
+        "[Robert J. Beichner]": 1
+      },
+      "definition_text_committable": false,
+      "definition_text_rule": "NOT committable until the project owner accepts the declared licence (see licence_statements and licence_documents_lines for what the source says): definition text goes only to git-ignored files"
+    }
+  }
+}
