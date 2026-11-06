@@ -1,1 +1,318 @@
 Term Label,Term URI,Definition (if published),Alternative Labels,Source Vocabulary,Source Field,Finnish Records
+DNA sequence,http://vocabs.lter-europe.net/EnvThes/21400,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+Greenness Index,http://vocabs.lter-europe.net/EnvThes/21164,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+Normalized Difference Vegetation Index,http://vocabs.lter-europe.net/EnvThes/21165,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+abiotic heterogeneity,http://vocabs.lter-europe.net/EnvThes/21476,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+above ground biomass,http://vocabs.lter-europe.net/EnvThes/22025,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+above ground net primary production,http://vocabs.lter-europe.net/EnvThes/10043,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+acid neutralising capacity,http://vocabs.lter-europe.net/EnvThes/10310,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+age class,http://vocabs.lter-europe.net/EnvThes/21353,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+age distribution,http://vocabs.lter-europe.net/EnvThes/21354,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+agricultural parameter,http://vocabs.lter-europe.net/EnvThes/20936,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+air humidity,http://vocabs.lter-europe.net/EnvThes/22032,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],7
+air methane concentration,http://vocabs.lter-europe.net/EnvThes/21935,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+air nitrogen oxides concentration,http://vocabs.lter-europe.net/EnvThes/21936,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+air specific humidity,http://vocabs.lter-europe.net/EnvThes/22034,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+air temperature,http://vocabs.lter-europe.net/EnvThes/22035,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],7
+air vapor pressure deficit,http://vocabs.lter-europe.net/EnvThes/22306,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+air water vapour concentration,http://vocabs.lter-europe.net/EnvThes/22036,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+air water vapour pressure,http://vocabs.lter-europe.net/EnvThes/22037,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+albedo,http://vocabs.lter-europe.net/EnvThes/21351,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+algae species presence,http://vocabs.lter-europe.net/EnvThes/10343,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ammonium nitrate concentration,http://vocabs.lter-europe.net/EnvThes/10072,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ammonium nitrogen content,http://vocabs.lter-europe.net/EnvThes/10076,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+animal species abundance,http://vocabs.lter-europe.net/EnvThes/10336,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+animal species presence,http://vocabs.lter-europe.net/EnvThes/22059,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+annual net primary production,http://vocabs.lter-europe.net/EnvThes/21420,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+atmosphere stability,http://vocabs.lter-europe.net/EnvThes/21542,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+atmospheric parameter,http://vocabs.lter-europe.net/EnvThes/20937,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],11
+atmospheric pressure,http://vocabs.lter-europe.net/EnvThes/22060,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+available phosphorus,http://vocabs.lter-europe.net/EnvThes/22061,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+below ground autotrophic respiration,http://vocabs.lter-europe.net/EnvThes/22066,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+benthic invertebrates abundance,http://vocabs.lter-europe.net/EnvThes/22027,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+benthic invertebrates presence,http://vocabs.lter-europe.net/EnvThes/10123,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+biochemical composition,http://vocabs.lter-europe.net/EnvThes/21359,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+biodiversity loss,http://vocabs.lter-europe.net/EnvThes/20153,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+biological diversity,http://vocabs.lter-europe.net/EnvThes/21391,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+biological parameter,http://vocabs.lter-europe.net/EnvThes/20940,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],10
+biomass allocation,http://vocabs.lter-europe.net/EnvThes/21360,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+biotic diversity,http://vocabs.lter-europe.net/EnvThes/22069,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+birds abundance,http://vocabs.lter-europe.net/EnvThes/10020,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+birds presence,http://vocabs.lter-europe.net/EnvThes/10082,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+body length,http://vocabs.lter-europe.net/EnvThes/21363,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+body mass,http://vocabs.lter-europe.net/EnvThes/21364,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+body size,http://vocabs.lter-europe.net/EnvThes/21366,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+body weight,http://vocabs.lter-europe.net/EnvThes/21368,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+breast height diameter,http://vocabs.lter-europe.net/EnvThes/10031,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+buffer capacity,http://vocabs.lter-europe.net/EnvThes/21452,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+canopy aerodynamic resistance,http://vocabs.lter-europe.net/EnvThes/22075,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+canopy cover rate,http://vocabs.lter-europe.net/EnvThes/22076,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+canopy growth rate,http://vocabs.lter-europe.net/EnvThes/22076,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+canopy growth rate,http://vocabs.lter-europe.net/EnvThes/22078,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+canopy height,http://vocabs.lter-europe.net/EnvThes/22079,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+canopy structure,http://vocabs.lter-europe.net/EnvThes/21446,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+canopy temperature,http://vocabs.lter-europe.net/EnvThes/22080,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+canopy transpiration,http://vocabs.lter-europe.net/EnvThes/22081,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+carbon dioxide concentration,http://vocabs.lter-europe.net/EnvThes/22082,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+carbon dioxide flux per soil horizon,http://vocabs.lter-europe.net/EnvThes/22083,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+carbon-to-nitrogen ratio,http://vocabs.lter-europe.net/EnvThes/21350,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+cation exchange capacity,http://vocabs.lter-europe.net/EnvThes/22084,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+change in population size over time,http://vocabs.lter-europe.net/EnvThes/22085,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+chemical composition of water,http://vocabs.lter-europe.net/EnvThes/21213,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+chemical parameter,http://vocabs.lter-europe.net/EnvThes/10333,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+chlorophyll a content in water,http://vocabs.lter-europe.net/EnvThes/21214,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+chlorophyll content of water,http://vocabs.lter-europe.net/EnvThes/10088,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+community composition,http://vocabs.lter-europe.net/EnvThes/22086,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+community pattern,http://vocabs.lter-europe.net/EnvThes/21471,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+community structure,http://vocabs.lter-europe.net/EnvThes/21472,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+conductivity,http://vocabs.lter-europe.net/EnvThes/22089,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+crown closure,http://vocabs.lter-europe.net/EnvThes/22093,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+current direction,http://vocabs.lter-europe.net/EnvThes/30026,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+current speed,http://vocabs.lter-europe.net/EnvThes/30027,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+date of start of stem elongation,http://vocabs.lter-europe.net/EnvThes/22099,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+daylight length,http://vocabs.lter-europe.net/EnvThes/22100,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+deadwood decaying rate,http://vocabs.lter-europe.net/EnvThes/22101,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+deadwood volume,http://vocabs.lter-europe.net/EnvThes/22103,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+dew point,http://vocabs.lter-europe.net/EnvThes/22104,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],7
+diffuse radiation intensity,http://vocabs.lter-europe.net/EnvThes/22043,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+diffuse radiation intensity,http://vocabs.lter-europe.net/EnvThes/22106,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+diffuse reflectance,http://vocabs.lter-europe.net/EnvThes/22105,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+diffuse reflectance,http://vocabs.lter-europe.net/EnvThes/22106,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+diffuse solar radiation intensity,http://vocabs.lter-europe.net/EnvThes/22106,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+direct radiation intensity,http://vocabs.lter-europe.net/EnvThes/22044,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+dissolved nutrient,http://vocabs.lter-europe.net/EnvThes/22107,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+dissolved organic carbon in soil,http://vocabs.lter-europe.net/EnvThes/22045,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+dissolved organic carbon in water,http://vocabs.lter-europe.net/EnvThes/10307,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+dissolved organic nitrogen,http://vocabs.lter-europe.net/EnvThes/10125,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+dissolved organic phosphorus,http://vocabs.lter-europe.net/EnvThes/22108,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+disturbance pattern,http://vocabs.lter-europe.net/EnvThes/21473,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+diversity index,http://vocabs.lter-europe.net/EnvThes/21513,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+ecosystem health,http://vocabs.lter-europe.net/EnvThes/21474,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ecosystem parameter,http://vocabs.lter-europe.net/EnvThes/20939,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],12
+ecosystem structure,http://vocabs.lter-europe.net/EnvThes/21475,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+electrical conductivity,http://vocabs.lter-europe.net/EnvThes/21552,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+environmental heterogeneity,http://vocabs.lter-europe.net/EnvThes/22116,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+environmental parameter,http://vocabs.lter-europe.net/EnvThes/20941,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],7
+fire severity index,http://vocabs.lter-europe.net/EnvThes/22120,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+flowering date,http://vocabs.lter-europe.net/EnvThes/22096,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+forest cover,http://vocabs.lter-europe.net/EnvThes/22123,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+forest structure,http://vocabs.lter-europe.net/EnvThes/21477,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+fraction of absorbed photosynthetically active radiation,http://vocabs.lter-europe.net/EnvThes/22330,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+frost point,http://vocabs.lter-europe.net/EnvThes/10321,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+functional diversity,http://vocabs.lter-europe.net/EnvThes/21393,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+genetic parameter,http://vocabs.lter-europe.net/EnvThes/20942,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+genetic polymorphism,http://vocabs.lter-europe.net/EnvThes/21402,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+global radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22125,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+greenness,http://vocabs.lter-europe.net/EnvThes/22325,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+ground surface temperature,http://vocabs.lter-europe.net/EnvThes/21526,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ground temperature,http://vocabs.lter-europe.net/EnvThes/21527,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ground water level,http://vocabs.lter-europe.net/EnvThes/22126,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+groundwater level,http://vocabs.lter-europe.net/EnvThes/22126,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+habitat complexity,http://vocabs.lter-europe.net/EnvThes/21486,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+habitat structure,http://vocabs.lter-europe.net/EnvThes/21478,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+heat flow,http://vocabs.lter-europe.net/EnvThes/22129,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+heat flux,http://vocabs.lter-europe.net/EnvThes/22130,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+heterotrophic respiration,http://vocabs.lter-europe.net/EnvThes/22131,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+incoming radiation intensity,http://vocabs.lter-europe.net/EnvThes/22134,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+inorganic carbon content,http://vocabs.lter-europe.net/EnvThes/22135,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+inorganic nutrient content,http://vocabs.lter-europe.net/EnvThes/22137,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+insoluble organic carbon content,http://vocabs.lter-europe.net/EnvThes/22138,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+interception,http://vocabs.lter-europe.net/EnvThes/22139,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+intraspecific variation,http://vocabs.lter-europe.net/EnvThes/21395,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+irradiance,http://vocabs.lter-europe.net/EnvThes/22140,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+lake level,http://vocabs.lter-europe.net/EnvThes/22141,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+lake temperature,http://vocabs.lter-europe.net/EnvThes/10011,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+land cover,http://vocabs.lter-europe.net/EnvThes/22142,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+land cover type,http://vocabs.lter-europe.net/EnvThes/10241,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+land surface temperature,http://vocabs.lter-europe.net/EnvThes/21528,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+land use,http://vocabs.lter-europe.net/EnvThes/22143,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+land use intensity,http://vocabs.lter-europe.net/EnvThes/22144,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+land use pattern,http://vocabs.lter-europe.net/EnvThes/22145,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+landscape composition,http://vocabs.lter-europe.net/EnvThes/22146,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+landscape fragmentation,http://vocabs.lter-europe.net/EnvThes/22149,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+landscape metrics,http://vocabs.lter-europe.net/EnvThes/10042,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+landscape parameter,http://vocabs.lter-europe.net/EnvThes/20943,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+latent heat,http://vocabs.lter-europe.net/EnvThes/22154,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+leaf age,http://vocabs.lter-europe.net/EnvThes/22155,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+leaf area,http://vocabs.lter-europe.net/EnvThes/22156,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+leaf area index,http://vocabs.lter-europe.net/EnvThes/22157,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+leaf area ratio,http://vocabs.lter-europe.net/EnvThes/22158,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+leaf longevity time,http://vocabs.lter-europe.net/EnvThes/22159,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+leaf nitrogen concentration,http://vocabs.lter-europe.net/EnvThes/22160,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+leaf nutrient,http://vocabs.lter-europe.net/EnvThes/22125,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+leaf nutrient,http://vocabs.lter-europe.net/EnvThes/22161,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+leaf size,http://vocabs.lter-europe.net/EnvThes/22162,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+litter residence time,http://vocabs.lter-europe.net/EnvThes/10048,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+litter size,http://vocabs.lter-europe.net/EnvThes/22163,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+long wave radiation,http://vocabs.lter-europe.net/EnvThes/22164,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+macrofauna abundance,http://vocabs.lter-europe.net/EnvThes/22028,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+maximum temperature,http://vocabs.lter-europe.net/EnvThes/21529,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+mean annual air temperature,http://vocabs.lter-europe.net/EnvThes/21530,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+mean annual precipitation,http://vocabs.lter-europe.net/EnvThes/22166,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+mean annual temperature,http://vocabs.lter-europe.net/EnvThes/21531,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+methane concentration,http://vocabs.lter-europe.net/EnvThes/22167,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+microbial biomass carbon,http://vocabs.lter-europe.net/EnvThes/20794,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+microbial biomass carbon,http://vocabs.lter-europe.net/EnvThes/22168,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+microbial diversity,http://vocabs.lter-europe.net/EnvThes/22169,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+microbial respiration,http://vocabs.lter-europe.net/EnvThes/22170,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+minimum temperature,http://vocabs.lter-europe.net/EnvThes/21532,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+net assimilation rate,http://vocabs.lter-europe.net/EnvThes/21075,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+net far infrared radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22171,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+net photosynthetic rate,http://vocabs.lter-europe.net/EnvThes/21323,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+net primary productivity,http://vocabs.lter-europe.net/EnvThes/21421,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+net radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22172,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+net solar radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22173,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+nitrogen budget,http://vocabs.lter-europe.net/EnvThes/20970,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+nitrogen content,http://vocabs.lter-europe.net/EnvThes/22174,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+nitrogen dioxide flux,http://vocabs.lter-europe.net/EnvThes/21201,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+nitrous oxyde emission,http://vocabs.lter-europe.net/EnvThes/21937,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+normalized vegetation index,http://vocabs.lter-europe.net/EnvThes/22175,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+nutrient concentration,http://vocabs.lter-europe.net/EnvThes/22176,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+nutrient flux,http://vocabs.lter-europe.net/EnvThes/21080,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+osmotic pressure,http://vocabs.lter-europe.net/EnvThes/21558,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+oxygen concentration,http://vocabs.lter-europe.net/EnvThes/30179,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+oxygen saturation,http://vocabs.lter-europe.net/EnvThes/21215,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+oxygen uptake rate,http://vocabs.lter-europe.net/EnvThes/21320,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+ozone concentration,http://vocabs.lter-europe.net/EnvThes/22178,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+pH value of water,http://vocabs.lter-europe.net/EnvThes/21218,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+patch size,http://vocabs.lter-europe.net/EnvThes/22180,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+percent carbon,http://vocabs.lter-europe.net/EnvThes/22181,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+photochemical reflectance index,http://vocabs.lter-europe.net/EnvThes/21166,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+photosynthetic rate,http://vocabs.lter-europe.net/EnvThes/21422,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+photosynthetically active radiation intensity,http://vocabs.lter-europe.net/EnvThes/22186,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+physical parameter,http://vocabs.lter-europe.net/EnvThes/20938,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+phytoplankton abundance,http://vocabs.lter-europe.net/EnvThes/30018,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+phytoplankton biomass,http://vocabs.lter-europe.net/EnvThes/30021,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant carbon concentration,http://vocabs.lter-europe.net/EnvThes/22187,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+plant cover,http://vocabs.lter-europe.net/EnvThes/22188,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+plant density,http://vocabs.lter-europe.net/EnvThes/22189,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant development stage,http://vocabs.lter-europe.net/EnvThes/22190,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant growth rate,http://vocabs.lter-europe.net/EnvThes/21084,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant height,http://vocabs.lter-europe.net/EnvThes/22192,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+plant nitrogen concentration,http://vocabs.lter-europe.net/EnvThes/22193,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant nutrient,http://vocabs.lter-europe.net/EnvThes/22194,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant size,http://vocabs.lter-europe.net/EnvThes/21444,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant species composition,http://vocabs.lter-europe.net/EnvThes/22195,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+plant species presence,http://vocabs.lter-europe.net/EnvThes/10341,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+plant transpiration,http://vocabs.lter-europe.net/EnvThes/22197,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+population changes over time,http://vocabs.lter-europe.net/EnvThes/10028,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+population density,http://vocabs.lter-europe.net/EnvThes/22198,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+population size,http://vocabs.lter-europe.net/EnvThes/22199,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+population structure,http://vocabs.lter-europe.net/EnvThes/21415,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+potential evaporation,http://vocabs.lter-europe.net/EnvThes/10017,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+precipitation intensity,http://vocabs.lter-europe.net/EnvThes/22204,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+primary productivity,http://vocabs.lter-europe.net/EnvThes/21419,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+radiation below canopy intensity,http://vocabs.lter-europe.net/EnvThes/22208,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+redox potential of water,http://vocabs.lter-europe.net/EnvThes/21216,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+reflected global radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22209,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+reflected radiation intensity,http://vocabs.lter-europe.net/EnvThes/22210,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+relative humidity,http://vocabs.lter-europe.net/EnvThes/21579,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+remote sensing parameter,http://vocabs.lter-europe.net/EnvThes/20946,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+respiration rate,http://vocabs.lter-europe.net/EnvThes/22214,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+river temperature,http://vocabs.lter-europe.net/EnvThes/10015,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+root biomass,http://vocabs.lter-europe.net/EnvThes/22215,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+root density,http://vocabs.lter-europe.net/EnvThes/22216,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+root dry weight,http://vocabs.lter-europe.net/EnvThes/22217,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+root growth rate,http://vocabs.lter-europe.net/EnvThes/22218,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+root length,http://vocabs.lter-europe.net/EnvThes/22219,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+runoff amount,http://vocabs.lter-europe.net/EnvThes/30032,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+sapwood area,http://vocabs.lter-europe.net/EnvThes/22220,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+saturated water content,http://vocabs.lter-europe.net/EnvThes/22222,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+sea surface temperature,http://vocabs.lter-europe.net/EnvThes/22225,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+secchi depth,http://vocabs.lter-europe.net/EnvThes/22226,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+sedimentation rate,http://vocabs.lter-europe.net/EnvThes/22227,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+shoot growth rate,http://vocabs.lter-europe.net/EnvThes/22237,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+size distribution,http://vocabs.lter-europe.net/EnvThes/10370,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+sky temperature,http://vocabs.lter-europe.net/EnvThes/22239,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+snow cover,http://vocabs.lter-europe.net/EnvThes/21559,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+snow depth,http://vocabs.lter-europe.net/EnvThes/21207,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+snow depth,http://vocabs.lter-europe.net/EnvThes/22240,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+snow temperature,http://vocabs.lter-europe.net/EnvThes/22241,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+snow water equivalent,http://vocabs.lter-europe.net/EnvThes/22242,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+soil albedo,http://vocabs.lter-europe.net/EnvThes/10302,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil carbon dioxide flux,http://vocabs.lter-europe.net/EnvThes/21560,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil carbon dioxyde emission from residues,http://vocabs.lter-europe.net/EnvThes/21938,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil carbon dioxyde flux,http://vocabs.lter-europe.net/EnvThes/21939,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil carbon storage,http://vocabs.lter-europe.net/EnvThes/22246,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil depth,http://vocabs.lter-europe.net/EnvThes/22247,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil evaporation,http://vocabs.lter-europe.net/EnvThes/22249,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil gas flux,http://vocabs.lter-europe.net/EnvThes/22251,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil heat flux,http://vocabs.lter-europe.net/EnvThes/22253,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil matrix water potential,http://vocabs.lter-europe.net/EnvThes/22255,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil microbial diversity,http://vocabs.lter-europe.net/EnvThes/22257,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+soil moisture content,http://vocabs.lter-europe.net/EnvThes/10039,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil moisture field capacity,http://vocabs.lter-europe.net/EnvThes/10396,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil nitrate leaching,http://vocabs.lter-europe.net/EnvThes/10053,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil nitrogen,http://vocabs.lter-europe.net/EnvThes/22259,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil nutrient,http://vocabs.lter-europe.net/EnvThes/22260,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+soil organic carbon,http://vocabs.lter-europe.net/EnvThes/22261,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil organic residual,http://vocabs.lter-europe.net/EnvThes/22262,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+soil pH,http://vocabs.lter-europe.net/EnvThes/22264,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil parameter,http://vocabs.lter-europe.net/EnvThes/20944,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+soil profile water content,http://vocabs.lter-europe.net/EnvThes/22268,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil respiration,http://vocabs.lter-europe.net/EnvThes/22269,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil solute amount,http://vocabs.lter-europe.net/EnvThes/22272,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil solution concentration,http://vocabs.lter-europe.net/EnvThes/22274,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil solution eH,http://vocabs.lter-europe.net/EnvThes/22275,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil solution pH,http://vocabs.lter-europe.net/EnvThes/22276,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil temperature,http://vocabs.lter-europe.net/EnvThes/22278,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+soil texture,http://vocabs.lter-europe.net/EnvThes/22279,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+soil volumetric water content,http://vocabs.lter-europe.net/EnvThes/22280,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+soil water potential,http://vocabs.lter-europe.net/EnvThes/22283,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+solar radiation,http://vocabs.lter-europe.net/EnvThes/22284,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+species abundance,http://vocabs.lter-europe.net/EnvThes/10018,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+species composition,http://vocabs.lter-europe.net/EnvThes/22285,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+species list,http://vocabs.lter-europe.net/EnvThes/22286,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+species presence,http://vocabs.lter-europe.net/EnvThes/10081,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+species richness,http://vocabs.lter-europe.net/EnvThes/22287,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+species trait,http://vocabs.lter-europe.net/EnvThes/10024,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+species turnover,http://vocabs.lter-europe.net/EnvThes/22288,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+specific conductivity,http://vocabs.lter-europe.net/EnvThes/22289,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+stream order,http://vocabs.lter-europe.net/EnvThes/21511,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+stress response,http://vocabs.lter-europe.net/EnvThes/21438,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+sunshine duration,http://vocabs.lter-europe.net/EnvThes/22111,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+surface area,http://vocabs.lter-europe.net/EnvThes/21564,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+surface runoff,http://vocabs.lter-europe.net/EnvThes/21510,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+suspended solids,http://vocabs.lter-europe.net/EnvThes/22293,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+thickness of soil horizon,http://vocabs.lter-europe.net/EnvThes/22295,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+total carbon,http://vocabs.lter-europe.net/EnvThes/22296,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+total organic carbon,http://vocabs.lter-europe.net/EnvThes/22297,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+total radiation irradiance,http://vocabs.lter-europe.net/EnvThes/22298,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+transpiration rate,http://vocabs.lter-europe.net/EnvThes/22299,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+tree age,http://vocabs.lter-europe.net/EnvThes/22300,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+tree basal area,http://vocabs.lter-europe.net/EnvThes/22301,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+tree condition,http://vocabs.lter-europe.net/EnvThes/22302,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+tree diameter,http://vocabs.lter-europe.net/EnvThes/22303,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+tree diameter at breast height,http://vocabs.lter-europe.net/EnvThes/22304,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+tree distribution,http://vocabs.lter-europe.net/EnvThes/21587,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+tree height,http://vocabs.lter-europe.net/EnvThes/22305,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+tree mortality,http://vocabs.lter-europe.net/EnvThes/21052,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+vapor pressure,http://vocabs.lter-europe.net/EnvThes/21577,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+vapor pressure deficit,http://vocabs.lter-europe.net/EnvThes/22306,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+vegetation layer composition,http://vocabs.lter-europe.net/EnvThes/22307,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+vegetation layer structure,http://vocabs.lter-europe.net/EnvThes/21480,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+vegetation layer type,http://vocabs.lter-europe.net/EnvThes/22308,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+vegetation pattern,http://vocabs.lter-europe.net/EnvThes/21481,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+vegetation reflectance,http://vocabs.lter-europe.net/EnvThes/10118,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+vegetation structure,http://vocabs.lter-europe.net/EnvThes/21482,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+water acidity,http://vocabs.lter-europe.net/EnvThes/22030,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+water albedo,http://vocabs.lter-europe.net/EnvThes/10304,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+water alkalinity,http://vocabs.lter-europe.net/EnvThes/10303,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+water colour,http://vocabs.lter-europe.net/EnvThes/10390,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+water depth,http://vocabs.lter-europe.net/EnvThes/22310,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+water level,http://vocabs.lter-europe.net/EnvThes/30025,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+water parameter,http://vocabs.lter-europe.net/EnvThes/20945,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],11
+water quality,http://vocabs.lter-europe.net/EnvThes/22312,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],4
+water salinity,http://vocabs.lter-europe.net/EnvThes/10308,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+water table,http://vocabs.lter-europe.net/EnvThes/30028,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+water temperature,http://vocabs.lter-europe.net/EnvThes/22313,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],8
+water transparency,http://vocabs.lter-europe.net/EnvThes/10392,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+water turbidity,http://vocabs.lter-europe.net/EnvThes/21217,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+water velocity,http://vocabs.lter-europe.net/EnvThes/22315,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
+water volume,http://vocabs.lter-europe.net/EnvThes/22316,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],1
+wind direction,http://vocabs.lter-europe.net/EnvThes/22317,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+wind direction (mean and gust),http://vocabs.lter-europe.net/EnvThes/22318,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+wind speed,http://vocabs.lter-europe.net/EnvThes/22319,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],6
+wind speed (mean and gust),http://vocabs.lter-europe.net/EnvThes/22320,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],5
+zooplankton abundance,http://vocabs.lter-europe.net/EnvThes/30019,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],3
+zooplankton biomass,http://vocabs.lter-europe.net/EnvThes/30022,,,http://vocabs.lter-europe.net/EnvThes,attributes.focusDesignScale.observedProperties[],2
