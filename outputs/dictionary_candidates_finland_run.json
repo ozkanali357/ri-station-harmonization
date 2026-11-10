@@ -1,0 +1,140 @@
+{
+  "timestamp_utc": "2026-11-10T11:22:41+00:00",
+  "script": "scripts/dictionary_candidates.py",
+  "git_head_at_run": "9ae2bccbf83c5b5f92862d717c755495936e7a2d",
+  "purpose": "candidate pairs for hand labelling; MiniLM proposes only; every SKOS column is blank and must be filled by a person; scores are cosine similarity of labels",
+  "model": {
+    "name": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision_pinned": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "revision_loaded": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "revision_loaded_verification": "verified 15/15 weight file(s) against pin",
+    "weights_verified": true,
+    "allow_unverified_snapshot": false,
+    "seed": 42,
+    "pin_file_sha256": "6d21364aab5868822cbeb93d86331d7992e9e6a966b4aba4ec94ff2c3a10bc9c",
+    "library_versions": {
+      "sentence-transformers": "6.2.0",
+      "transformers": "5.22.1",
+      "torch": "2.15.0",
+      "huggingface_hub": "2.4.0",
+      "tokenizers": "0.23.3",
+      "scikit-learn": "1.9.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    },
+    "library_version_drift_from_pin": {}
+  },
+  "parameters": {
+    "top_k_per_source_term": 3,
+    "target_vocabularies": [
+      "EnvThes",
+      "so",
+      "actris_vocab"
+    ],
+    "own_vocabulary_excluded": {
+      "ACTRIS": "actris_vocab",
+      "DEIMS": "EnvThes"
+    },
+    "deprecated_concepts_excluded": true,
+    "similarity": "max cosine over English prefLabel and altLabels of the concept",
+    "no_threshold": true,
+    "round_cap_review_estimate": 200
+  },
+  "scope": {
+    "rule": "dictionary_terms_finland.csv scope_candidate in ['meteorology', 'soil']",
+    "status": "keyword pre-filter, not hand-reviewed; has false negatives"
+  },
+  "inputs": {
+    "terms_csv": {
+      "file": "outputs/dictionary_terms_finland.csv",
+      "sha256": "19de5ba6a7b1d9d1709c2e42119deede47f50b9361561b2d230778c4a01be7b7"
+    },
+    "vocabularies_run": {
+      "file": "outputs/dictionary_vocabularies_run.json",
+      "sha256": "c1f7872e3a403feca97593e81aa383c3582efe120693f84e2c62e14cbc4da4e5"
+    },
+    "vocabulary_dumps": {
+      "actris_vocab": {
+        "version": "1.2.2",
+        "dump_sha256": "19df0c8c45efdcb32c1a0a947d691bc490461f638fef41371738485ab668b060",
+        "retrieved_at": null,
+        "declared_licences": [
+          "https://creativecommons.org/publicdomain/zero/1.0/"
+        ]
+      },
+      "EnvThes": {
+        "version": "5.0.16",
+        "dump_sha256": "df4748f2b33db21683a91c111bcd602b66a7b9a12cdaae01c1a60c89cfb77c30",
+        "retrieved_at": "2026-11-06T08:25:54+00:00",
+        "declared_licences": [
+          "https://creativecommons.org/licenses/by/4.0/"
+        ]
+      },
+      "so": {
+        "version": "1.1.5",
+        "dump_sha256": "5481e5440245b6736a4dd1c6eb0dbea1459634550db48ce9630ce583cca90e2a",
+        "retrieved_at": "2026-11-06T08:25:59+00:00",
+        "declared_licences": [
+          "https://creativecommons.org/licenses/by/4.0/"
+        ]
+      },
+      "elter_cl": {
+        "version": "1.1.4",
+        "dump_sha256": "521d5e985781cff7c32e5e8e0d07ba9bdbf54e15b557b9b5a52639b170ab15d1",
+        "retrieved_at": "2026-11-06T08:26:01+00:00",
+        "declared_licences": [
+          "https://creativecommons.org/licenses/by/4.0/"
+        ]
+      }
+    }
+  },
+  "counts": {
+    "source_terms": 108,
+    "source_terms_by_ri": {
+      "ACTRIS": 7,
+      "DEIMS": 74,
+      "ICOS": 27
+    },
+    "source_terms_by_ri_and_domain": {
+      "ACTRIS|meteorology": 7,
+      "DEIMS|meteorology": 41,
+      "DEIMS|soil": 33,
+      "ICOS|meteorology": 24,
+      "ICOS|soil": 3
+    },
+    "candidates": 324,
+    "candidates_by_round": {
+      "R1": 102,
+      "R2": 123,
+      "R3": 99
+    },
+    "candidates_by_target_vocabulary": {
+      "EnvThes": 77,
+      "actris_vocab": 166,
+      "so": 81
+    },
+    "rounds_over_cap": {},
+    "target_concepts_embedded": {
+      "EnvThes": 2726,
+      "so": 68,
+      "actris_vocab": 5534
+    },
+    "target_deprecated_excluded": {
+      "EnvThes": 2918,
+      "so": 0,
+      "actris_vocab": 79
+    }
+  },
+  "outputs": {
+    "committed_table": {
+      "file": "dictionary_candidates_finland.csv",
+      "sha256": "65d8267ccd8efe2046ca0282d4b797043752299526b86e13b4e9a40cd6d02a3d"
+    },
+    "local_table_not_committed": {
+      "file": "dictionary_candidates_finland_LOCAL.csv",
+      "sha256": "e99927788a3b95bb517aae0d3bf00d00b028cb988b8f7ceff6b2d9882acbffdb"
+    }
+  },
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35"
+}

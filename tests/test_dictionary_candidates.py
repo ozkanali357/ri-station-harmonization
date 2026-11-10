@@ -139,3 +139,13 @@ def test_a_broad_match_with_a_named_side_is_accepted():
 def test_debug_embedder_cannot_write_into_outputs(capsys):
     assert dc.main(["--debug-embedder"]) == 2
     assert "must not go to outputs" in capsys.readouterr().err
+
+def test_no_elter_in_candidates_source_ri(tmp_path):
+    # after running generate(), assert 'eLTER' not in df['source_ri'].unique()
+    df = pd.read_csv("outputs/dictionary_candidates_finland.csv")
+    assert 'eLTER' not in set(df['source_ri'])
+    assert 'DEIMS' in set(df['source_ri'])
+
+def test_no_elter_in_reference_ri(tmp_path):
+    ref = pd.read_csv("outputs/dictionary_reference_finland.csv")
+    assert 'eLTER' not in set(ref['ri'])

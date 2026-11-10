@@ -15,9 +15,10 @@ Inputs (cache only, no network):
   concept URIs share (ICOS ``wind speed`` has four) is one source row with all its URIs listed, and
   gets its own row when the mapping rows are written later.
 * the reference vocabularies cached by ``scripts/dictionary_vocab_fetch.py``: EnvThes,
-  Standard Observations (``so``), ACTRIS vocabulary. eLTER_CL is cached and recorded but is **not**
+  DEIMS, Standard Observations (``so``), ACTRIS vocabulary. eLTER_CL is cached and recorded but is **not**
   a default target: its concepts are lists for metadata fields (site type, funding source, EPSG codes,
   ...), not variables (``--vocabularies`` adds it). Deprecated concepts are never proposed.
+* RI labels use DEIMS (not eLTER). The name eLTER refers to the network, not the RI.
 
 Rules:
 
@@ -79,7 +80,7 @@ RUN_FILE = OUT / "dictionary_candidates_finland_run.json"
 
 DOMAINS = ["meteorology", "soil"]
 DEFAULT_TARGETS = ["EnvThes", "so", "actris_vocab"]
-OWN_VOCABULARY = {"ACTRIS": "actris_vocab", "eLTER": "EnvThes"}   # ICOS has none among the targets
+OWN_VOCABULARY = {"ACTRIS": "actris_vocab", "DEIMS": "EnvThes"}   # ICOS has none among the targets
 RELATIONS = ["exactMatch", "closeMatch", "broadMatch", "narrowMatch", "relatedMatch"]
 EXTRA_DECISIONS = ["rejected", "unclear"]
 BROADER_SIDES = ["source", "target"]
@@ -147,6 +148,10 @@ def target_label_entries(concepts: pd.DataFrame) -> pd.DataFrame:
 
 def generate(terms: pd.DataFrame, concepts: pd.DataFrame, embed: Embedder, top_k: int = 3,
              targets: list[str] | None = None) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+        # RI label normalisation: DEIMS is the RI, eLTER the network. Rename at the
+    # entry point so both CLI and direct callers (tests) see DEIMS. PM directive 2026-11-06.
+    terms = terms.copy()
+    terms["ri"] = terms["ri"].replace("eLTER", "DEIMS")
     """Return (committed table, local table with restricted definitions, counts)."""
     targets = targets or DEFAULT_TARGETS
     sources = source_terms(terms)
