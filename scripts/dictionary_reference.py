@@ -261,7 +261,7 @@ def plan_lookups(terms: pd.DataFrame, label_index: dict[str, dict]) -> list[dict
     plan = []
     for t in terms.itertuples():
         base = {"ri": t.ri, "term_label": t.term_label, "term_uri": t.term_uri}
-        if t.ri == "eLTER" and t.term_uri:
+        if t.ri == "DEIMS" and t.term_uri:
             plan.append({**base, "lookup": "uri_resolves", "vocab": "EnvThes", "uri": t.term_uri, "kind": ""})
         for uri in filter(None, (u.strip() for u in t.published_match_uri.split(";"))):
             if uri.startswith(NERC_P07.replace("http://", "https://")) or uri.startswith(NERC_P07):
@@ -377,6 +377,8 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     terms = pd.read_csv(args.terms, dtype=str, keep_default_na=False)
+    # RI label normalisation (PM directive 2026-11-06): DEIMS is the RI, eLTER the network.
+    terms["ri"] = terms["ri"].replace("eLTER", "DEIMS")
     cache = Cache(RAW, offline=not args.fetch)
     entries = {v: fetch_index(cache, v) for v in VOCABS}
     stats = {v: fetch_stats(cache, v) for v in VOCABS}
@@ -400,7 +402,7 @@ def main() -> None:
     table.to_csv(out_dir / "dictionary_reference_finland.csv", index=False)
 
     resolves = table[table.lookup == "uri_resolves"]
-    deims_terms = terms[terms.ri == "eLTER"]
+    deims_terms = terms[terms.ri == "DEIMS"]
     run = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(), "git_revision": _git_revision(),
         "input": str(Path(args.terms).name), "input_rows": int(len(terms)), "reference_rows": int(len(table)),

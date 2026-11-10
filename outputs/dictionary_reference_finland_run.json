@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-20T01:34:09+00:00",
-  "git_revision": "27b2d76afad48022597f2c0137f7d1cbfb97b7b7",
+  "generated_at": "2026-11-10T11:38:25+00:00",
+  "git_revision": "9ae2bccbf83c5b5f92862d717c755495936e7a2d",
   "input": "dictionary_terms_finland.csv",
   "input_rows": 841,
   "reference_rows": 768,
@@ -61,19 +61,19 @@
       "terms_with_label_hit_in_actris_vocab": 393,
       "terms_with_label_hit_in_actris_ctrl_lists": 0
     },
+    "DEIMS": {
+      "terms": 317,
+      "terms_with_any_hit": 317,
+      "terms_with_label_hit_in_EnvThes": 15,
+      "terms_with_label_hit_in_so": 1,
+      "terms_with_label_hit_in_elter_cl": 4
+    },
     "ICOS": {
       "terms": 124,
       "terms_with_any_hit": 29,
       "terms_with_label_hit_in_EnvThes": 29,
       "terms_with_label_hit_in_so": 4,
       "terms_with_label_hit_in_elter_cl": 0
-    },
-    "eLTER": {
-      "terms": 317,
-      "terms_with_any_hit": 317,
-      "terms_with_label_hit_in_EnvThes": 15,
-      "terms_with_label_hit_in_so": 1,
-      "terms_with_label_hit_in_elter_cl": 4
     }
   },
   "scope_rule_hits_in_reference_vocabularies": {

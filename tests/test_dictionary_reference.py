@@ -73,7 +73,7 @@ def test_nerc_facts_read_the_flat_json_ld():
 # --- lookups ----------------------------------------------------------------------------------
 
 def test_deims_term_gets_a_uri_lookup_and_no_label_hit_on_its_own_concept(label_index):
-    terms = _terms([{"ri": "eLTER", "term_label": "air temperature", "term_uri": E + "22035"}])
+    terms = _terms([{"ri": "DEIMS", "term_label": "air temperature", "term_uri": E + "22035"}])
     plan = dr.plan_lookups(terms, label_index)
     assert [(p["lookup"], p["vocab"], p["uri"]) for p in plan] == [("uri_resolves", "EnvThes", E + "22035")]
 
@@ -81,7 +81,7 @@ def test_deims_term_gets_a_uri_lookup_and_no_label_hit_on_its_own_concept(label_
 def test_published_label_match_is_pref_alt_or_neither():
     facts = {("EnvThes", E + "22106"): dr.concept_facts(DATA["concepts"][E + "22106"], E + "22106"),
              ("EnvThes", E + "22125"): dr.concept_facts(DATA["concepts"][E + "22125"], E + "22125")}
-    plan = [{"ri": "eLTER", "term_label": label, "term_uri": uri, "lookup": "uri_resolves", "vocab": "EnvThes", "uri": uri, "kind": ""}
+    plan = [{"ri": "DEIMS", "term_label": label, "term_uri": uri, "lookup": "uri_resolves", "vocab": "EnvThes", "uri": uri, "kind": ""}
             for label, uri in (("diffuse solar radiation intensity", E + "22106"), ("diffuse radiation intensity", E + "22106"),
                                ("leaf nutrient", E + "22125"))]
     table = dr.assemble(plan, facts, {})
@@ -91,7 +91,7 @@ def test_published_label_match_is_pref_alt_or_neither():
 
 
 def test_unresolvable_uri_is_a_not_found_row_not_a_guess():
-    plan = [{"ri": "eLTER", "term_label": "wind speed", "term_uri": E + "22319", "lookup": "uri_resolves",
+    plan = [{"ri": "DEIMS", "term_label": "wind speed", "term_uri": E + "22319", "lookup": "uri_resolves",
              "vocab": "EnvThes", "uri": E + "22319", "kind": ""}]
     row = dr.assemble(plan, {("EnvThes", E + "22319"): None}, {}).iloc[0]
     assert row.status == "not_found" and row.reference_pref_label == "" and row.reference_deprecated == ""
