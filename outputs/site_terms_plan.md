@@ -41,8 +41,16 @@ Columns:
 - `controlled_values_observed` — values observed in the 20 sites (only for fields on the explicit allowlist; see §6)
 - `definition` — per-RI rules; see §8
 - `in_scope` — bool; `true` if the field is in scope for later cross-walk
-- `status` — `populated` if Table B has values for this field, `not_in_cached_response` if the cached source does not return this field (per PM 2026-11-11). Ensures no RI reads as "lacks the field" — it's the cache that lacks it, not the RI.
+- `status` — one of:
+  - `populated` — Table B has values for this field
+  - `not_in_cached_response` — the cached source does not return this field (per PM 2026-11-11). Ensures no RI reads as "lacks the field" — it's the cache that lacks it, not the RI.
+  - `excluded_by_rule` — the field **is** in the cached data but was demoted by an allowlist rule (prose / contact / container / URL / geometry / narrative-over-80-chars). Distinguishes "deliberately not committed" from "missing."
 - `licence` — per-RI, see §9
+
+**Field-specific notes for Table A:**
+- ACTRIS `extra_metadata.insitu.ebas_station_lat` and `ebas_station_lon` form a **second coordinate pair** (EBAS/EMEP reporting). They are kept alongside `location.coordinates`, not merged with it, and are not treated as duplicates.
+- ACTRIS `extra_metadata.insitu.ebas_station_alt` is an **ACTRIS-specific EBAS altitude field**, kept as a numeric value and **not** merged with a general `elevation` field.
+- ACTRIS `actris_nf_uri` and `gawid_uri` are **identifiers**, not URL fields (the URL-field rule targets `url`/`value` last segments). `gawid_uri` carries the "None"-as-missing rule in Table B (above).
 
 ### Table B — per-site values (supporting)
 
@@ -51,6 +59,8 @@ Columns:
 Columns: `ri`, `site_id`, `canonical_concept`, `field_path`, `value`, `value_source`.
 
 **Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`. Coordinates from DEIMS `geographic.coordinates` and ACTRIS `location.coordinates` are parsed to numeric lat/lon and stored as two separate numeric columns; if the cache stores them as `POINT(lon lat)` they are parsed. Polygon/bbox geometry is never committed.
+
+**Data-quality note (`gawid_uri`):** 45 ACTRIS records carry the literal string `None` as `gawid_uri` (19 Oct audit). Table B treats the literal `None` as **missing** — it is a data-quality defect at source, not a value.
 
 ### Table C — HTML view
 

@@ -56,7 +56,20 @@ NARRATIVE_DEIMS = {
     "focusDesignScale.experiments.scale",
     "focusDesignScale.observations.design",
     "focusDesignScale.observations.scale",
+    # Short-value candidates (PM 2026-11-11) — checked via suffix match
+    "data.policy.url[].title",
+    "data.policy.rights",
 }
+
+
+def _is_narrative_path(stripped: str) -> bool:
+    """Suffix match, so prefix uncertainty in the cache path does not defeat the check."""
+    s = stripped.replace("[]", "")
+    for target in NARRATIVE_DEIMS:
+        t = target.replace("[]", "")
+        if s == t or s.endswith("." + t):
+            return True
+    return False
 
 # Raw ICOS binding key -> canonical dcat property name.
 ICOS_EXPLICIT_MAP = {
@@ -226,9 +239,11 @@ def classify(path: str, canonical_name, ri: str, deims_attrs_list) -> tuple[bool
         return False, f"URL field (canonical={canonical_name})" if canonical_name else "url"
     if is_geometry(path):
         return False, f"REVIEW: possible geometry (canonical={canonical_name})" if canonical_name else "REVIEW: possible geometry"
+    if ri == "ACTRIS" and path == "location.type":
+        return False, "geometry-type metadata (not a site descriptor)"
     if ri == "DEIMS" and canonical_name is not None:
         stripped = path[len("attributes."):] if path.startswith("attributes.") else path
-        if stripped in NARRATIVE_DEIMS:
+        if _is_narrative_path(stripped):
             if not narrative_values_are_short(deims_attrs_list, stripped):
                 return False, f"REVIEW: narrative-like (values >{MAX_VALUE_LEN} chars or objects; canonical={canonical_name})"
     if canonical_name is None:

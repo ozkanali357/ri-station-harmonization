@@ -128,7 +128,7 @@ DEIMS,attributes.infrastructure.collection[].uri,True,canonical=infrastructure.c
 DEIMS,attributes.infrastructure.data,False,no canonical match
 DEIMS,attributes.infrastructure.data.policy,False,no canonical match
 DEIMS,attributes.infrastructure.data.policy.notes,False,PROSE (canonical=infrastructure.data.policy.notes)
-DEIMS,attributes.infrastructure.data.policy.rights,True,canonical=infrastructure.data.policy.rights
+DEIMS,attributes.infrastructure.data.policy.rights,False,REVIEW: narrative-like (values >80 chars or objects; canonical=infrastructure.data.policy.rights)
 DEIMS,attributes.infrastructure.data.policy.url,False,url
 DEIMS,attributes.infrastructure.data.policy.url[].title,True,canonical=infrastructure.data.policy.url[0].title
 DEIMS,attributes.infrastructure.data.policy.url[].value,False,URL field (canonical=infrastructure.data.policy.url[0].value)
@@ -167,7 +167,7 @@ ACTRIS,identifier_type,True,canonical=identifier_type
 ACTRIS,location,False,CONTAINER (canonical=location)
 ACTRIS,location.bbox,False,REVIEW: possible geometry (canonical=location)
 ACTRIS,location.coordinates,True,canonical=location via prefix=location
-ACTRIS,location.type,True,canonical=location via prefix=location
+ACTRIS,location.type,False,geometry-type metadata (not a site descriptor)
 ACTRIS,name,True,canonical=name
 ACTRIS,uri,True,canonical=uri
 ACTRIS,wmo_region,True,canonical=wmo_region
