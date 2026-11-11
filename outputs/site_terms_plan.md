@@ -41,6 +41,7 @@ Columns:
 - `controlled_values_observed` — values observed in the 20 sites (only for fields on the explicit allowlist; see §6)
 - `definition` — per-RI rules; see §8
 - `in_scope` — bool; `true` if the field is in scope for later cross-walk
+- `status` — `populated` if Table B has values for this field, `not_in_cached_response` if the cached source does not return this field (per PM 2026-11-11). Ensures no RI reads as "lacks the field" — it's the cache that lacks it, not the RI.
 - `licence` — per-RI, see §9
 
 ### Table B — per-site values (supporting)
@@ -49,7 +50,7 @@ Columns:
 
 Columns: `ri`, `site_id`, `canonical_concept`, `field_path`, `value`, `value_source`.
 
-**Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`.
+**Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`. Coordinates from DEIMS `geographic.coordinates` and ACTRIS `location.coordinates` are parsed to numeric lat/lon and stored as two separate numeric columns; if the cache stores them as `POINT(lon lat)` they are parsed. Polygon/bbox geometry is never committed.
 
 ### Table C — HTML view
 
@@ -104,6 +105,8 @@ Every committed table header cites the per-RI licence state:
 - **DEIMS:** `DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms` — this feeds the **open supervisor decision** on how the thesis cites DEIMS. PM flagged it as a legal question they cannot decide. The wording deliberately avoids the substring `deims-sdr`: `scripts/dictionary_html.py` (from #17) rejects any output containing `deims-sdr` as a hard guard against DEIMS definition text; the site-terms HTML renderer will adopt the same guard.
 - **ACTRIS:** `CC0 1.0 (confirmed, scheme file + TTL)`
 - **ICOS:** `ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us`
+
+**ICOS coverage note:** the cached SPARQL query returns only 8 keys per station (`uri, stationId, name, lat, lon, elevation, country, wigos`), so only 7 of 20 canonical ICOS fields have values. Any comparison claim about "which RI describes best" must say this is a property of the cached query, not of ICOS itself. Widening the query is a scope decision, not part of this plan.
 - **EnvThes:** `CC BY 4.0 per scheme file; LICENSE file 404; third-party source tags (Henderson's / GEMET / NCIT) require provenance checks`
 
 ## 10. Tests

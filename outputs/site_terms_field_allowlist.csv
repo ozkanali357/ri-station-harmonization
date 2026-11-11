@@ -54,8 +54,8 @@ DEIMS,attributes.environmentalCharacteristics.eunisHabitat,False,no canonical ma
 DEIMS,attributes.environmentalCharacteristics.eunisHabitat[].label,True,canonical=environmentalCharacteristics.eunisHabitat[0].label
 DEIMS,attributes.environmentalCharacteristics.eunisHabitat[].uri,True,canonical=environmentalCharacteristics.eunisHabitat[0].uri
 DEIMS,attributes.environmentalCharacteristics.geoBonBiome,True,canonical=environmentalCharacteristics.geoBonBiome
-DEIMS,attributes.environmentalCharacteristics.geology,True,canonical=environmentalCharacteristics.geology
-DEIMS,attributes.environmentalCharacteristics.hydrology,True,canonical=environmentalCharacteristics.hydrology
+DEIMS,attributes.environmentalCharacteristics.geology,False,REVIEW: narrative-like (values >80 chars or objects; canonical=environmentalCharacteristics.geology)
+DEIMS,attributes.environmentalCharacteristics.hydrology,False,REVIEW: narrative-like (values >80 chars or objects; canonical=environmentalCharacteristics.hydrology)
 DEIMS,attributes.environmentalCharacteristics.landforms,False,no canonical match
 DEIMS,attributes.environmentalCharacteristics.landforms[].label,True,canonical=environmentalCharacteristics.landforms[0].label
 DEIMS,attributes.environmentalCharacteristics.landforms[].uri,True,canonical=environmentalCharacteristics.landforms[0].uri
@@ -66,8 +66,8 @@ DEIMS,attributes.environmentalCharacteristics.precipitation.referencePeriod.labe
 DEIMS,attributes.environmentalCharacteristics.precipitation.referencePeriod.uri,False,no canonical match
 DEIMS,attributes.environmentalCharacteristics.precipitation.unit,True,canonical=environmentalCharacteristics.precipitation.unit
 DEIMS,attributes.environmentalCharacteristics.precipitation.yearlyAverage,True,canonical=environmentalCharacteristics.precipitation.yearlyAverage
-DEIMS,attributes.environmentalCharacteristics.soils,True,canonical=environmentalCharacteristics.soils
-DEIMS,attributes.environmentalCharacteristics.vegetation,True,canonical=environmentalCharacteristics.vegetation
+DEIMS,attributes.environmentalCharacteristics.soils,False,REVIEW: narrative-like (values >80 chars or objects; canonical=environmentalCharacteristics.soils)
+DEIMS,attributes.environmentalCharacteristics.vegetation,False,REVIEW: narrative-like (values >80 chars or objects; canonical=environmentalCharacteristics.vegetation)
 DEIMS,attributes.focusDesignScale,False,no canonical match
 DEIMS,attributes.focusDesignScale.experiments,False,no canonical match
 DEIMS,attributes.focusDesignScale.experiments.design,True,canonical=focusDesignScale.experiments.design
@@ -83,15 +83,15 @@ DEIMS,attributes.general.abstract,False,PROSE (canonical=general.abstract)
 DEIMS,attributes.general.citation,False,PROSE (canonical=general.citation)
 DEIMS,attributes.general.images,False,no canonical match
 DEIMS,attributes.general.images[].alt,False,PROSE (canonical=general.images[0].alt)
-DEIMS,attributes.general.images[].url,True,canonical=general.images[0].url
+DEIMS,attributes.general.images[].url,False,URL field (canonical=general.images[0].url)
 DEIMS,attributes.general.landUse,False,no canonical match
 DEIMS,attributes.general.landUse[].label,True,canonical=general.landUse[0].label
 DEIMS,attributes.general.landUse[].uri,True,canonical=general.landUse[0].uri
 DEIMS,attributes.general.protectionLevel,False,no canonical match
 DEIMS,attributes.general.protectionLevel[].label,True,canonical=general.protectionLevel[0].label
 DEIMS,attributes.general.protectionLevel[].uri,True,canonical=general.protectionLevel[0].uri
-DEIMS,attributes.general.relatedIdentifiers,True,canonical=general.relatedIdentifiers
-DEIMS,attributes.general.relatedSites,True,canonical=general.relatedSites
+DEIMS,attributes.general.relatedIdentifiers,False,CONTAINER (canonical=general.relatedIdentifiers)
+DEIMS,attributes.general.relatedSites,False,CONTAINER (canonical=general.relatedSites)
 DEIMS,attributes.general.shortName,True,canonical=general.shortName
 DEIMS,attributes.general.siteName,True,canonical=general.siteName
 DEIMS,attributes.general.siteType,True,canonical=general.siteType
@@ -101,7 +101,7 @@ DEIMS,attributes.general.status.uri,True,canonical=general.status.uri
 DEIMS,attributes.general.yearClosed,True,canonical=general.yearClosed
 DEIMS,attributes.general.yearEstablished,True,canonical=general.yearEstablished
 DEIMS,attributes.geographic,False,no canonical match
-DEIMS,attributes.geographic.boundaries,False,REVIEW: possible WKT (canonical=geographic.boundaries)
+DEIMS,attributes.geographic.boundaries,False,REVIEW: possible geometry (canonical=geographic.boundaries)
 DEIMS,attributes.geographic.coordinates,True,canonical=geographic.coordinates
 DEIMS,attributes.geographic.country,True,canonical=geographic.country
 DEIMS,attributes.geographic.elevation,False,no canonical match
@@ -129,9 +129,9 @@ DEIMS,attributes.infrastructure.data,False,no canonical match
 DEIMS,attributes.infrastructure.data.policy,False,no canonical match
 DEIMS,attributes.infrastructure.data.policy.notes,False,PROSE (canonical=infrastructure.data.policy.notes)
 DEIMS,attributes.infrastructure.data.policy.rights,True,canonical=infrastructure.data.policy.rights
-DEIMS,attributes.infrastructure.data.policy.url,False,no canonical match
+DEIMS,attributes.infrastructure.data.policy.url,False,url
 DEIMS,attributes.infrastructure.data.policy.url[].title,True,canonical=infrastructure.data.policy.url[0].title
-DEIMS,attributes.infrastructure.data.policy.url[].value,True,canonical=infrastructure.data.policy.url[0].value
+DEIMS,attributes.infrastructure.data.policy.url[].value,False,URL field (canonical=infrastructure.data.policy.url[0].value)
 DEIMS,attributes.infrastructure.maintenanceInterval,True,canonical=infrastructure.maintenanceInterval
 DEIMS,attributes.infrastructure.notes,False,PROSE (canonical=infrastructure.notes)
 DEIMS,attributes.infrastructure.operation,False,no canonical match
@@ -142,7 +142,7 @@ DEIMS,attributes.infrastructure.permanentPowerSupply,True,canonical=infrastructu
 DEIMS,attributes.projectRelated,False,no canonical match
 DEIMS,attributes.projectRelated.lter,False,no canonical match
 DEIMS,attributes.projectRelated.lter.lterSiteClassification,True,canonical=projectRelated.lter.lterSiteClassification
-DEIMS,attributes.relatedResources,True,canonical=relatedResources
+DEIMS,attributes.relatedResources,False,CONTAINER (canonical=relatedResources)
 DEIMS,attributes.relatedResources[].changed,False,no canonical match
 DEIMS,attributes.relatedResources[].id,False,no canonical match
 DEIMS,attributes.relatedResources[].id.prefix,False,no canonical match
@@ -152,8 +152,8 @@ ACTRIS,active,True,canonical=active
 ACTRIS,actris_national_facility,True,canonical=actris_national_facility
 ACTRIS,actris_nf_uri,True,canonical=actris_nf_uri
 ACTRIS,country_code,True,canonical=country_code
-ACTRIS,extra_metadata,True,canonical=extra_metadata
-ACTRIS,extra_metadata.insitu,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata,False,CONTAINER (canonical=extra_metadata)
+ACTRIS,extra_metadata.insitu,False,CONTAINER (canonical=extra_metadata)
 ACTRIS,extra_metadata.insitu.ebas_country_code,True,canonical=extra_metadata via prefix=extra_metadata
 ACTRIS,extra_metadata.insitu.ebas_station_alt,True,canonical=extra_metadata via prefix=extra_metadata
 ACTRIS,extra_metadata.insitu.ebas_station_code,True,canonical=extra_metadata via prefix=extra_metadata
@@ -164,8 +164,8 @@ ACTRIS,facility_type,True,canonical=facility_type
 ACTRIS,gawid_uri,True,canonical=gawid_uri
 ACTRIS,identifier,True,canonical=identifier
 ACTRIS,identifier_type,True,canonical=identifier_type
-ACTRIS,location,True,canonical=location
-ACTRIS,location.bbox,True,canonical=location via prefix=location
+ACTRIS,location,False,CONTAINER (canonical=location)
+ACTRIS,location.bbox,False,REVIEW: possible geometry (canonical=location)
 ACTRIS,location.coordinates,True,canonical=location via prefix=location
 ACTRIS,location.type,True,canonical=location via prefix=location
 ACTRIS,name,True,canonical=name
