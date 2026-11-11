@@ -1,6 +1,10 @@
-"""One-off: fill outputs/dictionary_actris_terms.csv from ACTRIS_vocabulary.ttl (CC0)."""
+"""One-off: fill outputs/dictionary_actris_terms.csv from ACTRIS_vocabulary.ttl (CC0).
+
+Two markers, kept distinct:
+  [NO DEFINITION PUBLISHED in actris_vocab]  — one concept matched, no skos:definition published
+  [NO MATCHING CONCEPT in actris_vocab]      — no exact prefLabel match in the ACTRIS vocabulary
+"""
 from collections import defaultdict
-from pathlib import Path
 
 import pandas as pd
 from rdflib import Graph, Namespace
@@ -8,12 +12,13 @@ from rdflib import Graph, Namespace
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 TTL = "data/raw/dictionary_vocabularies/actris_vocab/ACTRIS_vocabulary.ttl"
 CSV = "outputs/dictionary_actris_terms.csv"
-MARKER = "[NO DEFINITION PUBLISHED in actris_vocab]"
+MARKER_NO_DEF   = "[NO DEFINITION PUBLISHED in actris_vocab]"
+MARKER_NO_MATCH = "[NO MATCHING CONCEPT in actris_vocab]"
 DEF_COL = "Definition (if published)"
 
 g = Graph(); g.parse(TTL)
-exact  = defaultdict(list)   # label as-is -> [(uri, defn_or_None)]
-folded = defaultdict(list)   # label.lower() -> [...]
+exact  = defaultdict(list)
+folded = defaultdict(list)
 for s, o in g.subject_objects(SKOS.prefLabel):
     label = str(o)
     uri = str(s)
@@ -43,7 +48,7 @@ for idx, row in df.iterrows():
             df.at[idx, DEF_COL] = defn
             c["matched_single_with_def"] += 1
         else:
-            df.at[idx, DEF_COL] = MARKER
+            df.at[idx, DEF_COL] = MARKER_NO_DEF
             c["matched_single_without_def"] += 1
         if len(folded_hits) > 1:
             c["if_folded_would_be_ambiguous"] += 1
@@ -53,8 +58,9 @@ for idx, row in df.iterrows():
         df.at[idx, "matched_by"] = "prefLabel_ambiguous"
         c["ambiguous_exact"] += 1
     else:
-        df.at[idx, DEF_COL] = MARKER
+        df.at[idx, DEF_COL] = MARKER_NO_MATCH
         df.at[idx, "matched_by"] = ""
+        df.at[idx, "Term URI"] = ""
         c["unmatched_exact"] += 1
         if len(folded_hits) == 1:
             c["if_folded_would_match"] += 1

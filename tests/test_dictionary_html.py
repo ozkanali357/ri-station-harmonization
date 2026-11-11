@@ -33,13 +33,16 @@ def test_committed_html_matches_regenerated(stem, title, licence, tmp_path):
 @pytest.mark.parametrize("stem,title,licence", FIXTURES)
 def test_header_counts_match_csv(stem, title, licence):
     sys.path.insert(0, str(REPO))
-    from scripts.dictionary_html import count_states
+    from scripts.dictionary_html import count_states, STATE_ORDER
     df = pd.read_csv(REPO / "outputs" / f"{stem}.csv", keep_default_na=False)
-    filled, marked = count_states(df)
+    counts = count_states(df)
     html = (REPO / "outputs" / f"{stem}.html").read_text(encoding="utf-8")
     assert f"Total terms: {len(df)}" in html
-    assert f"Filled: {filled}" in html
-    assert f"Marked: {marked}" in html
+    assert f"Filled: {counts['filled']}" in html
+    for label, _ in STATE_ORDER:
+        if counts[label]:
+            assert f"{label.capitalize()}: {counts[label]}" in html, \
+                f"{stem}: expected '{label.capitalize()}: {counts[label]}' in header"
 
 
 @pytest.mark.parametrize("stem,title,licence", FIXTURES)
@@ -59,6 +62,20 @@ def test_deims_html_definition_cells_only_contain_marker():
     df = pd.read_csv(REPO / "outputs" / "dictionary_deims_terms.csv", keep_default_na=False)
     html = (REPO / "outputs" / "dictionary_deims_terms.html").read_text(encoding="utf-8")
     assert html.count(DEIMS_MARKER) == len(df)
+
+
+def test_actris_split_markers_and_uris():
+    df = pd.read_csv(REPO / "outputs" / "dictionary_actris_terms.csv", keep_default_na=False)
+    s = df[DEFINITION_COL].astype(str).str.strip()
+    no_def   = int(s.str.startswith("[NO DEFINITION PUBLISHED in actris_vocab]").sum())
+    no_match = int(s.str.startswith("[NO MATCHING CONCEPT in actris_vocab]").sum())
+    filled   = int(((s != "") & (~s.str.startswith("["))).sum())
+    assert filled   == 381, filled
+    assert no_def   == 11,  no_def
+    assert no_match == 8,   no_match
+    unmatched = df[s.str.startswith("[NO MATCHING CONCEPT")]
+    assert (unmatched["Term URI"].astype(str).str.strip() == "").all(), \
+        "rows with [NO MATCHING CONCEPT] must have empty Term URI"
 
 
 def test_dictionary_html_deterministic(tmp_path):
