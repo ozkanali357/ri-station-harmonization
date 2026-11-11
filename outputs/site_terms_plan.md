@@ -14,7 +14,7 @@ Not observations/variables. Site metadata.
 
 - **Sites:** 20 Finnish DEIMS sites (`outputs/deims_networks_finland.csv`) plus their paired ICOS/ACTRIS records in `outputs/finland_candidates_labelled.csv`. **The pairing is proposed, not confirmed (#4 still open).** This is stated in every table header.
 - **Starting field list:** the 117 fields in `outputs/final_field_comparison.csv` (DEIMS 81, ICOS 20, ACTRIS 16). All 117 appear in Table A with an `in_scope` flag column; nothing is dropped. Expanding to `outputs/all_schema_fields.csv` is deferred until the supervisor has seen this table.
-- **No refetch, no widening** (per PM 2026-11-11). Cached data only.
+- **No refetch, no widening** (per PM 2026-11-11). Cached data only. The field allowlist (`outputs/site_terms_field_allowlist.csv`) is built in Step 1 on this branch — **not yet built at the time of this plan commit.**
 
 ## 3. Data sources (existing, no fetch)
 
@@ -41,7 +41,16 @@ Columns:
 - `controlled_values_observed` — values observed in the 20 sites (only for fields on the explicit allowlist; see §6)
 - `definition` — per-RI rules; see §8
 - `in_scope` — bool; `true` if the field is in scope for later cross-walk
+- `status` — one of:
+  - `populated` — Table B has values for this field
+  - `not_in_cached_response` — the cached source does not return this field (per PM 2026-11-11). Ensures no RI reads as "lacks the field" — it's the cache that lacks it, not the RI.
+  - `excluded_by_rule` — the field **is** in the cached data but was demoted by an allowlist rule (prose / contact / container / URL / geometry / narrative-over-80-chars). Distinguishes "deliberately not committed" from "missing."
 - `licence` — per-RI, see §9
+
+**Field-specific notes for Table A:**
+- ACTRIS `extra_metadata.insitu.ebas_station_lat` and `ebas_station_lon` form a **second coordinate pair** (EBAS/EMEP reporting). They are kept alongside `location.coordinates`, not merged with it, and are not treated as duplicates.
+- ACTRIS `extra_metadata.insitu.ebas_station_alt` is an **ACTRIS-specific EBAS altitude field**, kept as a numeric value and **not** merged with a general `elevation` field.
+- ACTRIS `actris_nf_uri` and `gawid_uri` are **identifiers**, not URL fields (the URL-field rule targets `url`/`value` last segments). `gawid_uri` carries the "None"-as-missing rule in Table B (above).
 
 ### Table B — per-site values (supporting)
 
@@ -49,7 +58,9 @@ Columns:
 
 Columns: `ri`, `site_id`, `canonical_concept`, `field_path`, `value`, `value_source`.
 
-**Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`.
+**Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`. Coordinates from DEIMS `geographic.coordinates` and ACTRIS `location.coordinates` are parsed to numeric lat/lon and stored as two separate numeric columns; if the cache stores them as `POINT(lon lat)` they are parsed. Polygon/bbox geometry is never committed.
+
+**Data-quality note (`gawid_uri`):** 45 ACTRIS records carry the literal string `None` as `gawid_uri` (19 Oct audit). Table B treats the literal `None` as **missing** — it is a data-quality defect at source, not a value.
 
 ### Table C — HTML view
 
@@ -101,9 +112,11 @@ The `definition` column in Table A is populated per RI:
 
 Every committed table header cites the per-RI licence state:
 
-- **DEIMS:** `DEIMS-SDR, CC BY-NC 4.0, https://deims.org/terms` — this feeds the **open supervisor decision** on how the thesis cites DEIMS. PM flagged it as a legal question they cannot decide.
+- **DEIMS:** `DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms` — this feeds the **open supervisor decision** on how the thesis cites DEIMS. PM flagged it as a legal question they cannot decide. The wording deliberately avoids the substring `deims-sdr`: `scripts/dictionary_html.py` (from #17) rejects any output containing `deims-sdr` as a hard guard against DEIMS definition text; the site-terms HTML renderer will adopt the same guard.
 - **ACTRIS:** `CC0 1.0 (confirmed, scheme file + TTL)`
 - **ICOS:** `ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us`
+
+**ICOS coverage note:** the cached SPARQL query returns only 8 keys per station (`uri, stationId, name, lat, lon, elevation, country, wigos`), so only 7 of 20 canonical ICOS fields have values. Any comparison claim about "which RI describes best" must say this is a property of the cached query, not of ICOS itself. Widening the query is a scope decision, not part of this plan.
 - **EnvThes:** `CC BY 4.0 per scheme file; LICENSE file 404; third-party source tags (Henderson's / GEMET / NCIT) require provenance checks`
 
 ## 10. Tests
@@ -141,12 +154,13 @@ Ask at the next meeting:
 
 - **Local only.** The raw cache (`data/raw/deims_detail/`, `data/raw/icos_stations_page_*.json`, `data/raw/actris_facilities.json`) is gitignored and only present on Ali's machine. Scripts run locally.
 - **No cloud thread.** PM will brief the existing worker only after the pushed tip is up, and only for read-only verification.
+- **A clean clone cannot regenerate Tables A or B.** The raw caches (`data/raw/deims_detail/`, `data/raw/icos_stations_page_*.json`, `data/raw/actris_facilities.json`) are gitignored and only present on Ali's local machine. The worker can verify committed outputs, tests, and greps, but cannot regenerate from raw. Reproducibility from raw is verified locally only.
 - **Verification scope for the worker:** greps, email scan, WKT scan, free-text scan, allowlist adherence, byte-identical HTML regeneration, `pytest -q` on a clean checkout.
 - **Merge only after worker verification passes.**
 
 ## 13. Not in this plan
 
-- SKOS cross-walk across RIs (deferred to Table D; will reuse `references/skos_mapping_relations.md`)
+- SKOS cross-walk across RIs (deferred to Table D; will reuse the SKOS relation vocabulary from the Library note `references/skos_mapping_relations.md` — **Library-only, not tracked in the repo**) 
 - Similarity scoring between RIs (Table E)
 - Zenodo field-spec comparison ("after steps" per supervisor)
 - Any refetch or widening beyond the 20 cached Finnish sites
@@ -155,7 +169,7 @@ Ask at the next meeting:
 
 ## 14. Implementation steps
 
-1. **Step 1 — enumerate field paths.** Walk `data/raw/deims_detail/*.json` (attributes), `data/raw/icos_stations_page_*.json`, `data/raw/actris_facilities.json`. Produce `outputs/site_terms_field_allowlist.csv` with all paths + `in_allowlist` + `notes`. This is a reviewed artifact — PM reviews before Step 3.
+1. **Step 1 — enumerate field paths.** Walk `data/raw/deims_detail/*.json` (attributes), `data/raw/icos_stations_page_*.json`, `data/raw/actris_facilities.json`. Produce `outputs/site_terms_field_allowlist.csv` with all paths + `in_allowlist` + `notes`. This is a reviewed artifact — **built in Step 1, not built at the time of this plan commit**; PM reviews before Step 3.
 2. **Step 2 — Table A.** `scripts/extract_site_terms.py` reads the 117 fields from `final_field_comparison.csv` + the raw cache. Writes `outputs/site_terms_fields.csv`.
 3. **Step 3 — Table B.** `scripts/build_site_terms_values.py` reads the allowlist + raw cache. Writes `outputs/site_terms_values.csv`. Enforces the length guard.
 4. **Step 4 — HTML.** `scripts/render_site_terms_html.py` renders A+B with collapsible B sections.
