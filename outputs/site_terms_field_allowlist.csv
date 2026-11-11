@@ -1,0 +1,181 @@
+ri,field_path,in_allowlist,notes
+DEIMS,attributes.affiliation,False,no canonical match
+DEIMS,attributes.affiliation.networks,False,no canonical match
+DEIMS,attributes.affiliation.networks[].network,False,no canonical match
+DEIMS,attributes.affiliation.networks[].network.id,False,no canonical match
+DEIMS,attributes.affiliation.networks[].network.id.prefix,True,canonical=affiliation.networks[0].network.id.prefix
+DEIMS,attributes.affiliation.networks[].network.id.suffix,True,canonical=affiliation.networks[0].network.id.suffix
+DEIMS,attributes.affiliation.networks[].network.name,True,canonical=affiliation.networks[0].network.name
+DEIMS,attributes.affiliation.networks[].siteCode,True,canonical=affiliation.networks[0].siteCode
+DEIMS,attributes.affiliation.networks[].verified,True,canonical=affiliation.networks[0].verified
+DEIMS,attributes.affiliation.projects,False,no canonical match
+DEIMS,attributes.affiliation.projects[].label,True,canonical=affiliation.projects[0].label
+DEIMS,attributes.affiliation.projects[].uri,True,canonical=affiliation.projects[0].uri
+DEIMS,attributes.contact,False,contact
+DEIMS,attributes.contact.fundingAgency,False,contact
+DEIMS,attributes.contact.fundingAgency[].name,False,contact
+DEIMS,attributes.contact.fundingAgency[].ror,False,contact
+DEIMS,attributes.contact.fundingAgency[].type,False,contact
+DEIMS,attributes.contact.fundingAgency[].url,False,contact
+DEIMS,attributes.contact.metadataProvider,False,contact
+DEIMS,attributes.contact.metadataProvider[].email,False,contact
+DEIMS,attributes.contact.metadataProvider[].name,False,contact
+DEIMS,attributes.contact.metadataProvider[].orcid,False,contact
+DEIMS,attributes.contact.metadataProvider[].ror,False,contact
+DEIMS,attributes.contact.metadataProvider[].type,False,contact
+DEIMS,attributes.contact.metadataProvider[].url,False,contact
+DEIMS,attributes.contact.operatingOrganisation,False,contact
+DEIMS,attributes.contact.operatingOrganisation[].name,False,contact
+DEIMS,attributes.contact.operatingOrganisation[].ror,False,contact
+DEIMS,attributes.contact.operatingOrganisation[].type,False,contact
+DEIMS,attributes.contact.operatingOrganisation[].url,False,contact
+DEIMS,attributes.contact.siteManager,False,contact
+DEIMS,attributes.contact.siteManager[].email,False,contact
+DEIMS,attributes.contact.siteManager[].name,False,contact
+DEIMS,attributes.contact.siteManager[].orcid,False,contact
+DEIMS,attributes.contact.siteManager[].type,False,contact
+DEIMS,attributes.contact.siteUrl,False,contact
+DEIMS,attributes.contact.siteUrl[].title,False,contact
+DEIMS,attributes.contact.siteUrl[].value,False,contact
+DEIMS,attributes.environmentalCharacteristics,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.airTemperature,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.airTemperature.monthlyAverage,True,canonical=environmentalCharacteristics.airTemperature.monthlyAverage
+DEIMS,attributes.environmentalCharacteristics.airTemperature.referencePeriod,True,canonical=environmentalCharacteristics.airTemperature.referencePeriod
+DEIMS,attributes.environmentalCharacteristics.airTemperature.referencePeriod.label,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.airTemperature.referencePeriod.uri,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.airTemperature.unit,True,canonical=environmentalCharacteristics.airTemperature.unit
+DEIMS,attributes.environmentalCharacteristics.airTemperature.yearlyAverage,True,canonical=environmentalCharacteristics.airTemperature.yearlyAverage
+DEIMS,attributes.environmentalCharacteristics.biogeographicalRegion,True,canonical=environmentalCharacteristics.biogeographicalRegion
+DEIMS,attributes.environmentalCharacteristics.biome,True,canonical=environmentalCharacteristics.biome
+DEIMS,attributes.environmentalCharacteristics.ecosystemType,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.ecosystemType[].label,True,canonical=environmentalCharacteristics.ecosystemType[0].label
+DEIMS,attributes.environmentalCharacteristics.ecosystemType[].uri,True,canonical=environmentalCharacteristics.ecosystemType[0].uri
+DEIMS,attributes.environmentalCharacteristics.eunisHabitat,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.eunisHabitat[].label,True,canonical=environmentalCharacteristics.eunisHabitat[0].label
+DEIMS,attributes.environmentalCharacteristics.eunisHabitat[].uri,True,canonical=environmentalCharacteristics.eunisHabitat[0].uri
+DEIMS,attributes.environmentalCharacteristics.geoBonBiome,True,canonical=environmentalCharacteristics.geoBonBiome
+DEIMS,attributes.environmentalCharacteristics.geology,True,canonical=environmentalCharacteristics.geology
+DEIMS,attributes.environmentalCharacteristics.hydrology,True,canonical=environmentalCharacteristics.hydrology
+DEIMS,attributes.environmentalCharacteristics.landforms,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.landforms[].label,True,canonical=environmentalCharacteristics.landforms[0].label
+DEIMS,attributes.environmentalCharacteristics.landforms[].uri,True,canonical=environmentalCharacteristics.landforms[0].uri
+DEIMS,attributes.environmentalCharacteristics.precipitation,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.precipitation.monthlyAverage,True,canonical=environmentalCharacteristics.precipitation.monthlyAverage
+DEIMS,attributes.environmentalCharacteristics.precipitation.referencePeriod,True,canonical=environmentalCharacteristics.precipitation.referencePeriod
+DEIMS,attributes.environmentalCharacteristics.precipitation.referencePeriod.label,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.precipitation.referencePeriod.uri,False,no canonical match
+DEIMS,attributes.environmentalCharacteristics.precipitation.unit,True,canonical=environmentalCharacteristics.precipitation.unit
+DEIMS,attributes.environmentalCharacteristics.precipitation.yearlyAverage,True,canonical=environmentalCharacteristics.precipitation.yearlyAverage
+DEIMS,attributes.environmentalCharacteristics.soils,True,canonical=environmentalCharacteristics.soils
+DEIMS,attributes.environmentalCharacteristics.vegetation,True,canonical=environmentalCharacteristics.vegetation
+DEIMS,attributes.focusDesignScale,False,no canonical match
+DEIMS,attributes.focusDesignScale.experiments,False,no canonical match
+DEIMS,attributes.focusDesignScale.experiments.design,True,canonical=focusDesignScale.experiments.design
+DEIMS,attributes.focusDesignScale.experiments.scale,True,canonical=focusDesignScale.experiments.scale
+DEIMS,attributes.focusDesignScale.observations,False,no canonical match
+DEIMS,attributes.focusDesignScale.observations.design,True,canonical=focusDesignScale.observations.design
+DEIMS,attributes.focusDesignScale.observations.scale,True,canonical=focusDesignScale.observations.scale
+DEIMS,attributes.focusDesignScale.observedProperties,False,no canonical match
+DEIMS,attributes.focusDesignScale.observedProperties[].label,True,canonical=focusDesignScale.observedProperties[0].label
+DEIMS,attributes.focusDesignScale.observedProperties[].uri,True,canonical=focusDesignScale.observedProperties[0].uri
+DEIMS,attributes.general,False,no canonical match
+DEIMS,attributes.general.abstract,False,PROSE (canonical=general.abstract)
+DEIMS,attributes.general.citation,False,PROSE (canonical=general.citation)
+DEIMS,attributes.general.images,False,no canonical match
+DEIMS,attributes.general.images[].alt,False,PROSE (canonical=general.images[0].alt)
+DEIMS,attributes.general.images[].url,True,canonical=general.images[0].url
+DEIMS,attributes.general.landUse,False,no canonical match
+DEIMS,attributes.general.landUse[].label,True,canonical=general.landUse[0].label
+DEIMS,attributes.general.landUse[].uri,True,canonical=general.landUse[0].uri
+DEIMS,attributes.general.protectionLevel,False,no canonical match
+DEIMS,attributes.general.protectionLevel[].label,True,canonical=general.protectionLevel[0].label
+DEIMS,attributes.general.protectionLevel[].uri,True,canonical=general.protectionLevel[0].uri
+DEIMS,attributes.general.relatedIdentifiers,True,canonical=general.relatedIdentifiers
+DEIMS,attributes.general.relatedSites,True,canonical=general.relatedSites
+DEIMS,attributes.general.shortName,True,canonical=general.shortName
+DEIMS,attributes.general.siteName,True,canonical=general.siteName
+DEIMS,attributes.general.siteType,True,canonical=general.siteType
+DEIMS,attributes.general.status,False,no canonical match
+DEIMS,attributes.general.status.label,True,canonical=general.status.label
+DEIMS,attributes.general.status.uri,True,canonical=general.status.uri
+DEIMS,attributes.general.yearClosed,True,canonical=general.yearClosed
+DEIMS,attributes.general.yearEstablished,True,canonical=general.yearEstablished
+DEIMS,attributes.geographic,False,no canonical match
+DEIMS,attributes.geographic.boundaries,False,REVIEW: possible WKT (canonical=geographic.boundaries)
+DEIMS,attributes.geographic.coordinates,True,canonical=geographic.coordinates
+DEIMS,attributes.geographic.country,True,canonical=geographic.country
+DEIMS,attributes.geographic.elevation,False,no canonical match
+DEIMS,attributes.geographic.elevation.avg,True,canonical=geographic.elevation.avg
+DEIMS,attributes.geographic.elevation.max,True,canonical=geographic.elevation.max
+DEIMS,attributes.geographic.elevation.min,True,canonical=geographic.elevation.min
+DEIMS,attributes.geographic.elevation.unit,True,canonical=geographic.elevation.unit
+DEIMS,attributes.geographic.relatedLocations,False,no canonical match
+DEIMS,attributes.geographic.relatedLocations[].changed,True,canonical=geographic.relatedLocations[0].changed
+DEIMS,attributes.geographic.relatedLocations[].id,False,no canonical match
+DEIMS,attributes.geographic.relatedLocations[].id.prefix,True,canonical=geographic.relatedLocations[0].id.prefix
+DEIMS,attributes.geographic.relatedLocations[].id.suffix,True,canonical=geographic.relatedLocations[0].id.suffix
+DEIMS,attributes.geographic.relatedLocations[].title,True,canonical=geographic.relatedLocations[0].title
+DEIMS,attributes.geographic.size,False,no canonical match
+DEIMS,attributes.geographic.size.unit,True,canonical=geographic.size.unit
+DEIMS,attributes.geographic.size.value,True,canonical=geographic.size.value
+DEIMS,attributes.infrastructure,False,no canonical match
+DEIMS,attributes.infrastructure.accessType,True,canonical=infrastructure.accessType
+DEIMS,attributes.infrastructure.accessibleAllYear,True,canonical=infrastructure.accessibleAllYear
+DEIMS,attributes.infrastructure.allPartsAccessible,True,canonical=infrastructure.allPartsAccessible
+DEIMS,attributes.infrastructure.collection,False,no canonical match
+DEIMS,attributes.infrastructure.collection[].label,True,canonical=infrastructure.collection[0].label
+DEIMS,attributes.infrastructure.collection[].uri,True,canonical=infrastructure.collection[0].uri
+DEIMS,attributes.infrastructure.data,False,no canonical match
+DEIMS,attributes.infrastructure.data.policy,False,no canonical match
+DEIMS,attributes.infrastructure.data.policy.notes,False,PROSE (canonical=infrastructure.data.policy.notes)
+DEIMS,attributes.infrastructure.data.policy.rights,True,canonical=infrastructure.data.policy.rights
+DEIMS,attributes.infrastructure.data.policy.url,False,no canonical match
+DEIMS,attributes.infrastructure.data.policy.url[].title,True,canonical=infrastructure.data.policy.url[0].title
+DEIMS,attributes.infrastructure.data.policy.url[].value,True,canonical=infrastructure.data.policy.url[0].value
+DEIMS,attributes.infrastructure.maintenanceInterval,True,canonical=infrastructure.maintenanceInterval
+DEIMS,attributes.infrastructure.notes,False,PROSE (canonical=infrastructure.notes)
+DEIMS,attributes.infrastructure.operation,False,no canonical match
+DEIMS,attributes.infrastructure.operation.notes,False,PROSE (canonical=infrastructure.operation.notes)
+DEIMS,attributes.infrastructure.operation.permanent,True,canonical=infrastructure.operation.permanent
+DEIMS,attributes.infrastructure.operation.siteVisitInterval,True,canonical=infrastructure.operation.siteVisitInterval
+DEIMS,attributes.infrastructure.permanentPowerSupply,True,canonical=infrastructure.permanentPowerSupply
+DEIMS,attributes.projectRelated,False,no canonical match
+DEIMS,attributes.projectRelated.lter,False,no canonical match
+DEIMS,attributes.projectRelated.lter.lterSiteClassification,True,canonical=projectRelated.lter.lterSiteClassification
+DEIMS,attributes.relatedResources,True,canonical=relatedResources
+DEIMS,attributes.relatedResources[].changed,False,no canonical match
+DEIMS,attributes.relatedResources[].id,False,no canonical match
+DEIMS,attributes.relatedResources[].id.prefix,False,no canonical match
+DEIMS,attributes.relatedResources[].id.suffix,False,no canonical match
+DEIMS,attributes.relatedResources[].title,False,no canonical match
+ACTRIS,active,True,canonical=active
+ACTRIS,actris_national_facility,True,canonical=actris_national_facility
+ACTRIS,actris_nf_uri,True,canonical=actris_nf_uri
+ACTRIS,country_code,True,canonical=country_code
+ACTRIS,extra_metadata,True,canonical=extra_metadata
+ACTRIS,extra_metadata.insitu,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_country_code,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_station_alt,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_station_code,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_station_lat,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_station_lon,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,extra_metadata.insitu.ebas_station_name,True,canonical=extra_metadata via prefix=extra_metadata
+ACTRIS,facility_type,True,canonical=facility_type
+ACTRIS,gawid_uri,True,canonical=gawid_uri
+ACTRIS,identifier,True,canonical=identifier
+ACTRIS,identifier_type,True,canonical=identifier_type
+ACTRIS,location,True,canonical=location
+ACTRIS,location.bbox,True,canonical=location via prefix=location
+ACTRIS,location.coordinates,True,canonical=location via prefix=location
+ACTRIS,location.type,True,canonical=location via prefix=location
+ACTRIS,name,True,canonical=name
+ACTRIS,uri,True,canonical=uri
+ACTRIS,wmo_region,True,canonical=wmo_region
+ICOS,country,True,canonical=countryCode via explicit-map
+ICOS,elevation,True,canonical=hasElevation via normalized
+ICOS,lat,True,canonical=hasLatitude via explicit-map
+ICOS,lon,True,canonical=hasLongitude via explicit-map
+ICOS,name,True,canonical=hasName via normalized
+ICOS,stationId,True,canonical=hasStationId via normalized
+ICOS,uri,False,no canonical match
+ICOS,wigos,True,canonical=hasWigosId via explicit-map
