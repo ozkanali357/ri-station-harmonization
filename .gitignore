@@ -28,3 +28,7 @@ outputs/final_field_comparison_definition_backed.csv
 
 # Candidate table with EnvThes / Standard Observations / eLTER_CL / ICOS definition text (licence not yet accepted): local only.
 outputs/dictionary_candidates_finland_LOCAL.csv
+outputs/*_LOCAL.csv
+outputs/*_LOCAL.html
+AGENTS.md
+PROJECT_SPEC.md
