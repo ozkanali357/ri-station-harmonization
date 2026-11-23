@@ -1,4 +1,5 @@
 """Tests for scripts/build_site_terms_fields.py — Table A of the site-terms plan."""
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -7,6 +8,7 @@ import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
 SCRIPT = REPO / "scripts" / "build_site_terms_fields.py"
+ACTRIS_DEFS = REPO / "outputs" / "actris_field_definitions.csv"
 OUT_REL = Path("outputs/site_terms_fields.csv")
 OUT = REPO / OUT_REL
 
@@ -42,6 +44,44 @@ def test_deims_definitions_are_marker_only():
     df = _load()
     marker = "[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]"
     assert (df[df["ri"] == "DEIMS"]["definition"] == marker).all()
+
+
+def test_actris_cc0_definitions_joined():
+    df = _load()
+    actris_df = df[df["ri"] == "ACTRIS"].set_index("canonical_concept")
+    defs_df = pd.read_csv(ACTRIS_DEFS, keep_default_na=False).set_index("field")
+
+    expected_cc0_fields = {"facility_type", "identifier", "identifier_type"}
+    for field in expected_cc0_fields:
+        expected_def = defs_df.loc[field, "vocabulary_definition"].strip()
+        actual_def = actris_df.loc[field, "definition"]
+        assert actual_def == expected_def
+        assert "FLAGGED" not in actual_def
+        assert "[NO DEFINITION]" not in actual_def
+
+    for field, row in actris_df.iterrows():
+        if field not in expected_cc0_fields:
+            assert "FLAGGED" in row["definition"]
+
+
+def test_deims_controlled_values_count_only_no_echo():
+    df = _load()
+    deims_obs = df[df["ri"] == "DEIMS"]["controlled_values_observed"]
+    uuid_re = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", re.I)
+    allowed_re = re.compile(
+        r"^(|n=\d+ distinct=\d+|n=\d+ \(geometry; parsed to numeric lat/lon in Table B; not echoed here\)|populated via \d+ children)$"
+    )
+    for val in deims_obs:
+        assert allowed_re.match(val), f"non-count DEIMS observed value: {val!r}"
+        assert "EnvThes" not in val
+        assert not uuid_re.search(val)
+
+
+def test_actris_facility_type_is_string():
+    df = _load()
+    ft = df[(df["ri"] == "ACTRIS") & (df["canonical_concept"] == "facility_type")]
+    assert len(ft) == 1
+    assert ft.iloc[0]["data_type"] == "string"
 
 
 def test_no_wkt_in_any_cell():

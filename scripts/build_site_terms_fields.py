@@ -9,8 +9,9 @@ Status semantics (PM 2026-11-11):
 - excluded_by_rule: allowlist paths exist, none with in_allowlist=true
 
 No values content: data_type inferred from cache, observed values summarised
-briefly (short values only), definition from canonical CSV with per-RI marker
-overrides, no WKT anywhere.
+briefly (count-only for DEIMS/EnvThes; short values only for CC0 RIs),
+definition from canonical CSV with per-RI overrides (including CC0 ACTRIS
+vocabulary definitions), no WKT anywhere.
 
 Requires raw cache present BEFORE opening the output, so a clean clone fails
 without clobbering the committed CSV.
@@ -23,12 +24,13 @@ from pathlib import Path
 
 import pandas as pd
 
-CANONICAL   = Path("outputs/final_field_comparison.csv")
-ALLOWLIST   = Path("outputs/site_terms_field_allowlist.csv")
-RAW_DEIMS   = Path("data/raw/deims_detail")
-RAW_ICOS    = Path("data/raw")
-RAW_ACTRIS  = Path("data/raw/actris_facilities.json")
-OUT         = Path("outputs/site_terms_fields.csv")
+CANONICAL    = Path("outputs/final_field_comparison.csv")
+ALLOWLIST    = Path("outputs/site_terms_field_allowlist.csv")
+ACTRIS_DEFS  = Path("outputs/actris_field_definitions.csv")
+RAW_DEIMS    = Path("data/raw/deims_detail")
+RAW_ICOS     = Path("data/raw")
+RAW_ACTRIS   = Path("data/raw/actris_facilities.json")
+OUT          = Path("outputs/site_terms_fields.csv")
 
 EXPECTED_ROWS   = 117
 MAX_OBSERVED    = 250
@@ -56,6 +58,8 @@ def validate_inputs():
         sys.exit(f"missing canonical field list: {CANONICAL}")
     if not ALLOWLIST.exists():
         sys.exit(f"missing allowlist: {ALLOWLIST}")
+    if not ACTRIS_DEFS.exists():
+        sys.exit(f"missing ACTRIS field definitions: {ACTRIS_DEFS}")
     if not list(RAW_DEIMS.glob("*.json")):
         sys.exit(f"no DEIMS detail JSON under {RAW_DEIMS} "
                  f"(gitignored; a clean clone cannot run this script)")
@@ -155,11 +159,24 @@ def values_icos(key, bindings):
     return out
 
 
+def _unwrap_scalar_list(values, path=""):
+    if path.split(".")[-1] == "facility_type":
+        unwrapped = []
+        for v in values:
+            if isinstance(v, list):
+                unwrapped.extend(v)
+            else:
+                unwrapped.append(v)
+        return unwrapped
+    return values
+
+
 def infer_data_type(values, path=""):
     if "coordinates" in path.lower():
         return "geometry"
     if not values:
         return "unknown"
+    values = _unwrap_scalar_list(values, path)
     clean = [v for v in values if v is not None and str(v).strip() not in ("", "None", "nan")]
     if not clean:
         return "unknown"
@@ -180,7 +197,8 @@ def infer_data_type(values, path=""):
     return "string"
 
 
-def summarize(values, path=""):
+def summarize(values, path="", ri=""):
+    values = _unwrap_scalar_list(values, path)
     clean = [v for v in values if v is not None and str(v).strip() not in ("", "None", "nan")]
     if not clean:
         return ""
@@ -192,6 +210,12 @@ def summarize(values, path=""):
         return f"n={n_obs} (geometry; parsed to numeric lat/lon in Table B; not echoed here)"
     if any(isinstance(v, str) and WKT_RE.match(v.strip()) for v in clean):
         return f"n={n_obs} (geometry; parsed to numeric lat/lon in Table B; not echoed here)"
+
+    # DEIMS and EnvThes values are NEVER echoed (CC BY-NC / provenance rule):
+    # output counts only, never string values, UUIDs, or EnvThes terms.
+    if str(ri).strip().upper() in ("DEIMS", "ENVTHES"):
+        n_distinct = len({json.dumps(v, sort_keys=True, default=str) for v in clean})
+        return f"n={n_obs} distinct={n_distinct}"
 
     try:
         nums = sorted({float(v) for v in clean})
@@ -206,11 +230,26 @@ def summarize(values, path=""):
     return f"n={n_obs} distinct={len(distinct)} sample={sample[:MAX_OBSERVED]}"
 
 
+def load_actris_definitions():
+    df = pd.read_csv(ACTRIS_DEFS, keep_default_na=False)
+    defs = {}
+    for _, row in df.iterrows():
+        field_name = str(row.get("field", "")).strip()
+        if field_name:
+            defs[field_name] = {
+                "used": str(row.get("used_as_field_definition", "")).strip().lower() == "yes",
+                "definition": str(row.get("vocabulary_definition", "")).strip(),
+                "concept_uri": str(row.get("vocabulary_concept_uri", "")).strip(),
+            }
+    return defs
+
+
 def main():
     validate_inputs()
 
     canon = pd.read_csv(CANONICAL, keep_default_na=False)
     allow = pd.read_csv(ALLOWLIST, keep_default_na=False)
+    actris_defs = load_actris_definitions()
 
     deims_attrs = [json.loads(f.read_text()).get("attributes", {})
                    for f in sorted(RAW_DEIMS.glob("*.json"))]
@@ -233,6 +272,7 @@ def main():
         definition_src = str(r.get("definition", "") or "").strip()
         if definition_src.lower() == "nan":
             definition_src = ""
+        controlled_vocab = ""
 
         if ri == "DEIMS":
             sub = allow[(allow["ri"] == "DEIMS") & (allow["field_path"].apply(lambda p: deims_matches(field, p)))]
@@ -250,7 +290,12 @@ def main():
         elif ri == "ACTRIS":
             sub = allow[(allow["ri"] == "ACTRIS") & (allow["field_path"].apply(lambda p: actris_matches(field, p)))]
             getter = lambda p: values_actris(p, actris_records)
-            definition = definition_src if definition_src else "[NO DEFINITION]"
+            adef = actris_defs.get(field)
+            if adef and adef["used"] and adef["definition"]:
+                definition = adef["definition"]
+                controlled_vocab = adef["concept_uri"]
+            else:
+                definition = definition_src if definition_src else "[NO DEFINITION]"
             licence = ACTRIS_LICENCE
         else:
             continue
@@ -269,7 +314,7 @@ def main():
             if len(populated) == 1:
                 vals = getter(populated[0])
                 data_type = infer_data_type(vals, populated[0])
-                observed = summarize(vals, populated[0])
+                observed = summarize(vals, populated[0], ri=ri)
             else:
                 data_type = "container"
                 observed = f"populated via {len(populated)} children"
@@ -289,7 +334,7 @@ def main():
             "ri_field_path": ri_field_path,
             "ri_field_name": field,
             "data_type": data_type,
-            "controlled_vocabulary": "",
+            "controlled_vocabulary": controlled_vocab,
             "controlled_values_observed": observed,
             "definition": definition,
             "in_scope": True,
