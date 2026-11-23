@@ -64,16 +64,17 @@ def test_actris_cc0_definitions_joined():
             assert "FLAGGED" in row["definition"]
 
 
-def test_deims_controlled_values_count_only_no_echo():
+def test_deims_and_icos_controlled_values_count_only_no_echo():
     df = _load()
-    deims_obs = df[df["ri"] == "DEIMS"]["controlled_values_observed"]
+    sub = df[df["ri"].isin(["DEIMS", "ICOS"])]["controlled_values_observed"]
     uuid_re = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", re.I)
     allowed_re = re.compile(
         r"^(|n=\d+ distinct=\d+|n=\d+ \(geometry; parsed to numeric lat/lon in Table B; not echoed here\)|populated via \d+ children)$"
     )
-    for val in deims_obs:
-        assert allowed_re.match(val), f"non-count DEIMS observed value: {val!r}"
+    for val in sub:
+        assert allowed_re.match(val), f"non-count DEIMS/ICOS observed value: {val!r}"
         assert "EnvThes" not in val
+        assert "sample=" not in val
         assert not uuid_re.search(val)
 
 

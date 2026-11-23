@@ -9,9 +9,9 @@ Status semantics (PM 2026-11-11):
 - excluded_by_rule: allowlist paths exist, none with in_allowlist=true
 
 No values content: data_type inferred from cache, observed values summarised
-briefly (count-only for DEIMS/EnvThes; short values only for CC0 RIs),
-definition from canonical CSV with per-RI overrides (including CC0 ACTRIS
-vocabulary definitions), no WKT anywhere.
+briefly (count-only for DEIMS/EnvThes/ICOS; short values only for confirmed
+CC0 ACTRIS), definition from canonical CSV with per-RI overrides (including CC0
+ACTRIS vocabulary definitions), no WKT anywhere.
 
 Requires raw cache present BEFORE opening the output, so a clean clone fails
 without clobbering the committed CSV.
@@ -211,9 +211,9 @@ def summarize(values, path="", ri=""):
     if any(isinstance(v, str) and WKT_RE.match(v.strip()) for v in clean):
         return f"n={n_obs} (geometry; parsed to numeric lat/lon in Table B; not echoed here)"
 
-    # DEIMS and EnvThes values are NEVER echoed (CC BY-NC / provenance rule):
-    # output counts only, never string values, UUIDs, or EnvThes terms.
-    if str(ri).strip().upper() in ("DEIMS", "ENVTHES"):
+    # DEIMS, EnvThes, and ICOS values are NEVER echoed (CC BY-NC / unverified per-station licence):
+    # output counts only, never string values, UUIDs, station names/IDs, or EnvThes terms.
+    if str(ri).strip().upper() in ("DEIMS", "ENVTHES", "ICOS"):
         n_distinct = len({json.dumps(v, sort_keys=True, default=str) for v in clean})
         return f"n={n_obs} distinct={n_distinct}"
 
