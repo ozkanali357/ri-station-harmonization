@@ -58,7 +58,7 @@ Columns:
 
 Columns: `ri`, `site_id`, `canonical_concept`, `field_path`, `value`, `value_source`.
 
-**Built only from the explicit allowlist (§6).** ICOS/ACTRIS values are restricted to the pairs in `finland_candidates_labelled.csv`. Coordinates from DEIMS `geographic.coordinates` and ACTRIS `location.coordinates` are parsed to numeric lat/lon and stored as two separate numeric columns; if the cache stores them as `POINT(lon lat)` they are parsed. Polygon/bbox geometry is never committed.
+**Built only from the explicit allowlist (§6).** ICOS/ACTRIS records are restricted to confirmed matches (`same_place == "yes"`, 30 rows) in `finland_candidates_labelled.csv`; unreviewed/unclear pairs are excluded so proposed non-confirmed pairs do not feed supervisor-facing tables. In the public committed CSV, observed values are included for ACTRIS (CC0 1.0) only, while DEIMS and ICOS rows remain as counts only (`n=... distinct=...`, matching Table A); full local values for supervisor demos are written only to a gitignored `*_LOCAL.csv` file. Coordinates from DEIMS `geographic.coordinates` (`POINT(lon lat)`) and ACTRIS `location.coordinates` (`[lon, lat, alt]`) are parsed to numeric lat/lon and emitted as separate `.lat` and `.lon` rows within the 6-column schema (`value` stored as a numeric string). Polygon/bbox geometry is never committed.
 
 **Data-quality note (`gawid_uri`):** 45 ACTRIS records carry the literal string `None` as `gawid_uri` (19 Oct audit). Table B treats the literal `None` as **missing** — it is a data-quality defect at source, not a value.
 
@@ -88,7 +88,7 @@ The allowlist is itself a reviewed artifact: `outputs/site_terms_field_allowlist
 
 Why allowlist, not keyword denylist: a keyword test on field names misses prose in fields whose names don't contain "description" / "summary" / "abstract". An allowlist only includes what was deliberately reviewed.
 
-Second guard: **`max_value_length = 80` characters.** Any value in Table B longer than 80 chars is rejected at build time (raises). This catches accidental inclusion of long prose that slipped past the allowlist.
+Second guard: **`max_value_length = 80` characters.** Any individual value in Table B longer than 80 chars (as well as non-scalar `dict` or multi-element container structures without an allowlisted leaf) is skipped at build time and logged with per-path skip counts in the run report (`outputs/site_terms_values_run.json`), rather than aborting or modifying the reviewed allowlist.
 
 ## 7. What is excluded
 

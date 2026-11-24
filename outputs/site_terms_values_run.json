@@ -1,0 +1,74 @@
+{
+  "script": "scripts/build_site_terms_values.py",
+  "git_head_at_run": "326a35243ed2637324ae5248b0025e91992cda9d",
+  "pair_filter": {
+    "source": "outputs/finland_candidates_labelled.csv",
+    "rule": "same_place == 'yes' only",
+    "total_candidate_rows": 79,
+    "included_rows": 30,
+    "excluded_rows": 49,
+    "excluded_reason": "Other pairs are proposed/unreviewed or unclear and excluded from supervisor-facing tables.",
+    "included_icos_stations": [
+      "FI-Ant",
+      "FI-Hyy",
+      "FI-Ken",
+      "FI-Kmp",
+      "FI-Kvr",
+      "FI-Let",
+      "FI-Lom",
+      "FI-Ouk",
+      "FI-Sod",
+      "FI-Tvm",
+      "FI-Var",
+      "PAL",
+      "PUI",
+      "SDK",
+      "SMR",
+      "UTO"
+    ],
+    "included_actris_facilities": [
+      "3qzy",
+      "4iaj",
+      "5UCQ",
+      "8h8z",
+      "9r9u",
+      "d23p",
+      "ko6m",
+      "p0ob",
+      "zsf3"
+    ],
+    "included_deims_sites_count": 20
+  },
+  "licence_scope": {
+    "public_csv": "outputs/site_terms_values.csv",
+    "public_rule": "Observed values emitted for ACTRIS (CC0 1.0) only; DEIMS and ICOS emitted as counts only (n=... distinct=...).",
+    "local_csv": "outputs/site_terms_values_LOCAL.csv",
+    "local_rule": "Gitignored local-only file containing full exploded values for DEIMS, ICOS, and ACTRIS."
+  },
+  "skipped_values_by_rule": {
+    "DEIMS:attributes.affiliation.networks[].siteCode:over_80_chars": 2,
+    "DEIMS:attributes.affiliation.projects[].uri:over_80_chars": 1,
+    "DEIMS:attributes.environmentalCharacteristics.airTemperature.referencePeriod:dict_container": 1,
+    "DEIMS:attributes.environmentalCharacteristics.eunisHabitat[].label:over_80_chars": 3,
+    "DEIMS:attributes.environmentalCharacteristics.precipitation.referencePeriod:dict_container": 1,
+    "DEIMS:attributes.general.landUse[].uri:over_80_chars": 11,
+    "DEIMS:attributes.general.protectionLevel[].uri:over_80_chars": 2
+  },
+  "output": {
+    "public_file": "outputs/site_terms_values.csv",
+    "public_rows": 222,
+    "public_rows_by_ri": {
+      "ACTRIS": 158,
+      "DEIMS": 57,
+      "ICOS": 7
+    },
+    "public_sha256": "38b7e806feef943f3171e38f36de3ac913f2ebb21fd6a453006ef982d7221e08",
+    "local_file": "outputs/site_terms_values_LOCAL.csv",
+    "local_rows": 3117,
+    "local_rows_by_ri": {
+      "DEIMS": 2860,
+      "ACTRIS": 158,
+      "ICOS": 99
+    }
+  }
+}
