@@ -1,6 +1,6 @@
 {
   "script": "scripts/build_site_terms_values.py",
-  "git_head_at_run": "429f93e933ab631b7cb07e42815e15ccf52b4834",
+  "git_head_at_run": "820a6465048f1f6fc7991d02f6198c1ecc524566",
   "pair_filter": {
     "source": "outputs/finland_candidates_labelled.csv",
     "rule": "same_place == 'yes' only",
@@ -8,24 +8,7 @@
     "included_rows": 30,
     "excluded_rows": 49,
     "excluded_reason": "Other pairs are proposed/unreviewed or unclear and excluded from supervisor-facing tables.",
-    "included_icos_stations": [
-      "FI-Ant",
-      "FI-Hyy",
-      "FI-Ken",
-      "FI-Kmp",
-      "FI-Kvr",
-      "FI-Let",
-      "FI-Lom",
-      "FI-Ouk",
-      "FI-Sod",
-      "FI-Tvm",
-      "FI-Var",
-      "PAL",
-      "PUI",
-      "SDK",
-      "SMR",
-      "UTO"
-    ],
+    "included_icos_stations_count": 16,
     "included_actris_facilities": [
       "3qzy",
       "4iaj",
@@ -37,11 +20,12 @@
       "p0ob",
       "zsf3"
     ],
-    "included_deims_sites_count": 20
+    "included_deims_sites_count": 20,
+    "deims_sites_note": "All 20 Finnish DEIMS sites are included as the site-level baseline (11 of the 20 appear in same_place == 'yes' pairs)."
   },
   "licence_scope": {
     "public_csv": "outputs/site_terms_values.csv",
-    "public_rule": "Observed values emitted for ACTRIS (CC0 1.0) only; DEIMS and ICOS emitted as counts only (n=... distinct=...).",
+    "public_rule": "Observed values emitted for ACTRIS (ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified); DEIMS and ICOS emitted as aggregate count rows (n=... distinct=...).",
     "local_csv": "outputs/site_terms_values_LOCAL.csv",
     "local_rule": "Gitignored local-only file containing full exploded values for DEIMS, ICOS, and ACTRIS."
   },
@@ -64,7 +48,7 @@
       "DEIMS": 55,
       "ICOS": 7
     },
-    "public_sha256": "b81b3d47a2601eafff566699cc904d390a0dbf7a61429739097edabe38d62aaa",
+    "public_sha256": "d50c5f4bfda528c1ef88df23885333c2725207c52ebd2b7601e9a0f409d1892c",
     "local_file": "outputs/site_terms_values_LOCAL.csv",
     "local_rows": 3070,
     "local_rows_by_ri": {
