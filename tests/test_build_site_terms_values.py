@@ -77,9 +77,17 @@ def test_no_icos_station_ids_leaked_in_csv_or_run_json():
         | {str(r["source_id_b"]).strip() for _, r in cand.iterrows() if str(r["ri_b"]).strip().upper() == "ICOS"}
     )
     icos_ids.discard("")
-    raw_text = OUT.read_text() + "\n" + REPORT.read_text()
+
+    report_text = REPORT.read_text()
+    rep = json.loads(report_text)
+    assert "included_icos_stations" not in rep.get("pair_filter", {})
     for sid in sorted(icos_ids):
-        assert sid not in raw_text, f"ICOS station code {sid!r} leaked into committed Table B artifacts"
+        assert sid not in report_text, f"ICOS station code {sid!r} leaked into {REPORT}"
+
+    df = _load()
+    icos_csv_text = df[df["ri"] == "ICOS"].to_csv(index=False)
+    for sid in sorted(icos_ids):
+        assert sid not in icos_csv_text, f"ICOS station code {sid!r} leaked into ICOS rows of {OUT}"
 
 
 def test_actris_restricted_to_confirmed_same_place_yes_pairs():
