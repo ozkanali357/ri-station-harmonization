@@ -182,9 +182,13 @@ def extract_scalar_items(
                 out.append((f"{field_path}.lon", lon_s))
             continue
 
-        # Containers: explode scalar lists; skip dicts and non-scalar lists
+        # Containers: skip dicts and monthlyAverage structures; explode other scalar lists
         if isinstance(v, dict):
             skip_counts[f"{ri}:{field_path}:dict_container"] += 1
+            continue
+
+        if field_path.endswith(".monthlyAverage"):
+            skip_counts[f"{ri}:{field_path}:monthlyAverage_container"] += 1
             continue
 
         if isinstance(v, list):

@@ -1,6 +1,6 @@
 {
   "script": "scripts/build_site_terms_values.py",
-  "git_head_at_run": "326a35243ed2637324ae5248b0025e91992cda9d",
+  "git_head_at_run": "429f93e933ab631b7cb07e42815e15ccf52b4834",
   "pair_filter": {
     "source": "outputs/finland_candidates_labelled.csv",
     "rule": "same_place == 'yes' only",
@@ -48,25 +48,27 @@
   "skipped_values_by_rule": {
     "DEIMS:attributes.affiliation.networks[].siteCode:over_80_chars": 2,
     "DEIMS:attributes.affiliation.projects[].uri:over_80_chars": 1,
+    "DEIMS:attributes.environmentalCharacteristics.airTemperature.monthlyAverage:monthlyAverage_container": 2,
     "DEIMS:attributes.environmentalCharacteristics.airTemperature.referencePeriod:dict_container": 1,
     "DEIMS:attributes.environmentalCharacteristics.eunisHabitat[].label:over_80_chars": 3,
+    "DEIMS:attributes.environmentalCharacteristics.precipitation.monthlyAverage:monthlyAverage_container": 2,
     "DEIMS:attributes.environmentalCharacteristics.precipitation.referencePeriod:dict_container": 1,
     "DEIMS:attributes.general.landUse[].uri:over_80_chars": 11,
     "DEIMS:attributes.general.protectionLevel[].uri:over_80_chars": 2
   },
   "output": {
     "public_file": "outputs/site_terms_values.csv",
-    "public_rows": 222,
+    "public_rows": 220,
     "public_rows_by_ri": {
       "ACTRIS": 158,
-      "DEIMS": 57,
+      "DEIMS": 55,
       "ICOS": 7
     },
-    "public_sha256": "38b7e806feef943f3171e38f36de3ac913f2ebb21fd6a453006ef982d7221e08",
+    "public_sha256": "b81b3d47a2601eafff566699cc904d390a0dbf7a61429739097edabe38d62aaa",
     "local_file": "outputs/site_terms_values_LOCAL.csv",
-    "local_rows": 3117,
+    "local_rows": 3070,
     "local_rows_by_ri": {
-      "DEIMS": 2860,
+      "DEIMS": 2813,
       "ACTRIS": 158,
       "ICOS": 99
     }

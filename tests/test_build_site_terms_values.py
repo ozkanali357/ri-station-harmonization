@@ -81,10 +81,14 @@ def test_actris_restricted_to_confirmed_same_place_yes_pairs():
 
 def test_coordinates_emitted_as_numeric_lat_lon_rows():
     df = _load()
-    coord_rows = df[df["field_path"].str.endswith((".lat", ".lon"))]
-    assert len(coord_rows) > 0
-    for _, row in coord_rows.iterrows():
+    actris_coords = df[(df["ri"] == "ACTRIS") & (df["field_path"].str.endswith((".lat", ".lon")))]
+    assert len(actris_coords) > 0
+    for _, row in actris_coords.iterrows():
         float(row["value"])  # must parse cleanly as a float string
+
+    deims_coords = df[(df["ri"] == "DEIMS") & (df["field_path"].str.endswith((".lat", ".lon")))]
+    assert len(deims_coords) == 2
+    assert (deims_coords["value"] == "n=20 distinct=20").all()
 
 
 def test_no_literal_none_in_gawid_uri():
