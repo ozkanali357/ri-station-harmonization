@@ -380,7 +380,7 @@ def main():
                     "canonical_concept": concept,
                     "field_path": eff_fp,
                     "value": val_s,
-                    "value_source": "data/raw/actris_facilities.json (CC0 1.0)",
+                    "value_source": "ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified",
                 }
                 local_rows.append(row_obj)
                 public_rows.append(row_obj)
@@ -409,13 +409,14 @@ def main():
             "included_rows": int(len(yes_df)),
             "excluded_rows": int(len(cand_df) - len(yes_df)),
             "excluded_reason": "Other pairs are proposed/unreviewed or unclear and excluded from supervisor-facing tables.",
-            "included_icos_stations": sorted(icos_targets.values()),
+            "included_icos_stations_count": len(icos_targets),
             "included_actris_facilities": sorted(actris_target_ids),
             "included_deims_sites_count": len(deims_uuids),
+            "deims_sites_note": "All 20 Finnish DEIMS sites are included as the site-level baseline (11 of the 20 appear in same_place == 'yes' pairs).",
         },
         "licence_scope": {
             "public_csv": str(OUT_PUBLIC),
-            "public_rule": "Observed values emitted for ACTRIS (CC0 1.0) only; DEIMS and ICOS emitted as counts only (n=... distinct=...).",
+            "public_rule": "Observed values emitted for ACTRIS (ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified); DEIMS and ICOS emitted as aggregate count rows (n=... distinct=...).",
             "local_csv": str(OUT_LOCAL),
             "local_rule": "Gitignored local-only file containing full exploded values for DEIMS, ICOS, and ACTRIS.",
         },

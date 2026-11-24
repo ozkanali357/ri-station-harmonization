@@ -56,15 +56,30 @@ def test_public_licence_scope_actris_values_deims_icos_counts_only():
 
     non_actris = df[df["ri"].isin(["DEIMS", "ICOS"])]
     assert len(non_actris) > 0
+    assert set(non_actris["site_id"].unique()) == {"ALL_20_DEIMS_SITES", "ALL_16_ICOS_CONFIRMED_STATIONS"}
     for _, row in non_actris.iterrows():
         val = str(row["value"])
-        assert count_re.match(val), f"DEIMS/ICOS row must be count-only, got {val!r}"
+        assert count_re.match(val), f"DEIMS/ICOS row must be aggregate count-only, got {val!r}"
         assert not uuid_re.search(str(row["site_id"]))
         assert not uuid_re.search(val)
 
     actris = df[df["ri"] == "ACTRIS"]
     assert len(actris) > 0
+    expected_src = "ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified"
+    assert (actris["value_source"] == expected_src).all()
     assert (~actris["value"].astype(str).str.match(count_re)).any()
+
+
+def test_no_icos_station_ids_leaked_in_csv_or_run_json():
+    cand = pd.read_csv(CANDIDATES, keep_default_na=False)
+    icos_ids = (
+        {str(r["source_id_a"]).strip() for _, r in cand.iterrows() if str(r["ri_a"]).strip().upper() == "ICOS"}
+        | {str(r["source_id_b"]).strip() for _, r in cand.iterrows() if str(r["ri_b"]).strip().upper() == "ICOS"}
+    )
+    icos_ids.discard("")
+    raw_text = OUT.read_text() + "\n" + REPORT.read_text()
+    for sid in sorted(icos_ids):
+        assert sid not in raw_text, f"ICOS station code {sid!r} leaked into committed Table B artifacts"
 
 
 def test_actris_restricted_to_confirmed_same_place_yes_pairs():

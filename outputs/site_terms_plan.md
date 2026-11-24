@@ -52,13 +52,13 @@ Columns:
 - ACTRIS `extra_metadata.insitu.ebas_station_alt` is an **ACTRIS-specific EBAS altitude field**, kept as a numeric value and **not** merged with a general `elevation` field.
 - ACTRIS `actris_nf_uri` and `gawid_uri` are **identifiers**, not URL fields (the URL-field rule targets `url`/`value` last segments). `gawid_uri` carries the "None"-as-missing rule in Table B (above).
 
-### Table B — per-site values (supporting)
+### Table B — per-site values and aggregate counts (supporting)
 
-`outputs/site_terms_values.csv` — one row per (site, field, value).
+`outputs/site_terms_values.csv` — one row per `(site, field, value)` for ACTRIS (`158` rows across `9` confirmed facilities), and aggregate count rows (`site_id` = `ALL_20_DEIMS_SITES` or `ALL_16_ICOS_CONFIRMED_STATIONS`, `value` = `n=... distinct=...`) for DEIMS (`55` aggregate count rows) and ICOS (`7` aggregate count rows).
 
 Columns: `ri`, `site_id`, `canonical_concept`, `field_path`, `value`, `value_source`.
 
-**Built only from the explicit allowlist (§6).** ICOS/ACTRIS records are restricted to confirmed matches (`same_place == "yes"`, 30 rows) in `finland_candidates_labelled.csv`; unreviewed/unclear pairs are excluded so proposed non-confirmed pairs do not feed supervisor-facing tables. In the public committed CSV, observed values are included for ACTRIS (CC0 1.0) only, while DEIMS and ICOS rows remain as counts only (`n=... distinct=...`, matching Table A); full local values for supervisor demos are written only to a gitignored `*_LOCAL.csv` file. Coordinates from DEIMS `geographic.coordinates` (`POINT(lon lat)`) and ACTRIS `location.coordinates` (`[lon, lat, alt]`) are parsed to numeric lat/lon and emitted as separate `.lat` and `.lon` rows within the 6-column schema (`value` stored as a numeric string). Polygon/bbox geometry is never committed.
+**Built only from the explicit allowlist (§6).** DEIMS covers all `20` Finnish sites (`outputs/deims_networks_finland.csv`, of which `11` are referenced in the `30` confirmed `same_place == "yes"` pairs) as the site-level baseline of the comparison. ICOS and ACTRIS records are restricted to confirmed matches (`same_place == "yes"`, `30` rows covering `16` ICOS stations and `9` ACTRIS facilities) in `finland_candidates_labelled.csv`; unreviewed/unclear pairs are excluded so proposed non-confirmed pairs do not feed supervisor-facing tables. In the public committed CSV, observed values are included for ACTRIS (`ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified`) only, while DEIMS and ICOS are emitted as aggregate count rows (`n=... distinct=...`, matching Table A); full per-site exploded values for local supervisor demos are written only to a gitignored `*_LOCAL.csv` file. Coordinates from DEIMS `geographic.coordinates` (`POINT(lon lat)`) and ACTRIS `location.coordinates` (`[lon, lat, alt]`) are parsed to numeric lat/lon and emitted as separate `.lat` and `.lon` rows within the 6-column schema (`value` stored as a numeric string). Polygon/bbox geometry is never committed.
 
 **Data-quality note (`gawid_uri`):** 45 ACTRIS records carry the literal string `None` as `gawid_uri` (19 Oct audit). Table B treats the literal `None` as **missing** — it is a data-quality defect at source, not a value.
 
