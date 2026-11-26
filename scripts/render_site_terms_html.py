@@ -112,7 +112,7 @@ def render_html(table_a_path: Path, table_b_path: Path, html_path: Path, title: 
         "Covers 20 Finnish DEIMS sites (<code>outputs/deims_networks_finland.csv</code>) "
         "plus paired ICOS/ACTRIS records in <code>outputs/finland_candidates_labelled.csv</code>. "
         "<strong>The pairing is proposed, not confirmed (#4).</strong> "
-        "Table B restricts ICOS/ACTRIS to confirmed matches (<code>same_place == 'yes'</code>, 30 rows) "
+        "Table B restricts ICOS/ACTRIS to <code>same_place == 'yes'</code> pairs (proposed labels, 30 rows) "
         "and keeps DEIMS/ICOS as aggregate count rows.</div>"
     )
     lic_html = f'<div class="licence"><strong>Per-RI Licence State (§9):</strong>\n<ul>\n{lic_items}\n</ul>\n</div>'
