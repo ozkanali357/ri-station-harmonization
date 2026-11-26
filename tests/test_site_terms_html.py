@@ -76,7 +76,7 @@ def test_header_per_ri_counts_and_notes():
     assert "DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms" in html_text
     assert "CC0 1.0 (confirmed, scheme file + TTL)" in html_text
     assert "ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us" in html_text
-    assert "CC BY 4.0 per scheme file; LICENSE file 404; third-party source tags (Henderson's / GEMET / NCIT) require provenance checks" in html_text
+    assert "CC BY 4.0 per scheme file; LICENSE file 404; third-party source tags (Henderson&#x27;s / GEMET / NCIT) require provenance checks" in html_text
 
 
 def test_collapsible_details_sections_present_for_table_b():
