@@ -1,0 +1,3873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site and Facility Terms Across DEIMS, ICOS, and ACTRIS (Tables A and B)</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 28px; background-color: #f9f9f9; color: #222; }
+  h1 { color: #2c3e50; margin-bottom: 8px; }
+  h2 { color: #2c3e50; margin-top: 28px; border-bottom: 2px solid #2980b9; padding-bottom: 4px; }
+  .note { background-color: #eef6fc; padding: 10px 14px; border-left: 4px solid #2980b9; margin: 12px 0; font-size: 13px; }
+  .licence { background-color: #fff3cd; padding: 10px 14px; border-left: 4px solid #ffc107; margin: 12px 0; font-size: 12px; }
+  .licence ul { margin: 6px 0 0 18px; padding: 0; }
+  .licence li { margin-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; background-color: #fff; margin-bottom: 16px; }
+  th { background-color: #2980b9; color: #fff; padding: 8px 10px; text-align: left; position: sticky; top: 0; }
+  td { padding: 7px 10px; border-bottom: 1px solid #ddd; vertical-align: top; word-break: break-word; }
+  tr:hover { background-color: #f3f7fa; }
+  table.summary { width: auto; min-width: 620px; }
+  details { background-color: #fff; border: 1px solid #d5dce0; border-radius: 4px; margin-bottom: 8px; padding: 6px 12px; }
+  summary { cursor: pointer; font-weight: bold; color: #2c3e50; padding: 4px 0; font-size: 13px; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; font-weight: bold; color: #fff; margin-right: 6px; }
+  .badge-DEIMS { background-color: #2e7d32; }
+  .badge-ICOS { background-color: #1565c0; }
+  .badge-ACTRIS { background-color: #6a1b9a; }
+  .muted { color: #555; font-weight: normal; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Site and Facility Terms Across DEIMS, ICOS, and ACTRIS (Tables A and B)</h1>
+
+<div class="note"><strong>Scope & Pairing Note:</strong> Covers 20 Finnish DEIMS sites (<code>outputs/deims_networks_finland.csv</code>) plus paired ICOS/ACTRIS records in <code>outputs/finland_candidates_labelled.csv</code>. <strong>The pairing is proposed, not confirmed (#4).</strong> Table B restricts ICOS/ACTRIS to <code>same_place == 'yes'</code> pairs (proposed labels, 30 rows) and keeps DEIMS/ICOS as aggregate count rows.</div>
+<div class="licence"><strong>Per-RI Licence State (§9):</strong>
+<ul>
+  <li><strong>DEIMS:</strong> DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</li>
+  <li><strong>ACTRIS:</strong> CC0 1.0 (confirmed, scheme file + TTL) for vocabularies; ACTRIS facilities API, cached response; facility-record licence not verified</li>
+  <li><strong>ICOS:</strong> ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</li>
+  <li><strong>EnvThes:</strong> CC BY 4.0 per scheme file; LICENSE file 404; third-party source tags (Henderson&#x27;s / GEMET / NCIT) require provenance checks</li>
+</ul>
+</div>
+<h2>Summary Counts per RI</h2>
+<table class="summary">
+<thead><tr><th>RI</th><th>Total rows</th><th>In-scope</th><th>Filled (populated)</th><th>Empty</th><th>not_in_cached_response</th><th>excluded_by_rule</th><th>Table B rows</th></tr></thead>
+<tbody>
+<tr><td><strong>DEIMS</strong></td><td>81</td><td>81</td><td>64</td><td>17</td><td>0</td><td>17</td><td>55</td></tr>
+<tr><td><strong>ICOS</strong></td><td>20</td><td>20</td><td>7</td><td>13</td><td>13</td><td>0</td><td>7</td></tr>
+<tr><td><strong>ACTRIS</strong></td><td>16</td><td>16</td><td>13</td><td>3</td><td>3</td><td>0</td><td>158</td></tr>
+<tr><td><strong>TOTAL</strong></td><td>117</td><td>117</td><td>84</td><td>33</td><td>16</td><td>17</td><td>220</td></tr>
+</tbody>
+</table>
+<h2>Table A — Field Specification (117 fields)</h2>
+<table>
+<thead><tr>
+  <th>canonical_concept</th>
+  <th>ri</th>
+  <th>ri_field_path</th>
+  <th>ri_field_name</th>
+  <th>data_type</th>
+  <th>controlled_vocabulary</th>
+  <th>controlled_values_observed</th>
+  <th>definition</th>
+  <th>in_scope</th>
+  <th>status</th>
+  <th>licence</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>affiliation.networks[0].network.id.prefix</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.networks[].network.id.prefix</td>
+  <td>affiliation.networks[0].network.id.prefix</td>
+  <td>string</td>
+  <td></td>
+  <td>n=86 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.networks[0].network.id.suffix</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.networks[].network.id.suffix</td>
+  <td>affiliation.networks[0].network.id.suffix</td>
+  <td>string</td>
+  <td></td>
+  <td>n=86 distinct=16</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.networks[0].network.name</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.networks[].network.name</td>
+  <td>affiliation.networks[0].network.name</td>
+  <td>string</td>
+  <td></td>
+  <td>n=86 distinct=16</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.networks[0].siteCode</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.networks[].siteCode</td>
+  <td>affiliation.networks[0].siteCode</td>
+  <td>string</td>
+  <td></td>
+  <td>n=31 distinct=31</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.networks[0].verified</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.networks[].verified</td>
+  <td>affiliation.networks[0].verified</td>
+  <td>number</td>
+  <td></td>
+  <td>n=86 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.projects[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.projects[].label</td>
+  <td>affiliation.projects[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=39 distinct=19</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>affiliation.projects[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.affiliation.projects[].uri</td>
+  <td>affiliation.projects[0].uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=33 distinct=14</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.airTemperature.monthlyAverage</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.monthlyAverage</td>
+  <td>environmentalCharacteristics.airTemperature.monthlyAverage</td>
+  <td>container</td>
+  <td></td>
+  <td>n=2 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.airTemperature.referencePeriod</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.referencePeriod</td>
+  <td>environmentalCharacteristics.airTemperature.referencePeriod</td>
+  <td>container</td>
+  <td></td>
+  <td>n=1 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.airTemperature.unit</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.unit</td>
+  <td>environmentalCharacteristics.airTemperature.unit</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.airTemperature.yearlyAverage</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.yearlyAverage</td>
+  <td>environmentalCharacteristics.airTemperature.yearlyAverage</td>
+  <td>number</td>
+  <td></td>
+  <td>n=13 distinct=12</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.biogeographicalRegion</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.biogeographicalRegion</td>
+  <td>environmentalCharacteristics.biogeographicalRegion</td>
+  <td>string</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.biome</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.biome</td>
+  <td>environmentalCharacteristics.biome</td>
+  <td>string</td>
+  <td></td>
+  <td>n=15 distinct=9</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.ecosystemType[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.ecosystemType[].label</td>
+  <td>environmentalCharacteristics.ecosystemType[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=74 distinct=23</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.ecosystemType[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.ecosystemType[].uri</td>
+  <td>environmentalCharacteristics.ecosystemType[0].uri</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.eunisHabitat[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.eunisHabitat[].label</td>
+  <td>environmentalCharacteristics.eunisHabitat[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=139 distinct=81</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.eunisHabitat[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.eunisHabitat[].uri</td>
+  <td>environmentalCharacteristics.eunisHabitat[0].uri</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.geoBonBiome</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.geoBonBiome</td>
+  <td>environmentalCharacteristics.geoBonBiome</td>
+  <td>container</td>
+  <td></td>
+  <td>n=14 distinct=5</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.geology</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.geology</td>
+  <td>environmentalCharacteristics.geology</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.hydrology</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.hydrology</td>
+  <td>environmentalCharacteristics.hydrology</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.landforms[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.landforms[].label</td>
+  <td>environmentalCharacteristics.landforms[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=7 distinct=6</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.landforms[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.landforms[].uri</td>
+  <td>environmentalCharacteristics.landforms[0].uri</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.precipitation.monthlyAverage</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.precipitation.monthlyAverage</td>
+  <td>environmentalCharacteristics.precipitation.monthlyAverage</td>
+  <td>container</td>
+  <td></td>
+  <td>n=2 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.precipitation.referencePeriod</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.precipitation.referencePeriod</td>
+  <td>environmentalCharacteristics.precipitation.referencePeriod</td>
+  <td>container</td>
+  <td></td>
+  <td>n=1 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.precipitation.unit</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.precipitation.unit</td>
+  <td>environmentalCharacteristics.precipitation.unit</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.precipitation.yearlyAverage</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.precipitation.yearlyAverage</td>
+  <td>environmentalCharacteristics.precipitation.yearlyAverage</td>
+  <td>number</td>
+  <td></td>
+  <td>n=13 distinct=12</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.soils</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.soils</td>
+  <td>environmentalCharacteristics.soils</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>environmentalCharacteristics.vegetation</td>
+  <td>DEIMS</td>
+  <td>attributes.environmentalCharacteristics.vegetation</td>
+  <td>environmentalCharacteristics.vegetation</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.experiments.design</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.experiments.design</td>
+  <td>focusDesignScale.experiments.design</td>
+  <td>string</td>
+  <td></td>
+  <td>n=12 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.experiments.scale</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.experiments.scale</td>
+  <td>focusDesignScale.experiments.scale</td>
+  <td>string</td>
+  <td></td>
+  <td>n=12 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.observations.design</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.observations.design</td>
+  <td>focusDesignScale.observations.design</td>
+  <td>string</td>
+  <td></td>
+  <td>n=12 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.observations.scale</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.observations.scale</td>
+  <td>focusDesignScale.observations.scale</td>
+  <td>string</td>
+  <td></td>
+  <td>n=13 distinct=5</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.observedProperties[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.observedProperties[].label</td>
+  <td>focusDesignScale.observedProperties[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=711 distinct=311</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>focusDesignScale.observedProperties[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.focusDesignScale.observedProperties[].uri</td>
+  <td>focusDesignScale.observedProperties[0].uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=711 distinct=311</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.abstract</td>
+  <td>DEIMS</td>
+  <td>attributes.general.abstract</td>
+  <td>general.abstract</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.citation</td>
+  <td>DEIMS</td>
+  <td>attributes.general.citation</td>
+  <td>general.citation</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.images[0].alt</td>
+  <td>DEIMS</td>
+  <td>attributes.general.images[].alt</td>
+  <td>general.images[0].alt</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.images[0].url</td>
+  <td>DEIMS</td>
+  <td>attributes.general.images[].url</td>
+  <td>general.images[0].url</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.landUse[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.general.landUse[].label</td>
+  <td>general.landUse[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=37 distinct=30</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.landUse[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.general.landUse[].uri</td>
+  <td>general.landUse[0].uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=37 distinct=30</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.protectionLevel[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.general.protectionLevel[].label</td>
+  <td>general.protectionLevel[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=6 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.protectionLevel[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.general.protectionLevel[].uri</td>
+  <td>general.protectionLevel[0].uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=6 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.relatedIdentifiers</td>
+  <td>DEIMS</td>
+  <td>attributes.general.relatedIdentifiers</td>
+  <td>general.relatedIdentifiers</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.relatedSites</td>
+  <td>DEIMS</td>
+  <td>attributes.general.relatedSites</td>
+  <td>general.relatedSites</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.shortName</td>
+  <td>DEIMS</td>
+  <td>attributes.general.shortName</td>
+  <td>general.shortName</td>
+  <td>string</td>
+  <td></td>
+  <td>n=15 distinct=15</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.siteName</td>
+  <td>DEIMS</td>
+  <td>attributes.general.siteName</td>
+  <td>general.siteName</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=20</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.siteType</td>
+  <td>DEIMS</td>
+  <td>attributes.general.siteType</td>
+  <td>general.siteType</td>
+  <td>string</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.status.label</td>
+  <td>DEIMS</td>
+  <td>attributes.general.status.label</td>
+  <td>general.status.label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.status.uri</td>
+  <td>DEIMS</td>
+  <td>attributes.general.status.uri</td>
+  <td>general.status.uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.yearClosed</td>
+  <td>DEIMS</td>
+  <td>attributes.general.yearClosed</td>
+  <td>general.yearClosed</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>general.yearEstablished</td>
+  <td>DEIMS</td>
+  <td>attributes.general.yearEstablished</td>
+  <td>general.yearEstablished</td>
+  <td>number</td>
+  <td></td>
+  <td>n=16 distinct=12</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.boundaries</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.boundaries</td>
+  <td>geographic.boundaries</td>
+  <td>geometry</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.coordinates</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.coordinates</td>
+  <td>geographic.coordinates</td>
+  <td>geometry</td>
+  <td></td>
+  <td>n=20 (geometry; parsed to numeric lat/lon in Table B; not echoed here)</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.country</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.country</td>
+  <td>geographic.country</td>
+  <td>container</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.elevation.avg</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.elevation.avg</td>
+  <td>geographic.elevation.avg</td>
+  <td>number</td>
+  <td></td>
+  <td>n=16 distinct=15</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.elevation.max</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.elevation.max</td>
+  <td>geographic.elevation.max</td>
+  <td>number</td>
+  <td></td>
+  <td>n=15 distinct=15</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.elevation.min</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.elevation.min</td>
+  <td>geographic.elevation.min</td>
+  <td>number</td>
+  <td></td>
+  <td>n=15 distinct=14</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.elevation.unit</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.elevation.unit</td>
+  <td>geographic.elevation.unit</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.relatedLocations[0].changed</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.relatedLocations[].changed</td>
+  <td>geographic.relatedLocations[0].changed</td>
+  <td>string</td>
+  <td></td>
+  <td>n=26 distinct=21</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.relatedLocations[0].id.prefix</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.relatedLocations[].id.prefix</td>
+  <td>geographic.relatedLocations[0].id.prefix</td>
+  <td>string</td>
+  <td></td>
+  <td>n=26 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.relatedLocations[0].id.suffix</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.relatedLocations[].id.suffix</td>
+  <td>geographic.relatedLocations[0].id.suffix</td>
+  <td>string</td>
+  <td></td>
+  <td>n=26 distinct=26</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.relatedLocations[0].title</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.relatedLocations[].title</td>
+  <td>geographic.relatedLocations[0].title</td>
+  <td>string</td>
+  <td></td>
+  <td>n=26 distinct=26</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.size.unit</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.size.unit</td>
+  <td>geographic.size.unit</td>
+  <td>string</td>
+  <td></td>
+  <td>n=20 distinct=1</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>geographic.size.value</td>
+  <td>DEIMS</td>
+  <td>attributes.geographic.size.value</td>
+  <td>geographic.size.value</td>
+  <td>number</td>
+  <td></td>
+  <td>n=15 distinct=15</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.accessType</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.accessType</td>
+  <td>infrastructure.accessType</td>
+  <td>string</td>
+  <td></td>
+  <td>n=13 distinct=5</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.accessibleAllYear</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.accessibleAllYear</td>
+  <td>infrastructure.accessibleAllYear</td>
+  <td>number</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.allPartsAccessible</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.allPartsAccessible</td>
+  <td>infrastructure.allPartsAccessible</td>
+  <td>number</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.collection[0].label</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.collection[].label</td>
+  <td>infrastructure.collection[0].label</td>
+  <td>string</td>
+  <td></td>
+  <td>n=185 distinct=48</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.collection[0].uri</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.collection[].uri</td>
+  <td>infrastructure.collection[0].uri</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.data.policy.notes</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.data.policy.notes</td>
+  <td>infrastructure.data.policy.notes</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.data.policy.rights</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.data.policy.rights</td>
+  <td>infrastructure.data.policy.rights</td>
+  <td>container</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.data.policy.url[0].title</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.data.policy.url[].title</td>
+  <td>infrastructure.data.policy.url[0].title</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.data.policy.url[0].value</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.data.policy.url[].value</td>
+  <td>infrastructure.data.policy.url[0].value</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.maintenanceInterval</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.maintenanceInterval</td>
+  <td>infrastructure.maintenanceInterval</td>
+  <td>number</td>
+  <td></td>
+  <td>n=9 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.notes</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.notes</td>
+  <td>infrastructure.notes</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.operation.notes</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.operation.notes</td>
+  <td>infrastructure.operation.notes</td>
+  <td>string</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.operation.permanent</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.operation.permanent</td>
+  <td>infrastructure.operation.permanent</td>
+  <td>number</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.operation.siteVisitInterval</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.operation.siteVisitInterval</td>
+  <td>infrastructure.operation.siteVisitInterval</td>
+  <td>number</td>
+  <td></td>
+  <td>n=9 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>infrastructure.permanentPowerSupply</td>
+  <td>DEIMS</td>
+  <td>attributes.infrastructure.permanentPowerSupply</td>
+  <td>infrastructure.permanentPowerSupply</td>
+  <td>number</td>
+  <td></td>
+  <td>n=14 distinct=2</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>projectRelated.lter.lterSiteClassification</td>
+  <td>DEIMS</td>
+  <td>attributes.projectRelated.lter.lterSiteClassification</td>
+  <td>projectRelated.lter.lterSiteClassification</td>
+  <td>string</td>
+  <td></td>
+  <td>n=13 distinct=4</td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>relatedResources</td>
+  <td>DEIMS</td>
+  <td>attributes.relatedResources</td>
+  <td>relatedResources</td>
+  <td>container</td>
+  <td></td>
+  <td></td>
+  <td>[FLAGGED: pending licence provenance - EnvThes scheme: http://vocabs.lter-europe.net/EnvThes/]</td>
+  <td>True</td>
+  <td>excluded_by_rule</td>
+  <td>DEIMS site metadata, CC BY-NC 4.0, https://deims.org/terms</td>
+</tr>
+<tr>
+  <td>22-rdf-syntax-ns#type</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>22-rdf-syntax-ns#type</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>countryCode</td>
+  <td>ICOS</td>
+  <td>country</td>
+  <td>countryCode</td>
+  <td>string</td>
+  <td></td>
+  <td>n=534 distinct=59</td>
+  <td>ISO 3166-1 alpha-2 country code [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>dcat#theme</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>dcat#theme</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasAtcId</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>hasAtcId</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasElevation</td>
+  <td>ICOS</td>
+  <td>elevation</td>
+  <td>hasElevation</td>
+  <td>number</td>
+  <td></td>
+  <td>n=459 distinct=339</td>
+  <td>Elevation above sea level in meters [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasLatitude</td>
+  <td>ICOS</td>
+  <td>lat</td>
+  <td>hasLatitude</td>
+  <td>number</td>
+  <td></td>
+  <td>n=519 distinct=512</td>
+  <td>Decimal degrees in WGS84/GRS80 [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasLongitude</td>
+  <td>ICOS</td>
+  <td>lon</td>
+  <td>hasLongitude</td>
+  <td>number</td>
+  <td></td>
+  <td>n=519 distinct=513</td>
+  <td>Decimal degrees in WGS84/GRS80 [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasName</td>
+  <td>ICOS</td>
+  <td>name</td>
+  <td>hasName</td>
+  <td>string</td>
+  <td></td>
+  <td>n=536 distinct=527</td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasResponsibleOrganization</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>hasResponsibleOrganization</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasStationClass</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>hasStationClass</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasStationId</td>
+  <td>ICOS</td>
+  <td>stationId</td>
+  <td>hasStationId</td>
+  <td>string</td>
+  <td></td>
+  <td>n=536 distinct=531</td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasTimeZoneOffset</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>hasTimeZoneOffset</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>offset of local timezone from UTC [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasWebpageElements</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>hasWebpageElements</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>hasWigosId</td>
+  <td>ICOS</td>
+  <td>wigos</td>
+  <td>hasWigosId</td>
+  <td>string</td>
+  <td></td>
+  <td>n=57 distinct=57</td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>identifier</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>identifier</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>isPartOf</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>isPartOf</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>rdf-schema#label</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>rdf-schema#label</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>spatial</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>spatial</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>subject</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>subject</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>title</td>
+  <td>ICOS</td>
+  <td></td>
+  <td>title</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found [ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us]</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ontology CC0 (cc:license, ICOS ERIC 2024); per-concept licence not stated; ICOS licence page not verified by us</td>
+</tr>
+<tr>
+  <td>active</td>
+  <td>ACTRIS</td>
+  <td>active</td>
+  <td>active</td>
+  <td>number</td>
+  <td></td>
+  <td>n=1524 distinct=2 range=0.0..1.0</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>actris_national_facility</td>
+  <td>ACTRIS</td>
+  <td>actris_national_facility</td>
+  <td>actris_national_facility</td>
+  <td>string</td>
+  <td></td>
+  <td>initially accepted | labelled | labelling application submitted | labelling opened | labelling planned | not labelled</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>actris_nf_uri</td>
+  <td>ACTRIS</td>
+  <td>actris_nf_uri</td>
+  <td>actris_nf_uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=102 distinct=86 sample=https://nflabelling.actris.eu/facility/1 | https://nflabelling.actris.eu/facility/1 | https://nflabelling.actris.eu/facility/1 | https://nflabelling.actris.eu/facility/1 | https://nflabelling.actris.eu/facility/1</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>country_code</td>
+  <td>ACTRIS</td>
+  <td>country_code</td>
+  <td>country_code</td>
+  <td>string</td>
+  <td></td>
+  <td>n=1524 distinct=88 sample=AM | AR | AT | AU | BA</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>description</td>
+  <td>ACTRIS</td>
+  <td></td>
+  <td>description</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>extra_metadata</td>
+  <td>ACTRIS</td>
+  <td>extra_metadata.insitu.ebas_country_code|extra_metadata.insitu.ebas_station_alt|extra_metadata.insitu.ebas_station_code|extra_metadata.insitu.ebas_station_lat|extra_metadata.insitu.ebas_station_lon|extra_metadata.insitu.ebas_station_name</td>
+  <td>extra_metadata</td>
+  <td>container</td>
+  <td></td>
+  <td>populated via 6 children</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>facility_type</td>
+  <td>ACTRIS</td>
+  <td>facility_type</td>
+  <td>facility_type</td>
+  <td>string</td>
+  <td>https://vocabulary.actris.nilu.no/actris_vocab/facilitytype</td>
+  <td>observation platform, fixed | observation platform, mobile | simulation chamber</td>
+  <td>Classification of platforms generating data on properties of the atmosphere, including properties of simulated atmospheres.</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>gawid_uri</td>
+  <td>ACTRIS</td>
+  <td>gawid_uri</td>
+  <td>gawid_uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=180 distinct=178 sample=ABP | ALK | ALT | AMS | AMT</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>identifier</td>
+  <td>ACTRIS</td>
+  <td>identifier</td>
+  <td>identifier</td>
+  <td>string</td>
+  <td>https://vocabulary.actris.nilu.no/actris_controlled_lists/identifier</td>
+  <td>n=1524 distinct=1524 sample=00LJ | 03MW | 03RG | 04ih | 05sb</td>
+  <td>Identifiers used in ACTRIS.</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>identifier_type</td>
+  <td>ACTRIS</td>
+  <td>identifier_type</td>
+  <td>identifier_type</td>
+  <td>string</td>
+  <td>https://vocabulary.actris.nilu.no/actris_controlled_lists/identifiertype</td>
+  <td>other PID</td>
+  <td>Types of persistent identifiers used in ACTRIS.</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>location</td>
+  <td>ACTRIS</td>
+  <td>location.coordinates</td>
+  <td>location</td>
+  <td>geometry</td>
+  <td></td>
+  <td>n=1518 (geometry; parsed to numeric lat/lon in Table B; not echoed here)</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>ACTRIS</td>
+  <td>name</td>
+  <td>name</td>
+  <td>string</td>
+  <td></td>
+  <td>n=1524 distinct=1523 sample=ACD-C | AGH University Krakow | AIDAc | AIDAd | AURA</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>operational_since</td>
+  <td>ACTRIS</td>
+  <td></td>
+  <td>operational_since</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>surroundings</td>
+  <td>ACTRIS</td>
+  <td></td>
+  <td>surroundings</td>
+  <td>unknown</td>
+  <td></td>
+  <td></td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>not_in_cached_response</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>uri</td>
+  <td>ACTRIS</td>
+  <td>uri</td>
+  <td>uri</td>
+  <td>string</td>
+  <td></td>
+  <td>n=1522 distinct=1522 sample=https://data.actris.eu/facility/00LJ | https://data.actris.eu/facility/03MW | https://data.actris.eu/facility/03RG | https://data.actris.eu/facility/04ih | https://data.actris.eu/facility/05sb</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+<tr>
+  <td>wmo_region</td>
+  <td>ACTRIS</td>
+  <td>wmo_region</td>
+  <td>wmo_region</td>
+  <td>string</td>
+  <td></td>
+  <td>n=1513 distinct=8 sample=Africa | Antarctica | Asia | Europe | North America, Central America and the C</td>
+  <td>FLAGGED: No published API definition found</td>
+  <td>True</td>
+  <td>populated</td>
+  <td>ACTRIS vocabulary CC0 1.0 (confirmed)</td>
+</tr>
+</tbody>
+</table>
+<h2>Table B — Per-Site Values & Aggregate Counts (220 rows)</h2>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.networks[0].network.id.prefix <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.networks[].network.id.prefix</td>
+  <td>n=86 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.networks[0].network.id.suffix <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.networks[].network.id.suffix</td>
+  <td>n=86 distinct=16</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.networks[0].network.name <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.networks[].network.name</td>
+  <td>n=86 distinct=16</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.networks[0].siteCode <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.networks[].siteCode</td>
+  <td>n=29 distinct=29</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.networks[0].verified <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.networks[].verified</td>
+  <td>n=86 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.projects[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.projects[].label</td>
+  <td>n=39 distinct=19</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>affiliation.projects[0].uri <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.affiliation.projects[].uri</td>
+  <td>n=32 distinct=13</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.airTemperature.unit <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.unit</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.airTemperature.yearlyAverage <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.airTemperature.yearlyAverage</td>
+  <td>n=13 distinct=12</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.biogeographicalRegion <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.biogeographicalRegion</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.biome <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.biome</td>
+  <td>n=15 distinct=9</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.ecosystemType[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.ecosystemType[].label</td>
+  <td>n=74 distinct=23</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.eunisHabitat[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.eunisHabitat[].label</td>
+  <td>n=136 distinct=78</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.geoBonBiome <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.geoBonBiome</td>
+  <td>n=25 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.landforms[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.landforms[].label</td>
+  <td>n=7 distinct=6</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.precipitation.unit <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.precipitation.unit</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>environmentalCharacteristics.precipitation.yearlyAverage <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.environmentalCharacteristics.precipitation.yearlyAverage</td>
+  <td>n=13 distinct=12</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.experiments.design <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.experiments.design</td>
+  <td>n=12 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.experiments.scale <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.experiments.scale</td>
+  <td>n=12 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.observations.design <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.observations.design</td>
+  <td>n=12 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.observations.scale <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.observations.scale</td>
+  <td>n=13 distinct=5</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.observedProperties[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.observedProperties[].label</td>
+  <td>n=711 distinct=311</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>focusDesignScale.observedProperties[0].uri <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.focusDesignScale.observedProperties[].uri</td>
+  <td>n=711 distinct=311</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.landUse[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.landUse[].label</td>
+  <td>n=37 distinct=30</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.landUse[0].uri <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.landUse[].uri</td>
+  <td>n=26 distinct=20</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.protectionLevel[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.protectionLevel[].label</td>
+  <td>n=6 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.protectionLevel[0].uri <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.protectionLevel[].uri</td>
+  <td>n=4 distinct=3</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.shortName <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.shortName</td>
+  <td>n=15 distinct=15</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.siteName <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.siteName</td>
+  <td>n=20 distinct=20</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.siteType <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.siteType</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.status.label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.status.label</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.status.uri <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.status.uri</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>general.yearEstablished <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.general.yearEstablished</td>
+  <td>n=16 distinct=12</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.coordinates <span class="muted">(2 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.coordinates.lat</td>
+  <td>n=20 distinct=20</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.coordinates.lon</td>
+  <td>n=20 distinct=20</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.country <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.country</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.elevation.avg <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.elevation.avg</td>
+  <td>n=16 distinct=15</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.elevation.max <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.elevation.max</td>
+  <td>n=15 distinct=15</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.elevation.min <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.elevation.min</td>
+  <td>n=15 distinct=14</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.elevation.unit <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.elevation.unit</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.relatedLocations[0].changed <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.relatedLocations[].changed</td>
+  <td>n=26 distinct=21</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.relatedLocations[0].id.prefix <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.relatedLocations[].id.prefix</td>
+  <td>n=26 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.relatedLocations[0].id.suffix <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.relatedLocations[].id.suffix</td>
+  <td>n=26 distinct=26</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.relatedLocations[0].title <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.relatedLocations[].title</td>
+  <td>n=26 distinct=26</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.size.unit <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.size.unit</td>
+  <td>n=20 distinct=1</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>geographic.size.value <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.geographic.size.value</td>
+  <td>n=15 distinct=15</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.accessType <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.accessType</td>
+  <td>n=13 distinct=5</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.accessibleAllYear <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.accessibleAllYear</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.allPartsAccessible <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.allPartsAccessible</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.collection[0].label <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.collection[].label</td>
+  <td>n=185 distinct=48</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.maintenanceInterval <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.maintenanceInterval</td>
+  <td>n=9 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.operation.permanent <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.operation.permanent</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.operation.siteVisitInterval <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.operation.siteVisitInterval</td>
+  <td>n=9 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>infrastructure.permanentPowerSupply <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.infrastructure.permanentPowerSupply</td>
+  <td>n=14 distinct=2</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-DEIMS">DEIMS</span>projectRelated.lter.lterSiteClassification <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_20_DEIMS_SITES</td>
+  <td>attributes.projectRelated.lter.lterSiteClassification</td>
+  <td>n=13 distinct=4</td>
+  <td>data/raw/deims_detail/*.json (count-only; CC BY-NC 4.0)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>countryCode <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>country</td>
+  <td>n=16 distinct=1</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasElevation <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>elevation</td>
+  <td>n=15 distinct=14</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasLatitude <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>lat</td>
+  <td>n=16 distinct=16</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasLongitude <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>lon</td>
+  <td>n=16 distinct=16</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasName <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>name</td>
+  <td>n=16 distinct=16</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasStationId <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>stationId</td>
+  <td>n=16 distinct=16</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ICOS">ICOS</span>hasWigosId <span class="muted">(1 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>ALL_16_ICOS_CONFIRMED_STATIONS</td>
+  <td>wigos</td>
+  <td>n=4 distinct=4</td>
+  <td>data/raw/icos_stations_page_*.json (count-only; per-station licence unverified)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>active <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>active</td>
+  <td>False</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>active</td>
+  <td>False</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>active</td>
+  <td>False</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>active</td>
+  <td>True</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>actris_national_facility <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>actris_national_facility</td>
+  <td>not labelled</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>actris_national_facility</td>
+  <td>initially accepted</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>actris_national_facility</td>
+  <td>initially accepted</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>actris_national_facility</td>
+  <td>labelled</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>actris_national_facility</td>
+  <td>not labelled</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>actris_national_facility</td>
+  <td>initially accepted</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>actris_national_facility</td>
+  <td>labelled</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>actris_national_facility</td>
+  <td>initially accepted</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>actris_national_facility</td>
+  <td>labelled</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>actris_nf_uri <span class="muted">(7 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>4iaj</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/27</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/25</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/26</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/22</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/23</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/24</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>actris_nf_uri</td>
+  <td>https://nflabelling.actris.eu/facility/26</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>country_code <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>extra_metadata <span class="muted">(48 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>179.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0005R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>67.367917</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>26.632778</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Sodankylä</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>7.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0009R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>59.779167</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>21.377222</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Utö</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>306.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0063R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>62.908889</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>27.658611</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Puijo Smear IV</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>565.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0096G</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>67.973333333</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>24.116111111</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Pallas (Sammaltunturi)</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>80.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0008R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>69.75</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>27.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Kevo</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>400.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0023R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>67.766667</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>29.583333</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Värriö</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>181.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0050R</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>61.85</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>24.283333</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Hyytiälä</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_country_code</td>
+  <td>FI</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_station_alt</td>
+  <td>25.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_station_code</td>
+  <td>FI0038U</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_station_lat</td>
+  <td>60.20288</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_station_lon</td>
+  <td>24.961207</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>extra_metadata.insitu.ebas_station_name</td>
+  <td>Kumpula (SMEAR III)</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>facility_type <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>facility_type</td>
+  <td>observation platform, fixed</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>gawid_uri <span class="muted">(4 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>gawid_uri</td>
+  <td>SDK</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>gawid_uri</td>
+  <td>N/A</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>gawid_uri</td>
+  <td>PAL</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>gawid_uri</td>
+  <td>SMR</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>identifier <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>identifier</td>
+  <td>3qzy</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>identifier</td>
+  <td>4iaj</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>identifier</td>
+  <td>5UCQ</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>identifier</td>
+  <td>8h8z</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>identifier</td>
+  <td>9r9u</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>identifier</td>
+  <td>d23p</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>identifier</td>
+  <td>ko6m</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>identifier</td>
+  <td>p0ob</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>identifier</td>
+  <td>zsf3</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>identifier_type <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>identifier_type</td>
+  <td>other PID</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>location <span class="muted">(18 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>location.coordinates.lat</td>
+  <td>67.36792</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>3qzy</td>
+  <td>location.coordinates.lon</td>
+  <td>26.632778</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>location.coordinates.lat</td>
+  <td>59.779167</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>location.coordinates.lon</td>
+  <td>21.377222</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>location.coordinates.lat</td>
+  <td>62.90889</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>location.coordinates.lon</td>
+  <td>27.658611</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>location.coordinates.lat</td>
+  <td>67.973335</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>location.coordinates.lon</td>
+  <td>24.116112</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>location.coordinates.lat</td>
+  <td>69.75</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>location.coordinates.lon</td>
+  <td>27.0</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>location.coordinates.lat</td>
+  <td>67.76667</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>location.coordinates.lon</td>
+  <td>29.58333</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>location.coordinates.lat</td>
+  <td>61.85</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>location.coordinates.lon</td>
+  <td>24.283333</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>location.coordinates.lat</td>
+  <td>60.20288</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>location.coordinates.lon</td>
+  <td>24.961206</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>location.coordinates.lat</td>
+  <td>67.987</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>location.coordinates.lon</td>
+  <td>24.243</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>name <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>name</td>
+  <td>Sodankylä</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>name</td>
+  <td>Utö</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>name</td>
+  <td>Puijo Smear IV</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>name</td>
+  <td>Pallas (Sammaltunturi)</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>name</td>
+  <td>Kevo</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>name</td>
+  <td>Värriö</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>name</td>
+  <td>Hyytiälä</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>name</td>
+  <td>Kumpula</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>name</td>
+  <td>Pallas (Kenttärova)</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>uri <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/3qzy</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/4iaj</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/5UCQ</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/8h8z</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/9r9u</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/d23p</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/ko6m</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/p0ob</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>uri</td>
+  <td>https://data.actris.eu/facility/zsf3</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary><span class="badge badge-ACTRIS">ACTRIS</span>wmo_region <span class="muted">(9 rows)</span></summary>
+<table>
+<thead><tr>
+  <th>site_id</th>
+  <th>field_path</th>
+  <th>value</th>
+  <th>value_source</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>3qzy</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>4iaj</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>5UCQ</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>8h8z</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>9r9u</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>d23p</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>ko6m</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>p0ob</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+<tr>
+  <td>zsf3</td>
+  <td>wmo_region</td>
+  <td>Europe</td>
+  <td>ACTRIS facilities API, cached response; vocabularies CC0; facility-record licence not verified</td>
+</tr>
+</tbody>
+</table>
+</details>
+</body>
+</html>
